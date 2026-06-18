@@ -1,46 +1,13 @@
-# Astro Starter Kit: Basics
+# hyperlayering.org
+The source code for the Hyper Layering Architecture project's website.
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Tech Stack
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Astro
+- Svelte
+- Vitest
+- Biome
 
-## 🚀 Project Structure
+### Tech-stack rationale
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The website is built using [Astro](https://docs.astro.build/en/concepts/why-astro/) due to it's strong focus on handling content. Astro functions as a "meta-framework", [allowing for the integration of Front-End frameworks](https://docs.astro.build/en/guides/framework-components/) to build UI components. We have chosen [Svelte](https://svelte.dev/) for our front-end UI framework. For unit testing, we're using [Vitetest](https://vitest.dev/), as Astro is built using Vite.

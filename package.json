@@ -16,5 +16,9 @@
     "astro": "^6.4.7",
     "svelte": "^5.56.3",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.0",
+    "vitest": "^4.1.9"
   }
 }
