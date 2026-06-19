@@ -1,3 +1,6 @@
+---
+import Header from "../components/Header.svelte"
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -9,6 +12,7 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<Header links={[{ href: "#", label: "Home" }, { href: "./blog", label: "Blog" }]}></Header>
 		<slot />
 	</body>
 </html>
