@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.svelte"
+const pageTitle = "Home";
 ---
 <!doctype html>
 <html lang="en">
@@ -9,10 +10,10 @@ import Header from "../components/Header.svelte"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<Header links={[{ href: "#", label: "Home" }, { href: "./blog", label: "Blog" }]}></Header>
+		<Header links={[{ href: ".", label: "Home" }, { href: "./blog", label: "Blog" }]}></Header>
 		<slot />
 	</body>
 </html>
