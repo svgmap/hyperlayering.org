@@ -3,6 +3,7 @@ import "../styles/base.css";
 import Header from "../components/Header.svelte";
 
 const pageTitle = "Home";
+const { pathname } = Astro.url;
 ---
 <!doctype html>
 <html lang="en">
@@ -15,8 +16,12 @@ const pageTitle = "Home";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<Header links={[{ href: ".", label: "Home" }, { href: "./blog", label: "Blog" }]}></Header>
-		<slot />
+		<Header 
+			links={[{ href: ".", label: "Home" }, { href: "./demos", label: "Demos" }, { href: "./blog", label: "Blog" }]}
+			currentPath={pathname}
+		>
+		</Header>
+		<slot class="page-content" />
 	</body>
 </html>
 

@@ -1,10 +1,14 @@
 <script lang="ts">
   interface HeaderProps {
     title?: string;
+    currentPath: string;
     links: { href: string, label: string }[];
   }
 
-  let { title = "HLA", links }: HeaderProps = $props()
+  let { title = "HLA", currentPath, links }: HeaderProps = $props();
+  $inspect(currentPath);
+  $inspect(links);
+
 </script>
 
 <header class="site-header">
@@ -18,20 +22,26 @@
   </nav>
 </header>
 
-<style>
+<style scoped>
+  @import "../styles/variables.css";
   .site-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
-    background: var(--header-bg, #0f172a);
-    color: var(--header-fg, #f8fafc);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-primary);
+    color: var(--text-main);
+    border-bottom: solid 1px var(--bg-tertiary);
+  }
+  
+  a:hover {
+    color: var(--text-secondary);
   }
 
   .brand a {
     color: inherit;
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
   }
 
@@ -45,4 +55,5 @@
   .site-nav a:hover {
     text-decoration: underline;
   }
+
 </style>
