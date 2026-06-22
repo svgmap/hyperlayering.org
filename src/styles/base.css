@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap');
 @import "./variables.css";
 
 :root {
@@ -12,6 +12,8 @@
 
 html {
   color-scheme: light dark;
+  color: var(--text-main);
+  background-color: var(--bg-primary);
 }
 
 html:has([value="light"]:checked) {
@@ -59,4 +61,16 @@ p {
 }
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
+}
+
+/* ==== Base Styling ====  */
+
+h1 {
+  text-align: center;
+  font-width: 125%;
+  font-stretch: 125%;
+}
+
+main {
+  padding: var(--spacing-sm) var(--spacing-md);
 }
