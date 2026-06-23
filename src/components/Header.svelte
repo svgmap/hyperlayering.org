@@ -1,14 +1,13 @@
 <script lang="ts">
-  interface HeaderProps {
-    title?: string;
-    currentPath: string;
-    links: { href: string, label: string }[];
-  }
+interface HeaderProps {
+	title?: string;
+	currentPath: string;
+	links: { href: string; label: string }[];
+}
 
-  let { title = "HLA", currentPath, links }: HeaderProps = $props();
-  $inspect(currentPath);
-  $inspect(links);
-
+let { title = "HLA", currentPath, links }: HeaderProps = $props();
+$inspect(currentPath);
+$inspect(links);
 </script>
 
 <header class="site-header">

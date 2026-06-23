@@ -1,76 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
 @import "./variables.css";
 
 :root {
-  font-family: "Archivo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+	font-family: "Archivo", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: normal;
+	font-variation-settings: "wdth" 100;
 }
 
 html {
-  color-scheme: light dark;
-  color: var(--text-main);
-  background-color: var(--bg-primary);
+	color-scheme: light dark;
+	color: var(--text-main);
+	background-color: var(--bg-primary);
 }
 
 html:has([value="light"]:checked) {
-  color-scheme: light;
+	color-scheme: light;
 }
 
 html:has([value="dark"]:checked) {
-  color-scheme: dark;
+	color-scheme: dark;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 *:not(dialog) {
-  margin: 0;
+	margin: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
+	html {
+		interpolate-size: allow-keywords;
+	}
 }
 
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
 }
 
-input, button, textarea, select {
-  font: inherit;
+input,
+button,
+textarea,
+select {
+	font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
 }
 
 p {
-  text-wrap: pretty;
+	text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
 }
 
 /* ==== Base Styling ====  */
 
 h1 {
-  text-align: center;
-  font-width: 125%;
-  font-stretch: 125%;
+	text-align: center;
+	font-width: 125%;
+	font-stretch: 125%;
 }
 
 main {
-  padding: var(--spacing-sm) var(--spacing-md);
+	padding: var(--spacing-sm) var(--spacing-md);
 }
