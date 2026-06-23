@@ -100,11 +100,16 @@ button {
 	/* Base button styling */
 	border-radius: var(--rounding-lg);
 	padding: var(--spacing-xs) var(--spacing-sm);
-	border: 1px solid var(--text-main);
+	border: 2px solid var(--text-main);
 	font-weight: bold;
 	cursor: pointer;
-	transition: all 2s;
 	max-width: fit-content;
+	transition: box-shadow 200ms;
+}
+
+button:hover {
+	outline: 1px solid var(--text-main);
+	box-shadow: 0 5px 10px oklch(from var(--mid-grey) l c h / 0.5);
 }
 
 button[button-type="accent"] {
