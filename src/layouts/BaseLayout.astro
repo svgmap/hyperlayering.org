@@ -21,7 +21,9 @@ const { pathname } = Astro.url;
 			currentPath={pathname}
 		>
 		</Header>
-		<slot class="page-content" />
+		<main class="content-main">
+			<slot class="page-content" />
+		</main>
 	</body>
 </html>
 
