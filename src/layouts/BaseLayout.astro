@@ -17,7 +17,7 @@ const { pathname } = Astro.url;
 	</head>
 	<body>
 		<Header 
-			links={[{ href: ".", label: "Home" }, { href: "./demos", label: "Demos" }, { href: "./blog", label: "Blog" }]}
+			links={[{ href: "/", label: "Home" }, { href: "/demos", label: "Demos" }, { href: "/blog", label: "Blog" }]}
 			currentPath={pathname}
 		>
 		</Header>

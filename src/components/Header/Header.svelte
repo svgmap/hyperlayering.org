@@ -15,12 +15,12 @@ $inspect(links);
 
 <header class="site-header">
   <div class="brand">
-    <a href="/">{title}</a>
+    <a href={`${import.meta.env.BASE_URL}/`}>{title}</a>
   </div>
   <div class="header-nav-group">
     <nav class="site-nav">
       {#each links as link}
-        <a href={link.href}>{link.label}</a>
+        <a href={`${import.meta.env.BASE_URL}${link.href}`}>{link.label}</a>
       {/each}
     </nav>   
     <!-- 
