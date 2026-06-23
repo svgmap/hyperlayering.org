@@ -1,4 +1,7 @@
 <script lang="ts">
+import GitHub from "components/Icons/GitHub.svelte";
+import Languages from "components/Icons/Languages.svelte";
+
 interface HeaderProps {
 	title?: string;
 	currentPath: string;
@@ -14,16 +17,36 @@ $inspect(links);
   <div class="brand">
     <a href="/">{title}</a>
   </div>
-  <nav class="site-nav">
-    {#each links as link}
-      <a href={link.href}>{link.label}</a>
-    {/each}
-  </nav>
+  <div class="header-nav-group">
+    <nav class="site-nav">
+      {#each links as link}
+        <a href={link.href}>{link.label}</a>
+      {/each}
+    </nav>
+    <button button-type="icon-wrapper" popovertarget="lang-popover"
+      ><Languages /></button
+    >
+    <a
+      href="https://github.com/svgmap"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Explore the project on GitHub"
+      title="Explore the project on GitHub"
+      class="github-icon-link"
+    >
+      <GitHub></GitHub>
+    </a>
+  </div>
+  <div id="lang-popover" popover="auto">Test</div>
 </header>
 
 <style scoped>
   @import "../../styles/variables.css";
   .site-header {
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    height: var(--header-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +56,13 @@ $inspect(links);
     border-bottom: solid 1px var(--bg-tertiary);
   }
 
+  .header-nav-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+
   a:hover {
     color: var(--text-secondary);
   }
@@ -40,7 +70,7 @@ $inspect(links);
   .brand a {
     color: inherit;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: x-large;
     font-weight: 700;
   }
 
@@ -48,10 +78,14 @@ $inspect(links);
     margin-left: 1rem;
     color: inherit;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: large;
   }
 
   .site-nav a:hover {
     text-decoration: underline;
+  }
+
+  .github-icon-link {
+    color: var(--text-main);
   }
 </style>
