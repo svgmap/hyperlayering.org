@@ -44,6 +44,7 @@ $inspect(links);
 </header>
 
 <style scoped>
+  @import "../../styles/base.css";
   @import "../../styles/variables.css";
   .site-header {
     position: fixed;
