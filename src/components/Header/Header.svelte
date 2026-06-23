@@ -1,13 +1,13 @@
 <script lang="ts">
-interface HeaderProps {
-	title?: string;
-	currentPath: string;
-	links: { href: string; label: string }[];
-}
+  interface HeaderProps {
+    title?: string;
+    currentPath: string;
+    links: { href: string; label: string }[];
+  }
 
-let { title = "HLA", currentPath, links }: HeaderProps = $props();
-$inspect(currentPath);
-$inspect(links);
+  let { title = "HLA", currentPath, links }: HeaderProps = $props();
+  $inspect(currentPath);
+  $inspect(links);
 </script>
 
 <header class="site-header">
@@ -22,7 +22,7 @@ $inspect(links);
 </header>
 
 <style scoped>
-  @import "../styles/variables.css";
+  @import "../../styles/variables.css";
   .site-header {
     display: flex;
     justify-content: space-between;
@@ -32,7 +32,7 @@ $inspect(links);
     color: var(--text-main);
     border-bottom: solid 1px var(--bg-tertiary);
   }
-  
+
   a:hover {
     color: var(--text-secondary);
   }
@@ -54,5 +54,4 @@ $inspect(links);
   .site-nav a:hover {
     text-decoration: underline;
   }
-
 </style>
