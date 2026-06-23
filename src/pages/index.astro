@@ -5,13 +5,58 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout>
 	<main>
-		<h1>Client-centric, de-centralized web mapping</h1>
-		<button>Get Started</button>
-		<LandingWindow></LandingWindow>
+		<section class="landing">
+			<div class="landing-intro">
+				<h1 class="landing-header">Hyper Layering</h1>
+				<p class="landing-subtitle">Client-centric, de-centralized web mapping</p>
+				<div class="intro-btn-group">
+					<button button-type="accent">Get Started</button>
+					<button>About the project</button>
+				</div>
+			</div>
+			<LandingWindow></LandingWindow>
+		</section>
+		<section>
+			<h2 class="section-header">Hello again!</h2>
+		</section>
 	</main>
 </BaseLayout>
 
 <style>
+	.landing-header {
+		font-size: 3em;
+		text-align: left;
+	}
+
+	.section-header {
+		font-size: 2em;
+		text-align: center;
+	}
+
+	.landing-subtitle {
+		font-size: x-large;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.landing-intro {
+		width: 40%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.landing {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		height: 70vh;
+		gap: var(--spacing-sm);
+	}
+
+	.intro-btn-group {
+		display: flex;
+		gap: var(--spacing-xs);
+	}
 
 </style>
 
