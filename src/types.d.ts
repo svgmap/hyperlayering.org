@@ -1,7 +1,7 @@
 // Components
 
 interface IconProps {
-	size?: number;
+	size?: number | string;
 	color?: string;
 	className?: string;
 }

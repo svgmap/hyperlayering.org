@@ -22,22 +22,25 @@ $inspect(links);
       {#each links as link}
         <a href={link.href}>{link.label}</a>
       {/each}
-    </nav>
-    <button button-type="icon-wrapper" popovertarget="lang-popover"
+    </nav>   
+    <!-- 
+      
+    <button class="lang-btn" button-type="icon-wrapper" popovertarget="lang-popover"
       ><Languages /></button
     >
+    --> 
     <a
       href="https://github.com/svgmap"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Explore the project on GitHub"
       title="Explore the project on GitHub"
-      class="github-icon-link"
+      class="github-btn"
+      role="button"
     >
       <GitHub></GitHub>
     </a>
   </div>
-  <div id="lang-popover" popover="auto">Test</div>
 </header>
 
 <style scoped>
@@ -85,7 +88,17 @@ $inspect(links);
     text-decoration: underline;
   }
 
-  .github-icon-link {
+  .github-btn {
     color: var(--text-main);
+  }
+
+  .lang-btn {
+    anchor-name: --lang-btn;
+  }
+
+  #lang-popover {
+    position-anchor: --lang-btn;
+    position: absolute;
+    top: anchor(top)
   }
 </style>
