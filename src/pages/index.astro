@@ -4,32 +4,49 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-	<main>
-		<section class="landing">
-			<div class="landing-intro">
-				<h1 class="landing-header">Hyper Layering</h1>
-				<p class="landing-subtitle">Client-centric, de-centralized web mapping</p>
-				<div class="intro-btn-group">
-					<button button-type="accent">Get Started</button>
-					<button>About the project</button>
-				</div>
+	<section class="landing">
+		<div class="landing-intro">
+			<h1 class="landing-header">Hyper Layering</h1>
+			<p class="landing-subtitle">Client-centric, de-centralized web mapping</p>
+			<div class="intro-btn-group">
+				<button button-type="accent">Get Started</button>
+				<button>About the project</button>
 			</div>
-			<LandingWindow></LandingWindow>
+		</div>
+		<LandingWindow></LandingWindow>
+	</section>
+		<!-- Omitted temporarily 
+			TODO: add more homepage content
+		<section>
+			<h2 class="section-header">Decentralized</h2>
+			<p class="section-blurb">Layers are created as self-contained web applications</p>
 		</section>
 		<section>
-			<h2 class="section-header">Hello again!</h2>
+			<h2 class="section-header">Build</h2>
+			<p class="section-blurb">Layers are created as self-contained web applications</p>
 		</section>
-	</main>
+		-->
 </BaseLayout>
 
 <style>
+	main {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-lg);
+	}
+
 	.landing-header {
 		font-size: 3em;
 		text-align: left;
 	}
 
 	.section-header {
-		font-size: 2em;
+		font-size: 2.5em;
+		text-align: center;
+	}
+
+	.section-blurb {
+		font-size: large;
 		text-align: center;
 	}
 
