@@ -92,7 +92,7 @@ h1 {
 
 .content-main {
 	padding: var(--spacing-sm) var(--spacing-md);
-	padding-top: calc(var(--spacing-sm) + var(--header-sizing));
+	padding-top: calc(var(--spacing-sm) + var(--header-height));
 }
 
 button:not([button-type="icon-wrapper"]) {

@@ -1,5 +1,5 @@
 :root {
-	--header-sizing: 68px;
+	--header-height: 68px;
 
 	/* ==== Colors ==== */
 	--black: oklch(0.2 0.0165 255.31);
