@@ -8,9 +8,7 @@ const blogPosts = await getCollection("blog");
 	<h1>Blog</h1>
 	<ul>
 		{
-			blogPosts.map((post) => (<a href=""><li>{post.data.title}</li></a>)
-				
-			)	
+			blogPosts.map((post) => (<a href=""><li>{post.data.title}</li></a>))	
 		}
 	</ul>
 </BaseLayout>
