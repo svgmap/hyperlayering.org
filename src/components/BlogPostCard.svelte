@@ -11,7 +11,7 @@ let { title, author, date, url }: BlogPostCardProps = $props();
 
 <a href={url} aria-label="" class="card-wrapper" clickable="true">
   <article class="blog-post-card card stack">
-    <h2 aria-labelledby="" class="title">{title}</h2>
+    <span aria-labelledby="" class="title">{title}</span>
     <span class="post-author">{author}</span>
     <span class="post-date">{date.toLocaleString("en-GB", { dateStyle: "short" })}</span>
   </article>
