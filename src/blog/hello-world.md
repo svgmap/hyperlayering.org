@@ -2,9 +2,9 @@
 title: Hello World
 author: Ethan McIntyre
 description: Test Blog Post
-pubDate: "Tuesday, July 27 2021"
+pubDate: "June 26 2026"
 ---
 
-## Test
+## This is another post
 
-Hello!
+Hello! This one has different content as a test.
