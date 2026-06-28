@@ -1,11 +1,11 @@
 <script lang="ts">
-  interface DemoCardProps {
-    imageUrl: string;
-    title: string;
-    url: string;
-  }
+interface DemoCardProps {
+	imageUrl: string;
+	title: string;
+	url: string;
+}
 
-  let { imageUrl, title, url }: DemoCardProps = $props();
+let { imageUrl, title, url }: DemoCardProps = $props();
 </script>
 
 <a href={url} class="card-wrapper" clickable="true">

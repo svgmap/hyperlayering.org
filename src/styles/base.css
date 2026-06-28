@@ -132,7 +132,7 @@ hr {
 	}
 
 	&:hover {
-		background-color: oklch(from var(--card-color) l c h / 0.5)
+		background-color: oklch(from var(--card-color) l c h / 0.5);
 	}
 
 	.title {
@@ -144,7 +144,7 @@ hr {
 		border-radius: var(--rounding-sm);
 	}
 
-	a>& {
+	a > & {
 		min-height: 100%;
 	}
 }
@@ -182,7 +182,7 @@ hr {
 	cursor: pointer;
 	max-width: fit-content;
 	transition: box-shadow 200ms;
-	
+
 	&:hover {
 		color: var(--text-tertiary);
 	}
