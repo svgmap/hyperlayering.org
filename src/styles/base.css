@@ -13,6 +13,7 @@ html {
 	color-scheme: light dark;
 	color: var(--text-main);
 	background-color: var(--bg-primary);
+	scrollbar-gutter: stable;
 }
 
 html:has([value="light"]:checked) {
@@ -42,6 +43,7 @@ html:has([value="dark"]:checked) {
 body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
+	min-block-size: 100svb;
 }
 
 img,
@@ -51,6 +53,7 @@ canvas,
 svg {
 	display: block;
 	max-width: 100%;
+	height: auto;
 }
 
 input,
@@ -90,12 +93,63 @@ h1 {
 	font-stretch: 125%;
 }
 
+hr {
+	border: solid 0.5px var(--bg-tertiary);
+	margin-top: var(--spacing-sm);
+	margin-bottom: var(--spacing-sm);
+}
+
 .content-main {
 	padding: var(--spacing-sm) var(--spacing-md);
 	padding-top: calc(var(--spacing-sm) + var(--header-height));
 }
 
-button:not([button-type="icon-wrapper"]) {
+.stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: 1fr;
+	gap: var(--spacing-sm);
+	row-gap: var(--spacing-sm);
+}
+
+.card {
+	--card-color: var(--bg-secondary);
+	padding: var(--spacing-sm);
+	border-radius: var(--rounding-sm);
+	height: auto;
+	color: var(--text-secondary);
+	background-color: var(--card-color);
+	border: solid 1px var(--bg-tertiary);
+
+	&[clickable="true"] {
+		cursor: pointer;
+	}
+
+	&:hover {
+		background-color: oklch(from var(--card-color) l c h / 0.5)
+	}
+
+	.title {
+		font-weight: 700;
+		color: var(--text-main);
+	}
+
+	.image {
+		border-radius: var(--rounding-sm);
+	}
+
+	a>& {
+		min-height: 100%;
+	}
+}
+
+.button {
 	background-color: var(--bg-tertiary);
 	color: var(--text-main);
 	/* Base button styling */
@@ -106,19 +160,19 @@ button:not([button-type="icon-wrapper"]) {
 	cursor: pointer;
 	max-width: fit-content;
 	transition: box-shadow 200ms;
+
+	&:hover {
+		outline: 1px solid var(--text-main);
+		box-shadow: 0 5px 10px oklch(from var(--mid-grey) l c h / 0.5);
+	}
+
+	&[class*="accent"] {
+		background-color: var(--accent);
+		color: var(--accent-text);
+	}
 }
 
-button:not([button-type="icon-wrapper"]):hover {
-	outline: 1px solid var(--text-main);
-	box-shadow: 0 5px 10px oklch(from var(--mid-grey) l c h / 0.5);
-}
-
-button[button-type="accent"] {
-	background-color: var(--accent);
-	color: var(--accent-text);
-}
-
-button[button-type="icon-wrapper"] {
+.icon-wrapper {
 	background-color: transparent;
 	color: var(--text-main);
 	border-radius: 0;
@@ -128,8 +182,12 @@ button[button-type="icon-wrapper"] {
 	cursor: pointer;
 	max-width: fit-content;
 	transition: box-shadow 200ms;
+	
+	&:hover {
+		color: var(--text-tertiary);
+	}
 }
 
-button[button-type="icon-wrapper"]:hover {
-	color: var(--text-tertiary);
+.article {
+	max-width: min(96ch);
 }
