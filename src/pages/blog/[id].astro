@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from 'layouts/BaseLayout.astro';
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<BaseLayout>
+  <article class="blog">
+    <section class="stack blog-header">
+      <h1>{post.data.title}</h1>
+      <div>
+        <span>{post.data.author}</span>
+        &dash;
+        <span>{post.data.pubDate.toLocaleString("en-GB", { dateStyle: "short" })}</span>
+      </div>
+    </section>
+    
+    
+    <hr>
+    <Content></Content>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-header {
+    text-align: center;
+  }
+
+  .blog {
+    max-width: 75vw;
+  }
+</style>
