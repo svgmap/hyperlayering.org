@@ -9,8 +9,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			<h1 class="landing-header">Hyper Layering</h1>
 			<p class="landing-subtitle">Client-centric, de-centralized web mapping</p>
 			<div class="intro-btn-group">
-				<button button-type="accent">Get Started</button>
-				<button>About the project</button>
+				<button class="button accent">Get Started</button>
+				<button class="button">About the project</button>
 			</div>
 		</div>
 		<LandingWindow></LandingWindow>
@@ -66,7 +66,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		position: relative;
 		display: flex;
 		flex-direction: row;
-		height: 70vh;
+		height: calc(100vh - calc(var(--spacing-sm) * 2 + var(--header-height)));
 		gap: var(--spacing-sm);
 	}
 

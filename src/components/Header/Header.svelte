@@ -44,7 +44,6 @@ $inspect(links);
 </header>
 
 <style scoped>
-  @import "../../styles/base.css";
   @import "../../styles/variables.css";
   .site-header {
     position: fixed;
@@ -74,7 +73,9 @@ $inspect(links);
   .brand a {
     color: inherit;
     text-decoration: none;
-    font-size: x-large;
+    font-size: var(--text-xl);
+    font-width: 125%;
+    font-stretch: 125%;
     font-weight: 700;
   }
 
@@ -82,7 +83,7 @@ $inspect(links);
     margin-left: 1rem;
     color: inherit;
     text-decoration: none;
-    font-size: large;
+    font-size: var(--text-base);
   }
 
   .site-nav a:hover {
