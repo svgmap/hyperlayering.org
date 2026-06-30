@@ -1,34 +1,26 @@
 <script lang="ts">
-import GitHub from "components/Icons/GitHub.svelte";
-import Languages from "components/Icons/Languages.svelte";
+  import GitHub from "components/Icons/GitHub.svelte";
+  import Languages from "components/Icons/Languages.svelte";
 
-interface HeaderProps {
-	title?: string;
-	currentPath: string;
-	links: { href: string; label: string }[];
-}
+  interface HeaderProps {
+    title?: string;
+    currentPath: string;
+    links: { href: string; label: string }[];
+  }
 
-let { title = "HLA", currentPath, links }: HeaderProps = $props();
-$inspect(currentPath);
-$inspect(links);
+  let { title = "HLA", currentPath, links }: HeaderProps = $props();
+  $inspect(currentPath);
+  $inspect(links);
 </script>
 
 <header class="site-header">
-  <div class="brand">
-    <a href={`${import.meta.env.BASE_URL}/`}>{title}</a>
-  </div>
-  <div class="header-nav-group">
-    <nav class="site-nav">
-      {#each links as link}
-        <a href={`${import.meta.env.BASE_URL}${link.href}`}>{link.label}</a>
-      {/each}
-    </nav>   
-    <!-- 
-      
-    <button class="lang-btn" button-type="icon-wrapper" popovertarget="lang-popover"
-      ><Languages /></button
-    >
-    --> 
+  <a aria-label="Home" class="brand font-wide" href={`${import.meta.env.BASE_URL}/`}>{title}</a>
+  <nav class="site-nav">
+    {#each links as link}
+      <a class="nav-link" href={`${import.meta.env.BASE_URL}${link.href}`}
+        >{link.label}</a
+      >
+    {/each}
     <a
       href="https://github.com/svgmap"
       target="_blank"
@@ -40,7 +32,12 @@ $inspect(links);
     >
       <GitHub></GitHub>
     </a>
-  </div>
+  </nav>
+  <!-- 
+    <button class="lang-btn" button-type="icon-wrapper" popovertarget="lang-popover"
+      ><Languages /></button
+    >
+    -->
 </header>
 
 <style scoped>
@@ -57,43 +54,44 @@ $inspect(links);
     background: var(--bg-primary);
     color: var(--text-main);
     border-bottom: solid 1px var(--bg-tertiary);
+    transition: color var(--timing-normal) ease-out;
+
+    a:hover {
+      color: var(--text-secondary);
+    }
   }
 
-  .header-nav-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: var(--spacing-sm);
-  }
-
-  a:hover {
-    color: var(--text-secondary);
-  }
-
-  .brand a {
+  .brand {
     color: inherit;
     text-decoration: none;
     font-size: var(--text-xl);
-    font-width: 125%;
-    font-stretch: 125%;
     font-weight: 700;
   }
 
-  .site-nav a {
-    margin-left: 1rem;
-    color: inherit;
-    text-decoration: none;
-    font-size: var(--text-base);
-  }
+  .site-nav {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    align-items: center;
 
-  .site-nav a:hover {
-    text-decoration: underline;
+    .nav-link {
+      color: inherit;
+      text-decoration: none;
+      font-size: var(--text-base);
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
   }
 
   .github-btn {
+    height: fit-content;
+    width: fit-content;
     color: var(--text-main);
   }
 
+  /*
+  == Removed until i18n support added ==
   .lang-btn {
     anchor-name: --lang-btn;
   }
@@ -101,6 +99,7 @@ $inspect(links);
   #lang-popover {
     position-anchor: --lang-btn;
     position: absolute;
-    top: anchor(top)
+    top: anchor(top);
   }
+  */
 </style>
