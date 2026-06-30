@@ -32,6 +32,12 @@ html:has([value="dark"]:checked) {
 	}
 }
 
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
 body {
 	font-family: "Archivo", sans-serif;
 	line-height: 1.6;
@@ -79,12 +85,10 @@ h6 {
 	text-wrap: balance;
 }
 
-/* ==== Base Styling ====  */
-
 h1 {
 	text-align: center;
-	font-width: 125%;
-	font-stretch: 125%;
+	font-width: var(--font-wide);
+	font-stretch: var(--font-wide);
 	font-size: var(--text-3xl);
 	font-weight: 700;
 	line-height: 1.1;
@@ -131,6 +135,11 @@ p {
 
 :first-child {
 	margin-top: 0;
+}
+
+.font-wide {
+	font-width: var(--font-wide);
+	font-stretch: var(--font-wide);
 }
 
 .content-main {
@@ -195,7 +204,7 @@ p {
 	font-weight: bold;
 	cursor: pointer;
 	max-width: fit-content;
-	transition: box-shadow 200ms;
+	transition: box-shadow var(--timing-normal);
 
 	&:hover {
 		outline: 1px solid var(--text-main);
@@ -217,7 +226,7 @@ p {
 	font-weight: bold;
 	cursor: pointer;
 	max-width: fit-content;
-	transition: box-shadow 200ms;
+	transition: box-shadow var(--timing-normal);
 
 	&:hover {
 		color: var(--text-tertiary);
