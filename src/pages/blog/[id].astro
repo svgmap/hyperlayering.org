@@ -16,7 +16,7 @@ const { Content } = await render(post);
   <article class="blog">
     <small><a href={`${import.meta.env.BASE_URL}/blog`}>blog</a>&nbsp;/&nbsp;{post.id}</small>
     <section class="stack header">
-      <h1>{post.data.title}</h1>
+      <h1 class="title">{post.data.title}</h1>
       <div>
         <span>{post.data.author}</span>
         &nbsp;&mdash;&nbsp;
@@ -30,7 +30,7 @@ const { Content } = await render(post);
   </article>
 </BaseLayout>
 
-<style>
+<style scoped>
   .blog {
     display: flex;
     flex-direction: column;
@@ -42,6 +42,10 @@ const { Content } = await render(post);
     
     .content {
       max-width: var(--paragraph-width);
+    }
+
+    .title {
+      margin-bottom: auto;
     }
 
     > hr {
