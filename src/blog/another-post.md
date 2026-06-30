@@ -1,5 +1,5 @@
 ---
-title: This one has a very long title the title
+title: This one has a very long title, it might even wrap around to a second line. That could be a problem.
 author: Ethan McIntyre
 description: Very long text description
 pubDate: "June 25 2026"
