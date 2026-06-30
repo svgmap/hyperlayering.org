@@ -1,5 +1,6 @@
 ---
 import "styles/base.css";
+import Footer from "components/Footer/Footer.svelte"
 import Header from "components/Header/Header.svelte";
 
 const pageTitle = "Home";
@@ -24,5 +25,6 @@ const { pathname } = Astro.url;
 		<main class="content-main">
 			<slot class="page-content" />
 		</main>
+		<Footer></Footer>
 	</body>
 </html>

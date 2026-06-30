@@ -32,17 +32,21 @@ html:has([value="dark"]:checked) {
 	}
 }
 
-html,
-body {
-	width: 100%;
-	height: 100%;
+html {
+	block-size: 100%;
 }
 
+
+
 body {
+	margin: 0;
+	display: grid;
+	min-block-size: 100svh;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
 	font-family: "Archivo", sans-serif;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
-	min-block-size: 100svb;
 }
 
 img,
@@ -121,20 +125,17 @@ small,
 
 hr {
 	border: solid 0.5px var(--bg-tertiary);
-	margin-top: var(--spacing-sm);
-	margin-bottom: var(--spacing-sm);
+	margin-top: var(--space-sm);
+	margin-bottom: var(--space-sm);
 }
 
 p,
 li {
 	max-width: var(--paragraph-width);
 }
-p {
-	margin-bottom: 1.5em;
-}
 
-:first-child {
-	margin-top: 0;
+p:not(li p) {
+	margin-bottom: 1.5em;
 }
 
 .font-wide {
@@ -143,28 +144,45 @@ p {
 }
 
 .content-main {
-	padding: var(--spacing-sm) var(--spacing-md);
-	padding-top: calc(var(--spacing-sm) + var(--header-height));
+	padding: var(--space-sm) var(--space-md);
 }
 
 .stack {
+	--stack-gap: var(--space-xs);
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-xs);
+	gap: var(--stack-gap);
+
+	&[class*=stack--md] {
+		--stack-gap: var(--space-md);
+	}
+}
+
+.row {
+	--gap: var(--space-sm);
+	--justify: start;
+	display: flex;
+	flex-direction: row;
+	justify-content: var(--start);
+	gap: var(--gap);
+
+	&.row--even-space {
+		--justify: space-evenly;
+	}
 }
 
 .grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-auto-rows: 1fr;
-	gap: var(--spacing-sm);
-	row-gap: var(--spacing-sm);
+	gap: var(--space-sm);
+	row-gap: var(--space-sm);
 }
 
 .card {
 	--card-color: var(--bg-secondary);
-	padding: var(--spacing-sm);
-	border-radius: var(--rounding-sm);
+	padding: var(--space-sm);
+	border-radius: var(--round-sm);
 	height: auto;
 	color: var(--text-secondary);
 	background-color: var(--card-color);
@@ -186,7 +204,7 @@ p {
 	}
 
 	.image {
-		border-radius: var(--rounding-sm);
+		border-radius: var(--round-sm);
 	}
 
 	a > & {
@@ -195,11 +213,15 @@ p {
 }
 
 .button {
-	background-color: var(--bg-tertiary);
-	color: var(--text-main);
+	--button-color: var(--bg-tertiary);
+	--text-color: var(--text-main);
+
+	background-color: var(--button-color);
+	color: var(--text-color);
+	
 	/* Base button styling */
-	border-radius: var(--rounding-lg);
-	padding: var(--spacing-xs) var(--spacing-sm);
+	border-radius: var(--round-lg);
+	padding: var(--space-xs) var(--space-sm);
 	border: 2px solid var(--text-main);
 	font-weight: bold;
 	cursor: pointer;
@@ -211,9 +233,9 @@ p {
 		box-shadow: 0 5px 10px oklch(from var(--mid-grey) l c h / 0.5);
 	}
 
-	&[class*="accent"] {
-		background-color: var(--accent);
-		color: var(--accent-text);
+	&.accent {
+		--button-color: var(--accent);
+		--text-color: var(--accent-text);
 	}
 }
 

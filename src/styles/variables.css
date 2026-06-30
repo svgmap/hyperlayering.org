@@ -1,7 +1,7 @@
 :root {
 	--header-height: 68px;
 
-	/* ==== Colors ==== */
+	/* ==== Base Colors ==== */
 	--black: oklch(0.2 0.0165 255.31);
 	--dark-grey: oklch(0.25 0.0165 255.31);
 	--mid-grey: oklch(0.4 0.0165 255.31);
@@ -11,6 +11,7 @@
 	--accent: oklch(0.75 0.13 121.51);
 	--accent-text: var(--dark-grey);
 
+	/* ==== UI Colors ==== */
 	--text-main: light-dark(var(--black), var(--white));
 	--text-secondary: light-dark(var(--dark-grey), var(--off-white));
 	--text-tertiary: light-dark(var(--mid-grey), var(--light-grey));
@@ -21,16 +22,16 @@
 
 	/* ==== Spacing ==== */
 
-	--spacing-xs: 0.25rem;
-	--spacing-sm: 1rem;
-	--spacing-md: 2rem;
-	--spacing-lg: 4rem;
-	--spacing-xl: 10rem;
+	--space-xs: 0.25rem;
+	--space-sm: 1rem;
+	--space-md: 2rem;
+	--space-lg: 4rem;
+	--space-xl: 10rem;
 
-	--rounding-sm: 0.5rem;
-	--rounding-md: 1rem;
-	--rounding-lg: 2rem;
-	--rounding-full: 100%;
+	--round-sm: 0.5rem;
+	--round-md: 1rem;
+	--round-lg: 2rem;
+	--round-full: 100%;
 
 	/* ==== Typography ==== */
 	--text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
