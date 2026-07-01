@@ -125,8 +125,8 @@ small,
 
 hr {
 	border: solid 0.5px var(--bg-tertiary);
-	margin-top: var(--space-sm);
-	margin-bottom: var(--space-sm);
+	margin-top: var(--space-xs);
+	margin-bottom: var(--space-xs);
 }
 
 p,
@@ -179,6 +179,14 @@ p:not(li p) {
 	row-gap: var(--space-sm);
 }
 
+.auto-grid {
+	--min-col-size: 300px;
+	display: grid;
+	gap: var(--space-sm);
+	grid-template-columns: 
+		repeat(auto-fit, minmax(min(var(--min-col-size, 100%)), 1fr));
+}
+
 .card {
 	--card-color: var(--bg-secondary);
 	padding: var(--space-sm);
@@ -195,6 +203,7 @@ p:not(li p) {
 
 	&:hover {
 		background-color: oklch(from var(--card-color) l c h / 0.5);
+		outline: solid 2px var(--bg-tertiary);
 	}
 
 	.title {
@@ -205,10 +214,11 @@ p:not(li p) {
 
 	.image {
 		border-radius: var(--round-sm);
+		border: solid 1px oklch(from var(--card-color) l c h);
 	}
 
 	a > & {
-		min-height: 100%;
+		min-height: 100%; /* TODO: not crazy about this, should be refactored later */
 	}
 }
 
