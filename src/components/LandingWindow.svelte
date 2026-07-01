@@ -14,7 +14,7 @@
 <style>
     @import "../styles/variables.css";
     .browser-container {
-        border-radius: var(--rounding-sm);
+        border-radius: var(--round-sm);
         background-color: var(--bg-secondary);
         border: solid 7px var(--bg-secondary);
         height: 100%;
@@ -28,8 +28,8 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        padding: var(--spacing-xs);
-        gap: var(--spacing-xs);
+        padding: var(--space-xs);
+        gap: var(--space-xs);
         align-content: center;
     }
 
@@ -42,7 +42,7 @@
 
     .window-content {
         flex-grow: 1;
-        border-radius: var(--rounding-sm);
+        border-radius: var(--round-sm);
         background: #000;
     }
 </style>
