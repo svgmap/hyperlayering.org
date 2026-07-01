@@ -14,8 +14,8 @@ const { Content } = await render(post);
 ---
 <BaseLayout>
   <article class="blog">
-    <small><a href={`${import.meta.env.BASE_URL}/blog`}>blog</a>&nbsp;/&nbsp;{post.id}</small>
-    <section class="stack header">
+    <section class="stack header-section">
+      <small><a href={`${import.meta.env.BASE_URL}/blog`}>blog</a>&nbsp;/&nbsp;{post.id}</small>
       <h1 class="title">{post.data.title}</h1>
       <div>
         <span>{post.data.author}</span>
@@ -35,9 +35,11 @@ const { Content } = await render(post);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: var(--space-lg);
 
-    .header {
+    .header-section {
       text-align: center;
+      margin: var(--space-md) 0;
     }
     
     .content {
@@ -48,8 +50,12 @@ const { Content } = await render(post);
       margin-bottom: auto;
     }
 
-    > hr {
+    hr {
       align-self: normal;
+    }
+
+    h1 {
+      margin-top: auto;
     }
   }
   
