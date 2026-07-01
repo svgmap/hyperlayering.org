@@ -1,13 +1,29 @@
 ---
+import { Image } from "astro:assets";
+import DemoCard from "components/DemoCard.svelte";
 import BaseLayout from "layouts/BaseLayout.astro";
+
+import busDemoImg from "../../assets/images/japan_bus_route_demo.webp";
+import citiesDemoImg from "../../assets/images/world_cities_demo.webp";
 ---
 
 <BaseLayout>
 	<main>
 		<h1>Demos</h1>
-		<div class="demo-cards">
+		<div class="auto-grid">
 			{
-
+				<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+				<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
 			}
 		</div>
 	</main>
