@@ -1,15 +1,13 @@
 <script lang="ts">
-  import GitHub from "components/Icons/GitHub.svelte";
+import GitHub from "components/Icons/GitHub.svelte";
 
-  interface HeaderProps {
-    title?: string;
-    currentPath: string;
-    links: { href: string; label: string }[];
-  }
+interface HeaderProps {
+	title?: string;
+	currentPath: string;
+	links: { href: string; label: string }[];
+}
 
-  let { title = "HLA", currentPath, links }: HeaderProps = $props();
-  $inspect(currentPath);
-  $inspect(links);
+let { title = "HLA", currentPath, links }: HeaderProps = $props();
 </script>
 
 <header class="site-header">
