@@ -6,8 +6,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout>
 	<section class="landing">
 		<div class="landing-intro">
-			<h1 class="landing-header">Hyper Layering</h1>
-			<p class="landing-subtitle">Client-centric, de-centralized web mapping</p>
+			<h1 class="header">Hyper Layering</h1>
+			<p class="subtitle">Client-centric, de-centralized web mapping</p>
 			<div class="intro-btn-group">
 				<button class="button accent">Get Started</button>
 				<button class="button">About the project</button>
@@ -32,47 +32,36 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	main {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-lg);
-	}
-
-	.landing-header {
-		font-size: 3em;
-		text-align: left;
-	}
-
-	.section-header {
-		font-size: 2.5em;
-		text-align: center;
-	}
-
-	.section-blurb {
-		font-size: large;
-		text-align: center;
-	}
-
-	.landing-subtitle {
-		font-size: x-large;
-		margin-bottom: var(--spacing-sm);
-	}
-
-	.landing-intro {
-		width: 40%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		gap: var(--space-lg);
 	}
 
 	.landing {
 		position: relative;
 		display: flex;
 		flex-direction: row;
-		height: calc(100vh - calc(var(--spacing-sm) * 2 + var(--header-height)));
-		gap: var(--spacing-sm);
+		height: calc(100vh - calc(var(--space-sm) * 2 + var(--header-height)));
+		gap: var(--space-xl);
+
+		.header {
+			text-align: left;
+		}
+
+		.subtitle {
+			font-size: var(--text-lg);
+			margin-bottom: var(--space-sm);
+		}
+
+		.landing-intro {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
 	}
 
 	.intro-btn-group {
 		display: flex;
-		gap: var(--spacing-xs);
+		gap: var(--space-xs);
 	}
 
 </style>
