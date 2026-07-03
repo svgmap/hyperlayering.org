@@ -199,13 +199,13 @@ p:not(li p) {
 
 	&[clickable="true"] {
 		cursor: pointer;
-	}
 
-	&:hover {
-		background-color: oklch(from var(--card-color) l c h / 0.5);
-		outline: solid 2px var(--bg-tertiary);
+		&:hover {
+			background-color: oklch(from var(--card-color) l c h / 0.5);
+			outline: solid 2px var(--bg-tertiary);
+		}
 	}
-
+	
 	.title {
 		font-size: var(--text-lg);
 		font-weight: 700;
