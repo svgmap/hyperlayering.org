@@ -1,5 +1,7 @@
 <script lang="ts">
 import GitHub from "components/Icons/GitHub.svelte";
+import Languages from "components/Icons/Languages.svelte";
+import { languages } from "i18n/ui";
 
 interface HeaderProps {
 	title?: string;
@@ -22,23 +24,27 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
         >{link.label}</a
       >
     {/each}
+    <button class="lang-button icon-wrapper" button-type="icon-wrapper" popovertarget="lang-popover"
+      ><Languages /></button
+    >
     <a
       href="https://github.com/svgmap"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Link to explore the project on GitHub"
       title="Explore the project on GitHub"
-      class="github-btn"
+      class="github-button"
       role="button"
     >
       <GitHub></GitHub>
     </a>
   </nav>
-  <!-- 
-    <button class="lang-btn" button-type="icon-wrapper" popovertarget="lang-popover"
-      ><Languages /></button
-    >
-    -->
+  <div id="lang-popover" class="card" popover="auto">
+    <select>
+      <option>Test</option>
+      <option>Test</option>
+    </select>
+  </div>
 </header>
 
 <style>
@@ -85,9 +91,37 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
     }
   }
 
-  .github-btn {
+  .github-button {
     height: fit-content;
     width: fit-content;
     color: var(--text-main);
+  }
+
+  .lang-button {
+    anchor-name: --lang-button;
+  }
+
+  #lang-popover {
+    position-anchor: --lang-button;
+    top: calc(anchor(--lang-button bottom) + var(--space-md));
+    position-area: center bottom;
+    transition-behavior: allow-discrete;
+    transition: 
+      opacity var(--timing-normal),
+      display var(--timing-normal),
+      overlay var(--timing-normal);
+
+    &:popover-open {
+      display: block;
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+
+    select {
+
+    }
   }
 </style>
