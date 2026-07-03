@@ -18,7 +18,7 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
   >
   <nav class="nav">
     {#each links as link}
-      <a href={`${import.meta.env.BASE_URL}${link.href}`}
+      <a href={`${link.href}`}
         >{link.label}</a
       >
     {/each}

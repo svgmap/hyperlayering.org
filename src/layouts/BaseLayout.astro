@@ -1,13 +1,17 @@
 ---
 import "styles/base.css";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Footer from "components/Footer/Footer.svelte";
 import Header from "components/Header/Header.svelte";
+import { getLangFromUrl, useTranslations } from "i18n/utils.ts";
 
 const pageTitle = "Home";
 const { pathname } = Astro.url;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -18,7 +22,10 @@ const { pathname } = Astro.url;
 	</head>
 	<body>
 		<Header 
-			links={[{ href: "/", label: "Home" }, { href: "/demos", label: "Demos" }, { href: "/blog", label: "Blog" }]}
+			links={[
+				{ href: getRelativeLocaleUrl(lang, "/"), label: t('header').nav.home }, 
+				{ href: getRelativeLocaleUrl(lang, "/demos"),  label: "Demos" }, 
+				{ href: getRelativeLocaleUrl(lang, "/blog"), label: "Blog" }]}
 			currentPath={pathname}
 		>
 		</Header>
