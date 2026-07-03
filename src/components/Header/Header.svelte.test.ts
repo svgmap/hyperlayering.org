@@ -1,10 +1,10 @@
-/*
-import Header from "components/Header/Header.svelte";
-import { flushSync, mount, unmount } from "svelte";
+
+import Header from "./Header.svelte";
+import { render } from "@testing-library/svelte";
 import { describe, expect, test } from "vitest";
 
-describe("Header component", () => {
+test("Header", async () => {
+    render(Header, { currentPath: "", links: [{ href: "/test", label: "Test" }] });
+})
 
-});
 
-*/

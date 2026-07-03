@@ -3,7 +3,7 @@ import GitHub from "components/Icons/GitHub.svelte";
 
 interface HeaderProps {
 	title?: string;
-	currentPath: string;
+	currentPath?: string;
 	links: { href: string; label: string }[];
 }
 
