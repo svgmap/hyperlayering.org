@@ -1,15 +1,10 @@
-// @ts-check
+import cloudflare from "@astrojs/cloudflare";
 import svelte from "@astrojs/svelte";
 import { defineConfig } from "astro/config";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
-	// Temporary site + base config for github pages deployment
-	// TODO: Change when migrated to real domain
-	site: "https://svgmap.github.io",
-	base: "hyperlayering.org",
+	site: "https://hyperlayering.org/",
 	integrations: [svelte()],
 
 	i18n: {
