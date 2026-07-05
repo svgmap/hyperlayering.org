@@ -16,7 +16,7 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
   <a
     aria-label="Home"
     class="brand font-wide"
-    href={`${import.meta.env.BASE_URL}/`}>{title}</a
+    href="/">{title}</a
   >
   <nav class="nav">
     {#each links as link}
