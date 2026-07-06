@@ -8,8 +8,8 @@ interface DemoCardProps {
 let { imageUrl, title, url }: DemoCardProps = $props();
 </script>
 
-<a href={url} class="card-wrapper" clickable="true">
-  <article class="card stack">
+<a href={url} class="card card-wrapper" clickable="true">
+  <article class="stack">
     <img alt={`Image for the ${title} demo page`} src={imageUrl}  class="image" />
     <h2 class="title">{title}</h2>
   </article>

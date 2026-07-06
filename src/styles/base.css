@@ -200,10 +200,10 @@ p:not(li p) {
 	color: var(--text-secondary);
 	background-color: var(--card-color);
 	border: solid 1px var(--bg-tertiary);
-	transition: background-color var(--timing-normal) ease-out;
 
 	&[clickable="true"] {
 		cursor: pointer;
+		transition: background-color var(--timing-normal) ease-out;
 		
 		&:hover {
 			background-color: oklch(from var(--card-color) l c h / 0.5);
