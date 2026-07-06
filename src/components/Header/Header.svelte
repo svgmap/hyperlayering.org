@@ -1,31 +1,27 @@
 <script lang="ts">
-import GitHub from "components/Icons/GitHub.svelte";
-import Languages from "components/Icons/Languages.svelte";
-import { languages } from "i18n/ui";
+  import GitHub from "components/Icons/GitHub.svelte";
+  import Languages from "components/Icons/Languages.svelte";
+  import { languages } from "i18n/ui";
 
-interface HeaderProps {
-	title?: string;
-	currentPath: string;
-	links: { href: string; label: string }[];
-}
+  interface HeaderProps {
+    title?: string;
+    currentPath: string;
+    links: { href: string; label: string }[];
+  }
 
-let { title = "HLA", currentPath, links }: HeaderProps = $props();
+  let { title = "HLA", currentPath, links }: HeaderProps = $props();
 </script>
 
 <header class="site-header">
-  <a
-    aria-label="Home"
-    class="brand font-wide"
-    href="/">{title}</a
-  >
+  <a aria-label="Home" class="brand font-wide" href="/">{title}</a>
   <nav class="nav">
     {#each links as link}
-      <a href={`${link.href}`}
-        >{link.label}</a
-      >
+      <a href={`${link.href}`}>{link.label}</a>
     {/each}
-    <button class="lang-button icon-wrapper" button-type="icon-wrapper" popovertarget="lang-popover"
-      ><Languages /></button
+    <button
+      class="lang-button icon-wrapper"
+      button-type="icon-wrapper"
+      popovertarget="lang-popover"><Languages /></button
     >
     <a
       href="https://github.com/svgmap"
@@ -40,14 +36,25 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
     </a>
   </nav>
   <div id="lang-popover" class="card" popover="auto">
-    <select>
-      <option>Test</option>
-      <option>Test</option>
-    </select>
+    <ul role="list">
+      {#each Object.entries(languages) as [code, label]}
+        <li><a href="/">{label}</a></li>
+      {/each}
+    </ul>
   </div>
 </header>
 
 <style>
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-size: var(--text-base);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
   .site-header {
     position: sticky;
     top: 0;
@@ -63,10 +70,6 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
     border-bottom: solid 1px var(--bg-tertiary);
     transition: color var(--timing-normal) ease-out;
 
-    a:hover {
-      color: var(--text-secondary);
-    }
-
     .brand {
       color: inherit;
       text-decoration: none;
@@ -80,15 +83,6 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
     flex-direction: row;
     gap: var(--space-sm);
     align-items: center;
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      font-size: var(--text-base);
-    }
-    a:hover {
-      text-decoration: underline;
-    }
   }
 
   .github-button {
@@ -106,10 +100,27 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
     top: calc(anchor(--lang-button bottom) + var(--space-md));
     position-area: center bottom;
     transition-behavior: allow-discrete;
-    transition: 
+    transition:
       opacity var(--timing-normal),
       display var(--timing-normal),
       overlay var(--timing-normal);
+
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      padding: var(--space-sm);
+    }
+    a {
+      display: block;
+      text-align: center;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--round-xs);
+      &:hover {
+        background-color: var(--bg-tertiary);
+      }
+    }
 
     &:popover-open {
       display: block;
@@ -120,8 +131,8 @@ let { title = "HLA", currentPath, links }: HeaderProps = $props();
       }
     }
 
-    select {
-
+    ul {
+      padding: 0;
     }
   }
 </style>

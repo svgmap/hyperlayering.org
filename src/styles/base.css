@@ -127,6 +127,11 @@ hr {
 	margin-bottom: var(--space-xs);
 }
 
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}			
+
 p,
 li {
 	max-width: var(--paragraph-width);
