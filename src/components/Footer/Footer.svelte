@@ -1,5 +1,5 @@
 <footer class="site-footer">
-    <small class="copyright">&#169; 2026 SVGMap Organization</small>
+    <small class="copyright">&#169; 2026 <span translate="no">SVGMap Organization</span></small>
 </footer>
 
 <style>
