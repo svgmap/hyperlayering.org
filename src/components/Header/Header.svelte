@@ -3,7 +3,7 @@
   import GitHub from "components/Icons/GitHub.svelte";
   import Languages from "components/Icons/Languages.svelte";
   import { languages } from "i18n/ui";
-  import { pathWithoutLocale } from "i18n/utils";
+  import { getLangFromUrl, pathWithoutLocale } from "i18n/utils";
 
   interface HeaderProps {
     title?: string;
@@ -16,7 +16,7 @@
 </script>
 
 <header class="site-header">
-  <a aria-label="Home" class="brand font-wide" href="/">{title}</a>
+  <a aria-label="Home" class="brand font-wide" href={getRelativeLocaleUrl(getLangFromUrl(currentUrl), "/")}>{title}</a>
   <nav class="nav">
     {#each links as link}
       <a href={`${link.href}`}>{link.label}</a>
