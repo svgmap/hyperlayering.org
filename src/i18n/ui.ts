@@ -17,7 +17,7 @@ export const ui = {
 		"page.home.get-started-btn": "Get Started",
 		"page.home.about-btn": "About the project",
 		"page.404.title": "404",
-		"page.404.subtitle:": "Page not found",
+		"page.404.subtitle": "This page could not found",
 		"page.404.return-btn": "Return to home",
 	},
 	ja: {
@@ -27,7 +27,7 @@ export const ui = {
 		"page.home.tagline": "クライアント中心の分散型ウェブマッピング",
 		"page.home.get-started-btn": "はじめに",
 		"page.home.about-btn": "プロジェクトについて",
-		"page.404.subtitle:": "ページが見つかりません",
+		"page.404.subtitle": "このページは見つかりませんでした",
 		"page.404.return-btn": "ホームに戻る",
 	},
 } as const;
