@@ -7,6 +7,11 @@ html {
 	color: var(--text-main);
 	background-color: var(--bg-primary);
 	scrollbar-gutter: stable;
+	block-size: 100%;
+	font-family: "Archivo", sans-serif;
+	&:lang(ja) {
+		font-family: "Archivo", "M PLUS 2", sans-serif;
+	}
 }
 
 html:has([value="light"]:checked) {
@@ -30,14 +35,6 @@ html:has([value="dark"]:checked) {
 @media (prefers-reduced-motion: no-preference) {
 	html {
 		interpolate-size: allow-keywords;
-	}
-}
-
-html {
-	block-size: 100%;
-	font-family: "Archivo", sans-serif;
-	&:lang(ja) {
-		font-family: "M PLUS 2", "Archivo", sans-serif;
 	}
 }
 
