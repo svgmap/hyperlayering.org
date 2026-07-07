@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import BlogPostCard from "components/BlogPostCard.svelte";
 import { getLangFromUrl, useTranslations } from "i18n/utils.ts";
-import BaseLayout from "layouts/BaseLayout.astro";
 
 const blogPosts = await getCollection("blog");
 const lang = getLangFromUrl(Astro.url);
