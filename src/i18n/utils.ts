@@ -15,6 +15,6 @@ export function useTranslations(lang: keyof typeof ui) {
 
 export function pathWithoutLocale(url: URL) {
 	const lang = getLangFromUrl(url);
-	if(lang === defaultLang) return url.pathname;
+	if (lang === defaultLang) return url.pathname;
 	return url.pathname.replace(`/${lang}/`, "/");
 }

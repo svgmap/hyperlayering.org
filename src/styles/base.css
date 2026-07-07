@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100..900&display=swap");
 @import "./variables.css";
 
 html {
@@ -128,10 +128,10 @@ hr {
 	margin-bottom: var(--space-xs);
 }
 
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-}			
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
 
 p,
 li {
@@ -205,7 +205,7 @@ p:not(li p) {
 	&[clickable="true"] {
 		cursor: pointer;
 		transition: background-color var(--timing-normal) ease-out;
-		
+
 		&:hover {
 			background-color: oklch(from var(--card-color) l c h / 0.5);
 			outline: solid 2px var(--bg-tertiary);
