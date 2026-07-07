@@ -11,3 +11,9 @@ export function useTranslations(lang: keyof typeof ui) {
 		return ui[lang][key] || ui[defaultLang][key];
 	};
 }
+
+export function pathWithoutLocale(url: URL) {
+	const lang = getLangFromUrl(url);
+	if(lang === defaultLang) return url.pathname;
+	return url.pathname.replace(`/${lang}`, "/");
+}

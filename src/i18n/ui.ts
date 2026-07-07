@@ -9,21 +9,25 @@ export const defaultLang = "en";
 
 export const ui = {
 	en: {
-		header: {
-			nav: {
-				"nav.home": "Home",
-				demos: "Demos",
-				blog: "Blog",
-			},
-		},
+		"nav.home": "Home",
+		"nav.demos": "Demos",
+		"nav.blog": "Blog",
+		"page.home.title": "Hyper Layering",
+		"page.home.tagline": "Client-centric, de-centralized web mapping",
+		"page.home.get-started-btn": "Get Started",
+		"page.home.about-btn": "About the project",
+		"page.404.title": "404",
+		"page.404.subtitle:": "Page not found",
+		"page.404.return-btn": "Return to home",
 	},
 	ja: {
-		header: {
-			nav: {
-				home: "ホーム",
-				demos: "デモ",
-				blog: "ブログ",
-			},
-		},
+		"nav.home": "ホーム",
+		"nav.demos": "デモ",
+		"nav.blog": "ブログ",
+		"page.home.tagline": "クライアント中心の分散型ウェブマッピング",
+		"page.home.get-started-btn": "はじめに",
+		"page.home.about-btn": "プロジェクトについて",
+		"page.404.subtitle:": "ページが見つかりません",
+		"page.404.return-btn": "ホームに戻る",
 	},
 } as const;

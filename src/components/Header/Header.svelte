@@ -1,15 +1,18 @@
 <script lang="ts">
+  import { getRelativeLocaleUrl } from "astro:i18n";
   import GitHub from "components/Icons/GitHub.svelte";
   import Languages from "components/Icons/Languages.svelte";
   import { languages } from "i18n/ui";
+  import { pathWithoutLocale } from "i18n/utils";
 
   interface HeaderProps {
     title?: string;
-    currentPath: string;
+    currentUrl: URL;
     links: { href: string; label: string }[];
   }
 
-  let { title = "HLA", currentPath, links }: HeaderProps = $props();
+  let { title = "HLA", currentUrl, links }: HeaderProps = $props();
+  $inspect(pathWithoutLocale(currentUrl));
 </script>
 
 <header class="site-header">
@@ -38,7 +41,7 @@
   <div id="lang-popover" class="card" popover="auto">
     <ul role="list">
       {#each Object.entries(languages) as [code, label]}
-        <li><a href="/">{label}</a></li>
+        <li><a href={`${getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}`}>{label}</a></li>
       {/each}
     </ul>
   </div>
@@ -99,18 +102,32 @@
     position-anchor: --lang-button;
     top: calc(anchor(--lang-button bottom) + var(--space-md));
     position-area: center bottom;
+    transition-property:
+      opacity,
+      display,
+      overlay,
+      transform;
+    transition-duration: var(--timing-fast);
     transition-behavior: allow-discrete;
-    transition:
-      opacity var(--timing-normal),
-      display var(--timing-normal),
-      overlay var(--timing-normal);
+    display: none;
+    opacity: 0;
 
+    &:popover-open {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(10%);
+      }
+    }
 
     ul {
       display: flex;
       flex-direction: column;
       gap: var(--space-xs);
-      padding: var(--space-sm);
+      padding: 0;
     }
     a {
       display: block;
@@ -120,19 +137,6 @@
       &:hover {
         background-color: var(--bg-tertiary);
       }
-    }
-
-    &:popover-open {
-      display: block;
-      opacity: 1;
-
-      @starting-style {
-        opacity: 0;
-      }
-    }
-
-    ul {
-      padding: 0;
     }
   }
 </style>

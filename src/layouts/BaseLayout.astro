@@ -10,7 +10,7 @@ interface Props {
 	pageTitle?: string | undefined;
 }
 const { pageTitle = undefined } = Astro.props;
-const { pathname } = Astro.url;
+const url = Astro.url;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -27,10 +27,10 @@ const t = useTranslations(lang);
 	<body>
 		<Header 
 			links={[
-				{ href: getRelativeLocaleUrl(lang, "/"), label: "Home" }, 
-				{ href: getRelativeLocaleUrl(lang, "/demos"),  label: "Demos" }, 
-				{ href: getRelativeLocaleUrl(lang, "/blog"), label: "Blog" }]}
-			currentPath={pathname}
+				{ href: getRelativeLocaleUrl(lang, "/"), label: t("nav.home") }, 
+				{ href: getRelativeLocaleUrl(lang, "/demos"),  label: t("nav.demos") }, 
+				{ href: getRelativeLocaleUrl(lang, "/blog"), label: t("nav.blog") }]}
+			currentUrl={url}
 		>
 		</Header>
 		<main class="content-main">

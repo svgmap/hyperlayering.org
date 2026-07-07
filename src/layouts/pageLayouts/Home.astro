@@ -1,20 +1,21 @@
 ---
-import LandingWindow from "../components/LandingWindow.svelte";
-import BaseLayout from "layouts/BaseLayout.astro";
----
+import LandingWindow from "components/LandingWindow.svelte";
+import { getLangFromUrl, useTranslations } from "i18n/utils";
 
-<BaseLayout pageTitle="Home">
-	<section class="landing">
-		<div class="landing-intro">
-			<h1 class="header">Hyper Layering</h1>
-			<p class="subtitle">Client-centric, de-centralized web mapping</p>
-			<div class="intro-btn-group">
-				<button class="button accent">Get Started</button>
-				<button class="button">About the project</button>
-			</div>
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<section class="landing">
+	<div class="landing-intro">
+		<h1 class="header">{t("page.home.title")}</h1>
+		<p class="subtitle">{t("page.home.tagline")}</p>
+		<div class="row">
+			<button class="button accent">{t("page.home.get-started-btn")}</button>
+			<button class="button">{t("page.home.about-btn")}</button>
 		</div>
-		<LandingWindow></LandingWindow>
-	</section>
+	</div>
+	<LandingWindow></LandingWindow>
+</section>
 		<!-- Omitted temporarily 
 			TODO: add more homepage content
 		<section>
@@ -26,7 +27,6 @@ import BaseLayout from "layouts/BaseLayout.astro";
 			<p class="section-blurb">Layers are created as self-contained web applications</p>
 		</section>
 		-->
-</BaseLayout>
 
 <style>
 	main {
@@ -58,11 +58,5 @@ import BaseLayout from "layouts/BaseLayout.astro";
 		}
 
 	}
-
-	.intro-btn-group {
-		display: flex;
-		gap: var(--space-xs);
-	}
-
 </style>
 

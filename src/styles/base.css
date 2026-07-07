@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100..900&display=swap');
 @import "./variables.css";
 
 html {
@@ -34,6 +35,10 @@ html:has([value="dark"]:checked) {
 
 html {
 	block-size: 100%;
+	font-family: "Archivo", sans-serif;
+	&:lang(ja) {
+		font-family: "M PLUS 2", "Archivo", sans-serif;
+	}
 }
 
 body {
@@ -42,7 +47,6 @@ body {
 	min-block-size: 100svh;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto 1fr auto;
-	font-family: "Archivo", sans-serif;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
 }
@@ -162,7 +166,7 @@ p:not(li p) {
 }
 
 .row {
-	--gap: var(--space-sm);
+	--gap: var(--space-xs);
 	--justify: start;
 	display: flex;
 	flex-direction: row;
