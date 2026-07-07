@@ -28,6 +28,7 @@
 	--space-lg: 4rem;
 	--space-xl: 10rem;
 
+	--round-xs: 0.25rem;
 	--round-sm: 0.5rem;
 	--round-md: 1rem;
 	--round-lg: 2rem;
@@ -41,9 +42,11 @@
 	--text-2xl: clamp(1.5rem, 1rem + 2vw, 2.25rem);
 	--text-3xl: clamp(1.875rem, 1rem + 3vw, 3rem);
 	--text-4xl: clamp(2.25rem, 1rem + 4vw, 4rem);
+	--text-5xl: clamp(4.25rem, 1rem + 6vw, 6rem);
 	--paragraph-width: 70ch;
 	--font-wide: 125%;
 
 	/* ==== Timing ==== */
+	--timing-fast: 200ms;
 	--timing-normal: 500ms;
 }

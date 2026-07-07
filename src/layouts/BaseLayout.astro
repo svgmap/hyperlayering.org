@@ -1,25 +1,35 @@
 ---
 import "styles/base.css";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Footer from "components/Footer/Footer.svelte";
 import Header from "components/Header/Header.svelte";
+import { getLangFromUrl, useTranslations } from "i18n/utils.ts";
 
-const pageTitle = "Home";
-const { pathname } = Astro.url;
+interface Props {
+	pageTitle?: string | undefined;
+}
+const { pageTitle = undefined } = Astro.props;
+const url = Astro.url;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
+		<title>{`${pageTitle === undefined ? "" : pageTitle + " | "}Hyper Layering`}</title>
 	</head>
 	<body>
 		<Header 
-			links={[{ href: "/", label: "Home" }, { href: "/demos", label: "Demos" }, { href: "/blog", label: "Blog" }]}
-			currentPath={pathname}
+			links={[
+				{ href: getRelativeLocaleUrl(lang, "/"), label: t("nav.home") }, 
+				{ href: getRelativeLocaleUrl(lang, "/demos"),  label: t("nav.demos") }, 
+				{ href: getRelativeLocaleUrl(lang, "/blog"), label: t("nav.blog") }]}
+			currentUrl={url}
 		>
 		</Header>
 		<main class="content-main">
