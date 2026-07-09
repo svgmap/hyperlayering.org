@@ -3,7 +3,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import GitHub from "components/Icons/GitHub.svelte";
 import Languages from "components/Icons/Languages.svelte";
 import { languages } from "i18n/ui";
-import { getLangFromUrl, pathWithoutLocale } from "i18n/utils";
+import { getLangFromUrl, pathWithoutLocale, useTranslations } from "i18n/utils";
 
 interface HeaderProps {
 	title?: string;
@@ -13,15 +13,22 @@ interface HeaderProps {
 
 let { title = "HLA", currentUrl, links }: HeaderProps = $props();
 let lang = $derived(getLangFromUrl(currentUrl));
+let t = $derived(useTranslations(lang));
 </script>
 
 <header class="site-header">
-  <a aria-label="Home" class="brand font-wide" href={getRelativeLocaleUrl(lang, "/")}>{title}</a>
+  <a
+    aria-label="Home"
+    class="brand font-wide"
+    href={getRelativeLocaleUrl(lang, "/")}>{title}</a
+  >
   <nav class="nav">
     {#each links as link}
       <a href={`${link.href}`}>{link.label}</a>
     {/each}
     <button
+      aria-label={t("nav.lang-btn.label")}
+      name={t("nav.lang-btn.label")}
       class="lang-button icon-wrapper"
       button-type="icon-wrapper"
       popovertarget="lang-popover"><Languages /></button
@@ -30,8 +37,8 @@ let lang = $derived(getLangFromUrl(currentUrl));
       href="https://github.com/svgmap"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Link to explore the project on GitHub"
-      title="Explore the project on GitHub"
+      aria-label={t("nav.github.message")}
+      title={t("nav.github.message")}
       class="github-button"
       role="button"
     >
@@ -41,7 +48,12 @@ let lang = $derived(getLangFromUrl(currentUrl));
   <div id="lang-popover" class="card" popover="auto">
     <ul role="list">
       {#each Object.entries(languages) as [code, label]}
-        <li><a href={`${getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}`}>{label}</a></li>
+        <li>
+          <a
+            href={`${getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}`}
+            >{label}</a
+          >
+        </li>
       {/each}
     </ul>
   </div>
@@ -102,11 +114,7 @@ let lang = $derived(getLangFromUrl(currentUrl));
     position-anchor: --lang-button;
     top: calc(anchor(--lang-button bottom) + var(--space-md));
     position-area: center bottom;
-    transition-property:
-      opacity,
-      display,
-      overlay,
-      transform;
+    transition-property: opacity, display, overlay, transform;
     transition-duration: var(--timing-fast);
     transition-behavior: allow-discrete;
     display: none;

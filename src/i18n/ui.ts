@@ -12,6 +12,8 @@ export const ui = {
 		"nav.home": "Home",
 		"nav.demos": "Demos",
 		"nav.blog": "Blog",
+		"nav.lang-btn.label": "Change Language",
+		"nav.github.message": "Explore the project on GitHub",
 		"page.home.title": "Hyper Layering",
 		"page.home.tagline": "Client-centric, de-centralized web mapping",
 		"page.home.get-started-btn": "Get Started",
@@ -23,6 +25,8 @@ export const ui = {
 		"page.404.return-btn": "Return to home",
 	},
 	ja: {
+		"nav.lang-btn.label": "言語を変更する",
+		"nav.github.message": "GitHubでこのプロジェクトを詳しく見る",
 		"page.home.tagline": "クライアント中心の分散型ウェブマッピング",
 		"page.home.get-started-btn": "はじめに",
 		"page.home.about-btn": "プロジェクトについて",
