@@ -1,4 +1,7 @@
 ---
+import Decentralized from "components/Illustrations/Decentralized.svelte";
+import Layers from "components/Illustrations/Layers.svelte";
+import SourceCode from "components/Illustrations/SourceCode.svelte";
 import LandingWindow from "components/LandingWindow.svelte";
 import { getLangFromUrl, useTranslations } from "i18n/utils";
 
@@ -16,6 +19,26 @@ const t = useTranslations(lang);
 	</div>
 	<LandingWindow></LandingWindow>
 </section>
+<article class="feature-section flow">
+<h2 class="text-center">Why Hyper Layering?</h2>
+	<section class="auto-grid">
+		<article class="card stack text-center">
+			<Decentralized className="image"></Decentralized>
+			<h3 class="title">Decentralized</h3>
+			<p class="body">In HLA, Mapping layers are built as self-contained web applications.</p>
+		</article>
+		<article class="card stack text-center">
+			<Layers className="image"></Layers>
+			<h3 class="title text-center">Advanced Tiling</h3>
+			<p class="body">HLA offers a highly performant tiling system, able to handle large scale mapping data with ease.</p>
+		</article>
+		<article class="card stack text-center">
+			<SourceCode className="image"></SourceCode>
+			<h3 class="title text-center">Open Source</h3>
+			<p class="body">HLA is a fully open-source project that is actively maintained and has been used by enterprises for 15+ years.</p>
+		</article>
+	</section>
+</article>
 
 <style>
 
@@ -37,5 +60,12 @@ const t = useTranslations(lang);
 		}
 
 	}
+
+	.feature-section {
+		margin: var(--space-md) auto;
+		--min-col-size: 200px;
+		max-width: max(var(--paragraph-width), 60vw);
+	}
+
 </style>
 
