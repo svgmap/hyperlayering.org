@@ -18,7 +18,6 @@
   xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
 >
   <g id="Layer_x0020_1">
-    <metadata id="CorelCorpID_0Corel-Layer" />
     <polygon
       class="fil0 str0"
       points="696.29,371.14 852.17,281.14 494.62,74.71 137.07,281.14 494.62,487.57 "
