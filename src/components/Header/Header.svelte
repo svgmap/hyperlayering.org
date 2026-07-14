@@ -1,30 +1,26 @@
 <script lang="ts">
-  import { getRelativeLocaleUrl } from "astro:i18n";
-  import Close from "components/Icons/Close.svelte";
-  import GitHub from "components/Icons/GitHub.svelte";
-  import Languages from "components/Icons/Languages.svelte";
-  import Menu from "components/Icons/Menu.svelte";
-  import { languages } from "i18n/ui";
-  import {
-    getLangFromUrl,
-    pathWithoutLocale,
-    useTranslations,
-  } from "i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Close from "components/Icons/Close.svelte";
+import GitHub from "components/Icons/GitHub.svelte";
+import Languages from "components/Icons/Languages.svelte";
+import Menu from "components/Icons/Menu.svelte";
+import { languages } from "i18n/ui";
+import { getLangFromUrl, pathWithoutLocale, useTranslations } from "i18n/utils";
 
-  interface HeaderProps {
-    title?: string;
-    currentUrl: URL;
-    links: { href: string; label: string }[];
-  }
+interface HeaderProps {
+	title?: string;
+	currentUrl: URL;
+	links: { href: string; label: string }[];
+}
 
-  let { title = "HLA", currentUrl, links }: HeaderProps = $props();
-  let lang = $derived(getLangFromUrl(currentUrl));
-  let t = $derived(useTranslations(lang));
+let { title = "HLA", currentUrl, links }: HeaderProps = $props();
+let lang = $derived(getLangFromUrl(currentUrl));
+let t = $derived(useTranslations(lang));
 
-  let menuOpen = $state(false);
-  const toggleMenu = () => {
-    menuOpen = !menuOpen;
-  }
+let menuOpen = $state(false);
+const toggleMenu = () => {
+	menuOpen = !menuOpen;
+};
 </script>
 
 <header class="site-header">

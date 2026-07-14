@@ -133,9 +133,9 @@ dl {
 	max-width: var(--paragraph-width);
 }
 
-.flow  {
+.flow {
 	--flow-space: var(--space-md);
-	
+
 	& > * + * {
 		margin-top: var(--flow-space, 1em);
 	}
@@ -200,9 +200,9 @@ dl {
 	display: grid;
 	gap: var(--space-sm, 1rem);
 	grid-template-columns: repeat(
-		var(--grid-type, auto-fit),
-		minmax(min(var(--min-col-size), 100%), 1fr)
-	);
+			var(--grid-type, auto-fit),
+			minmax(min(var(--min-col-size), 100%), 1fr)
+		);
 	container-type: inline-size;
 }
 
