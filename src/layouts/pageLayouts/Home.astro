@@ -5,8 +5,8 @@ import { getLangFromUrl, useTranslations } from "i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<section class="landing">
-	<div class="landing-intro">
+<section class="auto-grid grid-lg landing">
+	<div class="landing-intro stack">
 		<h1 class="header">{t("page.home.title")}</h1>
 		<p class="subtitle">{t("page.home.tagline")}</p>
 		<div class="row">
@@ -16,45 +16,24 @@ const t = useTranslations(lang);
 	</div>
 	<LandingWindow></LandingWindow>
 </section>
-		<!-- Omitted temporarily 
-			TODO: add more homepage content
-		<section>
-			<h2 class="section-header">Decentralized</h2>
-			<p class="section-blurb">Layers are created as self-contained web applications</p>
-		</section>
-		<section>
-			<h2 class="section-header">Build</h2>
-			<p class="section-blurb">Layers are created as self-contained web applications</p>
-		</section>
-		-->
 
 <style>
-	main {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-lg);
-	}
 
 	.landing {
-		position: relative;
-		display: flex;
-		flex-direction: row;
-		height: calc(100vh - calc(var(--space-sm) * 2 + var(--header-height)));
-		gap: var(--space-xl);
+		min-height: calc(100vh - calc(var(--space-sm) * 2 + var(--header-height)));
+		
+		.landing-intro {
+			justify-content: center;
+			min-height: 30vh;
+		}
 
 		.header {
 			text-align: left;
+			font-size: var(--text-4xl);
 		}
 
 		.subtitle {
 			font-size: var(--text-lg);
-			margin-bottom: var(--space-sm);
-		}
-
-		.landing-intro {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
 		}
 
 	}

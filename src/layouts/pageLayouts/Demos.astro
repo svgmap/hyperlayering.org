@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<main>
+
 	<h1>{t("page.demos.title")}</h1>
 	<div class="auto-grid">
 		{
@@ -26,5 +26,4 @@ const t = useTranslations(lang);
 			<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
 		}
 	</div>
-</main>
 
