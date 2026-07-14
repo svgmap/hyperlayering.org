@@ -17,11 +17,10 @@
         border-radius: var(--round-sm);
         background-color: var(--bg-secondary);
         border: solid 7px var(--bg-secondary);
-        height: 100%;
+        min-height: 70vh;
         display: flex;
         flex-direction: column;
         outline: solid 1px var(--bg-tertiary);
-        flex-grow: 1;
     }
 
     .window-dots-wrapper {
