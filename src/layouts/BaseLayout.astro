@@ -25,7 +25,6 @@ const t = useTranslations(lang);
 	</head>
 	<body>
 		<Header 
-			client:load
 			client:only="svelte"
 			links={[
 				{ href: getRelativeLocaleUrl(lang, "/"), label: t("nav.home") }, 
