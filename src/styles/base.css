@@ -134,10 +134,10 @@ dl {
 }
 
 .flow {
-	--flow-space: var(--space-md);
+	--_flow-space: var(--flow-space, var(--space-md));
 
 	& > * + * {
-		margin-top: var(--flow-space, 1em);
+		margin-top: var(--_flow-space, 1em);
 	}
 }
 
@@ -179,15 +179,15 @@ dl {
 }
 
 .row {
-	--gap: var(--space-xs);
-	--justify: start;
+	--_gap: var(--space-xs);
+	--_row-justify: var(--row-justify, start);
 	display: flex;
 	flex-direction: row;
 	justify-content: var(--start);
-	gap: var(--gap);
+	gap: var(--_gap);
 
 	&.row--even-space {
-		--justify: space-evenly;
+		--row-justify: space-evenly;
 	}
 }
 
@@ -211,12 +211,12 @@ dl {
 }
 
 .card {
-	--card-color: var(--bg-secondary);
+	--_card-color: var(--card-color, var(--bg-secondary));
 	padding: var(--space-sm);
 	border-radius: var(--round-sm);
 	height: auto;
 	color: var(--text-secondary);
-	background-color: var(--card-color);
+	background-color: var(--_card-color);
 	border: solid 1px var(--bg-tertiary);
 
 	&[clickable="true"] {
@@ -224,7 +224,7 @@ dl {
 		transition: background-color var(--timing-normal) ease-out;
 
 		&:hover {
-			background-color: oklch(from var(--card-color) l c h / 0.5);
+			background-color: oklch(from var(--_card-color) l c h / 0.5);
 			outline: solid 2px var(--bg-tertiary);
 		}
 	}
@@ -242,7 +242,7 @@ dl {
 	.image {
 		min-width: 100%;
 		border-radius: var(--round-sm);
-		border: solid 1px oklch(from var(--card-color) l c h);
+		border: solid 1px oklch(from var(--_card-color) l c h);
 	}
 
 	a > & {
