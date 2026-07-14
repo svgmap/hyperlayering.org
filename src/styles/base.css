@@ -20,6 +20,7 @@
 
 html {
 	color-scheme: light dark;
+	font-size: var(--text-base);
 	color: var(--text-main);
 	background-color: var(--bg-primary);
 	scrollbar-gutter: stable;
@@ -180,14 +181,14 @@ dl {
 
 .row {
 	--_gap: var(--space-xs);
-	--_row-justify: var(--row-justify, start);
+	--_row-justify: var(--_row-justifystart);
 	display: flex;
 	flex-direction: row;
 	justify-content: var(--start);
 	gap: var(--_gap);
 
 	&.row--even-space {
-		--row-justify: space-evenly;
+		--_row-justify: space-evenly;
 	}
 }
 
