@@ -146,6 +146,10 @@ dl {
 	font-stretch: var(--font-wide);
 }
 
+.text-center {
+	text-align: center;
+}
+
 .skip-link {
 	display: inline-block;
 	padding: var(--space-xs) var(--space-sm);
@@ -196,12 +200,12 @@ dl {
 }
 
 .auto-grid {
-	--min-col-size: 300px;
+	--_min-col-size: var(--min-col-size, 300px);
 	display: grid;
 	gap: var(--space-sm, 1rem);
 	grid-template-columns: repeat(
 			var(--grid-type, auto-fit),
-			minmax(min(var(--min-col-size), 100%), 1fr)
+			minmax(min(var(--_min-col-size), 100%), 1fr)
 		);
 	container-type: inline-size;
 }
@@ -231,7 +235,12 @@ dl {
 		color: var(--text-main);
 	}
 
+	.body {
+		color: var(--text-secondary);
+	}
+
 	.image {
+		min-width: 100%;
 		border-radius: var(--round-sm);
 		border: solid 1px oklch(from var(--card-color) l c h);
 	}
