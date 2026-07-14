@@ -25,7 +25,6 @@
   const toggleMenu = () => {
     menuOpen = !menuOpen;
   }
-  $inspect(menuOpen)
 </script>
 
 <header class="site-header">
