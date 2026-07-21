@@ -8,7 +8,10 @@
 	--light-grey: oklch(0.7 0 0);
 	--off-white: oklch(0.9 0 0);
 	--white: oklch(0.95 0 0);
-	--accent: oklch(0.75 0.13 121.51);
+	--blue: oklch(60% 0.09615 252.372);
+	--purple: oklch(60.079% 0.17515 325.529);
+	--green: oklch(0.75 0.13 121.51);
+	--accent: var(--green);
 	--accent-text: var(--dark-grey);
 
 	/* ==== UI Colors ==== */
@@ -21,7 +24,6 @@
 	--bg-tertiary: light-dark(var(--light-grey), var(--mid-grey));
 
 	/* ==== Spacing ==== */
-
 	--space-xs: 0.25rem;
 	--space-sm: 1rem;
 	--space-md: 2rem;
@@ -43,7 +45,8 @@
 	--text-3xl: clamp(1.875rem, 1rem + 3vw, 3rem);
 	--text-4xl: clamp(2.25rem, 1rem + 4vw, 4rem);
 	--text-5xl: clamp(4.25rem, 1rem + 6vw, 6rem);
-	--paragraph-width: 70ch;
+	--paragraph-width: 90ch;
+	--heading-width: 100ch;
 	--font-wide: 125%;
 
 	/* ==== Timing ==== */

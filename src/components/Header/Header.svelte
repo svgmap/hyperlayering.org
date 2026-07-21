@@ -3,6 +3,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Close from "components/Icons/Close.svelte";
 import GitHub from "components/Icons/GitHub.svelte";
 import Languages from "components/Icons/Languages.svelte";
+import Logo from "components/Icons/Logo.svelte";
 import Menu from "components/Icons/Menu.svelte";
 import { languages } from "i18n/ui";
 import { getLangFromUrl, pathWithoutLocale, useTranslations } from "i18n/utils";
@@ -26,9 +27,12 @@ const toggleMenu = () => {
 <header class="site-header">
   <a
     aria-label="Home"
-    class="brand font-wide"
-    href={getRelativeLocaleUrl(lang, "/")}>{title}</a
+    class="brand font-wide row"
+    href={getRelativeLocaleUrl(lang, "/")}
   >
+    <Logo></Logo>
+    <span class="typemark">{title}</span>
+  </a>
   <nav class={"nav " + [menuOpen && "nav-open"]}>
     {#each links as link}
       <a href={`${link.href}`}>{link.label}</a>
@@ -89,13 +93,6 @@ const toggleMenu = () => {
     border-bottom: solid 1px var(--bg-tertiary);
     transition: color var(--timing-normal) ease-out;
 
-    .brand {
-      color: inherit;
-      text-decoration: none;
-      font-size: var(--text-xl);
-      font-weight: 700;
-    }
-
     a {
       color: inherit;
       text-decoration: none;
@@ -105,7 +102,20 @@ const toggleMenu = () => {
     a:hover {
       text-decoration: underline;
     }
-    
+
+    .brand {
+      color: inherit;
+      text-decoration: none;
+      align-items: center;
+      font-size: var(--text-xl);
+      font-weight: 700;
+      @media screen and (max-width: 98ch) {
+        .typemark {
+          display: none;
+        }
+      }
+    }
+
     .mobile-menu-toggle {
       display: none;
       @media screen and (max-width: 98ch) {
@@ -143,7 +153,7 @@ const toggleMenu = () => {
         display: flex;
         opacity: 1;
       }
-      
+
       a {
         font-size: var(--text-xl);
       }

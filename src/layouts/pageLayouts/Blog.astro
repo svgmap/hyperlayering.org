@@ -8,31 +8,21 @@ const blogPosts = await getCollection("blog");
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<article class="blog-post-list-wrapper">
-	<h1>{t("page.blog.title")}</h1>
-	<section class="stack stack--md blog-post-list">
-		{
-			blogPosts.map((post) => (
-				<BlogPostCard 
-					title={post.data.title} 
-					date={post.data.pubDate}
-					author={post.data.author}
-					url={getRelativeLocaleUrl(lang, `/blog/${post.id}`)}
-						
-				/>
-			))
-		}
-	</section>
-</article>
-
-
-<style>
-	.blog-post-list-wrapper {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-	}
-	.blog-post-list {
-		max-width: var(--paragraph-width);
-	}
-</style>
+<main>
+	<article class="layout stack">
+		<h1>{t("page.blog.title")}</h1>
+		<section class="stack stack--md blog-post-list">
+			{
+				blogPosts.map((post) => (
+					<BlogPostCard 
+						title={post.data.title} 
+						date={post.data.pubDate}
+						author={post.data.author}
+						url={getRelativeLocaleUrl(lang, `/blog/${post.id}`)}
+							
+					/>
+				))
+			}
+		</section>
+	</article>
+</main>
