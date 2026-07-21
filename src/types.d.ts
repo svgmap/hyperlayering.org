@@ -12,3 +12,10 @@ declare namespace svelteHTML {
 		"button-type"?: string;
 	}
 }
+
+declare global {
+	interface Window {
+		// biome-ignore lint/suspicious/noExplicitAny: <svgMap is from a remote module -- no local type defs>
+		svgMap?: any;
+	}
+}
