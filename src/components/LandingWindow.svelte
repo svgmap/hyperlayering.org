@@ -1,27 +1,25 @@
 <script lang="ts">
 import SVGMap from "components/SVGMap.svelte";
-import { onDestroy } from "svelte";
-import { mount, unmount } from "svelte";
+import { mount, onDestroy, unmount } from "svelte";
 
 // biome-ignore lint/suspicious/noExplicitAny: <Expected type declarations for unmount()>
 let hlaInstance: Record<string, any>;
 
 const injectScript = (doc: Document, src: string) => {
-  try {
-    new URL(src);
-  } catch(err) {
-    throw new Error("Script src URL in injectScript() is invalid")
-  }
+	try {
+		new URL(src);
+	} catch (err) {
+		throw new Error("Script src URL in injectScript() is invalid");
+	}
 
-  return new Promise((resolve, reject) => {
-    const s = doc.createElement('script');
-    s.src = src;
-    s.onload = resolve;
-    s.onerror = reject;
-    doc.head.appendChild(s);
-  });
-}
-
+	return new Promise((resolve, reject) => {
+		const s = doc.createElement("script");
+		s.src = src;
+		s.onload = resolve;
+		s.onerror = reject;
+		doc.head.appendChild(s);
+	});
+};
 </script>
 
 <div class="browser-container">

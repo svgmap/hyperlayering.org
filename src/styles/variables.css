@@ -13,7 +13,6 @@
 	--green: oklch(0.75 0.13 121.51);
 	--accent: var(--green);
 	--accent-text: var(--dark-grey);
-	
 
 	/* ==== UI Colors ==== */
 	--text-main: light-dark(var(--black), var(--white));

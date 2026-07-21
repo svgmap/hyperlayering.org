@@ -51,7 +51,8 @@ export const ui = {
 		"page.home.features.open-source.title": "オープンソース",
 		"page.home.features.open-source.body":
 			"HLAは、積極的にメンテナンスが行われている完全なオープンソースプロジェクトであり、15年以上にわたり企業で利用されてきました。",
-		"page.home.demos.title": "「ハイパー・レイヤリング」の実際の動作をご覧ください",
+		"page.home.demos.title":
+			"「ハイパー・レイヤリング」の実際の動作をご覧ください",
 		"page.404.subtitle": "このページは見つかりませんでした",
 		"page.404.return-btn": "ホームに戻る",
 	},
