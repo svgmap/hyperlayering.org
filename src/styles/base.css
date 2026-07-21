@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap');
 @import "./variables.css";
 
 *,
@@ -27,7 +27,7 @@ html {
 	block-size: 100%;
 	font-family: "Archivo", sans-serif;
 	&:lang(ja) {
-		font-family: "Archivo", "M PLUS 2", sans-serif;
+		font-family: "Archivo", "Zen Kaku Gothic New", sans-serif;
 	}
 }
 
@@ -134,13 +134,7 @@ dl {
 	max-width: var(--paragraph-width);
 }
 
-.flow {
-	--_flow-space: var(--flow-space, var(--space-md));
-
-	& > * + * {
-		margin-top: var(--_flow-space, 1em);
-	}
-}
+/* === UTILITIES === */
 
 .font-wide {
 	font-width: var(--font-wide);
@@ -164,8 +158,14 @@ dl {
 	left: 1rem;
 }
 
-.content-main {
-	padding: var(--space-sm) var(--space-md);
+/* === LAYOUTS === */
+
+.flow {
+	--_flow-space: var(--flow-space, var(--space-md));
+
+	& > * + * {
+		margin-top: var(--_flow-space, 1em);
+	}
 }
 
 .stack {
@@ -210,6 +210,18 @@ dl {
 		);
 	container-type: inline-size;
 }
+
+.layout {
+	margin: var(--space-md) auto;
+    margin-inline: max(var(--space-sm), 50% - calc(var(--paragraph-width) / 2));
+}
+
+.layout--wide {
+	margin: var(--space-md) auto;
+    margin-inline: var(--space-sm);
+}
+
+/* === BLOCKS/COMPONENTS === */
 
 .card {
 	--_card-color: var(--card-color, var(--bg-secondary));
@@ -264,7 +276,7 @@ dl {
 	border: 2px solid var(--text-main);
 	font-weight: bold;
 	cursor: pointer;
-	max-width: fit-content;
+	min-width: fit-content;
 	transition: box-shadow var(--timing-normal);
 
 	&:hover {
@@ -292,8 +304,4 @@ dl {
 	&:hover {
 		color: var(--text-tertiary);
 	}
-}
-
-.article {
-	max-width: min(96ch);
 }
