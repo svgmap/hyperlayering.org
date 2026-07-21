@@ -2,7 +2,7 @@
 import Decentralized from "components/Illustrations/Decentralized.svelte";
 import Layers from "components/Illustrations/Layers.svelte";
 import SourceCode from "components/Illustrations/SourceCode.svelte";
-import LandingWindow from "components/LandingWindow.svelte";
+// import LandingWindow from "components/LandingWindow.svelte"; -- temporarily removed
 import { getLangFromUrl, useTranslations } from "i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -17,7 +17,6 @@ const t = useTranslations(lang);
 			<button class="button">{t("page.home.about-btn")}</button>
 		</div>
 	</div>
-	<LandingWindow></LandingWindow>
 </section>
 <article class="feature-section flow">
 	<h2 class="text-center">{t("page.home.features.title")}</h2>
@@ -41,7 +40,6 @@ const t = useTranslations(lang);
 </article>
 
 <style>
-
 	.landing {
 		min-height: calc(100vh - calc(var(--space-sm) * 2 + var(--header-height)));
 		
@@ -58,7 +56,6 @@ const t = useTranslations(lang);
 		.subtitle {
 			font-size: var(--text-lg);
 		}
-
 	}
 
 	.feature-section {
@@ -66,6 +63,5 @@ const t = useTranslations(lang);
 		--min-col-size: 200px;
 		max-width: max(var(--paragraph-width), 60vw);
 	}
-
 </style>
 
