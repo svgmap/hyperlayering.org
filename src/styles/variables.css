@@ -6,7 +6,7 @@
 	--dark-grey: oklch(0.25 0.0165 255.31);
 	--mid-grey: oklch(0.4 0.0165 255.31);
 	--light-grey: oklch(0.7 0 0);
-	--off-white: oklch(0.90 0 0);
+	--off-white: oklch(0.9 0 0);
 	--white: oklch(0.95 0 0);
 	--accent: oklch(0.75 0.13 121.51);
 	--accent-text: var(--dark-grey);
