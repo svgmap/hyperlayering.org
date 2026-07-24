@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from "i18n/utils";
+import BaseLayout from "layouts/BaseLayout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const tutorials = await getCollection("tutorial", ({ id }) => {
+	return id.startsWith(`${lang}/`);
+});
+console.log("tutorials:", tutorials);
+---
+<BaseLayout>
+    <ul>
+    {tutorials.map(tutorial => (
+        <li><a href={`/blog/${tutorial.id}`}>{tutorial.id}</a></li>
+    ))}
+    </ul>
+</BaseLayout>
