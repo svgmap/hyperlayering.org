@@ -41,7 +41,7 @@ Regarding the data itself, it's important to note the difference between the def
 - Because the Y (latitude) axis is oriented in the opposite direction, the origin of the original raster data is at the southern end, and the origin of the bit image is at the top end.
 - The origin of raster data is the center position of the pixel when it is visualized as a bit image, whereas the origin when positioning a bit image is the upper left corner of the pixel.
 
-![Explination Diagram](../../../src/images/800px-Raster.png)
+![Explination Diagram](/tutorials/images/800px-Raster.png)
 
 [Explination Diagram](https://svgmap.org/examples/tutorials/mesh3/mesh3_raster_exp.svg)
 

@@ -41,7 +41,7 @@ sidebar_position: 10
 - Y(緯度)軸の向きが逆のため、元のラスターデータの原点は南端、ビットイメージの原点は上端、
 - ラスターデータの原点は、それをビットイメージとして可視化したときのピクセルの中心位置なのに対し、ビットイメージを配置するときの原点はピクセルの左上隅
 
-![Explination Diagram](../../../../../../src/images/800px-Raster.png)
+![Explination Diagram](/tutorials/images/800px-Raster.png)
 
 [Explination Diagram](https://svgmap.org/examples/tutorials/mesh3/mesh3_raster_exp.svg)
 
