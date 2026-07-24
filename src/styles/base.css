@@ -166,6 +166,10 @@ dl {
 	& > * + * {
 		margin-top: var(--_flow-space, 1em);
 	}
+
+	&.flow--dense {
+		--flow-space: var(--space-sm);
+	}
 }
 
 .stack {
