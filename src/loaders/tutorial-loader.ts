@@ -27,7 +27,7 @@ const tutorialLoader = (): Loader => {
 
 				const rendered = await renderMarkdown(raw, { fileURL: fileUrl });
 				if (!rendered.metadata?.frontmatter) return;
-				const id = file.replace(/\.md$/, "");
+				const id = file.replace(/(index\.md|\.md)$/, "");
 				const data = await parseData({
 					id,
 					data: rendered.metadata.frontmatter,

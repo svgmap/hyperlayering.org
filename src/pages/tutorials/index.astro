@@ -9,12 +9,11 @@ const t = useTranslations(lang);
 const tutorials = await getCollection("tutorial", ({ id }) => {
 	return id.startsWith(`${lang}/`);
 });
-console.log("tutorials:", tutorials);
 ---
 <BaseLayout>
     <ul>
     {tutorials.map(tutorial => (
-        <li><a href={`/blog/${tutorial.id}`}>{tutorial.id}</a></li>
+        <li><a href={`${tutorial.id}`}>{tutorial.id}</a></li>
     ))}
     </ul>
 </BaseLayout>

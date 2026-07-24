@@ -1,0 +1,12 @@
+---
+import BaseLayout from "layouts/BaseLayout.astro";
+
+interface Props {
+	pageTitle?: string | undefined;
+}
+const { pageTitle = undefined } = Astro.props;
+---
+<BaseLayout pageTitle={pageTitle}>
+    <nav></nav>
+	<slot class="page-content" />
+</BaseLayout>

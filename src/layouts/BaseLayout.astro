@@ -27,7 +27,8 @@ const t = useTranslations(lang);
 		<Header 
 			client:only="svelte"
 			links={[
-				{ href: getRelativeLocaleUrl(lang, "/"), label: t("nav.home") }, 
+				{ href: getRelativeLocaleUrl(lang, "/"), label: t("nav.home") },
+				{ href: getRelativeLocaleUrl(lang, "/tutorials"), label: t("nav.tutorials") }, 
 				{ href: getRelativeLocaleUrl(lang, "/demos"),  label: t("nav.demos") }, 
 				{ href: getRelativeLocaleUrl(lang, "/blog"), label: t("nav.blog") }]}
 			currentUrl={url}

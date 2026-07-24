@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "layouts/BaseLayout.astro";
+export async function getStaticPaths() {
+	const tutorials = await getCollection("tutorial");
+	return tutorials.map((tutorial) => ({
+		params: { path: tutorial.id },
+		props: { tutorial: tutorial },
+	}));
+}
+
+const { tutorial } = Astro.props;
+const { Content } = await render(tutorial);
+---
+<BaseLayout pageTitle={ `Tutorial - ${tutorial.data.title}` }>
+  <main class="tutorial">
+    <nav></nav>
+    <article class="layout flow flow--dense">
+      <Content></Content>
+    </article>
+  </main>
+</BaseLayout>
+
+<style scoped>
+    .tutorial {
+      max-width: 100vw;
+    }
+</style>
