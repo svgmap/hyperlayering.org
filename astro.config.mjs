@@ -1,8 +1,9 @@
 import cloudflare from "@astrojs/cloudflare";
-import svelte from "@astrojs/svelte";
 import { satteri } from "@astrojs/markdown-satteri";
-import { extractH1 } from "./satteri-plugins/extract-h1.mjs";
+import svelte from "@astrojs/svelte";
 import { defineConfig } from "astro/config";
+import { docusaurusHeadingIds } from "./satteri-plugins/docusaurusHeadingIds.mjs";
+import { extractH1 } from "./satteri-plugins/extractH1.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
 	markdown: {
 		processor: satteri({
 			mdastPlugins: [extractH1()],
+			hastPlugins: [docusaurusHeadingIds()],
 			features: { directive: true },
 		}),
 	},
