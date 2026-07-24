@@ -10,6 +10,7 @@ export const defaultLang = "en";
 export const ui = {
 	en: {
 		"nav.home": "Home",
+		"nav.tutorials": "Tutorials",
 		"nav.demos": "Demos",
 		"nav.blog": "Blog",
 		"nav.lang-btn.label": "Change Language",
