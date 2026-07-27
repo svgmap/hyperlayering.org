@@ -1,8 +1,9 @@
 ---
+import { getImage } from "astro:assets";
+// import LandingWindow from "components/LandingWindow.svelte"; -- temporarily removed
 import Decentralized from "components/Illustrations/Decentralized.svelte";
 import Layers from "components/Illustrations/Layers.svelte";
 import SourceCode from "components/Illustrations/SourceCode.svelte";
-// import LandingWindow from "components/LandingWindow.svelte"; -- temporarily removed
 import { getLangFromUrl, useTranslations } from "i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -48,9 +49,28 @@ const t = useTranslations(lang);
 			radial-gradient(circle at 100% 50%, oklch(from var(--green) l c h / 0.5)  0%, transparent 50%),
 			radial-gradient(circle at 50% 90%, oklch(from var(--blue) l c h / 0.5)  0%, transparent 50%),
 			radial-gradient(circle at 100% 100%, oklch(from var(--purple) l c h / 0.5) 0%, transparent 25%),
-			radial-gradient(circle at 25% 50%, var(--bg-primary) 0%, transparent 100%);
+			radial-gradient(circle at 25% 50%, var(--bg-primary) 0%, transparent 75%);
 		background-blend-mode: hue;
+		position: relative;
 		
+		&::after {
+			container-type: size;
+			display: block;
+			position: absolute;
+			z-index: -1;
+			opacity: 0.3;
+			width: 100%;
+			height: 100%;
+			content: "";
+			background-image: url("/city_cropped_outline.svg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position-x: center;
+			background-position-y: 45cqh;
+			background-blend-mode: multiply;
+			
+		}
+
 		.landing-intro {
 			justify-content: center;
 			align-items: center;
