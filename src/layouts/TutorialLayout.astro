@@ -1,18 +1,60 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
+import { defaultLang } from "@i18n/ui";
 
 interface Props {
-	pageTitle?: string | undefined;
+	lang: string;
 }
-const { pageTitle = undefined } = Astro.props;
+const { lang = defaultLang } = Astro.props;
+const tutorials = await getCollection("tutorial", ({ id }) => {
+	return id.startsWith(`${lang}/`);
+});
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <nav></nav>
-  <slot class="page-content" />
-</BaseLayout>
+<div class="sidepanel-layout">
+  <nav>
+    <ul>
+      {
+        tutorials.map((tutorial) => (
+          <li>
+            <a
+              href={getRelativeLocaleUrl(
+                lang,
+                `tutorials/${tutorial.id.replace(`${lang}/`, "")}`,
+              )}
+            >
+              {tutorial.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <main class="layout flow">
+    <slot class="page-content" />
+  </main>
+</div>
 
 <style>
+  .sidepanel-layout {
+    min-height: 100%;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 20rem minmax(0, 1fr);
+
+    nav {
+      position: sticky;
+      top: var(--header-height);
+      max-height: calc(100svh - var(--header-height));
+      overflow-y: auto;
+      list-style: none;
+      padding: var(--space-sm);
+      background-color: var(--bg-secondary);
+    }
+
+  }
+
   [id]::before {
     content: "";
     display: block;
