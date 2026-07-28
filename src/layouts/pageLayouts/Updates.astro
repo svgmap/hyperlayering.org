@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import BlogPostCard from "@components/BlogPostCard.svelte";
+import UpdateCard from "@components/UpdateCard.svelte";
 import { getLangFromUrl, useTranslations } from "@i18n/utils.ts";
 
 const updates = await getCollection("update");
@@ -14,7 +14,7 @@ const t = useTranslations(lang);
 		<section class="stack stack--md blog-post-list">
 			{
 				updates.map((post) => (
-					<BlogPostCard 
+					<UpdateCard 
 						title={post.data.title} 
 						date={post.data.pubDate}
 						author={post.data.author}
