@@ -1,12 +1,23 @@
 ---
-import BaseLayout from "layouts/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 interface Props {
 	pageTitle?: string | undefined;
 }
 const { pageTitle = undefined } = Astro.props;
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-    <nav></nav>
-	<slot class="page-content" />
+  <nav></nav>
+  <slot class="page-content" />
 </BaseLayout>
+
+<style>
+  [id]::before {
+    content: "";
+    display: block;
+    height: 75px;
+    margin-top: -75px;
+    visibility: hidden;
+  }
+</style>

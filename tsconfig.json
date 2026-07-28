@@ -5,12 +5,12 @@
 	"compilerOptions": {
 		"types": ["./worker-configuration.d.ts"],
 		"paths": {
-			"components/*": ["./src/components/*"],
-			"layouts/*": ["./src/layouts/*"],
-			"styles/*": ["./src/styles/*"],
-			"images/*": ["./src/images/*"],
-			"assets/*": ["./src/assets/*"],
-			"i18n/*": ["./src/i18n/*"]
+			"@components/*": ["./src/components/*"],
+			"@layouts/*": ["./src/layouts/*"],
+			"@styles/*": ["./src/styles/*"],
+			"@images/*": ["./src/images/*"],
+			"@assets/*": ["./src/assets/*"],
+			"@i18n/*": ["./src/i18n/*"]
 		}
 	}
 }

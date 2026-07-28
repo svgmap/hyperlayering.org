@@ -1,9 +1,9 @@
 ---
 import "styles/base.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import Footer from "components/Footer/Footer.svelte";
-import Header from "components/Header/Header.svelte";
-import { getLangFromUrl, useTranslations } from "i18n/utils.ts";
+import Footer from "@components/Footer/Footer.svelte";
+import Header from "@components/Header/Header.svelte";
+import { getLangFromUrl, useTranslations } from "@i18n/utils.ts";
 
 interface Props {
 	pageTitle?: string | undefined;
