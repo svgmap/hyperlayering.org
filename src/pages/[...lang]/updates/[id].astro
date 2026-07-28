@@ -5,15 +5,18 @@ import { defaultLang, languages } from "@i18n/ui";
 import { getLangFromUrl } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 export async function getStaticPaths() {
-  const posts = await getCollection("update");
-  const locales = Object.keys(languages);
-  const TEMP_localePosts = locales.flatMap((locale) =>
-    posts.map((post) => ({
-      params: { lang: locale !== defaultLang ? locale : undefined, id: post.id },
-      props: { post },
-    })),
-  );
-  return TEMP_localePosts;
+	const posts = await getCollection("update");
+	const locales = Object.keys(languages);
+	const TEMP_localePosts = locales.flatMap((locale) =>
+		posts.map((post) => ({
+			params: {
+				lang: locale !== defaultLang ? locale : undefined,
+				id: post.id,
+			},
+			props: { post },
+		})),
+	);
+	return TEMP_localePosts;
 }
 
 const lang = getLangFromUrl(Astro.url);
