@@ -2,6 +2,7 @@ import cloudflare from "@astrojs/cloudflare";
 import { satteri } from "@astrojs/markdown-satteri";
 import svelte from "@astrojs/svelte";
 import { defineConfig } from "astro/config";
+import { cleanMarkdownLinks } from "./satteri-plugins/cleanMarkdownLinks.mjs";
 import { docusaurusHeadingIds } from "./satteri-plugins/docusaurusHeadingIds.mjs";
 import { extractH1 } from "./satteri-plugins/extractH1.mjs";
 
@@ -9,10 +10,11 @@ import { extractH1 } from "./satteri-plugins/extractH1.mjs";
 export default defineConfig({
 	site: "https://hyperlayering.org/",
 	integrations: [svelte()],
+
 	markdown: {
 		processor: satteri({
 			mdastPlugins: [extractH1()],
-			hastPlugins: [docusaurusHeadingIds()],
+			hastPlugins: [docusaurusHeadingIds(), cleanMarkdownLinks()],
 			features: { directive: true },
 		}),
 	},
