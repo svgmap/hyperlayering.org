@@ -4,8 +4,8 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import tutorialLoader from "./loaders/tutorial-loader";
 
-const blog = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/blog" }),
+const update = defineCollection({
+	loader: glob({ pattern: "**/*.md", base: "./src/updates" }),
 	schema: z.object({
 		title: z.string(),
 		author: z.string(),
@@ -22,4 +22,4 @@ const tutorial = defineCollection({
 	}),
 });
 
-export const collections = { blog, tutorial };
+export const collections = { update, tutorial };

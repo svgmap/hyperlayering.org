@@ -4,21 +4,21 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import BlogPostCard from "@components/BlogPostCard.svelte";
 import { getLangFromUrl, useTranslations } from "@i18n/utils.ts";
 
-const blogPosts = await getCollection("blog");
+const updates = await getCollection("update");
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 <main>
 	<article class="layout stack">
-		<h1>{t("page.blog.title")}</h1>
+		<h1>{t("page.updates.title")}</h1>
 		<section class="stack stack--md blog-post-list">
 			{
-				blogPosts.map((post) => (
+				updates.map((post) => (
 					<BlogPostCard 
 						title={post.data.title} 
 						date={post.data.pubDate}
 						author={post.data.author}
-						url={getRelativeLocaleUrl(lang, `/blog/${post.id}`)}
+						url={getRelativeLocaleUrl(lang, `/updates/${post.id}`)}
 							
 					/>
 				))
