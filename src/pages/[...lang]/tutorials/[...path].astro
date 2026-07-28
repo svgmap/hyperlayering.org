@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from "astro:content";
+import { defaultLang } from "@i18n/ui";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import TutorialLayout from "@layouts/TutorialLayout.astro";
+export async function getStaticPaths() {
+	const tutorials = await getCollection("tutorial");
+	return tutorials.map((tutorial) => {
+		const [lang, ...id] = tutorial.id.split("/");
+		return {
+			params: {
+				lang: lang !== defaultLang ? lang : undefined,
+				path: id.join("/"),
+			},
+			props: { tutorial: tutorial },
+		};
+	});
+}
+
+const lang = getLangFromUrl(Astro.url);
+const { tutorial } = Astro.props;
+const { Content } = await render(tutorial);
+---
+<BaseLayout pageTitle={`Tutorials`}>
+  <TutorialLayout lang={lang}>
+    <article class="flow flow--dense">
+      <Content />
+    </article>
+  </TutorialLayout>
+</BaseLayout>
+
+<style scoped>
+
+</style>
