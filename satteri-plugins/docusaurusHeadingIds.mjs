@@ -18,7 +18,7 @@ export const docusaurusHeadingIds = () =>
 					const updatedText = rawText.replace(headingFormatRegex, "").trim();
 					return {
 						...node,
-						id,
+						properties: { ...node.properties, id },
 						children: [{ type: "text", value: updatedText }],
 					};
 				}
