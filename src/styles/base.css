@@ -134,11 +134,39 @@ dl {
 	max-width: var(--paragraph-width);
 }
 
+[role="region"][aria-labelledby][tabindex] {
+		overflow: auto;
+	}
+
+	[role="region"][aria-labelledby][tabindex]:focus {
+	outline: .1em solid rgba(0,0,0,.1);
+	}
+
 table {
 	border-collapse: collapse;
-	border-spacing: 0;
-	min-width: 100%;
-	border-color: solid 1px var(--text-tertiary);
+	border-spacing: 2px;
+	width: max(var(--paragraph-width), 100%);
+	table-layout: fixed;
+}
+
+thead {
+	border-block-end: 2px solid;
+	background-color: var(--bg-secondary);
+}
+
+tfoot {
+	border-block-end: 2px solid;
+	background-color: var(--bg-secondary);
+}
+
+th,
+caption {
+	text-align: start;
+}
+
+thead th:not(:first-child),
+td {
+	text-align: end;
 }
 
 /* === UTILITIES === */

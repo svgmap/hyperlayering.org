@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { isValidLang } from "@i18n/utils";
 import type { Loader } from "astro/loaders";
 import { z } from "astro/zod";
 import { glob } from "tinyglobby";
@@ -26,11 +27,15 @@ const tutorialLoader = (): Loader => {
 				const raw = await readFile(fileUrl, "utf-8");
 
 				const rendered = await renderMarkdown(raw, { fileURL: fileUrl });
-				if (!rendered.metadata?.frontmatter) return;
+				if (!rendered.metadata?.frontmatter) continue;
+
 				const id = file.replace(/(index\.md|\.md)$/, "");
+				// Removing empty "segment" strings + removing segments that match valid langs/locale 
+				const segments = id.split("/").filter(Boolean).filter((i) => !isValidLang(i));
+				const group = segments.slice(0, -1);
 				const data = await parseData({
 					id,
-					data: rendered.metadata.frontmatter,
+					data: { ...rendered.metadata.frontmatter, group },
 				});
 
 				store.set({
@@ -43,6 +48,8 @@ const tutorialLoader = (): Loader => {
 		},
 		schema: z.object({
 			title: z.string(),
+			group: z.array(z.string()).default([]),
+			sidebar_position: z.number().optional(),
 		}),
 	};
 };

@@ -1,36 +1,20 @@
 ---
 import { getCollection } from "astro:content";
 import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
+import DocSidepanel from "@components/DocSidepanel.svelte";
 import { defaultLang } from "@i18n/ui";
 
 interface Props {
-	lang: string;
+  lang: string;
 }
 const { lang = defaultLang } = Astro.props;
 const tutorials = await getCollection("tutorial", ({ id }) => {
-	return id.startsWith(`${lang}/`);
+  return id.startsWith(`${lang}/`);
 });
 ---
 
 <div class="sidepanel-layout">
-  <nav>
-    <ul>
-      {
-        tutorials.map((tutorial) => (
-          <li>
-            <a
-              href={getRelativeLocaleUrl(
-                lang,
-                `tutorials/${tutorial.id.replace(`${lang}/`, "")}`,
-              )}
-            >
-              {tutorial.data.title}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
+  <DocSidepanel items={tutorials} lang={lang} />
   <main class="layout flow">
     <slot class="page-content" />
   </main>
@@ -52,7 +36,6 @@ const tutorials = await getCollection("tutorial", ({ id }) => {
       padding: var(--space-sm);
       background-color: var(--bg-secondary);
     }
-
   }
 
   [id]::before {
