@@ -7,11 +7,26 @@ import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import { cleanMarkdownLinks } from "./satteri-plugins/cleanMarkdownLinks.mjs";
 import { docusaurusHeadingIds } from "./satteri-plugins/docusaurusHeadingIds.mjs";
-import { extractH1 } from "./satteri-plugins/extractH1.mjs";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://hyperlayering.org/",
+
+  markdown: {
+    processor: satteri({
+      hastPlugins: [docusaurusHeadingIds(), cleanMarkdownLinks()],
+      features: { directive: true },
+    }),
+  },
+
+  i18n: {
+    locales: ["en", "ja"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   integrations: [
     svelte(),
     sitemap(),
@@ -26,16 +41,15 @@ export default defineConfig({
       title: "Docs",
       disable404Route: true,
       logo: {
-        src: "./src/assets/icons/logo.svg"
+        src: "./src/assets/icons/logo.svg",
       },
-      customCss: [
-        "./src/styles/starlight.css"
-      ],
+      customCss: ["./src/styles/starlight.css"],
       sidebar: [
+        { slug: "tutorials" },
         {
           label: "Part 1: Basics",
           translations: {
-            ja: "Part 1: 基本編"
+            ja: "Part 1: 基本編",
           },
           collapsed: true,
           items: [
@@ -47,12 +61,12 @@ export default defineConfig({
             "tutorials/1-basic/tutorial-3",
             "tutorials/1-basic/tutorial-3b",
             "tutorials/1-basic/tutorial-4",
-          ]
+          ],
         },
         {
           label: "Part 2: WebApp Layer Edition",
           translations: {
-            ja: "Part 2: WebApp Layer編"
+            ja: "Part 2: WebApp Layer編",
           },
           collapsed: true,
           items: [
@@ -65,12 +79,12 @@ export default defineConfig({
             "tutorials/2-webapp-layer-edition/tutorial-9b",
             "tutorials/2-webapp-layer-edition/tutorial-10",
             "tutorials/2-webapp-layer-edition/tutorial-11",
-          ]
+          ],
         },
         {
           label: "Part 3: Web Service Integration",
           translations: {
-            ja: "Part 3: ウェブサービス結合編"
+            ja: "Part 3: ウェブサービス結合編",
           },
           collapsed: true,
           items: [
@@ -80,40 +94,24 @@ export default defineConfig({
             "tutorials/3-web-service-integration/tutorial-13",
             "tutorials/3-web-service-integration/tutorial-14",
             "tutorials/3-web-service-integration/tutorial-15",
-          ]
+          ],
         },
         {
           label: "Part 4: Utilizing Existing WebApp Layers",
           translations: {
-            ja: "Part 4: 既成WebApp Layer活用編"
+            ja: "Part 4: 既成WebApp Layer活用編",
           },
           collapsed: true,
           items: [
             "tutorials/4-utilizing-existing-webapp-layers",
             "tutorials/4-utilizing-existing-webapp-layers/using-svgmapapplayers-on-github-pages",
             "tutorials/4-utilizing-existing-webapp-layers/copy-svgmapapplayers",
-          ]
+          ],
         },
       ],
-      defaultLocale: 'root',
-    })
-  ],
-
-  markdown: {
-    processor: satteri({
-      mdastPlugins: [extractH1()],
-      hastPlugins: [docusaurusHeadingIds(), cleanMarkdownLinks()],
-      features: { directive: true },
+      defaultLocale: "root",
     }),
-  },
-
-  i18n: {
-    locales: ["en", "ja"],
-    defaultLocale: "en",
-    routing: {
-      prefixDefaultLocale: false,
-    },
-  },
+  ],
 
   adapter: cloudflare(),
 });
