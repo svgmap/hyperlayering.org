@@ -21,5 +21,4 @@ const word: string = "text!"
 console.log(string);
 ```
 
-
 Lets see if this works!
