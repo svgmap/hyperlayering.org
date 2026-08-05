@@ -1,7 +1,6 @@
 /* Custom CSS applied directly to starlight -- overriding default values */
 @import "./variables.css";
 
-
 /* Dark mode colors. */
 :root {
 	--sl-color-accent-low: oklch(from var(--accent) calc(l - 0.3) c h);
@@ -16,11 +15,10 @@
 	--sl-color-gray-6: var(--dark-grey);
 	--sl-color-black: var(--black);
 
-	--sl-font: "Archivo","Zen Kaku Gothic New", sans-serif;
-
+	--sl-font: "Archivo", "Zen Kaku Gothic New", sans-serif;
 }
 /* Light mode colors. */
-:root[data-theme='light'] {
+:root[data-theme="light"] {
 	--sl-color-accent-low: oklch(from var(--sl-color-accent) calc(l + 0.3) c h);
 	--sl-color-accent: oklch(from var(--accent) calc(l - 0.3) c h);
 	--sl-color-accent-high: oklch(from var(--sl-color-accent) calc(l - 0.3) c h);
