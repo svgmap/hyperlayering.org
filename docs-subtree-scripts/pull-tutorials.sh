@@ -1,1 +1,2 @@
+#!/bin/bash
 git subtree pull --prefix=src/content/docs git@github.com:svgmap/tutorials.git astro-tutorials-format --squash
