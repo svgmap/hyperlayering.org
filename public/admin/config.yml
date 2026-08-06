@@ -1,17 +1,43 @@
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 backend:
-  name: test-repo
+  name: github
+  repo: svgmap/hyperlayering.org
+  branch: cms-test-sveltia
   auth: [oauth]
 
-media_folder: /public/media
-public_folder: /media
+media_folder: /public/assets
+public_folder: /assets
+
+i18n:
+  structure: multiple_folders
+  locales: [en, ja]
+  default_locale: en
 
 collections:
-  - name: posts
-    label: Posts
-    label_singular: Post
-    folder: /content/posts
+  - name: updates
+    label: Updates
+    label_singular: Update
+    folder: src/updates
+    i18n: true
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Date, name: date, widget: datetime, type: date }
-      - { label: Body, name: body, widget: richtext }
+      - name: title
+        label: Title
+        widget: string
+        i18n: true
+      - name: author
+        label: Author
+        widget: string
+        i18n: duplicate
+      - name: date
+        label: Date
+        widget: datetime
+        type: date
+        i18n: duplicate
+      - name: description
+        label: Description
+        widget: string
+        i18n: true
+      - name: body 
+        label: Body 
+        widget: richtext 
+        i18n: true

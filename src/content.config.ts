@@ -6,12 +6,12 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const update = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/updates" }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/updates" }),
 	schema: z.object({
 		title: z.string(),
 		author: z.string(),
+		date: z.coerce.date(),
 		description: z.string(),
-		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 	}),
 });
