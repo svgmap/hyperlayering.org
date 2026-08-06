@@ -5,18 +5,18 @@ import { defaultLang, languages } from "@i18n/ui";
 import { getLangFromUrl } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 export async function getStaticPaths() {
-	const posts = await getCollection("update");
-	const locales = Object.keys(languages);
-	const TEMP_localePosts = locales.flatMap((locale) =>
-		posts.map((post) => ({
-			params: {
-				lang: locale !== defaultLang ? locale : undefined,
-				id: post.id,
-			},
-			props: { post },
-		})),
-	);
-	return TEMP_localePosts;
+  const updates = await getCollection("update");
+  const parsedUpdates = updates.map((post) => {
+    const [updateLang, updateId] = post.id.split("/");
+    return {
+      params: {
+        lang: updateLang !== defaultLang ? updateLang : undefined,
+        id: updateId,
+      },
+      props: { post },
+    };
+  });
+  return parsedUpdates
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -30,7 +30,7 @@ const { Content } = await render(post);
       <section class="stack header-section">
         <small
           ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a
-          >&nbsp;/&nbsp;{post.id}</small
+          >/{post.id}</small
         >
         <h1 class="title">{post.data.title}</h1>
         <div>
@@ -38,7 +38,7 @@ const { Content } = await render(post);
           &nbsp;&mdash;&nbsp;
           <span
             >{
-              post.data.pubDate.toLocaleString("en-GB", { dateStyle: "short" })
+              post.data.date.toLocaleString("en-GB", { dateStyle: "short" })
             }</span
           >
         </div>
