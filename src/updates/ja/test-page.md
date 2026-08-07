@@ -1,25 +1,26 @@
 ---
-title: aoisdhoauishdioausd
+title: テストページ
 author: Ethan McIntyre
 date: 2026-08-05
 description: Sveltiaからのテスト投稿
 ---
 
-A new page!
+新しいページです！
 
-## With headers
+## ヘッダー付き
 
-### Of differing sizes
+### 大きさが異なる
 
-- we can use lists
-- like you would in markdown!
+-   リストを使用できます
+-   マークダウンと同じように！
 
-and blocks of code:
+そしてコードブロック：
 
-```typescript
-// with syntax highlight (thanks astro)!
-const word: string = "text!"
-console.log(string);
+```plain
+// with syntax highlight (thanks astro)!</span> <span class="token keyword">const</span> word <span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">"text!"</span> <span class="token builtin">console</span> <span class="token punctuation">.</span> <span class="token function">log</span> <span class="token punctuation">(</span> <span class="token builtin">string</span> <span class="token punctuation">)</span> <span class="token punctuation">;</span>
 ```
 
-Lets see if this works!
+これがうまくいくかどうか見てみましょう！
+
+```plain
+```
