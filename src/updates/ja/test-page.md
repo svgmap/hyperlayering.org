@@ -1,8 +1,8 @@
 ---
-title: Test Page
+title: test
 author: Ethan McIntyre
-description: "Sveltiaからのテスト投稿"
 date: 2026-08-05
+description: Sveltiaからのテスト投稿
 ---
 
 A new page!

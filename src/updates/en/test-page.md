@@ -1,8 +1,8 @@
 ---
 title: Test Page
 author: Ethan McIntyre
-description: "A Test Post From Sveltia"
 date: 2026-08-05
+description: A Test Post From Sveltia
 ---
 
 A new page!
