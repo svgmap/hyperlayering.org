@@ -1,5 +1,5 @@
 ---
-title: ようこそ！
+title: ようこそ！HLA
 author: Rui Takita
 date: 2026-08-11
 description: ここはテストです

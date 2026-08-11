@@ -1,5 +1,5 @@
 ---
-title: welcome!
+title: Welcome to HLA!
 author: Rui Takita
 date: 2026-08-11
 description: This is a test.
