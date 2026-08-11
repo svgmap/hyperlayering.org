@@ -5,10 +5,10 @@ import UpdateCard from "@components/UpdateCard.svelte";
 import { getLangFromUrl, useTranslations } from "@i18n/utils.ts";
 
 const lang = getLangFromUrl(Astro.url);
-const updates = await getCollection("update", ({ id }) => {
+const updates = (await getCollection("update", ({ id }) => {
 	const [updateLang, updateId] = id.split("/");
 	if(updateLang === lang) return updateId; 
-});
+})).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const t = useTranslations(lang);
 ---
