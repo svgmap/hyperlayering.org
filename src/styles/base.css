@@ -318,8 +318,7 @@
 	font-weight: bold;
 	cursor: pointer;
 	min-width: fit-content;
-	transition: 
-		all var(--timing-fastest) ease-in;
+	transition: all var(--timing-fastest) ease-in;
 	transition-behavior: allow-discrete;
 
 	&:hover {
