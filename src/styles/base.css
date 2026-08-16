@@ -210,6 +210,10 @@
 		max-width: 66%;
 		margin: var(--_flow-space, 1em) auto;
 	}
+
+	&.flow--dense {
+		--flow-space: var(--space-sm);
+	}
 }
 
 .stack {
