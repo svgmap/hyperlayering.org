@@ -1,9 +1,14 @@
 // Components
-
 interface IconProps {
 	size?: number | string;
 	color?: string;
 	className?: string;
+}
+
+interface NavMenuItem {
+	id: string;
+	title: string;
+	subItems: MenuItem[] | undefined;
 }
 
 // Extending svelteHTML to utilize custom button attributes for CSS

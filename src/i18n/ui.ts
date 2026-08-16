@@ -10,8 +10,9 @@ export const defaultLang = "en";
 export const ui = {
 	en: {
 		"nav.home": "Home",
+		"nav.tutorials": "Tutorials",
 		"nav.demos": "Demos",
-		"nav.blog": "Blog",
+		"nav.updates": "Updates",
 		"nav.lang-btn.label": "Change Language",
 		"nav.github.message": "Explore the project on GitHub",
 		"page.home.title": "Hyper Layering",
@@ -29,7 +30,7 @@ export const ui = {
 		"page.home.features.open-source.body":
 			"HLA is a fully open-source project that is actively maintained and has been used by enterprises for 15+ years.",
 		"page.home.demos.title": "See Hyper Layering in action",
-		"page.blog.title": "Blog",
+		"page.updates.title": "Updates",
 		"page.demos.title": "Demos",
 		"page.404.title": "404",
 		"page.404.subtitle": "This page could not found",

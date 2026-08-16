@@ -1,9 +1,9 @@
 ---
-import "styles/base.css";
+import "@styles/base.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import Footer from "components/Footer/Footer.svelte";
-import Header from "components/Header/Header.svelte";
-import { getLangFromUrl, useTranslations } from "i18n/utils.ts";
+import Footer from "@components/Footer/Footer.svelte";
+import Header from "@components/Header/Header.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils.ts";
 
 interface Props {
 	pageTitle?: string | undefined;
@@ -25,11 +25,11 @@ const t = useTranslations(lang);
 	</head>
 	<body>
 		<Header 
-			client:only="svelte"
 			links={[
-				{ href: getRelativeLocaleUrl(lang, "/"), label: t("nav.home") }, 
+				{ href: getRelativeLocaleUrl(lang, "/"), label: t("nav.home") },
+				{ href: getRelativeLocaleUrl(lang, "/tutorials"), label: t("nav.tutorials") }, 
 				{ href: getRelativeLocaleUrl(lang, "/demos"),  label: t("nav.demos") }, 
-				{ href: getRelativeLocaleUrl(lang, "/blog"), label: t("nav.blog") }]}
+				{ href: getRelativeLocaleUrl(lang, "/updates"), label: t("nav.updates") }]}
 			currentUrl={url}
 		>
 		</Header>

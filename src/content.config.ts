@@ -1,10 +1,12 @@
 // Defining schemas for content
 import { defineCollection } from "astro:content";
+import { docsLoader } from "@astrojs/starlight/loaders";
+import { docsSchema } from "@astrojs/starlight/schema";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-const blog = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/blog" }),
+const update = defineCollection({
+	loader: glob({ pattern: "**/*.md", base: "./src/updates" }),
 	schema: z.object({
 		title: z.string(),
 		author: z.string(),
@@ -14,4 +16,9 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const docs = defineCollection({
+	loader: docsLoader(),
+	schema: docsSchema(),
+});
+
+export const collections = { update, docs };
