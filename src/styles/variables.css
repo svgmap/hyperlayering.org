@@ -55,6 +55,7 @@
 	--font-wide: 125%;
 
 	/* ==== Timing ==== */
-	--timing-fast: 200ms;
+	--timing-fastest: 100ms;
+	--timing-fast: 250ms;
 	--timing-normal: 500ms;
 }

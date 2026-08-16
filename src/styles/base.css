@@ -305,6 +305,7 @@
 .button {
 	--button-color: var(--bg-tertiary);
 	--text-color: var(--text-main);
+	--hover-color: oklch(from var(--button-color) l c h / 0.8);
 
 	background-color: var(--button-color);
 	color: var(--text-color);
@@ -312,15 +313,19 @@
 	/* Base button styling */
 	border-radius: var(--round-lg);
 	padding: var(--space-xs) var(--space-sm);
-	border: 2px solid var(--text-main);
+	outline: 2px solid var(--text-main);
+	outline-offset: -2px;
 	font-weight: bold;
 	cursor: pointer;
 	min-width: fit-content;
-	transition: box-shadow var(--timing-normal);
+	transition: 
+		all var(--timing-fastest) ease-in;
+	transition-behavior: allow-discrete;
 
 	&:hover {
-		outline: 1px solid var(--text-main);
-		box-shadow: 0 5px 10px oklch(from var(--mid-grey) l c h / 0.5);
+		outline-width: 3px;
+		box-shadow: 0 0 10px oklch(from var(--text-tertiary) l c h / 0.5);
+		background-color: var(--hover-color);
 	}
 
 	&.accent {
