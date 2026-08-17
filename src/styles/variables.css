@@ -26,7 +26,7 @@
 	--accent-pair-text: var(--black);
 	--bg-primary: light-dark(var(--white), var(--black));
 	--bg-secondary: light-dark(var(--off-white), var(--dark-grey));
-	--bg-tertiary: light-dark(var(--light-grey), var(--mid-grey));
+	--bg-tertiary: light-dark(var(--mid-white), var(--mid-grey));
 
 	/* ==== Spacing ==== */
 	--space-xs: 0.25rem;
