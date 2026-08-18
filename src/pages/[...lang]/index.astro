@@ -22,9 +22,9 @@ export async function getStaticPaths() {
   <main>
     <section class="auto-grid grid-lg landing">
       <div class="landing-intro stack">
-        <h1 class="header">{t("page.home.title")}</h1>
-        <p class="subtitle">{t("page.home.tagline")}</p>
-        <div class="row">
+        <h1 class="header fade-slide-in">{t("page.home.title")}</h1>
+        <p class="subtitle fade-slide-in" style="--delay: 200ms;">{t("page.home.tagline")}</p>
+        <div class="row fade-in" style="--delay: 600ms;">
           <a href={getRelativeLocaleUrl(lang, "tutorials")}
             ><button class="button accent"
               >{t("page.home.get-started-btn")}</button
@@ -67,7 +67,7 @@ export async function getStaticPaths() {
     background-image:
       radial-gradient(
         circle at 100% 50%,
-        oklch(from var(--green) l c h / 0.5) 0%,
+        oklch(from var(--green) l c h / 0.3) 0%,
         transparent 50%
       ),
       radial-gradient(
@@ -76,11 +76,11 @@ export async function getStaticPaths() {
         transparent 50%
       ),
       radial-gradient(
-        circle at 100% 100%,
-        oklch(from var(--purple) l c h / 0.5) 0%,
-        transparent 25%
+        circle at 0% 100%,
+        oklch(from var(--purple) l c h / 0.2) 0%,
+        transparent 50%
       ),
-      radial-gradient(circle at 25% 50%, var(--bg-primary) 0%, transparent 75%);
+      radial-gradient(circle at 50% 30%, var(--bg-primary) 0%, transparent 60%);
     background-blend-mode: hue;
     position: relative;
 
@@ -94,11 +94,11 @@ export async function getStaticPaths() {
       height: 100%;
       content: "";
       background-image: url("/city_full.svg");
-      background-size: cover;
+      background-size: 200%;
       background-repeat: no-repeat;
       background-position-x: center;
-      background-position-y: 30cqh;
-      background-blend-mode: multiply;
+      background-position-y: bottom -70cqh;
+      mix-blend-mode: luminosity;
     }
 
     .landing-intro {
@@ -110,11 +110,11 @@ export async function getStaticPaths() {
     }
 
     .header {
-      font-size: var(--text-4xl);
+      font-size: var(--font-4xl);
     }
 
     .subtitle {
-      font-size: var(--text-lg);
+      font-size: var(--font-lg);
       margin-bottom: var(--space-sm);
     }
   }
