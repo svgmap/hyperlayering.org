@@ -314,7 +314,9 @@
 	border-radius: var(--round-lg);
 	padding: var(--space-xs) var(--space-sm);
 	outline: 2px solid var(--text-main);
-	outline-offset: -2px;
+	outline-offset: -1.5px;
+	box-shadow: none;
+	border: 0;
 	font-weight: bold;
 	cursor: pointer;
 	min-width: fit-content;
@@ -347,4 +349,36 @@
 	&:hover {
 		color: var(--text-tertiary);
 	}
+}
+
+/* === ANIMATIONS === */
+
+@keyframes fade-slide-in {
+	from {
+		opacity: 0;
+		transform: translateY(calc(var(--space-md)));
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.fade-slide-in {
+	--_timing: var(--timing, var(--timing-slow));
+	--_delay: var(--delay, 0ms);
+	animation: var(--_timing) ease-out var(--_delay) fade-slide-in;
+	animation-fill-mode: both;
+}
+
+.fade-in {
+	--_timing: var(--timing, var(--timing-slow));
+	--_delay: var(--delay, 0ms);
+	animation: var(--_timing) ease-out var(--_delay) fade-in;
+	animation-fill-mode: both;
 }
