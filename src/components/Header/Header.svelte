@@ -37,15 +37,14 @@ const toggleMenu = () => {
     <Logo></Logo>
     <span class="typemark">{title}</span>
   </a>
-  <nav class={"nav " + [menuOpen && "nav-open"]}>
+  <nav class="nav" class:nav-open={menuOpen} aria-describedby="nav-menu">
     {#each links as link}
-      <a class="nav-item" href={`${link.href}`}>{link.label}</a>
+      <a class="nav-item" href={link.href}>{link.label}</a>
     {/each}
     <button
       aria-label={t("nav.lang-btn.label")}
       name={t("nav.lang-btn.label")}
       class="lang-button icon-wrapper"
-      button-type="icon-wrapper"
       popovertarget="lang-popover"><Languages /></button
     >
     <a
@@ -55,12 +54,16 @@ const toggleMenu = () => {
       aria-label={t("nav.github.message")}
       title={t("nav.github.message")}
       class="icon-wrapper"
-      role="button"
     >
       <GitHub></GitHub>
     </a>
   </nav>
-  <button class="icon-wrapper mobile-menu-toggle" onclick={toggleMenu}>
+  <button
+    aria-controls="nav-menu"
+    aria-expanded={menuOpen}
+    class="icon-wrapper mobile-menu-toggle"
+    onclick={toggleMenu}
+  >
     {#if !menuOpen}
       <Menu></Menu>
     {:else}
@@ -71,8 +74,7 @@ const toggleMenu = () => {
     <ul role="list">
       {#each Object.entries(languages) as [code, label]}
         <li>
-          <a
-            href={`${getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}`}
+          <a href={getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}
             >{label}</a
           >
         </li>
@@ -84,8 +86,7 @@ const toggleMenu = () => {
 <style>
   .site-header {
     position: sticky;
-    top: 0;
-    max-width: 100%;
+    inset-block-start: 0;
     z-index: 1;
     height: var(--header-height);
     display: flex;
@@ -93,9 +94,10 @@ const toggleMenu = () => {
     align-items: center;
     padding: var(--space-sm) var(--space-md);
     background: var(--bg-primary);
+    font-size: var(--font-base);
     color: var(--text-main);
-    border-bottom: solid 1px var(--bg-tertiary);
     transition: color var(--timing-normal) ease-out;
+    border-block-end: 1px solid var(--bg-tertiary);
 
     .brand {
       color: inherit;
@@ -126,17 +128,17 @@ const toggleMenu = () => {
 
   .nav {
     display: flex;
-    flex-direction: row;
     gap: var(--space-sm);
     align-items: center;
-    color: var(--text-main);
 
     .nav-item {
-      font-size: var(--font-base);
       color: inherit;
       text-decoration-color: transparent;
       text-underline-offset: var(--space-sm);
-      transition: all var(--timing-fast);
+      transition:
+        color var(--timing-fast),
+        text-decoration-color var(--timing-fast),
+        text-underline-offset var(--timing-fast);
       &:hover {
         color: var(--text-secondary);
         text-decoration: underline solid var(--accent) 2px;

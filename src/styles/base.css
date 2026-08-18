@@ -219,11 +219,11 @@
 }
 
 .row {
-	--_gap: var(--space-xs);
-	--_row-justify: var(--_row-justifystart);
+	--_gap: var(--gap, var(--space-xs));
+	--_row-justify: var(--row-justify, start);
 	display: flex;
 	flex-direction: row;
-	justify-content: var(--start);
+	justify-content: var(--_row-justify);
 	gap: var(--_gap);
 
 	&.row--even-space {
@@ -337,7 +337,7 @@
 
 .icon-wrapper {
 	height: fit-content;
-    width: fit-content;
+	width: fit-content;
 	background-color: transparent;
 	color: var(--text-main);
 	border-radius: 0;
@@ -366,8 +366,12 @@
 }
 
 @keyframes fade-in {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .fade-slide-in {
