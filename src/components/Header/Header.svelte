@@ -39,7 +39,7 @@ const toggleMenu = () => {
   </a>
   <nav class={"nav " + [menuOpen && "nav-open"]}>
     {#each links as link}
-      <a href={`${link.href}`}>{link.label}</a>
+      <a class="nav-item" href={`${link.href}`}>{link.label}</a>
     {/each}
     <button
       aria-label={t("nav.lang-btn.label")}
@@ -131,13 +131,21 @@ const toggleMenu = () => {
     align-items: center;
     color: var(--text-main);
 
-    a {
-      font-size: var(--text-);
+    .nav-item {
+      font-size: var(--font-base);
       color: inherit;
-      text-decoration: none;
+      text-decoration-color: transparent;
+      text-underline-offset: var(--space-sm);
+      transition: all var(--timing-fast);
+      &:hover {
+        color: var(--text-secondary);
+        text-decoration: underline solid var(--accent) 2px;
+        text-underline-offset: var(--space-xs);
+      }
     }
 
     @media screen and (max-width: 98ch) {
+      --_mobile-nav-width: 66vw;
       background-color: var(--bg-secondary);
       border-left: solid 1px var(--bg-tertiary);
       padding: var(--space-lg);
@@ -145,11 +153,11 @@ const toggleMenu = () => {
       top: 0;
       right: 0;
       height: 100vh;
-      width: 66vw;
+      width: var(--_mobile-nav-width);
       flex-direction: column;
       gap: var(--space-md);
       align-items: start;
-      transition-property: opacity, display;
+      transition-property: opacity, display, transform;
       transition-duration: var(--timing-fast);
       transition-behavior: allow-discrete;
       display: none;
@@ -158,9 +166,15 @@ const toggleMenu = () => {
       &.nav-open {
         display: flex;
         opacity: 1;
+        transform: translateX(0);
+
+        @starting-style {
+          opacity: 0;
+          transform: translateX(50%);
+        }
       }
 
-      a {
+      .nav-item {
         font-size: var(--font-xl);
       }
     }
@@ -205,6 +219,8 @@ const toggleMenu = () => {
     a {
       display: block;
       text-align: center;
+      color: inherit;
+      text-decoration: none;
       padding: var(--space-xs) var(--space-sm);
       border-radius: var(--round-xs);
       &:hover {
