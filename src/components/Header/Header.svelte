@@ -101,7 +101,7 @@ const toggleMenu = () => {
       color: inherit;
       text-decoration: none;
       align-items: center;
-      font-size: var(--text-xl);
+      font-size: var(--font-xl);
       font-weight: 700;
       transition: all var(--timing-fast);
       @media screen and (max-width: 98ch) {
@@ -131,6 +131,12 @@ const toggleMenu = () => {
     align-items: center;
     color: var(--text-main);
 
+    a {
+      font-size: var(--text-);
+      color: inherit;
+      text-decoration: none;
+    }
+
     @media screen and (max-width: 98ch) {
       background-color: var(--bg-secondary);
       border-left: solid 1px var(--bg-tertiary);
@@ -155,9 +161,7 @@ const toggleMenu = () => {
       }
 
       a {
-        font-size: var(--text-xl);
-        color: inherit;
-        text-decoration: none;
+        font-size: var(--font-xl);
       }
     }
   }
@@ -189,7 +193,7 @@ const toggleMenu = () => {
     }
 
     @media screen and (max-width: 98ch) {
-      font-size: var(--text-2xl);
+      font-size: var(--font-2xl);
     }
 
     ul {

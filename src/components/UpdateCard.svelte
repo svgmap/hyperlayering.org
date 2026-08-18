@@ -28,7 +28,7 @@ let { title, author, date, url }: BlogPostCardProps = $props();
     transition: background-color var(--timing-normal) ease-out;
 
     .title {
-      font-size: var(--text-xl);
+      font-size: var(--font-xl);
       font-weight: bold;
     }
 
