@@ -54,7 +54,7 @@ const toggleMenu = () => {
       rel="noopener noreferrer"
       aria-label={t("nav.github.message")}
       title={t("nav.github.message")}
-      class="github-button"
+      class="icon-wrapper"
       role="button"
     >
       <GitHub></GitHub>
@@ -97,26 +97,21 @@ const toggleMenu = () => {
     border-bottom: solid 1px var(--bg-tertiary);
     transition: color var(--timing-normal) ease-out;
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      font-size: var(--text-base);
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     .brand {
       color: inherit;
       text-decoration: none;
       align-items: center;
       font-size: var(--text-xl);
       font-weight: 700;
+      transition: all var(--timing-fast);
       @media screen and (max-width: 98ch) {
         .typemark {
           display: none;
         }
+      }
+
+      &:hover {
+        color: var(--accent);
       }
     }
 
@@ -134,6 +129,7 @@ const toggleMenu = () => {
     flex-direction: row;
     gap: var(--space-sm);
     align-items: center;
+    color: var(--text-main);
 
     @media screen and (max-width: 98ch) {
       background-color: var(--bg-secondary);
@@ -160,14 +156,10 @@ const toggleMenu = () => {
 
       a {
         font-size: var(--text-xl);
+        color: inherit;
+        text-decoration: none;
       }
     }
-  }
-
-  .github-button {
-    height: fit-content;
-    width: fit-content;
-    color: var(--text-main);
   }
 
   .lang-button {

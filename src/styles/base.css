@@ -336,6 +336,8 @@
 }
 
 .icon-wrapper {
+	height: fit-content;
+    width: fit-content;
 	background-color: transparent;
 	color: var(--text-main);
 	border-radius: 0;
@@ -343,8 +345,7 @@
 	border: none;
 	font-weight: bold;
 	cursor: pointer;
-	max-width: fit-content;
-	transition: box-shadow var(--timing-normal);
+	transition: all var(--timing-fastest);
 
 	&:hover {
 		color: var(--text-tertiary);
