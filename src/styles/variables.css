@@ -58,4 +58,5 @@
 	--timing-fastest: 100ms;
 	--timing-fast: 250ms;
 	--timing-normal: 500ms;
+	--timing-slow: 850ms;
 }
