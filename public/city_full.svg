@@ -3,7 +3,10 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #fefefe;
+        fill: #F8F8F8; 
+        @media (prefers-color-scheme: dark) {
+          fill: #11161E;
+        }
         fill-rule: evenodd;
       }
 
@@ -16,12 +19,11 @@
         stroke-width: .88px;
       }
 
-      .cls-1, .cls-4 {
-        stroke: #282829;
-      }
-
-      .cls-2 {
-        stroke: #373435;
+      .cls-1, .cls-4, .cls-2 {
+        stroke: #11161E;
+        @media (prefers-color-scheme: dark) {
+          stroke: #9E9E9E;
+        }
       }
 
       .cls-2, .cls-3, .cls-4 {
@@ -29,7 +31,10 @@
       }
 
       .cls-3 {
-        stroke: #fefefe;
+        stroke: #F8F8F8;
+        @media (prefers-color-scheme: dark) {
+          stroke: #11161E;
+        }
         stroke-dasharray: 0 0 26.47 26.47;
         stroke-width: 3.53px;
       }
