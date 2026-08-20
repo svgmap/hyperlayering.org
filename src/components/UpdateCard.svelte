@@ -1,12 +1,12 @@
 <script lang="ts">
-interface BlogPostCardProps {
+interface UpdateCardProps {
 	title: string;
 	author: string;
 	date: Date;
 	url: string;
 }
 
-let { title, author, date, url }: BlogPostCardProps = $props();
+let { title, author, date, url }: UpdateCardProps = $props();
 </script>
 
 <a href={url} aria-label="" class="post-listing" clickable="true">
