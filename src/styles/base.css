@@ -217,13 +217,17 @@
 }
 
 .stack {
-	--stack-gap: var(--space-xs);
+	--_stack-gap: var(--stack-gap, var(--space-xs));
 	display: flex;
 	flex-direction: column;
-	gap: var(--stack-gap);
+	gap: var(--_stack-gap);
+
+	&[class*="stack--sm"] {
+		--_stack-gap: var(--space-sm);
+	}
 
 	&[class*="stack--md"] {
-		--stack-gap: var(--space-md);
+		--_stack-gap: var(--space-md);
 	}
 }
 
