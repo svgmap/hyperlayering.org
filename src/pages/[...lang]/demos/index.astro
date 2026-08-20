@@ -1,7 +1,13 @@
 ---
+import busDemoImg from "@assets/images/japan_bus_route_demo.webp";
+import citiesDemoImg from "@assets/images/world_cities_demo.webp";
+import DemoCard from "@components/DemoCard.svelte";
 import { defaultLang, languages } from "@i18n/ui";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Demos from "@layouts/pageLayouts/Demos.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 export async function getStaticPaths() {
 	const locales = Object.keys(languages);
 	return locales.map((locale) => ({
@@ -10,5 +16,29 @@ export async function getStaticPaths() {
 }
 ---
 <BaseLayout>
-  <Demos />
+<main class="layout--wide">
+	<h1 class="page-title">{t("page.demos.title")}</h1>
+	<div class="auto-grid">
+		{
+			<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={busDemoImg.src} url="#" title="Demo Title"></DemoCard>
+			<DemoCard imageUrl={citiesDemoImg.src} url="#" title="Demo Title"></DemoCard>
+		}
+	</div>
+</main>
 </BaseLayout>
+
+<style scoped>
+	.page-title {
+		margin-bottom: var(--space-sm);
+	}
+</style>

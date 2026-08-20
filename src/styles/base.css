@@ -19,7 +19,7 @@
 
 	html {
 		color-scheme: light dark;
-		font-size: var(--text-base);
+		font-size: var(--font-base);
 		color: var(--text-main);
 		background-color: var(--bg-primary);
 		scrollbar-gutter: stable;
@@ -91,14 +91,14 @@
 		text-align: center;
 		font-width: var(--font-wide);
 		font-stretch: var(--font-wide);
-		font-size: var(--text-3xl);
+		font-size: var(--font-3xl);
 		font-weight: 700;
 		line-height: 1.1;
 		letter-spacing: -0.03em;
 	}
 
 	h2 {
-		font-size: var(--text-2xl);
+		font-size: var(--font-2xl);
 		font-weight: 700;
 		line-height: 1.2;
 		letter-spacing: -0.02em;
@@ -106,14 +106,14 @@
 	}
 
 	h3 {
-		font-size: var(--text-xl);
+		font-size: var(--font-xl);
 		font-weight: 600;
 		line-height: 1.3;
 	}
 
 	small,
 	.text-sm {
-		font-size: var(--text-sm);
+		font-size: var(--font-sm);
 	}
 
 	hr {
@@ -228,11 +228,11 @@
 }
 
 .row {
-	--_gap: var(--space-xs);
-	--_row-justify: var(--_row-justifystart);
+	--_gap: var(--gap, var(--space-xs));
+	--_row-justify: var(--row-justify, start);
 	display: flex;
 	flex-direction: row;
-	justify-content: var(--start);
+	justify-content: var(--_row-justify);
 	gap: var(--_gap);
 
 	&.row--even-space {
@@ -291,7 +291,7 @@
 	}
 
 	.title {
-		font-size: var(--text-lg);
+		font-size: var(--font-lg);
 		font-weight: 700;
 		color: var(--text-main);
 	}
@@ -314,6 +314,7 @@
 .button {
 	--button-color: var(--bg-tertiary);
 	--text-color: var(--text-main);
+	--hover-color: oklch(from var(--button-color) l c h / 0.8);
 
 	background-color: var(--button-color);
 	color: var(--text-color);
@@ -321,15 +322,20 @@
 	/* Base button styling */
 	border-radius: var(--round-lg);
 	padding: var(--space-xs) var(--space-sm);
-	border: 2px solid var(--text-main);
+	outline: 2px solid var(--text-main);
+	outline-offset: -1.5px;
+	box-shadow: none;
+	border: 0;
 	font-weight: bold;
 	cursor: pointer;
 	min-width: fit-content;
-	transition: box-shadow var(--timing-normal);
+	transition: all var(--timing-fastest) ease-in;
+	transition-behavior: allow-discrete;
 
 	&:hover {
-		outline: 1px solid var(--text-main);
-		box-shadow: 0 5px 10px oklch(from var(--mid-grey) l c h / 0.5);
+		outline-width: 3px;
+		box-shadow: 0 0 10px oklch(from var(--text-tertiary) l c h / 0.5);
+		background-color: var(--hover-color);
 	}
 
 	&.accent {
@@ -339,6 +345,8 @@
 }
 
 .icon-wrapper {
+	height: fit-content;
+	width: fit-content;
 	background-color: transparent;
 	color: var(--text-main);
 	border-radius: 0;
@@ -346,10 +354,45 @@
 	border: none;
 	font-weight: bold;
 	cursor: pointer;
-	max-width: fit-content;
-	transition: box-shadow var(--timing-normal);
+	transition: all var(--timing-fastest);
 
 	&:hover {
 		color: var(--text-tertiary);
 	}
+}
+
+/* === ANIMATIONS === */
+
+@keyframes fade-slide-in {
+	from {
+		opacity: 0;
+		transform: translateY(calc(var(--space-md)));
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.fade-slide-in {
+	--_timing: var(--timing, var(--timing-slow));
+	--_delay: var(--delay, 0ms);
+	animation: var(--_timing) ease-out var(--_delay) fade-slide-in;
+	animation-fill-mode: both;
+}
+
+.fade-in {
+	--_timing: var(--timing, var(--timing-slow));
+	--_delay: var(--delay, 0ms);
+	animation: var(--_timing) ease-out var(--_delay) fade-in;
+	animation-fill-mode: both;
 }

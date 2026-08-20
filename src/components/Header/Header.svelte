@@ -37,15 +37,14 @@ const toggleMenu = () => {
     <Logo></Logo>
     <span class="typemark">{title}</span>
   </a>
-  <nav class={"nav " + [menuOpen && "nav-open"]}>
+  <nav class="nav" class:nav-open={menuOpen} aria-describedby="nav-menu">
     {#each links as link}
-      <a href={`${link.href}`}>{link.label}</a>
+      <a class="nav-item" href={link.href}>{link.label}</a>
     {/each}
     <button
       aria-label={t("nav.lang-btn.label")}
       name={t("nav.lang-btn.label")}
       class="lang-button icon-wrapper"
-      button-type="icon-wrapper"
       popovertarget="lang-popover"><Languages /></button
     >
     <a
@@ -54,13 +53,17 @@ const toggleMenu = () => {
       rel="noopener noreferrer"
       aria-label={t("nav.github.message")}
       title={t("nav.github.message")}
-      class="github-button"
-      role="button"
+      class="icon-wrapper"
     >
       <GitHub></GitHub>
     </a>
   </nav>
-  <button class="icon-wrapper mobile-menu-toggle" onclick={toggleMenu}>
+  <button
+    aria-controls="nav-menu"
+    aria-expanded={menuOpen}
+    class="icon-wrapper mobile-menu-toggle"
+    onclick={toggleMenu}
+  >
     {#if !menuOpen}
       <Menu></Menu>
     {:else}
@@ -71,8 +74,7 @@ const toggleMenu = () => {
     <ul role="list">
       {#each Object.entries(languages) as [code, label]}
         <li>
-          <a
-            href={`${getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}`}
+          <a href={getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}
             >{label}</a
           >
         </li>
@@ -84,8 +86,7 @@ const toggleMenu = () => {
 <style>
   .site-header {
     position: sticky;
-    top: 0;
-    max-width: 100%;
+    inset-block-start: 0;
     z-index: 1;
     height: var(--header-height);
     display: flex;
@@ -93,30 +94,26 @@ const toggleMenu = () => {
     align-items: center;
     padding: var(--space-sm) var(--space-md);
     background: var(--bg-primary);
+    font-size: var(--font-base);
     color: var(--text-main);
-    border-bottom: solid 1px var(--bg-tertiary);
     transition: color var(--timing-normal) ease-out;
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      font-size: var(--text-base);
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    border-block-end: 1px solid var(--bg-tertiary);
 
     .brand {
       color: inherit;
       text-decoration: none;
       align-items: center;
-      font-size: var(--text-xl);
+      font-size: var(--font-xl);
       font-weight: 700;
+      transition: all var(--timing-fast);
       @media screen and (max-width: 98ch) {
         .typemark {
           display: none;
         }
+      }
+
+      &:hover {
+        color: var(--accent);
       }
     }
 
@@ -131,11 +128,26 @@ const toggleMenu = () => {
 
   .nav {
     display: flex;
-    flex-direction: row;
     gap: var(--space-sm);
     align-items: center;
 
+    .nav-item {
+      color: inherit;
+      text-decoration-color: transparent;
+      text-underline-offset: var(--space-sm);
+      transition:
+        color var(--timing-fast),
+        text-decoration-color var(--timing-fast),
+        text-underline-offset var(--timing-fast);
+      &:hover {
+        color: var(--text-secondary);
+        text-decoration: underline solid var(--accent) 2px;
+        text-underline-offset: var(--space-xs);
+      }
+    }
+
     @media screen and (max-width: 98ch) {
+      --_mobile-nav-width: 66vw;
       background-color: var(--bg-secondary);
       border-left: solid 1px var(--bg-tertiary);
       padding: var(--space-lg);
@@ -143,11 +155,11 @@ const toggleMenu = () => {
       top: 0;
       right: 0;
       height: 100vh;
-      width: 66vw;
+      width: var(--_mobile-nav-width);
       flex-direction: column;
       gap: var(--space-md);
       align-items: start;
-      transition-property: opacity, display;
+      transition-property: opacity, display, transform;
       transition-duration: var(--timing-fast);
       transition-behavior: allow-discrete;
       display: none;
@@ -156,18 +168,18 @@ const toggleMenu = () => {
       &.nav-open {
         display: flex;
         opacity: 1;
+        transform: translateX(0);
+
+        @starting-style {
+          opacity: 0;
+          transform: translateX(50%);
+        }
       }
 
-      a {
-        font-size: var(--text-xl);
+      .nav-item {
+        font-size: var(--font-xl);
       }
     }
-  }
-
-  .github-button {
-    height: fit-content;
-    width: fit-content;
-    color: var(--text-main);
   }
 
   .lang-button {
@@ -197,7 +209,7 @@ const toggleMenu = () => {
     }
 
     @media screen and (max-width: 98ch) {
-      font-size: var(--text-2xl);
+      font-size: var(--font-2xl);
     }
 
     ul {
@@ -209,6 +221,8 @@ const toggleMenu = () => {
     a {
       display: block;
       text-align: center;
+      color: inherit;
+      text-decoration: none;
       padding: var(--space-xs) var(--space-sm);
       border-radius: var(--round-xs);
       &:hover {

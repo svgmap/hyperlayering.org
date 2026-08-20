@@ -36,6 +36,6 @@
 .site-title {
 	font-width: var(--font-wide);
 	font-stretch: var(--font-wide);
-	font-size: var(--text-xl);
+	font-size: var(--font-xl);
 	gap: var(--space-sm);
 }
