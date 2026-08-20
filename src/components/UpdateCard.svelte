@@ -1,4 +1,6 @@
 <script lang="ts">
+  import RightArrow from "./Icons/RightArrow.svelte";
+
 interface UpdateCardProps {
 	title: string;
 	author: string;
@@ -17,12 +19,12 @@ let { title, author, description, date, url }: UpdateCardProps = $props();
     <div class="row details">
       <span class="post-author">{author}</span><span>&#x2022</span>
       <span class="post-date">{date.toLocaleString("en", { dateStyle: "long" })}</span>
-
+      <RightArrow size="1rem" className="details-arrow"/>
     </div>
   </article>
 </a>
 
-<style scoped>
+<style>
 
   .post-listing {
     color: var(--text-primary);
@@ -52,6 +54,11 @@ let { title, author, description, date, url }: UpdateCardProps = $props();
     .details {
       color: var(--text-tertiary);
       font-size: var(--font-sm);
+    }
+
+    .details-arrow {
+      visibility: none;
+      display: none;
     }
 
     &:hover {
