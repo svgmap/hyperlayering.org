@@ -39,6 +39,7 @@ export async function getStaticPaths() {
                 author={post.data.author}
                 date={post.data.date}
                 url={getRelativeLocaleUrl(lang, `/updates/${updateId}`)}
+                lang={lang}
               />
             );
           })
