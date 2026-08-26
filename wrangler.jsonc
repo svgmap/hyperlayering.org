@@ -7,8 +7,8 @@
 		"not_found_handling": "404-page"
 	},
 	"images": {
-    	"binding": "IMAGES"
-  	},
+		"binding": "IMAGES"
+	},
 	"observability": {
 		"enabled": false,
 		"head_sampling_rate": 1,
