@@ -6,6 +6,9 @@
 		"directory": "./dist",
 		"not_found_handling": "404-page"
 	},
+	"images": {
+    	"binding": "IMAGES"
+  	},
 	"observability": {
 		"enabled": false,
 		"head_sampling_rate": 1,

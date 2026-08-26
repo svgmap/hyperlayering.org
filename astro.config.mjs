@@ -113,5 +113,8 @@ export default defineConfig({
 		}),
 	],
 
-	adapter: cloudflare(),
+	adapter: cloudflare({
+		imageService: { build: "cloudflare-binding", runtime: "cloudflare-binding" },
+		imagesBindingName: "IMAGES"
+	}),
 });
