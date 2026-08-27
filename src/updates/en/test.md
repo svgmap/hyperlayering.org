@@ -23,7 +23,7 @@ You're more likely to upload an image from your own device. Here I've already co
 
 Let's test by uploading an image:
 
-![Rui was there the whole time](/assets/rui.webp "Rui with the team")
+![A cool book I found](/assets/pxl_20230402_172937661.webp "A cool book I found")
 
 \`.webp\` files should also support transparency. So there should be no issues with assets with a transparent background.
 
