@@ -9,6 +9,18 @@ backend:
 media_folder: /public/assets
 public_folder: /assets
 
+media_libraries:
+  all: 
+    slugify_filename: true
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp 
+          quality: 100 
+        svg:
+          optimize: true
+
 i18n:
   structure: multiple_folders
   locales: [en, ja]
