@@ -296,7 +296,7 @@
 
 	&[clickable="true"] {
 		cursor: pointer;
-		transition-property: background-color, outline; 
+		transition-property: background-color, outline;
 		transition-behavior: allow-discrete;
 		transition-duration: var(--timing-fast);
 		outline: 0px solid var(--_border-color);
