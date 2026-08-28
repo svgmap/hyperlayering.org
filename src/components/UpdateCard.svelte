@@ -58,6 +58,7 @@ let updateLinkElement: HTMLAnchorElement | null = $state(null);
       font-stretch: var(--font-wide);
       text-decoration-color: transparent;
       text-underline-offset: var(--space-sm);
+      transition-behavior: allow-discrete;
       transition:
         color var(--timing-fast),
         text-decoration-color var(--timing-fast),
@@ -65,11 +66,14 @@ let updateLinkElement: HTMLAnchorElement | null = $state(null);
     }
 
     :global(.details-arrow) {
-      transition-property: opacity, display, transform;
-      transition-duration: var(--timing-fast);
-      transition-behavior: allow-discrete;
-      display: none;
       opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateX(-25%);
+      transition:
+        opacity var(--timing-fast),
+        transform var(--timing-fast),
+        visibility 0s linear var(--timing-fast);
     }
 
     &:hover,
@@ -77,16 +81,20 @@ let updateLinkElement: HTMLAnchorElement | null = $state(null);
       .title {
         text-decoration: underline solid var(--accent) 2px;
         text-underline-offset: var(--space-xs);
-      }
-      :global(.details-arrow) {
-        display: block;
-        opacity: 1;
-        transform: translateX(0);
 
         @starting-style {
-          opacity: 0;
-          transform: translateX(-25%);
+          text-decoration: transparent;
+          text-underline-offset: var(--space-md);
         }
+      }
+      :global(.details-arrow) {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        transition:
+          opacity var(--timing-fast),
+          transform var(--timing-fast),
+          visibility 0s;
       }
     }
   }
