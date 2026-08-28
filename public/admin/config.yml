@@ -9,6 +9,18 @@ backend:
 media_folder: /public/assets
 public_folder: /assets
 
+media_libraries:
+  all: 
+    slugify_filename: true
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp 
+          quality: 100 
+        svg:
+          optimize: true
+
 i18n:
   structure: multiple_folders
   locales: [en, ja]
@@ -42,3 +54,17 @@ collections:
         label: Body 
         widget: richtext 
         i18n: true
+        buttons: 
+          - bold
+          - italic
+          - strikethrough
+          - code
+          - link
+          - heading-two
+          - heading-three
+          - heading-four
+          - heading-five
+          - heading-six
+          - bulleted-list
+          - numbered-list
+          - quote
