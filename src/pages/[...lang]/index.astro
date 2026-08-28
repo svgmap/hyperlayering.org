@@ -34,7 +34,7 @@ export async function getStaticPaths() {
         </div>
       </div>
     </section>
-    <article class="feature-section flow">
+    <article class="feature-section layout flow">
       <h2 class="text-center">{t("page.home.features.title")}</h2>
       <section class="auto-grid">
         <article class="card stack text-center">
@@ -120,8 +120,6 @@ export async function getStaticPaths() {
   }
 
   .feature-section {
-    margin: var(--space-md) auto;
     --min-col-size: 200px;
-    max-width: max(var(--paragraph-width), 60vw);
   }
 </style>
