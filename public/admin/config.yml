@@ -2,7 +2,7 @@
 backend:
   name: github
   repo: svgmap/hyperlayering.org
-  branch: cms-test-sveltia
+  branch: main
   base_url: https://sveltia-cms-auth.hla-201.workers.dev
   auth: [oauth]
 
