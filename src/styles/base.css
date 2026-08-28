@@ -297,7 +297,8 @@
 		cursor: pointer;
 		transition: background-color var(--timing-normal) ease-out;
 
-		&:hover, &:focus-within {
+		&:hover,
+		&:focus-within {
 			background-color: oklch(from var(--_card-color) l c h / 0.5);
 			outline: solid 2px var(--bg-tertiary);
 		}
