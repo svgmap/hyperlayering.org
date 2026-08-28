@@ -297,7 +297,7 @@
 		cursor: pointer;
 		transition: background-color var(--timing-normal) ease-out;
 
-		&:hover {
+		&:hover, &:focus-within {
 			background-color: oklch(from var(--_card-color) l c h / 0.5);
 			outline: solid 2px var(--bg-tertiary);
 		}
@@ -311,6 +311,11 @@
 
 	.body {
 		color: var(--text-secondary);
+	}
+
+	.details {
+		color: var(--text-tertiary);
+		font-size: var(--font-sm);
 	}
 
 	.image {
