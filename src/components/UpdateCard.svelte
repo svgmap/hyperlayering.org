@@ -1,23 +1,23 @@
 <script lang="ts">
-  import RightArrow from "./Icons/RightArrow.svelte";
+import RightArrow from "./Icons/RightArrow.svelte";
 
-  interface UpdateCardProps {
-    title: string;
-    author: string;
-    description: string;
-    date: Date;
-    url: string;
-    lang: string;
-  }
+interface UpdateCardProps {
+	title: string;
+	author: string;
+	description: string;
+	date: Date;
+	url: string;
+	lang: string;
+}
 
-  let {
-    title,
-    author,
-    description,
-    date,
-    url,
-    lang = "en",
-  }: UpdateCardProps = $props();
+let {
+	title,
+	author,
+	description,
+	date,
+	url,
+	lang = "en",
+}: UpdateCardProps = $props();
 </script>
 
 <a href={url} aria-label="" class="post-listing" clickable="true">
