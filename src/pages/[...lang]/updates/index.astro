@@ -34,6 +34,7 @@ export async function getStaticPaths() {
             const [, updateId] = post.id.split("/");
             return (
               <UpdateCard
+                client:only="svelte"
                 title={post.data.title}
                 description={post.data.description}
                 author={post.data.author}
