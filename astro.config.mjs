@@ -7,6 +7,7 @@ import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import { cleanMarkdownLinks } from "./satteri-plugins/cleanMarkdownLinks.mjs";
 import { docusaurusHeadingIds } from "./satteri-plugins/docusaurusHeadingIds.mjs";
+import { guardTitleH1 } from "./satteri-plugins/guardTitleH1.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +16,7 @@ export default defineConfig({
 	markdown: {
 		processor: satteri({
 			hastPlugins: [docusaurusHeadingIds(), cleanMarkdownLinks()],
+			mdastPlugins: [guardTitleH1()],
 			features: { directive: true },
 		}),
 	},
