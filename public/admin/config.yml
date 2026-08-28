@@ -68,4 +68,3 @@ collections:
           - bulleted-list
           - numbered-list
           - quote
-        pattern: ['^(?!# )(?!.*\n# ).*$', 'H1 headings are reserved for the page title — start with ## or lower.']
