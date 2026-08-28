@@ -184,6 +184,11 @@
 	text-align: left;
 }
 
+.link-unstyled {
+	color: inherit;
+	text-decoration: none;
+}
+
 .skip-link {
 	display: inline-block;
 	padding: var(--space-xs) var(--space-sm);
