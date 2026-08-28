@@ -1,7 +1,20 @@
 ---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import UpdateCard from "@components/UpdateCard.svelte";
 import { defaultLang, languages } from "@i18n/ui";
+import { getLangFromUrl, useTranslations } from "@i18n/utils.ts";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Updates from "@layouts/pageLayouts/Updates.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const updates = (
+	await getCollection("update", ({ id }) => {
+		const [updateLang, updateId] = id.split("/");
+		if (updateLang === lang) return updateId;
+	})
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
 export async function getStaticPaths() {
 	const locales = Object.keys(languages);
 	return locales.map((locale) => ({
@@ -9,6 +22,30 @@ export async function getStaticPaths() {
 	}));
 }
 ---
+
 <BaseLayout pageTitle="Updates">
-	<Updates></Updates>
+  <main>
+    <article class="layout stack">
+      <h1 class="text-left">{t("page.updates.title")}</h1>
+      <br>
+      <section class="stack stack--sm blog-post-list">
+        {
+          updates.map((post) => {
+            const [, updateId] = post.id.split("/");
+            return (
+              <UpdateCard
+                client:only="svelte"
+                title={post.data.title}
+                description={post.data.description}
+                author={post.data.author}
+                date={post.data.date}
+                url={getRelativeLocaleUrl(lang, `/updates/${updateId}`)}
+                lang={lang}
+              />
+            );
+          })
+        }
+      </section>
+    </article>
+  </main>
 </BaseLayout>
