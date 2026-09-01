@@ -20,7 +20,7 @@
 	html {
 		color-scheme: light dark;
 		font-size: var(--font-base);
-		color: var(--text-main);
+		color: var(--text-secondary);
 		background-color: var(--bg-primary);
 		scrollbar-gutter: stable;
 		block-size: 100%;
@@ -85,6 +85,7 @@
 	h5,
 	h6 {
 		text-wrap: balance;
+		color: var(--text-main);
 	}
 
 	h1 {
@@ -166,6 +167,18 @@
 	thead th:not(:first-child),
 	td {
 		text-align: end;
+	}
+
+	a {
+		--_link-color: var(--link-color, var(--text-main));
+		color: var(--_link-color);
+		text-decoration-color: inherit;
+		transition-property: text-decoration-color;
+		transition-duration: var(--timing-fast);
+
+		&:hover {
+			text-decoration-color: var(--accent);
+		}
 	}
 }
 
@@ -277,7 +290,13 @@
 	margin-inline: max(var(--space-sm), 50% - calc(var(--paragraph-width) / 2));
 }
 
+/* TODO: refactor */
 .layout--wide {
+	margin: var(--space-md) auto;
+	margin-inline: max(var(--space-sm), 50% - calc(var(--paragraph-width) / 1.5));
+}
+
+.layout--max {
 	margin: var(--space-md) auto;
 	margin-inline: var(--space-sm);
 }
@@ -386,6 +405,10 @@
 	&:hover {
 		color: var(--text-tertiary);
 	}
+}
+
+.inline {
+	display: inline;
 }
 
 /* === ANIMATIONS === */

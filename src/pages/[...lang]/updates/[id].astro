@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import Calendar from "@components/Icons/Calendar.svelte";
 import { defaultLang, languages } from "@i18n/ui";
 import { getLangFromUrl } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -13,38 +14,38 @@ export async function getStaticPaths() {
 				lang: updateLang !== defaultLang ? updateLang : undefined,
 				id: updateId,
 			},
-			props: { post },
+			props: { post, updateId },
 		};
 	});
 	return parsedUpdates;
 }
 
 const lang = getLangFromUrl(Astro.url);
-const { post } = Astro.props;
+const { post, updateId } = Astro.props;
 const { Content } = await render(post);
 ---
 
 <BaseLayout pageTitle={`Updates - ${post.data.title}`}>
   <main>
-    <article class="layout stack">
-      <section class="stack header-section">
-        <small
-          ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a
-          >/{post.id}</small
+    <article class="stack">
+      <section class="stack layout--wide header-section">
+        <small class="route row"
+          ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a><span>/</span>{
+            updateId
+          }</small
         >
         <h1 class="title">{post.data.title}</h1>
-        <div>
+        <div class="details row">
           <span>{post.data.author}</span>
-          &nbsp;&mdash;&nbsp;
-          <span
+          <span>&#x2022;</span>
+          <span 
             >{
-              post.data.date.toLocaleString("en-GB", { dateStyle: "short" })
+              post.data.date.toLocaleString(lang, { dateStyle: "long" })
             }</span
           >
         </div>
-        <hr />
       </section>
-      <section class="content flow">
+      <section class="layout flow">
         <Content />
       </section>
     </article>
@@ -53,7 +54,17 @@ const { Content } = await render(post);
 
 <style scoped>
   .header-section {
-    text-align: center;
-    margin-bottom: var(--space-md);
+    background-color: var(--bg-secondary);
+    padding: var(--space-md);
+    border-radius: var(--round-lg);
+
+    .details {
+      color: var(--text-secondary);
+      justify-content: center;
+    }
+    .route {
+      margin: 0 auto;
+      color: var(--text-tertiary);
+    }
   }
 </style>
