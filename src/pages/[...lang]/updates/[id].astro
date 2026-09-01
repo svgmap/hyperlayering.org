@@ -6,18 +6,18 @@ import { defaultLang, languages } from "@i18n/ui";
 import { getLangFromUrl } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 export async function getStaticPaths() {
-  const updates = await getCollection("update");
-  const parsedUpdates = updates.map((post) => {
-    const [updateLang, updateId] = post.id.split("/");
-    return {
-      params: {
-        lang: updateLang !== defaultLang ? updateLang : undefined,
-        id: updateId,
-      },
-      props: { post, updateId },
-    };
-  });
-  return parsedUpdates;
+	const updates = await getCollection("update");
+	const parsedUpdates = updates.map((post) => {
+		const [updateLang, updateId] = post.id.split("/");
+		return {
+			params: {
+				lang: updateLang !== defaultLang ? updateLang : undefined,
+				id: updateId,
+			},
+			props: { post, updateId },
+		};
+	});
+	return parsedUpdates;
 }
 
 const lang = getLangFromUrl(Astro.url);

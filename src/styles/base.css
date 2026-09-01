@@ -176,9 +176,8 @@
 		transition-property: text-decoration-color;
 		transition-duration: var(--timing-fast);
 
-
 		&:hover {
-			text-decoration-color: var(--accent);	
+			text-decoration-color: var(--accent);
 		}
 	}
 }
