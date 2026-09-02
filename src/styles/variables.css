@@ -29,7 +29,8 @@
 	--bg-tertiary: light-dark(var(--mid-white), var(--mid-grey));
 
 	/* ==== Spacing ==== */
-	--space-xs: 0.25rem;
+	--space-xxs: 0.25rem;
+	--space-xs: 0.5rem;
 	--space-sm: 1rem;
 	--space-md: 2rem;
 	--space-lg: 4rem;
