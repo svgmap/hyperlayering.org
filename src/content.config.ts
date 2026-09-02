@@ -16,9 +16,18 @@ const update = defineCollection({
 	}),
 });
 
+const guideline = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/guidelines" }),
+	schema: z.object({
+		title: z.string(),
+		lastUpdated: z.coerce.date(),
+		version: z.string(),
+	}),
+});
+
 const docs = defineCollection({
 	loader: docsLoader(),
 	schema: docsSchema(),
 });
 
-export const collections = { update, docs };
+export const collections = { update, guideline, docs };
