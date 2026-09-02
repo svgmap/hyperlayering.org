@@ -119,8 +119,8 @@
 
 	hr {
 		border: solid 0.5px var(--bg-tertiary);
-		margin-top: var(--space-xs);
-		margin-bottom: var(--space-xs);
+		margin-top: var(--space-xxs);
+		margin-bottom: var(--space-xxs);
 	}
 
 	ul[role="list"],
@@ -143,30 +143,47 @@
 	}
 
 	table {
-		border-collapse: collapse;
+		--_table-bg-color: var(--table-bg-color, var(--bg-primary));
 		border-spacing: 2px;
-		width: max(var(--paragraph-width), 100%);
 		table-layout: fixed;
+		border-collapse: collapse;
+		width: max(var(--paragraph-width), 100%);
+		color: var(--text-secondary);
+		background-color: var(--_table-bg-color);
+		caption-side: bottom;
+
+		thead, 
+		tfoot {
+			color: var(--text-main);
+			background-color: var(--bg-tertiary);
+		}
+
+		th,
+		caption {
+			text-align: start;
+		}
+		
+		thead {
+			border-block-end: 2px solid var(--text-tertiary);
+			font-width: var(--font-wide);
+		}
+
+		tfoot {
+			border-block: 2px solid var(--text-tertiary);
+		}
+
+		tbody tr:nth-child(even) {
+			--_lightness-offset: 0.03;
+			background-color: var(--bg-secondary);
+		}
+
+		th, td {
+			padding: var(--space-xs) var(--space-sm);
+		}
 	}
 
-	thead {
-		border-block-end: 2px solid;
-		background-color: var(--bg-secondary);
-	}
-
-	tfoot {
-		border-block-end: 2px solid;
-		background-color: var(--bg-secondary);
-	}
-
-	th,
-	caption {
-		text-align: start;
-	}
-
-	thead th:not(:first-child),
-	td {
-		text-align: end;
+	.table-responsive {
+		overflow: scroll;
 	}
 
 	a {
@@ -204,7 +221,7 @@
 
 .skip-link {
 	display: inline-block;
-	padding: var(--space-xs) var(--space-sm);
+	padding: var(--space-xxs) var(--space-sm);
 	background: var(--color-light);
 	color: var(--text);
 	text-decoration: none;
@@ -229,7 +246,7 @@
 	}
 
 	img {
-		max-width: 66%;
+		max-width: 90%;
 		margin: var(--_flow-space, 1em) auto;
 	}
 
@@ -239,7 +256,7 @@
 }
 
 .stack {
-	--_stack-gap: var(--stack-gap, var(--space-xs));
+	--_stack-gap: var(--stack-gap, var(--space-xxs));
 	display: flex;
 	flex-direction: column;
 	gap: var(--_stack-gap);
@@ -254,7 +271,7 @@
 }
 
 .row {
-	--_gap: var(--gap, var(--space-xs));
+	--_gap: var(--gap, var(--space-xxs));
 	--_row-justify: var(--row-justify, start);
 	display: flex;
 	flex-direction: row;
@@ -367,7 +384,7 @@
 
 	/* Base button styling */
 	border-radius: var(--round-lg);
-	padding: var(--space-xs) var(--space-sm);
+	padding: var(--space-xxs) var(--space-sm);
 	outline: 2px solid var(--text-main);
 	outline-offset: -1.5px;
 	box-shadow: none;
