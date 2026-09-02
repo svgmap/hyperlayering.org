@@ -16,7 +16,11 @@ export default defineConfig({
 
 	markdown: {
 		processor: satteri({
-			hastPlugins: [docusaurusHeadingIds(), cleanMarkdownLinks(), insertTableWrapper()],
+			hastPlugins: [
+				docusaurusHeadingIds(),
+				cleanMarkdownLinks(),
+				insertTableWrapper(),
+			],
 			mdastPlugins: [guardTitleH1()],
 			features: { directive: true },
 		}),

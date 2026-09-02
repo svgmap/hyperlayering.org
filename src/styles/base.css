@@ -152,7 +152,7 @@
 		background-color: var(--_table-bg-color);
 		caption-side: bottom;
 
-		thead, 
+		thead,
 		tfoot {
 			color: var(--text-main);
 			background-color: var(--bg-tertiary);
@@ -162,7 +162,7 @@
 		caption {
 			text-align: start;
 		}
-		
+
 		thead {
 			border-block-end: 2px solid var(--text-tertiary);
 			font-width: var(--font-wide);
@@ -177,7 +177,8 @@
 			background-color: var(--bg-secondary);
 		}
 
-		th, td {
+		th,
+		td {
 			padding: var(--space-xs) var(--space-sm);
 		}
 	}

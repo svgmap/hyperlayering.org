@@ -6,18 +6,18 @@ import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ContentLayout from "@layouts/ContentLayout.astro";
 export async function getStaticPaths() {
-  const guidelines = await getCollection("guideline");
-  const parsedGuidelines = guidelines.map((guideline) => {
-    const [guidelineLang, guidelineId] = guideline.id.split("/");
-    return {
-      params: {
-        lang: guidelineLang !== defaultLang ? guidelineLang : undefined,
-        id: guidelineId,
-      },
-      props: { guideline },
-    };
-  });
-  return parsedGuidelines;
+	const guidelines = await getCollection("guideline");
+	const parsedGuidelines = guidelines.map((guideline) => {
+		const [guidelineLang, guidelineId] = guideline.id.split("/");
+		return {
+			params: {
+				lang: guidelineLang !== defaultLang ? guidelineLang : undefined,
+				id: guidelineId,
+			},
+			props: { guideline },
+		};
+	});
+	return parsedGuidelines;
 }
 
 const lang = getLangFromUrl(Astro.url);
