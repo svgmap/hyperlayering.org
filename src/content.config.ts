@@ -6,7 +6,7 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const update = defineCollection({
-	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/updates" }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/updates" }),
 	schema: z.object({
 		title: z.string(),
 		author: z.string(),
@@ -17,7 +17,7 @@ const update = defineCollection({
 });
 
 const guideline = defineCollection({
-	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/guidelines" }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/guidelines" }),
 	schema: z.object({
 		title: z.string(),
 		lastUpdated: z.coerce.date(),

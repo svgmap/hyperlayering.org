@@ -30,7 +30,7 @@ collections:
   - name: updates
     label: Updates
     label_singular: Update
-    folder: src/updates
+    folder: src/content/updates
     i18n: true
     fields:
       - name: title
@@ -71,7 +71,7 @@ collections:
   - name: guidelines
     label: Guidelines
     label_singular: Update
-    folder: src/guidelines
+    folder: src/content/guidelines
     i18n: true
     fields:
       - name: title
