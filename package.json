@@ -12,7 +12,9 @@
 		"astro": "astro",
 		"generate-types": "wrangler types",
 		"deploy": "astro build && wrangler deploy",
-		"cf-typegen": "wrangler types"
+		"cf-typegen": "wrangler types",
+		"lint": "biome lint",
+		"format": "biome format --write"
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "^14.1.4",
