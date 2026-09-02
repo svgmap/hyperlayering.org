@@ -73,6 +73,7 @@ HL → Hyper Layeringの思想・技術を共有するブランドファミリ�
 ## 5.ブランド体系
 
 | **分類** | **正式名称** | **ブランド名称／略称** |
+| --- | --- | --- |
 | Core Concept | Hyper Layering | Hyper Layering |
 | Architecture | Hyper Layering Architecture | HLA |
 | Community | Hyper Layering Community | Hyper Layering Community / HLC |
