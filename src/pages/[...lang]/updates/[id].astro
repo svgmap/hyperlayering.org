@@ -1,23 +1,23 @@
 ---
 import { getCollection, render } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import Calendar from "@components/Icons/Calendar.svelte";
 import { defaultLang, languages } from "@i18n/ui";
 import { getLangFromUrl } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import ContentLayout from "@layouts/ContentLayout.astro";
 export async function getStaticPaths() {
-	const updates = await getCollection("update");
-	const parsedUpdates = updates.map((post) => {
-		const [updateLang, updateId] = post.id.split("/");
-		return {
-			params: {
-				lang: updateLang !== defaultLang ? updateLang : undefined,
-				id: updateId,
-			},
-			props: { post, updateId },
-		};
-	});
-	return parsedUpdates;
+  const updates = await getCollection("update");
+  const parsedUpdates = updates.map((post) => {
+    const [updateLang, updateId] = post.id.split("/");
+    return {
+      params: {
+        lang: updateLang !== defaultLang ? updateLang : undefined,
+        id: updateId,
+      },
+      props: { post, updateId },
+    };
+  });
+  return parsedUpdates;
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -26,45 +26,19 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout pageTitle={`Updates - ${post.data.title}`}>
-  <main>
-    <article class="stack">
-      <section class="stack layout--wide header-section">
-        <small class="route row"
-          ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a><span>/</span>{
-            updateId
-          }</small
-        >
-        <h1 class="title">{post.data.title}</h1>
-        <div class="details row">
-          <span>{post.data.author}</span>
-          <span>&#x2022;</span>
-          <span 
-            >{
-              post.data.date.toLocaleString(lang, { dateStyle: "long" })
-            }</span
-          >
-        </div>
-      </section>
-      <section class="layout flow">
-        <Content />
-      </section>
-    </article>
-  </main>
+  <ContentLayout title={post.data.title}>
+    <Fragment slot="route">
+      <small class="route row"
+        ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a><span
+          >/</span
+        >{updateId}</small
+      >
+    </Fragment>
+    <Fragment slot="details">
+      <span>{post.data.author}</span>
+      <span>&#x2022;</span>
+      <span>{post.data.date.toLocaleString(lang, { dateStyle: "long" })}</span>
+    </Fragment>
+    <Content slot="content" />
+  </ContentLayout>
 </BaseLayout>
-
-<style scoped>
-  .header-section {
-    background-color: var(--bg-secondary);
-    padding: var(--space-md);
-    border-radius: var(--round-lg);
-
-    .details {
-      color: var(--text-secondary);
-      justify-content: center;
-    }
-    .route {
-      margin: 0 auto;
-      color: var(--text-tertiary);
-    }
-  }
-</style>
