@@ -7,7 +7,7 @@
 	/* ==== Base Colors ==== */
 	--black: oklch(0.2 0.0165 255.31);
 	--dark-grey: oklch(0.25 0.0165 255.31);
-	--mid-grey: oklch(0.4 0.0165 255.31);
+	--mid-grey: oklch(0.35 0.0165 255.31);
 	--dim-grey: oklch(0.55 0 0);
 	--light-grey: oklch(0.7 0 0);
 	--mid-white: oklch(0.85 0 0);
