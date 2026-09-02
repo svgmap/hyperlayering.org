@@ -142,7 +142,7 @@ const toggleMenu = () => {
       &:hover {
         color: var(--text-secondary);
         text-decoration: underline solid var(--accent) 2px;
-        text-underline-offset: var(--space-xs);
+        text-underline-offset: var(--space-xxs);
       }
     }
 
@@ -215,7 +215,7 @@ const toggleMenu = () => {
     ul {
       display: flex;
       flex-direction: column;
-      gap: var(--space-xs);
+      gap: var(--space-xxs);
       padding: 0;
     }
     a {
@@ -223,7 +223,7 @@ const toggleMenu = () => {
       text-align: center;
       color: inherit;
       text-decoration: none;
-      padding: var(--space-xs) var(--space-sm);
+      padding: var(--space-xxs) var(--space-sm);
       border-radius: var(--round-xs);
       &:hover {
         background-color: var(--bg-tertiary);

@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { defaultLang, languages } from "@i18n/ui";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ContentLayout from "@layouts/ContentLayout.astro";
+export async function getStaticPaths() {
+	const guidelines = await getCollection("guideline");
+	const parsedGuidelines = guidelines.map((guideline) => {
+		const [guidelineLang, guidelineId] = guideline.id.split("/");
+		return {
+			params: {
+				lang: guidelineLang !== defaultLang ? guidelineLang : undefined,
+				id: guidelineId,
+			},
+			props: { guideline },
+		};
+	});
+	return parsedGuidelines;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { guideline } = Astro.props;
+const { Content } = await render(guideline);
+---
+
+<BaseLayout pageTitle={`${guideline.data.title}`}>
+  <ContentLayout title={guideline.data.title}>
+    <Fragment slot="details">
+      <span
+        >{t("page.guidelines.last-updated")}&nbsp;{
+          guideline.data.lastUpdated.toLocaleString(lang, { dateStyle: "long" })
+        }</span
+      >
+    </Fragment>
+    <Content slot="content" />
+  </ContentLayout>
+</BaseLayout>

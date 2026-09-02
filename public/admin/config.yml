@@ -68,3 +68,40 @@ collections:
           - bulleted-list
           - numbered-list
           - quote
+  - name: guidelines
+    label: Guidelines
+    label_singular: Update
+    folder: src/guidelines
+    i18n: true
+    fields:
+      - name: title
+        label: Title
+        widget: string
+        i18n: true
+      - name: lastUpdated
+        label: Last Updated
+        widget: datetime
+        type: date
+        i18n: duplicate
+      - name: version
+        label: Version
+        widget: string
+        i18n: duplicate
+      - name: body 
+        label: Body 
+        widget: richtext 
+        i18n: true
+        buttons: 
+          - bold
+          - italic
+          - strikethrough
+          - code
+          - link
+          - heading-two
+          - heading-three
+          - heading-four
+          - heading-five
+          - heading-six
+          - bulleted-list
+          - numbered-list
+          - quote

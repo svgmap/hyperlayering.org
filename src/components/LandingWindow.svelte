@@ -48,8 +48,8 @@ const injectScript = (doc: Document, src: string) => {
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: var(--space-xs);
-    gap: var(--space-xs);
+    padding: var(--space-xxs);
+    gap: var(--space-xxs);
     align-content: center;
   }
 

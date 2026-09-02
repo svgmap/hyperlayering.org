@@ -80,7 +80,7 @@ let updateLinkElement: HTMLAnchorElement | null = $state(null);
     &:focus-within {
       .title {
         text-decoration: underline solid var(--accent) 2px;
-        text-underline-offset: var(--space-xs);
+        text-underline-offset: var(--space-xxs);
 
         @starting-style {
           text-decoration: transparent;

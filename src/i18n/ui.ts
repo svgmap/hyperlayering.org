@@ -32,6 +32,7 @@ export const ui = {
 		"page.home.demos.title": "See Hyper Layering in action",
 		"page.updates.title": "Updates",
 		"page.demos.title": "Demos",
+		"page.guidelines.last-updated": "Last Updated:",
 		"page.404.title": "404",
 		"page.404.subtitle": "This page could not found",
 		"page.404.return-btn": "Return to home",
@@ -54,6 +55,7 @@ export const ui = {
 			"HLAは、積極的にメンテナンスが行われている完全なオープンソースプロジェクトであり、15年以上にわたり企業で利用されてきました。",
 		"page.home.demos.title":
 			"「ハイパー・レイヤリング」の実際の動作をご覧ください",
+		"page.guidelines.last-updated": "最終更新日:",
 		"page.404.subtitle": "このページは見つかりませんでした",
 		"page.404.return-btn": "ホームに戻る",
 	},
