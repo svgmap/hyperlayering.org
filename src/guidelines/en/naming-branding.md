@@ -72,7 +72,8 @@ This principle allows future products and projects to follow a consistent brand 
 
 ## 5. Brand Architecture
 
-| **Category** | **Full Name** | **Brand Name / Abbreviation** |
+| Category | Full Name | Brand Name / Abbreviation |
+| --- | --- | --- |
 | Core Concept | Hyper Layering | Hyper Layering |
 | Architecture | Hyper Layering Architecture | HLA |
 | Community | Hyper Layering Community | Hyper Layering Community / HLC |
