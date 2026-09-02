@@ -1,6 +1,6 @@
 ---
 title: 名称・ブランド体系ガイドライン
-last-updated: 2026-08-25
+lastUpdated: 2026-08-25
 version: Draft 0.1
 ---
 

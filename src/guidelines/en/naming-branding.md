@@ -1,6 +1,6 @@
 ---
 title: Naming & Branding Guidelines
-last-updated: 2026-08-25
+lastUpdated: 2026-08-25
 version: Draft 0.1
 ---
 
