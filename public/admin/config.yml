@@ -78,7 +78,7 @@ collections:
         label: Title
         widget: string
         i18n: true
-      - name: last-updated
+      - name: lastUpdated
         label: Last Updated
         widget: datetime
         type: date
