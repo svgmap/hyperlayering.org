@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { defaultLang, languages } from "@i18n/ui";
+import { getLangFromUrl } from "@i18n/utils";
+
+interface Props {
+  title: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const { title } = Astro.props;
+---
+
+<main>
+  <article class="stack">
+    <section class="stack layout--wide header-section">
+      <small class="route row"><slot name="route" /></small>
+      <h1 class="title">{title}</h1>
+      <div class="details row">
+        <slot name="details" />
+      </div>
+    </section>
+    <section class="layout flow">
+      <slot name="content" />
+    </section>
+  </article>
+</main>
+
+<style scoped>
+  .header-section {
+    background-color: var(--bg-secondary);
+    padding: var(--space-md);
+    border-radius: var(--round-lg);
+
+    .details {
+      color: var(--text-secondary);
+      justify-content: center;
+    }
+    .route {
+      margin: 0 auto;
+      color: var(--text-tertiary);
+    }
+  }
+</style>
