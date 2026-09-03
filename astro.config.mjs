@@ -7,6 +7,7 @@ import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import { cleanMarkdownLinks } from "./satteri-plugins/cleanMarkdownLinks.mjs";
 import { docusaurusHeadingIds } from "./satteri-plugins/docusaurusHeadingIds.mjs";
+import { getHeaders } from "./satteri-plugins/getHeaders.mjs";
 import { guardTitleH1 } from "./satteri-plugins/guardTitleH1.mjs";
 import { insertTableWrapper } from "./satteri-plugins/insertTableWrapper.mjs";
 
@@ -21,7 +22,7 @@ export default defineConfig({
 				cleanMarkdownLinks(),
 				insertTableWrapper(),
 			],
-			mdastPlugins: [guardTitleH1()],
+			mdastPlugins: [getHeaders(), guardTitleH1()],
 			features: { directive: true },
 		}),
 	},
