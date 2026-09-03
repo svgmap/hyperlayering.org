@@ -6,6 +6,7 @@ type LinkGroup = {
 	links: {
 		label: string;
 		href: string;
+        external?: boolean;
 	}[];
 };
 
@@ -27,7 +28,7 @@ let t = $derived(useTranslations(lang));
             <h2 class="section-header">{linkGroup.groupLabel}</h2>
             <ul role="list">
             {#each linkGroup.links as link}
-                <li><a href={link.href}>{link.label}</a></li>        
+                <li><a href={link.href} class={[link.external && "external"]}>{link.label}</a></li>        
             {/each}
             </ul>
         </article>
