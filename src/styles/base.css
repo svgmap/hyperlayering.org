@@ -47,6 +47,10 @@
 		-webkit-font-smoothing: antialiased;
 	}
 
+	main {
+		min-height: 100svh;
+	}
+
 	img,
 	picture,
 	video,
@@ -285,8 +289,9 @@
 }
 
 .grid {
+	--_grid-columns: var(--grid-columns, 3);
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(var(--_grid-columns), 1fr);
 	grid-auto-rows: 1fr;
 	gap: var(--space-sm);
 	row-gap: var(--space-sm);
@@ -315,7 +320,7 @@
 }
 
 .layout--max {
-	margin: var(--space-md) auto;
+	margin: var(--space-sm) auto;
 	margin-inline: var(--space-sm);
 }
 
