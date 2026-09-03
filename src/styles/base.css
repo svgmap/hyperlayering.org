@@ -201,6 +201,24 @@
 		&:hover {
 			text-decoration-color: var(--accent);
 		}
+
+		&.external {
+			margin-inline-end: calc(var(--space-xxs) + 1em);
+			&::after {
+				background-color: currentcolor;
+				content: "(external)";
+				mask-size: cover;
+				mask-image: url(/images/external-link.svg);
+				position: absolute;
+				display: inline-block;
+				width: 1em;
+				height: 1em;
+				transform: translateY(.5em);
+				margin-inline-start: var(--space-xxs);
+			}
+		}
+		
+		
 	}
 }
 
