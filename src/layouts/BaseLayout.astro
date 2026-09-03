@@ -6,7 +6,7 @@ import Header from "@components/Header/Header.svelte";
 import { getLangFromUrl, useTranslations } from "@i18n/utils.ts";
 
 interface Props {
-	pageTitle?: string | undefined;
+  pageTitle?: string | undefined;
 }
 const { pageTitle = undefined } = Astro.props;
 const url = Astro.url;
@@ -50,14 +50,24 @@ const t = useTranslations(lang);
         {
           groupLabel: t("nav.documentation"),
           links: [
-            { label: t("nav.documentation.api"), href: "https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8" },
-            { label: t("nav.documentation.tutorials"), href: getRelativeLocaleUrl(lang, "/tutorials") },
+            {
+              label: t("nav.documentation.api"),
+              href: "https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8",
+              external: true,
+            },
+            {
+              label: t("nav.documentation.tutorials"),
+              href: getRelativeLocaleUrl(lang, "/tutorials"),
+            },
           ],
         },
         {
           groupLabel: t("nav.resources"),
           links: [
-            { label: t("nav.resources.naming-branding"), href: getRelativeLocaleUrl(lang, "/guidelines/naming-branding") },
+            {
+              label: t("nav.resources.naming-branding"),
+              href: getRelativeLocaleUrl(lang, "/guidelines/naming-branding"),
+            },
           ],
         },
       ]}
