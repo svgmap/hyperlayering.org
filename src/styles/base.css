@@ -47,6 +47,10 @@
 		-webkit-font-smoothing: antialiased;
 	}
 
+	main {
+		min-height: 100svh;
+	}
+
 	img,
 	picture,
 	video,
@@ -197,6 +201,22 @@
 		&:hover {
 			text-decoration-color: var(--accent);
 		}
+
+		&.external {
+			margin-inline-end: calc(var(--space-xxs) + 1em);
+			&::after {
+				background-color: currentcolor;
+				content: "(external)";
+				mask-size: cover;
+				mask-image: url(/images/external-link.svg);
+				position: absolute;
+				display: inline-block;
+				width: 1em;
+				height: 1em;
+				transform: translateY(0.5em);
+				margin-inline-start: var(--space-xxs);
+			}
+		}
 	}
 }
 
@@ -285,8 +305,9 @@
 }
 
 .grid {
+	--_grid-columns: var(--grid-columns, 3);
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(var(--_grid-columns), 1fr);
 	grid-auto-rows: 1fr;
 	gap: var(--space-sm);
 	row-gap: var(--space-sm);
@@ -315,7 +336,7 @@
 }
 
 .layout--max {
-	margin: var(--space-md) auto;
+	margin: var(--space-sm) auto;
 	margin-inline: var(--space-sm);
 }
 
