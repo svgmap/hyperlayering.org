@@ -6,7 +6,7 @@ import Header from "@components/Header/Header.svelte";
 import { getLangFromUrl, useTranslations } from "@i18n/utils.ts";
 
 interface Props {
-  pageTitle?: string | undefined;
+	pageTitle?: string | undefined;
 }
 const { pageTitle = undefined } = Astro.props;
 const url = Astro.url;

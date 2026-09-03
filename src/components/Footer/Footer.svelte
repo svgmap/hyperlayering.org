@@ -6,7 +6,7 @@ type LinkGroup = {
 	links: {
 		label: string;
 		href: string;
-        external?: boolean;
+		external?: boolean;
 	}[];
 };
 
