@@ -22,12 +22,13 @@ export async function getStaticPaths() {
 
 const { post, updateId } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
-const headings = post.rendered?.metadata?.headings as TocItem[] ?? undefined;
+const headings = post.rendered?.metadata?.headings as TocItem[] | undefined;
+const showToc = post.data.showToc;
 const { Content } = await render(post);
 ---
 
 <BaseLayout pageTitle={`Updates - ${post.data.title}`}>
-  <ContentLayout title={post.data.title} tocHeaders={headings}>
+  <ContentLayout title={post.data.title} tocHeaders={showToc ? (headings ?? undefined) : undefined}>
     <Fragment slot="route">
       <small class="route row"
         ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a><span
