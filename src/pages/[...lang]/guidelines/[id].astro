@@ -23,11 +23,12 @@ export async function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { guideline } = Astro.props;
+const headings = guideline.rendered?.metadata?.headings as TocItem[] ?? undefined;
 const { Content } = await render(guideline);
 ---
 
 <BaseLayout pageTitle={`${guideline.data.title}`}>
-  <ContentLayout title={guideline.data.title}>
+  <ContentLayout title={guideline.data.title} tocHeaders={headings}>
     <Fragment slot="details">
       <span
         >{t("page.guidelines.last-updated")}&nbsp;{

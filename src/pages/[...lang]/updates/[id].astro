@@ -20,13 +20,14 @@ export async function getStaticPaths() {
 	return parsedUpdates;
 }
 
-const lang = getLangFromUrl(Astro.url);
 const { post, updateId } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const headings = post.rendered?.metadata?.headings as TocItem[] ?? undefined;
 const { Content } = await render(post);
 ---
 
 <BaseLayout pageTitle={`Updates - ${post.data.title}`}>
-  <ContentLayout title={post.data.title}>
+  <ContentLayout title={post.data.title} tocHeaders={headings}>
     <Fragment slot="route">
       <small class="route row"
         ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a><span
