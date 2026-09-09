@@ -45,6 +45,7 @@
 		grid-template-rows: auto 1fr auto;
 		line-height: 1.6;
 		-webkit-font-smoothing: antialiased;
+		container-name: body;
 	}
 
 	main {
@@ -90,6 +91,7 @@
 	h6 {
 		text-wrap: balance;
 		color: var(--text-main);
+		scroll-margin-block-start: calc(var(--header-height) + var(--space-sm));
 	}
 
 	h1 {
@@ -225,6 +227,10 @@
 .font-wide {
 	font-width: var(--font-wide);
 	font-stretch: var(--font-wide);
+}
+
+.font-bold {
+	font-weight: 700;
 }
 
 .text-center {
