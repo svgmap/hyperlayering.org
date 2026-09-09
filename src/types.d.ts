@@ -11,6 +11,12 @@ interface NavMenuItem {
 	subItems: MenuItem[] | undefined;
 }
 
+interface TocItem {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
 // Extending svelteHTML to utilize custom button attributes for CSS
 declare namespace svelteHTML {
 	interface HTMLProps<T> {
