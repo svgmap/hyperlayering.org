@@ -91,7 +91,7 @@
 	h6 {
 		text-wrap: balance;
 		color: var(--text-main);
-		scroll-margin-block-start: calc(var(--header-height) + var(--space-sm));
+		scroll-margin-block-start: calc(var(--header-height) * 2);
 	}
 
 	h1 {
