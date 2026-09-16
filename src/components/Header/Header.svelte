@@ -87,7 +87,7 @@ const toggleMenu = () => {
   .site-header {
     position: sticky;
     inset-block-start: 0;
-    z-index: 1;
+    z-index: 2;
     height: var(--header-height);
     display: flex;
     justify-content: space-between;
