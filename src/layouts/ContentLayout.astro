@@ -6,8 +6,8 @@ import { defaultLang, languages } from "@i18n/ui";
 import { getLangFromUrl } from "@i18n/utils";
 
 interface Props {
-	title: string;
-	tocHeaders?: TocItem[] | undefined;
+  title: string;
+  tocHeaders?: TocItem[] | undefined;
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -27,7 +27,7 @@ const { title, tocHeaders = [] } = Astro.props;
       <div class="content-body layout flow">
         <slot name="content" />
       </div>
-      <TableOfContents headers={tocHeaders} client:only="svelte"/>
+      <TableOfContents headers={tocHeaders} client:only="svelte" />
     </section>
   </article>
 </main>
@@ -41,7 +41,10 @@ const { title, tocHeaders = [] } = Astro.props;
     container-type: inline-size;
     container-name: content-body;
     display: grid;
-    grid-template-columns: 1fr minmax(min(calc((var(--paragraph-width) / 1.5) * 2), 100%), 1fr) 1fr;
+    grid-template-columns: 1fr minmax(
+        min(calc((var(--paragraph-width) / 1.5) * 2), 100%),
+        1fr
+      ) 1fr;
     gap: var(--space-sm);
     margin: 0 var(--space-md);
     @container (width <= calc(var(--paragraph-width) * 2)) {
