@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+import { onMount } from "svelte";
 
 interface TocProps {
 	label?: string;
@@ -9,16 +9,80 @@ interface TocProps {
 let { label = "On This Page", headers = [] }: TocProps = $props();
 
 let activeId = $state("");
+let isContainerWide = $state(false);
 let tocOpen = $state(false);
+let tocElement = $state<HTMLElement | undefined>();
 
-const closeToc = () => tocOpen = false;
-$inspect(tocOpen);
+// Avoids the generated <astro-island> element - looking for the first real DOM element
+const getLayoutContainer = (element: HTMLElement) => {
+	let parent = element.parentElement;
+	while (parent?.matches("astro-island")) parent = parent.parentElement;
+	return parent;
+};
+
+const getHeaderElements = (headers: TocItem[]) => {
+	const headerElements: HTMLElement[] = [];
+	headers.forEach((header) => {
+		const headerElement = document.getElementById(header.slug);
+		if (headerElement) headerElements.push(headerElement);
+	});
+	return headerElements;
+};
+
+onMount(() => {
+	let resizeObserver: ResizeObserver | undefined;
+	let intersectObserver: IntersectionObserver | undefined;
+	let updateViewportState: () => void;
+
+	const container = tocElement && getLayoutContainer(tocElement);
+	if (container) {
+		// ResizeObserver - Handles small display only features / behavior
+		const updateContainerState = (width: number) => {
+			isContainerWide = width >= window.innerWidth;
+		};
+
+		resizeObserver = new ResizeObserver(([entry]) => {
+			updateContainerState(entry.contentRect.width);
+		});
+
+		updateViewportState = () => {
+			updateContainerState(container.getBoundingClientRect().width);
+		};
+
+		resizeObserver.observe(container);
+		window.addEventListener("resize", updateViewportState);
+		updateViewportState();
+		tocOpen = !isContainerWide;
+	}
+
+	// Intersection Observer
+	const headerElements = getHeaderElements(headers);
+	if (headerElements.length) {
+		const options = {
+			root: document.querySelector("#scrollArea"),
+			rootMargin: "0px",
+			scrollMargin: "0px",
+			threshold: 1.0,
+		};
+
+		intersectObserver = new IntersectionObserver(() => {}, options);
+	}
+
+	return () => {
+		resizeObserver?.disconnect();
+		intersectObserver?.disconnect();
+		window.removeEventListener("resize", updateViewportState);
+	};
+});
+
+const closeToc = () => (tocOpen = false);
+$inspect(isContainerWide);
 </script>
 
 {#if headers.length}
-	<nav class="toc" aria-label="Table of contents" data-table-of-contents>
+	<nav class="toc" aria-label="Table of contents" data-table-of-contents bind:this={tocElement}>
         <details class="stack toc-wrapper" bind:open={tocOpen}>
-            <summary class="font-bold toc-label font-wide">{label}</summary>
+            <summary class="font-bold toc-label">{label}</summary>
 			<div class="toc-list-wrapper">
 				<ol role="list" class="stack">
                 {#each headers as header (header.slug)}
@@ -28,13 +92,13 @@ $inspect(tocOpen);
                             class:active={activeId === header.slug}
                             href={`#${header.slug}`}
                             aria-current={activeId === header.slug ? "location" : undefined}
-							onclick={closeToc}
+							onclick={isContainerWide && closeToc}
                         >
                             {header.text}
                         </a>
                     </li>
                 {/each}
-            </ol>
+            	</ol>
 			</div>
             
         </details>
@@ -43,58 +107,48 @@ $inspect(tocOpen);
 
 <style>
 	.toc {
-		z-index: 2;
+		z-index: 1;
 		grid-column: 3;
 		position: sticky;
-		display: flex;
 		top: calc(var(--header-height) + var(--space-md));
 		font-size: var(--font-sm);
-		background-color: var(--bg-primary);
 		width: 100%;
-		max-height: calc(75vh - (var(--header-height) + (var(--space-md) * 2)));
-		border-radius: var(--round-md);
-
-		@container content-body (width <= calc(var(--paragraph-width) * 2)) {
-			background-color: var(--bg-secondary);
-			border-radius: 0;
+		max-height: calc(100dvh - (var(--header-height) + (var(--space-md) * 2)));
+		border-radius: clamp(0px, calc((100cqi - 100%) * 1e5), var(--round-md));
+		@container (width >= 100vw) {
 			top: var(--header-height);
-		}
-
-		details {
-			width: 100%;
-			cursor: pointer;
-			gap: 0;
-		}
-
-		&:has(> details:open) {
-			background-color: var(--bg-secondary);
 		}
 	}
 
-	.toc-list-wrapper {
-		padding: 0;
+	.toc-wrapper {
+		background-color: var(--bg-secondary);
+		border: 1px solid var(--bg-tertiary);
+		border-radius: inherit;
+		max-height: inherit;
 		width: 100%;
-		max-height: max(40vh, auto);
+		cursor: pointer;
+		gap: 0;
+	}
+
+	.toc-list-wrapper {
+		padding: 0 var(--space-md);
+		padding-block-end: var(--space-sm);
+		width: 100%;
+		flex-basis: 0;
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
 
 	.toc-label {
 		padding: var(--space-sm) var(--space-md);
-		@container content-body (width <= calc(var(--paragraph-width) * 2)) {
-			padding-block: var(--space-xxs);
-		}
 		width: 100%;
 		font-size: var(--font-base);
 		margin-bottom: 0;
 	}
 
-	.toc details {
-		overflow: hidden;
-	}
-
 	.toc ol {
 		margin: 0;
+		padding: 0;
 		gap: 0;
 	}
 
