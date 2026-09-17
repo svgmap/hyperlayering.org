@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import { SvelteSet } from "svelte/reactivity";
 
 interface TocProps {
 	label?: string;
@@ -8,10 +9,17 @@ interface TocProps {
 
 let { label = "On This Page", headers = [] }: TocProps = $props();
 
-let activeId = $state("");
+const headerHeight = 68;
+
+let activeHeaderIds: SvelteSet<string> = new SvelteSet();
 let isContainerWide = $state(false);
 let tocOpen = $state(false);
 let tocElement = $state<HTMLElement | undefined>();
+
+const closeToc = () => {
+	if (!isContainerWide) return;
+	tocOpen = false
+};
 
 // Avoids the generated <astro-island> element - looking for the first real DOM element
 const getLayoutContainer = (element: HTMLElement) => {
@@ -34,11 +42,11 @@ onMount(() => {
 	let intersectObserver: IntersectionObserver | undefined;
 	let updateViewportState: () => void;
 
+	// ResizeObserver - Handles small display only features / behavior
 	const container = tocElement && getLayoutContainer(tocElement);
 	if (container) {
-		// ResizeObserver - Handles small display only features / behavior
 		const updateContainerState = (width: number) => {
-			isContainerWide = width >= window.innerWidth;
+			isContainerWide = Math.round(width) >= window.innerWidth;
 		};
 
 		resizeObserver = new ResizeObserver(([entry]) => {
@@ -59,13 +67,29 @@ onMount(() => {
 	const headerElements = getHeaderElements(headers);
 	if (headerElements.length) {
 		const options = {
-			root: document.querySelector("#scrollArea"),
-			rootMargin: "0px",
+			root: null,
+			rootMargin: `-${headerHeight}px 0px 0px 0px`,
 			scrollMargin: "0px",
-			threshold: 1.0,
+			threshold: 0,
 		};
 
-		intersectObserver = new IntersectionObserver(() => {}, options);
+		const callback = (entries: IntersectionObserverEntry[]) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					activeHeaderIds.add(entry.target.id);
+					return;
+				}
+
+				if (entry.intersectionRatio <= 0) {
+					activeHeaderIds.delete(entry.target.id);
+				}
+			});
+		};
+
+		intersectObserver = new IntersectionObserver(callback, options);
+		headerElements.forEach((headerElement) => {
+			intersectObserver?.observe(headerElement);
+		});
 	}
 
 	return () => {
@@ -74,9 +98,6 @@ onMount(() => {
 		window.removeEventListener("resize", updateViewportState);
 	};
 });
-
-const closeToc = () => (tocOpen = false);
-$inspect(isContainerWide);
 </script>
 
 {#if headers.length}
@@ -86,13 +107,14 @@ $inspect(isContainerWide);
 			<div class="toc-list-wrapper">
 				<ol role="list" class="stack">
                 {#each headers as header (header.slug)}
-                    <li class:subheading={header.depth >= 3} style={`--indent-amount: ${(header.depth - 3) + 1}`}>
+                    <li 
+						class:active={activeHeaderIds.has(header.slug)} 
+						class:subheading={header.depth >= 3} style={`--indent-amount: ${(header.depth - 3) + 1}`}
+					>
                         <a
                             class="link-unstyled"
-                            class:active={activeId === header.slug}
                             href={`#${header.slug}`}
-                            aria-current={activeId === header.slug ? "location" : undefined}
-							onclick={isContainerWide && closeToc}
+							onclick={closeToc}
                         >
                             {header.text}
                         </a>
@@ -123,6 +145,9 @@ $inspect(isContainerWide);
 	.toc-wrapper {
 		background-color: var(--bg-secondary);
 		border: 1px solid var(--bg-tertiary);
+		@container (width >= 100vw) {
+			border: none;
+		}
 		border-radius: inherit;
 		max-height: inherit;
 		width: 100%;
@@ -154,6 +179,11 @@ $inspect(isContainerWide);
 
 	.toc li {
 		border-inline-start: 2px solid var(--bg-tertiary);
+		transition-property: border-color;
+		transition-duration: var(--timing-fast);
+		&.active {
+			border-color: var(--accent);
+		}
 	}
 
 	.toc li.subheading {
@@ -168,12 +198,7 @@ $inspect(isContainerWide);
 		transition: color var(--timing-fast), border-color var(--timing-fast);
 	}
 
-	.toc a:hover,
-	.toc a.active {
+	.toc a:hover {
 		color: var(--accent);
-	}
-
-	.toc li:has(a.active) {
-		border-color: var(--accent);
 	}
 </style>
