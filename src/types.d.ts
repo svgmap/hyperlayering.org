@@ -12,9 +12,9 @@ interface NavMenuItem {
 }
 
 interface TocItem {
-    depth: number;
-    slug: string;
-    text: string;
+	depth: number;
+	slug: string;
+	text: string;
 }
 
 // Extending svelteHTML to utilize custom button attributes for CSS

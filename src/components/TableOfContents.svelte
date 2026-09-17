@@ -18,7 +18,7 @@ let tocElement = $state<HTMLElement | undefined>();
 
 const closeToc = () => {
 	if (!isContainerWide) return;
-	tocOpen = false
+	tocOpen = false;
 };
 
 // Avoids the generated <astro-island> element - looking for the first real DOM element
