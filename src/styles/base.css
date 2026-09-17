@@ -326,13 +326,13 @@
 
 .layout {
 	margin: var(--space-md) auto;
-	margin-inline: max(var(--space-sm), 50% - calc(var(--paragraph-width) / 2));
+	margin-inline: max(var(--space-md), 50% - calc(var(--paragraph-width) / 2));
 }
 
 /* TODO: refactor */
 .layout--wide {
 	margin: var(--space-md) auto;
-	margin-inline: max(var(--space-sm), 50% - calc(var(--paragraph-width) / 1.5));
+	margin-inline: max(var(--space-md), 50% - calc(var(--paragraph-width) / 1.5));
 }
 
 .layout--max {
