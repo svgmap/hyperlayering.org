@@ -14,6 +14,8 @@ export const ui = {
 		"nav.demos": "Demos",
 		"nav.updates": "Updates",
 		"nav.lang-btn.label": "Change Language",
+		"nav.mobile-toggle.label.open": "Open Navigation Menu",
+		"nav.mobile-toggle.label.close": "Close Navigation Menu",
 		"nav.github.message": "Explore the project on GitHub",
 		"nav.documentation": "Documentation",
 		"nav.documentation.tutorials": "Tutorials",
@@ -44,6 +46,8 @@ export const ui = {
 	},
 	ja: {
 		"nav.lang-btn.label": "言語を変更する",
+		"nav.mobile-toggle.label.open": "ナビゲーションメニューを開く",
+		"nav.mobile-toggle.label.close": "ナビゲーションメニューを閉じる",
 		"nav.github.message": "GitHubでこのプロジェクトを詳しく見る",
 		"page.home.tagline": "クライアント中心の分散型ウェブマッピング",
 		"page.home.get-started-btn": "はじめに",
