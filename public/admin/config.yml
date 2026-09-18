@@ -92,6 +92,11 @@ collections:
         label: Version
         widget: string
         i18n: duplicate
+      - name: showToc
+        label: Show Table of Contents
+        comment: Use Table of Contents for long guidelines only.
+        widget: boolean
+        default: true 
       - name: body 
         label: Body 
         widget: richtext 

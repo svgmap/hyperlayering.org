@@ -23,6 +23,7 @@ const guideline = defineCollection({
 		title: z.string(),
 		lastUpdated: z.coerce.date(),
 		version: z.string(),
+		showToc: z.boolean().optional().default(true),
 	}),
 });
 
