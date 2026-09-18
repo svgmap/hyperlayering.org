@@ -30,14 +30,14 @@ const toggleMenu = () => {
 
 <header class="site-header">
   <a
-    aria-label="Home"
+    aria-label={t("nav.home")}
     class="brand font-wide row"
     href={getRelativeLocaleUrl(lang, "/")}
   >
     <Logo></Logo>
     <span class="typemark">{title}</span>
   </a>
-  <nav class="nav" class:nav-open={menuOpen} aria-describedby="nav-menu">
+  <nav class="nav" class:nav-open={menuOpen}>
     {#each links as link}
       <a class="nav-item" href={link.href}>{link.label}</a>
     {/each}
@@ -59,6 +59,7 @@ const toggleMenu = () => {
     </a>
   </nav>
   <button
+    aria-label={menuOpen ? t("nav.mobile-toggle.label.close") : t("nav.mobile-toggle.label.open")}
     aria-controls="nav-menu"
     aria-expanded={menuOpen}
     class="icon-wrapper mobile-menu-toggle"
@@ -87,7 +88,7 @@ const toggleMenu = () => {
   .site-header {
     position: sticky;
     inset-block-start: 0;
-    z-index: 1;
+    z-index: 2;
     height: var(--header-height);
     display: flex;
     justify-content: space-between;

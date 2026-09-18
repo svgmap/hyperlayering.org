@@ -51,7 +51,7 @@
 	--font-3xl: clamp(1.875rem, 1rem + 3vw, 3rem);
 	--font-4xl: clamp(2.25rem, 1rem + 4vw, 4rem);
 	--font-5xl: clamp(4.25rem, 1rem + 6vw, 6rem);
-	--paragraph-width: 90ch;
+	--paragraph-width: 80ch;
 	--heading-width: 100ch;
 	--font-wide: 125%;
 

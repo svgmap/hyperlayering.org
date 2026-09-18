@@ -12,6 +12,7 @@ const update = defineCollection({
 		author: z.string(),
 		date: z.coerce.date(),
 		description: z.string(),
+		showToc: z.boolean().optional().default(false),
 		updatedDate: z.coerce.date().optional(),
 	}),
 });
@@ -22,6 +23,7 @@ const guideline = defineCollection({
 		title: z.string(),
 		lastUpdated: z.coerce.date(),
 		version: z.string(),
+		showToc: z.boolean().optional().default(true),
 	}),
 });
 

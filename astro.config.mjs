@@ -7,12 +7,22 @@ import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import { cleanMarkdownLinks } from "./satteri-plugins/cleanMarkdownLinks.mjs";
 import { docusaurusHeadingIds } from "./satteri-plugins/docusaurusHeadingIds.mjs";
+import { getHeaders } from "./satteri-plugins/getHeaders.mjs";
 import { guardTitleH1 } from "./satteri-plugins/guardTitleH1.mjs";
 import { insertTableWrapper } from "./satteri-plugins/insertTableWrapper.mjs";
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://hyperlayering.org/",
+
+	vite: {
+		build: {
+			// Switched to ESBuild for CSS minifying
+			// Lightning CSS runs into build issues when parsing "calc()" functions
+			// Can be switched back to default when the issue is addressed
+			cssMinify: "esbuild",
+		},
+	},
 
 	markdown: {
 		processor: satteri({
@@ -21,7 +31,7 @@ export default defineConfig({
 				cleanMarkdownLinks(),
 				insertTableWrapper(),
 			],
-			mdastPlugins: [guardTitleH1()],
+			mdastPlugins: [getHeaders(), guardTitleH1()],
 			features: { directive: true },
 		}),
 	},
@@ -120,5 +130,7 @@ export default defineConfig({
 		}),
 	],
 
-	adapter: cloudflare(),
+	adapter: cloudflare({
+		prerenderEnvironment: "node",
+	}),
 });
