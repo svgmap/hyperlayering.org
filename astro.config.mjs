@@ -15,6 +15,15 @@ import { insertTableWrapper } from "./satteri-plugins/insertTableWrapper.mjs";
 export default defineConfig({
 	site: "https://hyperlayering.org/",
 
+	vite: {
+		build: {
+			// Switched to ESBuild for CSS minifying
+			// Lightning CSS runs into build issues when parsing "calc()" functions
+			// Can be switched back to default when the issue is addressed
+			cssMinify: "esbuild",
+		},
+	},
+
 	markdown: {
 		processor: satteri({
 			hastPlugins: [
@@ -121,5 +130,7 @@ export default defineConfig({
 		}),
 	],
 
-	adapter: cloudflare(),
+	adapter: cloudflare({
+		prerenderEnvironment: "node",
+	}),
 });
