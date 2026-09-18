@@ -41,10 +41,9 @@ const { title, tocHeaders = [] } = Astro.props;
     container-type: inline-size;
     container-name: content-body;
     display: grid;
-    grid-template-columns: 1fr minmax(
-        min(calc((var(--paragraph-width) / 1.5) * 2), 100%),
-        1fr
-      ) 1fr;
+    grid-template-columns:
+      1fr minmax(min(calc((var(--paragraph-width) / 1.5) * 2), 100%), 1fr)
+      1fr;
     gap: var(--space-sm);
     margin: 0 var(--space-md);
     @container (width <= calc(var(--paragraph-width) * 2)) {
