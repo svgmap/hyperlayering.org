@@ -1,5 +1,9 @@
 <script lang="ts">
-let { size = "1em", color = "currentColor", className = "" }: IconProps = $props();
+let {
+	size = "1em",
+	color = "currentColor",
+	className = "",
+}: IconProps = $props();
 </script>
 
 <svg 
