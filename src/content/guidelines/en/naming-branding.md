@@ -2,6 +2,7 @@
 title: Naming & Branding Guidelines
 lastUpdated: 2026-08-25
 version: Draft 0.1
+showToc: true
 ---
 
 ## 1. Purpose
@@ -104,7 +105,7 @@ Because SVGMap has been used for many years and has established recognition amon
 
 After the transition period, the name should generally be simplified to HLMap.
 
-# 8. Hyper Layering Community
+## 8. Hyper Layering Community
 
 The community name is: Hyper Layering Community.
 
