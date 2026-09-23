@@ -55,6 +55,7 @@ collections:
         comment: Use Table of Contents for long posts only.
         widget: boolean
         default: false 
+        i18n: duplicate
       - name: body 
         label: Body 
         widget: richtext 
@@ -96,7 +97,8 @@ collections:
         label: Show Table of Contents
         comment: Use Table of Contents for long guidelines only.
         widget: boolean
-        default: true 
+        default: true
+        i18n: duplicate 
       - name: body 
         label: Body 
         widget: richtext 
