@@ -16,6 +16,7 @@
 	--blue: oklch(0.6988 0.1864 252.372);
 	--purple: oklch(0.6988 0.1864 325.529);
 	--green: oklch(0.6988 0.1864 151.37);
+	--red: oklch(0.6988 0.1864 24.41);
 	--accent: var(--green);
 	--accent-text: var(--dark-grey);
 
