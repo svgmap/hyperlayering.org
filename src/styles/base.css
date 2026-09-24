@@ -307,10 +307,6 @@
 	flex-direction: row;
 	justify-content: var(--_row-justify);
 	gap: var(--_gap);
-
-	&.row--even-space {
-		--_row-justify: space-evenly;
-	}
 }
 
 .grid {
