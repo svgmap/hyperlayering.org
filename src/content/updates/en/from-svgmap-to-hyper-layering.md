@@ -16,7 +16,7 @@ As part of this transition, we took the opportunity to look again at the ideas t
 
 The name “SVGMap” comes from **Scalable Vector Graphics (SVG)**, the underlying description format on which it was built. SVG has played an important role in the development of SVGMap, and it continues to do so. At the same time, the more fundamental idea that has driven the development of SVGMap over the years is **HLA**: the idea of combining independent Web resources in a geographic context while allowing each resource to remain independent.
 
-Hyper-Layering seeks to extend the open and decentralized principles of the Web further into the geographic world. Just as the World Wide Web has evolved by connecting independent information through hyperlinks, Hyper-Layering aims to connect diverse information and services using geographic space as a common context.
+Hyper-Layering seeks to extend the open and decentralized principles of the Web further into the world of maps. It builds on something that maps already have: a common geographic context in which independent information and services can be layered together, using hyperlinks on the Web.
 
 With this transition, SVGMap is evolving into **Hyper-Layered Map**, and its community home is moving to **hyperlayering.org**. This does not mean replacing SVGMap with something else. Rather, it is an opportunity to further develop what we have built over the years under the broader concept of Hyper-Layering.
 
