@@ -9,17 +9,17 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const updates = (
-  await getCollection("update", ({ id }) => {
-    const [updateLang, updateId] = id.split("/");
-    if (updateLang === lang) return updateId;
-  })
+	await getCollection("update", ({ id }) => {
+		const [updateLang, updateId] = id.split("/");
+		if (updateLang === lang) return updateId;
+	})
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 export async function getStaticPaths() {
-  const locales = Object.keys(languages);
-  return locales.map((locale) => ({
-    params: { lang: locale !== defaultLang ? locale : undefined },
-  }));
+	const locales = Object.keys(languages);
+	return locales.map((locale) => ({
+		params: { lang: locale !== defaultLang ? locale : undefined },
+	}));
 }
 ---
 
