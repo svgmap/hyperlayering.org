@@ -94,7 +94,10 @@
 		--_header-scroll-margin: var(--header-scroll-margin, 1);
 		text-wrap: balance;
 		color: var(--text-main);
-		scroll-margin-block-start: calc(var(--header-height) * var(--_header-scroll-margin));
+		scroll-margin-block-start: calc(
+			var(--header-height) *
+			var(--_header-scroll-margin)
+		);
 	}
 
 	h1 {
