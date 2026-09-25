@@ -5,6 +5,8 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.hla-201.workers.dev
   auth: [oauth]
+  site_url: https://hyperlayering.org/
+  preview_context: Cloudflare Workers
 
 media_folder: /public/assets
 public_folder: /assets
@@ -25,12 +27,14 @@ i18n:
   structure: multiple_folders
   locales: [en, ja]
   default_locale: en
+  omit_default_locale_from_preview_path: true
 
 collections:
   - name: updates
     label: Updates
     label_singular: Update
     folder: src/content/updates
+    preview_path: "/{{locale}}/updates/{{slug}}"
     i18n: true
     fields:
       - name: title
@@ -50,6 +54,7 @@ collections:
         label: Description
         widget: string
         i18n: true
+        maxlength: 250
       - name: showToc
         label: Show Table of Contents
         comment: Use Table of Contents for long posts only.
@@ -78,6 +83,7 @@ collections:
     label: Guidelines
     label_singular: Update
     folder: src/content/guidelines
+    preview_path: "/{{locale}}/guidelines/{{slug}}"
     i18n: true
     fields:
       - name: title
