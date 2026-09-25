@@ -11,22 +11,24 @@
 		margin: 0;
 	}
 
-	@media (prefers-reduced-motion: no-preference) {
-		html {
-			interpolate-size: allow-keywords;
-		}
-	}
-
 	html {
 		color-scheme: light dark;
 		font-size: var(--font-base);
 		color: var(--text-secondary);
 		background-color: var(--bg-primary);
 		scrollbar-gutter: stable;
+		scroll-behavior: auto;
 		block-size: 100%;
 		font-family: "Archivo", sans-serif;
 		&:lang(ja) {
 			font-family: "Archivo", "Zen Kaku Gothic New", sans-serif;
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			interpolate-size: allow-keywords;
+			scroll-behavior: smooth;
 		}
 	}
 
@@ -89,9 +91,13 @@
 	h4,
 	h5,
 	h6 {
+		--_header-scroll-margin: var(--header-scroll-margin, 1);
 		text-wrap: balance;
 		color: var(--text-main);
-		scroll-margin-block-start: calc(var(--header-height) * 2);
+		scroll-margin-block-start: calc(
+			var(--header-height) *
+			var(--_header-scroll-margin)
+		);
 	}
 
 	h1 {
@@ -220,6 +226,17 @@
 			}
 		}
 	}
+
+	:not(pre) > code {
+		font-family: var(--font-mono);
+		font-weight: normal;
+		font-size: 0.8em;
+		color: var(--text-accent);
+		padding: var(--space-xxs);
+		border-radius: var(--round-xs);
+		background: var(--bg-secondary);
+		border: 1px solid var(--bg-tertiary);
+	}
 }
 
 /* === UTILITIES === */
@@ -262,10 +279,10 @@
 /* === LAYOUTS === */
 
 .flow {
-	--_flow-space: var(--flow-space, var(--space-sm));
+	--_flow-space: var(--flow-space, 1.25em);
 
-	& > * + * {
-		margin-top: var(--_flow-space, 1em);
+	& > * + *:not(:first-child) {
+		margin-top: var(--_flow-space);
 	}
 
 	&.flow--dense {
@@ -274,7 +291,7 @@
 
 	img {
 		max-width: 95%;
-		margin: var(--_flow-space, 1em) auto;
+		margin: var(--_flow-space) auto;
 	}
 
 	&.flow--dense {
@@ -304,10 +321,6 @@
 	flex-direction: row;
 	justify-content: var(--_row-justify);
 	gap: var(--_gap);
-
-	&.row--even-space {
-		--_row-justify: space-evenly;
-	}
 }
 
 .grid {

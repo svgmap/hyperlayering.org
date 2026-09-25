@@ -1,6 +1,6 @@
 <script lang="ts">
 let {
-	size = 500,
+	size = "100%",
 	color = "currentColor",
 	className = "",
 }: IconProps = $props();
@@ -9,8 +9,8 @@ let {
 <svg
   xmlns="http://www.w3.org/2000/svg"
   xml:space="preserve"
-  width="1in"
-  height="1in"
+  width={size}
+  height={size}
   version="1.1"
   class={className}
   style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"

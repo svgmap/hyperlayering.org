@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 
 :root {
 	--header-height: 68px;
@@ -16,6 +17,7 @@
 	--blue: oklch(0.6988 0.1864 252.372);
 	--purple: oklch(0.6988 0.1864 325.529);
 	--green: oklch(0.6988 0.1864 151.37);
+	--red: oklch(0.6988 0.1864 24.41);
 	--accent: var(--green);
 	--accent-text: var(--dark-grey);
 
@@ -23,6 +25,10 @@
 	--text-main: light-dark(var(--black), var(--white));
 	--text-secondary: light-dark(var(--dark-grey), var(--mid-white));
 	--text-tertiary: light-dark(var(--mid-grey), var(--light-grey));
+	--text-accent: light-dark(
+		oklch(from var(--green) calc(l - 0.2) c h),
+		var(--green)
+	);
 	--accent-pair-text: var(--black);
 	--bg-primary: light-dark(var(--white), var(--black));
 	--bg-secondary: light-dark(var(--off-white), var(--dark-grey));
@@ -43,6 +49,7 @@
 	--round-full: 100%;
 
 	/* ==== Typography ==== */
+	--font-xs: clamp(0.7rem, 0.6rem + 0.25vw, 0.625rem);
 	--font-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
 	--font-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
 	--font-lg: clamp(1.125rem, 1rem + 0.75vw, 1.375rem);
@@ -54,6 +61,7 @@
 	--paragraph-width: 80ch;
 	--heading-width: 100ch;
 	--font-wide: 125%;
+	--font-mono: var("Fira Code", monospace);
 
 	/* ==== Timing ==== */
 	--timing-fastest: 100ms;
