@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
 :root {
 	--header-height: 68px;
@@ -24,6 +25,7 @@
 	--text-main: light-dark(var(--black), var(--white));
 	--text-secondary: light-dark(var(--dark-grey), var(--mid-white));
 	--text-tertiary: light-dark(var(--mid-grey), var(--light-grey));
+	--text-accent: light-dark(oklch(from var(--green) calc(l - 0.2) c h), var(--green));
 	--accent-pair-text: var(--black);
 	--bg-primary: light-dark(var(--white), var(--black));
 	--bg-secondary: light-dark(var(--off-white), var(--dark-grey));
@@ -56,6 +58,7 @@
 	--paragraph-width: 80ch;
 	--heading-width: 100ch;
 	--font-wide: 125%;
+	--font-mono: var("Fira Code", monospace);
 
 	/* ==== Timing ==== */
 	--timing-fastest: 100ms;

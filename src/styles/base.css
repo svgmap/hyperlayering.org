@@ -223,6 +223,17 @@
 			}
 		}
 	}
+
+	:not(pre) > code {
+		font-family: var(--font-mono);
+		font-weight: normal;
+		font-size: 0.8em;
+		color: var(--text-accent);
+		padding: var(--space-xxs);
+		border-radius: var(--round-xs);
+		background: var(--bg-secondary);
+		border: 1px solid var(--bg-tertiary);
+	}
 }
 
 /* === UTILITIES === */
