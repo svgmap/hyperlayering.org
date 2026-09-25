@@ -12,7 +12,7 @@ For nearly 30 years, SVGMap has been developed largely through the contributions
 
 As part of this transition, we took the opportunity to look again at the ideas that have been developed through SVGMap and discuss what should become the focus of the community going forward. We agreed to put **Hyper-Layering Architecture (HLA)** at the center of the community's concepts, activities, and naming.
 
-![SVGMap to Hyper-Layering](/assets/20260925-004148.webp "SVGMap to Hyper-Layering")
+![SVGMap to Hyper-Layering](/assets/36ffa5a4-3a06-4ebc-82fe-85baf059e3b8.webp "SVGMap to Hyper-Layering")
 
 The name “SVGMap” comes from **Scalable Vector Graphics (SVG)**, the underlying description format on which it was built. SVG has played an important role in the development of SVGMap, and it continues to do so. At the same time, the more fundamental idea that has driven the development of SVGMap over the years is **HLA**: the idea of combining independent Web resources in a geographic context while allowing each resource to remain independent.
 
