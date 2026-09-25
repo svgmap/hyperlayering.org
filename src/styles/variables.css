@@ -44,7 +44,7 @@
 	--round-full: 100%;
 
 	/* ==== Typography ==== */
-	--font-xs: clamp(0.6rem, 0.6rem + 0.25vw, 0.625rem);
+	--font-xs: clamp(0.7rem, 0.6rem + 0.25vw, 0.625rem);
 	--font-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
 	--font-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
 	--font-lg: clamp(1.125rem, 1rem + 0.75vw, 1.375rem);
