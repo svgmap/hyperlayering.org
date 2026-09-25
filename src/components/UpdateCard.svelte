@@ -65,6 +65,12 @@ let updateLinkElement: HTMLAnchorElement | null = $state(null);
         text-underline-offset var(--timing-fast);
     }
 
+    .body {
+      font-size: var(--font-sm);
+      line-height: 1.5em;
+      margin-block-end: var(--space-xs);
+    }
+
     :global(.details-arrow) {
       opacity: 0;
       visibility: hidden;
