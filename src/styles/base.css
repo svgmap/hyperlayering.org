@@ -91,12 +91,16 @@
 	h4,
 	h5,
 	h6 {
+		/* 
+		Anywhere the scroll margin needs to be increased eg. sticky ToC pages use 
+		--header-scroll-margin to multiply the default scroll margin on headers
+		*/
 		--_header-scroll-margin: var(--header-scroll-margin, 1);
 		text-wrap: balance;
 		color: var(--text-main);
-		scroll-margin-block-start: calc(
+		scroll-margin-block-start: calc((
 			var(--header-height) *
-			var(--_header-scroll-margin)
+			var(--_header-scroll-margin) + var(--space-xxs))
 		);
 	}
 
