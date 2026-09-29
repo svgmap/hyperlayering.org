@@ -1,6 +1,6 @@
 <script lang="ts">
 let {
-	size = 500,
+	size = "100%",
 	color = "currentColor",
 	className = "",
 }: IconProps = $props();

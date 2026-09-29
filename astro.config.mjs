@@ -11,6 +11,21 @@ import { getHeaders } from "./satteri-plugins/getHeaders.mjs";
 import { guardTitleH1 } from "./satteri-plugins/guardTitleH1.mjs";
 import { insertTableWrapper } from "./satteri-plugins/insertTableWrapper.mjs";
 
+// Correctly routes requests to Sveltia's admin panel in local dev builds
+const adminDevEnvOverride = () => ({
+	name: "admin-dev-env-override",
+	hooks: {
+		"astro:server:setup": ({ server }) => {
+			server.middlewares.use((req, _res, next) => {
+				if (req.url && /^\/admin\/?(\?.*)?$/.test(req.url)) {
+					req.url = "/admin/index.html";
+				}
+				next();
+			});
+		},
+	},
+});
+
 // https://astro.build/config
 export default defineConfig({
 	site: "https://hyperlayering.org/",
@@ -54,6 +69,7 @@ export default defineConfig({
 				},
 			},
 		}),
+		adminDevEnvOverride(),
 		starlight({
 			title: "Docs",
 			disable404Route: true,

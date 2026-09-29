@@ -1,16 +1,11 @@
 ---
-import { getCollection, render } from "astro:content";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import TableOfContents from "@components/TableOfContents.svelte";
-import { defaultLang, languages } from "@i18n/ui";
-import { getLangFromUrl } from "@i18n/utils";
 
 interface Props {
 	title: string;
 	tocHeaders?: TocItem[] | undefined;
 }
 
-const lang = getLangFromUrl(Astro.url);
 const { title, tocHeaders = [] } = Astro.props;
 ---
 
@@ -33,9 +28,6 @@ const { title, tocHeaders = [] } = Astro.props;
 </main>
 
 <style scoped>
-  :root {
-    scroll-behavior: smooth;
-  }
   #content-body-wrapper {
     anchor-name: --content-body;
     container-type: inline-size;
@@ -50,12 +42,16 @@ const { title, tocHeaders = [] } = Astro.props;
       display: flex;
       flex-direction: column-reverse;
       margin: 0;
+      * {
+        --header-scroll-margin: 2;
+      }
     }
   }
 
   .content-body {
     max-width: 100%;
     grid-column: 2;
+    margin-block-start: 0; /* Overriding .layout styling */
   }
 
   .content-layout {
