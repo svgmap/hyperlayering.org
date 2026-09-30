@@ -5,7 +5,7 @@ import GitHub from "@components/Icons/GitHub.svelte";
 import Languages from "@components/Icons/Languages.svelte";
 import Logo from "@components/Icons/Logo.svelte";
 import Menu from "@components/Icons/Menu.svelte";
-import { languages } from "@i18n/ui";
+import { defaultLang, languages } from "@i18n/ui";
 import {
 	getLangFromUrl,
 	pathWithoutLocale,
@@ -14,12 +14,12 @@ import {
 
 interface HeaderProps {
 	title?: string;
-	currentUrl: URL;
-	links: { href: string; label: string }[];
+	currentUrl?: URL;
+	links?: { href: string; label: string }[];
 }
 
 let { title = "HLA", currentUrl, links }: HeaderProps = $props();
-let lang = $derived(getLangFromUrl(currentUrl));
+let lang = $derived(getLangFromUrl(currentUrl ?? new URL("")));
 let t = $derived(useTranslations(lang));
 
 let menuOpen = $state(false);
@@ -37,7 +37,7 @@ const toggleMenu = () => {
     <Logo></Logo>
     <span class="typemark">{title}</span>
   </a>
-  <nav class="nav" class:nav-open={menuOpen}>
+  <nav id="nav-menu" class="nav" class:nav-open={menuOpen}>
     {#each links as link}
       <a class="nav-item" href={link.href}>{link.label}</a>
     {/each}

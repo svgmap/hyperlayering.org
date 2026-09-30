@@ -146,7 +146,9 @@ export default defineConfig({
 		}),
 	],
 
-	adapter: cloudflare({
-		prerenderEnvironment: "node",
-	}),
+	adapter: process.env.VITEST
+		? undefined
+		: cloudflare({
+				prerenderEnvironment: "node",
+			}),
 });
