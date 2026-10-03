@@ -12,13 +12,30 @@ Hyper Layering Design Guide
 
 The "Layer H" logo is to be displayed in one of 4 ways within HL community projects
 
+Malachite Green "Layer H" over Space Black background
+![](/assets/g-o-b.webp)
+
+Malachite Green "Layer H" over Sheet White background
+
+![](/assets/g-o-w.webp)
+
+
+Space Black "Layer H" over Malachite Green background
+
+![](/assets/b-o-g.webp)
+
 Space Black "Layer H" over Sheet White background
+
+![](/assets/b-o-w.webp)
 
 Sheet White "Layer H" over Space Black background
 
-Malachite Green "Layer H" over Space Black background
+![](/assets/w-o-b.webp)
 
-Space Black "Layer H" over Malachite Green background
+Sheet White "Layer H" over Malachite Green background
+
+![](/assets/w-o-g.webp)
+
 
 Should the display of the logo be external to the HL community, or for whatever reason the project does not contain any of the approved HL community colours, 4 additional examples of the "Layer H" can be displayed
 
@@ -43,7 +60,6 @@ Spacing of 1.5X shall be used for when displaying the Layer Link H Logo on its o
 Spacing of 3X shall be used when displaying the Layer Link H logo alongside a typeface brand identifier
 
 ![](/assets/full-distance-3x.webp)![](/assets/spacing-hl-acc.webp)![](/assets/spacing-hl-word.webp)
-
 
 ## Primary Palette
 
