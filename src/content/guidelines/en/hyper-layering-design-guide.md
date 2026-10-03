@@ -97,7 +97,10 @@ In any situation, Sheet White can be substituted with a pure white, and Space Bl
 
 Each Typography variation has been selected to provide structure, hierarchy, and provide legibility for users.
 
-The primary font for all HL comunnity projects is "Archivo". Different variations of this font are used to denote different levels of a page or app.
+The primary font for all HL comunity projects is "Archivo". Different variations of this font are used to denote different levels of a page or app.
+
+![](/assets/archivo-green.webp)
+
 
 ### Headings
 
