@@ -10,42 +10,32 @@ Hyper Layering Design Guide
 
 ## Logo and Wordmark
 
-The "Layer H" logo is to be displayed in one of 4 ways within HL community projects
+The "Layer H" logo is to be displayed in one of 6 ways within HL community projects. Should the display of the logo be external to the HL community, or for whatever reason the project does not contain any of the approved HL community colours, 6 additional examples of the "Layer H" can be displayed using pure whites and pitch blacks as a replacement for our colour palette neutral tones.
 
-Malachite Green "Layer H" over Space Black background
-![](/assets/g-o-b.webp)
+Malachite Green "Layer H" over Space Black/pitch black background
+![](/assets/g-o-b.webp)![](/assets/ggbb.webp)
 
-Malachite Green "Layer H" over Sheet White background
+Malachite Green "Layer H" over Sheet White/pure white background
 
-![](/assets/g-o-w.webp)
+![](/assets/g-o-w.webp)![](/assets/ggww.webp)
 
+Space Black/pitch black "Layer H" over Malachite Green background
 
-Space Black "Layer H" over Malachite Green background
+![](/assets/b-o-g.webp)![](/assets/bbgg.webp)
 
-![](/assets/b-o-g.webp)
+Space Black/pitch black "Layer H" over Sheet White background
 
-Space Black "Layer H" over Sheet White background
+![](/assets/b-o-w.webp)![](/assets/bbww.webp)
 
-![](/assets/b-o-w.webp)
+Sheet White/pure white "Layer H" over Space Black background
 
-Sheet White "Layer H" over Space Black background
+![](/assets/w-o-b.webp)![](/assets/wwbb.webp)
 
-![](/assets/w-o-b.webp)
+Sheet White/pure white "Layer H" over Malachite Green background
 
-Sheet White "Layer H" over Malachite Green background
-
-![](/assets/w-o-g.webp)
-
+![](/assets/w-o-g.webp)![](/assets/wwgg.webp)
 
 Should the display of the logo be external to the HL community, or for whatever reason the project does not contain any of the approved HL community colours, 4 additional examples of the "Layer H" can be displayed
-
-Black "Layer H" over white background
-
-White "Layer H" over black background
-
-Malachite green "Layer H" over black background
-
-Black "Layer H" over Malachite green background
 
 ## Protected Space
 
@@ -99,7 +89,7 @@ The primary palette for HL comunnity projects
 
 All approved combinations are tested and chosen with the intention to meet all levels of WCAG color contrast standards.
 
-![](/assets/hyper-layering-colour-english-1-.pptx-2.webp)![](/assets/hyper-layering-colour-english-1-.pptx-2-1.webp)![](/assets/hyper-layering-colour-english-1-.pptx-1.webp)
+![](/assets/hyper-layering-colour-english-1-.pptx-3.webp)![](/assets/hyper-layering-colour-english-1-.pptx-2-1.webp)![](/assets/hyper-layering-colour-english-1-.pptx-1.webp)
 
 In any situation, Sheet White can be substituted with a pure white, and Space Black can be substituted with a pure black.
 
