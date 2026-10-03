@@ -50,7 +50,7 @@ export const ui = {
 		"nav.mobile-toggle.label.close": "ナビゲーションメニューを閉じる",
 		"nav.github.message": "GitHubでこのプロジェクトを詳しく見る",
 		"page.home.tagline": "クライアント中心の分散型ウェブマッピング",
-		"page.home.get-started-btn": "はじめに",
+		"page.home.get-started-btn": "HLMapをはじめる",
 		"page.home.about-btn": "プロジェクトについて",
 		"page.home.features.title": "なぜハイパー・レイヤリングなのか？",
 		"page.home.features.decentralized.title": "分散型",
