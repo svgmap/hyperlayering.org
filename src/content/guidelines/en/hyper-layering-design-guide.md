@@ -1,5 +1,5 @@
 ---
-title: Hyper Layering Design Guide
+title: Hyper Layering Brand Guideline
 lastUpdated: 2026-10-03
 version: '1.0'
 # Use Table of Contents for long guidelines only.
