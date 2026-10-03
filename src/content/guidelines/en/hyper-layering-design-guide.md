@@ -6,8 +6,6 @@ version: '1.0'
 showToc: true
 ---
 
-Hyper Layering Design Guide
-
 ## Logo and Wordmark
 
 The "Layer H" logo is to be displayed in one of 6 ways within HL community projects. Should the display of the logo be external to the HL community, or for whatever reason the project does not contain any of the approved HL community colours, 6 additional examples of the "Layer H" can be displayed using pure whites and pitch blacks as a replacement for our colour palette neutral tones.
@@ -100,7 +98,6 @@ Each Typography variation has been selected to provide structure, hierarchy, and
 The primary font for all HL comunity projects is "Archivo". Different variations of this font are used to denote different levels of a page or app.
 
 ![](/assets/archivo-green.webp)
-
 
 ### Headings
 
