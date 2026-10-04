@@ -12,27 +12,25 @@ The "Layer H" logo is the main Identifier for HLA, along with 2 different typefa
 
 ### Primary Logo
 
-The standard Logo used to identify Hyper Layering
+The standard Logo used to identify Hyper Layering.
 
 ![](/assets/logo1.webp)
 
 #### Protected Space
 
-Measurement x is the width of the bold lines in the Layer Link H Logo
+Measurement x is the width of the bold lines in the Layer Link H Logo.
 
-![](/assets/full-distance.webp)
-
-Spacing of 1.5X shall be used for when displaying the Layer Link H Logo on its own
+Spacing of 1.5X shall be used for when displaying the Layer Link H Logo on its own.
 
 ![](/assets/full-distance-1.5x.webp)
 
-Spacing of 3X shall be used when displaying the Layer Link H logo alongside a typeface brand identifier
+Spacing of 3X shall be used when displaying the Layer Link H logo alongside a typeface brand identifier.
 
 ![](/assets/full-distance-3x.webp)
 
 ### Wordmark Logo 1
 
-The standard Logo with an abbreviated HLA (Hyper Layer Architecture)
+The standard Logo with an abbreviated HLA (Hyper Layer Architecture).
 
 ![](/assets/logo2.webp)
 
@@ -44,7 +42,7 @@ Distance 3X between the logo and the text, as well as 3X between the entire peri
 
 ### Wordmark Logo 2
 
-The standard Logo with "Hyper Layering"
+The standard Logo with "Hyper Layering".
 
 ![](/assets/logo3.webp)
 
@@ -64,26 +62,26 @@ When using the Hyper Layering branding, avoid the following:
 
 The "Layer H" logo is to be displayed in one of 6 ways within HL community projects. Should the display of the logo be external to the HL community, or for whatever reason the project does not contain any of the approved HL community colours, 6 additional examples of the "Layer H" can be displayed using pure whites and pitch blacks as a replacement for our colour palette neutral tones.
 
-Malachite Green "Layer H" over Space Black/pitch black background
+Malachite Green "Layer H" over Space Black/pitch black background.
 ![](/assets/g-o-b.webp)![](/assets/ggbb.webp)
 
-Malachite Green "Layer H" over Sheet White/pure white background
+Malachite Green "Layer H" over Sheet White/pure white background.
 
 ![](/assets/g-o-w.webp)![](/assets/ggww.webp)
 
-Space Black/pitch black "Layer H" over Malachite Green background
+Space Black/pitch black "Layer H" over Malachite Green background.
 
 ![](/assets/b-o-g.webp)![](/assets/bbgg.webp)
 
-Space Black/pitch black "Layer H" over Sheet White background
+Space Black/pitch black "Layer H" over Sheet White background.
 
 ![](/assets/b-o-w.webp)![](/assets/bbww.webp)
 
-Sheet White/pure white "Layer H" over Space Black background
+Sheet White/pure white "Layer H" over Space Black background.
 
 ![](/assets/w-o-b.webp)![](/assets/wwbb.webp)
 
-Sheet White/pure white "Layer H" over Malachite Green background
+Sheet White/pure white "Layer H" over Malachite Green background.
 
 ![](/assets/w-o-g.webp)![](/assets/wwgg.webp)
 
@@ -91,7 +89,7 @@ Sheet White/pure white "Layer H" over Malachite Green background
 
 #### Values
 
-The primary palette for HL comunity projects 
+The primary palette for HL comunity projects.
 
 | Swatch | Color | Hex | RGB | CMYK |
 | --- | --- | --- | --- | --- |
