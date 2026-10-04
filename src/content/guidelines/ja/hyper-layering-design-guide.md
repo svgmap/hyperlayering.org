@@ -56,7 +56,7 @@ Distance 3X between the logo and the text, as well as 3X between the entire peri
 
 When using the Hyper Layering branding, avoid the following:
 
-![](/assets/donts.webp)
+![](/assets/donts-jp.webp)
 
 ## Colour usage
 
@@ -133,7 +133,7 @@ Each Typography variation has been selected to provide structure, hierarchy, and
 
 The primary font for all HL community projects is "Archivo". Different variations of this font are used to denote different levels of a page or app.
 
-![](/assets/archivo-green.webp)
+![](/assets/font-jp.webp)
 
 ### Headings
 
