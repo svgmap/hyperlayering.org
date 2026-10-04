@@ -13,6 +13,7 @@ public_folder: /assets
 
 media_libraries:
   all: 
+    filename_template: '{{year}}{{month}}{{day}}-{{uuid_short}}'
     slugify_filename: true
   default:
     config:
@@ -34,12 +35,14 @@ collections:
     label: Updates
     label_singular: Update
     folder: src/content/updates
+    media_folder: "{{media_folder}}/updates"
+    public_folder: "{{public_folder}}/updates"
     preview_path: "/{{locale}}/updates/{{slug}}"
     i18n: true
     fields:
       - name: title
         label: Title
-        widget: string
+        widget: text
         i18n: true
       - name: author
         label: Author
@@ -81,8 +84,10 @@ collections:
           - quote
   - name: guidelines
     label: Guidelines
-    label_singular: Update
+    label_singular: Guideline
     folder: src/content/guidelines
+    media_folder: "{{media_folder}}/guidelines"
+    public_folder: "{{public_folder}}/guidelines"
     preview_path: "/{{locale}}/guidelines/{{slug}}"
     i18n: true
     fields:
@@ -123,3 +128,27 @@ collections:
           - bulleted-list
           - numbered-list
           - quote
+  - name: pages
+    label: Pages
+    label_singular: Page
+    i18n: true
+    files:
+      - name: home
+        label: Home Page
+        i18n: true
+        file: src/content/pages/home.{{locale}}.json
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            i18n: true
+            fields: 
+              - name: heading
+                label: Heading
+                widget: string
+                i18n: true
+              - name: subheading
+                label: Subheading
+                widget: string
+                i18n: true            
+          - { name: body, label: Body, widget: richtext }
