@@ -143,7 +143,7 @@ All major headings or top level hierarchical writing use the BOLD variation of A
 
 ### Sub-Headings
 
-All sub headings or upper (but not top) level hierarchical writing use the BOLD variation of Archivo WITHOUT a variable font axis width set to 120%. As the sub headings progress through the heirarchy, the boldness is not taken away, however the font size gradually shrinks until the sub heading font size is the same as the standard text font size.
+All sub headings or upper (but not top) level hierarchical writing use the BOLD variation of Archivo WITHOUT a variable font axis width set to 120%. As the sub headings progress through the hierarchy, the boldness is not taken away, however the font size gradually shrinks until the sub heading font size is the same as the standard text font size.
 
 ### Standard Text
 
