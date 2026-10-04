@@ -6,25 +6,25 @@ version: '1.0'
 showToc: true
 ---
 
-## Logo and Wordmark
+## ロゴとワードマーク
 
-The "Layer H" logo is the main Identifier for HLA, along with 2 different typeface identifiers.
+「Layer H」のロゴは、2種類の異なる書体による識別マークとともに、HLAの主要な識別マークとなっています。
 
-### Primary Logo
+### メインロゴ
 
-The standard Logo used to identify Hyper Layering.
+Hyper Layeringを表すために使用される標準ロゴ。
 
 ![](/assets/logo1.webp)
 
-#### Protected Space
+#### 保護された空間
 
-Measurement x is the width of the bold lines in the Layer Link H Logo.
+寸法 x は、「Layer Link H」ロゴの太い線の幅です。
 
-Spacing of 1.5X shall be used for when displaying the Layer Link H Logo on its own.
+「Layer Link H」ロゴを単独で表示する場合は、1.5倍の余白を設けてください。
 
 ![](/assets/full-distance-1.5x.webp)
 
-Spacing of 3X shall be used when displaying the Layer Link H logo alongside a typeface brand identifier.
+「Layer Link H」のロゴを書体ブランドの識別マークと並べて表示する場合は、3Xの文字間隔を使用すること。
 
 ![](/assets/full-distance-3x.webp)
 
