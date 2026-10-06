@@ -55,7 +55,7 @@ collections:
         i18n: duplicate
       - name: description
         label: Description
-        widget: string
+        widget: text
         i18n: true
         maxlength: 250
       - name: showToc
@@ -82,6 +82,31 @@ collections:
           - bulleted-list
           - numbered-list
           - quote
+  - name: authors
+    label: Authors
+    label_singular: Author
+    icon: account_circle
+    media_folder: "{{media_folder}}/authors"
+    public_folder: "{{public_folder}}/authors"
+    folder: src/content/authors
+    format: json
+    i18n: true
+    fields: 
+      - name: name
+        label: Name
+        widget: string
+        i18n: duplicate
+      - name: photo
+        label: Photo
+        widget: image
+        required: false
+        i18n: duplicate
+      - name: bio
+        label: Bio
+        widget: text
+        maxlength: 250
+        required: false
+        i18n: true
   - name: guidelines
     label: Guidelines
     label_singular: Guideline
@@ -151,4 +176,12 @@ collections:
                 label: Subheading
                 widget: string
                 i18n: true            
-          - { name: body, label: Body, widget: richtext }
+          - name: about 
+            label: About 
+            widget: richtext 
+            i18n: true
+            buttons: 
+            - bold
+            - italic
+            - link
+            
