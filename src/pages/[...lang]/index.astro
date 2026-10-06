@@ -30,7 +30,9 @@ export async function getStaticPaths() {
               >{t("page.home.get-started-btn")}</button
             ></a
           >
-          <button class="button">{t("page.home.about-btn")}</button>
+          <a href="#about">
+            <button class="button">{t("page.home.about-btn")}</button>
+          </a>
         </div>
       </div>
     </section>
@@ -45,9 +47,9 @@ export async function getStaticPaths() {
         <article class="card text-center" data-state="sub-grid">
           <Layers className="image" />
           <h3 class="title text-center">
-            {t("page.home.features.tiling.title")}
+            {t("page.home.features.layering.title")}
           </h3>
-          <p class="body">{t("page.home.features.tiling.body")}</p>
+          <p class="body">{t("page.home.features.layering.body")}</p>
         </article>
         <article class="card text-center" data-state="sub-grid">
           <SourceCode className="image" />
@@ -58,7 +60,7 @@ export async function getStaticPaths() {
         </article>
       </section>
     </article>
-    <article class="about-section">
+    <article id="about" class="about-section">
       <div class="layout--wide about-card">
         <section class="flow layout about-blurb">
           <h2 class="text-center font-wide">About HLA</h2>
