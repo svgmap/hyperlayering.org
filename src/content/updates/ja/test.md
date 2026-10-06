@@ -1,8 +1,10 @@
 ---
 title: アップデート内の画像
-author: test
+author: ethan-mcintyre
 date: 2026-08-27
 description: 更新記事内の画像を紹介する投稿
+# Use Table of Contents for long posts only.
+showToc: false
 ---
 
 アップデートに画像を投稿する方法はたくさんあります。
