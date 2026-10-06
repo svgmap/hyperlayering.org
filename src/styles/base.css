@@ -292,9 +292,10 @@
 		--flow-space: var(--space-sm);
 	}
 
-	img {
+	img, svg, figure {
 		max-width: 95%;
 		margin: var(--_flow-space) auto;
+		border-radius: var(--round-xs);
 	}
 
 	&.flow--dense {
@@ -307,6 +308,10 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--_stack-gap);
+
+	&[class*="stack--zero"] {
+		--_stack-gap: 0;
+	}
 
 	&[class*="stack--sm"] {
 		--_stack-gap: var(--space-sm);
@@ -323,7 +328,12 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: var(--_row-justify);
+	align-items: center;
 	gap: var(--_gap);
+
+	&[class*="row--xs"] {
+		--_gap: var(--space-xs);
+	}
 }
 
 .grid {
@@ -359,7 +369,7 @@
 
 .layout--max {
 	margin: var(--space-sm) auto;
-	margin-inline: var(--space-sm);
+	margin-inline: var(--space-md);
 }
 
 /* === BLOCKS/COMPONENTS === */

@@ -12,6 +12,7 @@ interface NavMenuItem {
 }
 
 interface TocItem {
+	index: number;
 	depth: number;
 	slug: string;
 	text: string;

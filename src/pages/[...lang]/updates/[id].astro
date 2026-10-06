@@ -5,30 +5,36 @@ import { defaultLang } from "@i18n/ui";
 import { getLangFromUrl } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ContentLayout from "@layouts/ContentLayout.astro";
+import { tocHeadersToMap } from "@utils/tocHeadersToMap";
 export async function getStaticPaths() {
-	const updates = await getCollection("update");
-	const parsedUpdates = updates.map((post) => {
-		const [updateLang, updateId] = post.id.split("/");
-		return {
-			params: {
-				lang: updateLang !== defaultLang ? updateLang : undefined,
-				id: updateId,
-			},
-			props: { post, updateId },
-		};
-	});
-	return parsedUpdates;
+  const updates = await getCollection("update");
+  const parsedUpdates = updates.map((post) => {
+    const [updateLang, updateId] = post.id.split("/");
+    return {
+      params: {
+        lang: updateLang !== defaultLang ? updateLang : undefined,
+        id: updateId,
+      },
+      props: { post, updateId },
+    };
+  });
+  return parsedUpdates;
 }
 
 const { post, updateId } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
-const headings = post.rendered?.metadata?.headings as TocItem[] | undefined;
+const headings = tocHeadersToMap(
+  post.rendered?.metadata?.headings as TocItem[],
+);
 const showToc = post.data.showToc;
 const { Content } = await render(post);
 ---
 
 <BaseLayout pageTitle={`Updates - ${post.data.title}`}>
-  <ContentLayout title={post.data.title} tocHeaders={showToc ? (headings ?? undefined) : undefined}>
+  <ContentLayout
+    title={post.data.title}
+    tocHeaders={showToc ? (headings ?? undefined) : undefined}
+  >
     <Fragment slot="route">
       <small class="route row"
         ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a><span
