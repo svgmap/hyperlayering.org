@@ -34,6 +34,7 @@ collections:
   - name: updates
     label: Updates
     label_singular: Update
+    icon: article
     folder: src/content/updates
     media_folder: "{{media_folder}}/updates"
     public_folder: "{{public_folder}}/updates"
@@ -86,9 +87,11 @@ collections:
     label: Authors
     label_singular: Author
     icon: account_circle
+    duplicate: false
     media_folder: "{{media_folder}}/authors"
     public_folder: "{{public_folder}}/authors"
     folder: src/content/authors
+    identifier_field: name
     format: json
     i18n: true
     fields: 
