@@ -145,7 +145,8 @@
 
 	p,
 	li,
-	dl {
+	dl,
+	small {
 		max-width: var(--paragraph-width);
 	}
 
@@ -259,6 +260,13 @@
 
 .text-left {
 	text-align: left;
+}
+
+.text-truncate-single {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .link-unstyled {

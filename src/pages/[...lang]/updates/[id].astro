@@ -39,8 +39,8 @@ const { Content } = await render(post);
       <small class="route row"
         ><a href={getRelativeLocaleUrl(lang, "/updates")}>updates</a><span
           >/</span
-        >{updateId}</small
-      >
+        ><span class="text-truncate-single">{updateId}</span>
+      </small>
     </Fragment>
     <Fragment slot="details">
       <span>{post.data.author}</span>
