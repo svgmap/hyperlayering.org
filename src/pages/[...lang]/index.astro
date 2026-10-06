@@ -35,21 +35,21 @@ export async function getStaticPaths() {
       </div>
     </section>
     <article class="feature-section layout--wide flow">
-      <h2 class="text-center">{t("page.home.features.title")}</h2>
+      <h2 class="text-center font-wide">{t("page.home.features.title")}</h2>
       <section class="auto-grid">
-        <article class="card stack text-center">
+        <article class="card text-center" data-state="sub-grid">
           <Decentralized className="image" />
           <h3 class="title">{t("page.home.features.decentralized.title")}</h3>
           <p class="body">{t("page.home.features.decentralized.body")}</p>
         </article>
-        <article class="card stack text-center">
+        <article class="card text-center" data-state="sub-grid">
           <Layers className="image" />
           <h3 class="title text-center">
             {t("page.home.features.tiling.title")}
           </h3>
           <p class="body">{t("page.home.features.tiling.body")}</p>
         </article>
-        <article class="card stack text-center">
+        <article class="card text-center" data-state="sub-grid">
           <SourceCode className="image" />
           <h3 class="title text-center">
             {t("page.home.features.open-source.title")}
@@ -57,6 +57,16 @@ export async function getStaticPaths() {
           <p class="body">{t("page.home.features.open-source.body")}</p>
         </article>
       </section>
+    </article>
+    <article class="about-section">
+      <div class="layout--wide about-card">
+        <section class="flow layout about-blurb">
+          <h2 class="text-center font-wide">About HLA</h2>
+          <hr>
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </section>
+        
+      </div>
     </article>
   </main>
 </BaseLayout>
@@ -128,5 +138,39 @@ export async function getStaticPaths() {
       }
       
     }
+  }
+
+  .about-section {
+    background: var(--bg-secondary);
+    background-image:
+      radial-gradient(
+        circle at 100% 50%,
+        oklch(from var(--green) l c h / 0.04) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at 50% 25%,
+        oklch(from var(--blue) l c h / 0.04) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at 0% 100%,
+        oklch(from var(--purple) l c h / 0.04) 0%,
+        transparent 60%
+      ),
+      radial-gradient(circle at 50% 50%, var(--bg-primary) 0%, transparent 90%);
+    padding-block: var(--space-sm);
+
+    .about-card {
+      padding-block: var(--space-md);
+      border-radius: var(--round-sm);
+      border: 1px solid var(--bg-tertiary);
+      background-color: inherit;
+    }
+
+    .about-blurb {
+      font-size: var(--font-base);
+    }
+
   }
 </style>

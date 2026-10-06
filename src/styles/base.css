@@ -402,6 +402,13 @@
 		}
 	}
 
+	&[data-state="sub-grid"] {
+		display: grid;
+		grid-template-rows: subgrid;   /* only rows; keep your own columns */
+		grid-row: span 3;              /* one per child: image, title, body */
+		gap: var(--space-xxs); 
+	}
+
 	.title {
 		font-size: var(--font-lg);
 		font-weight: 700;
