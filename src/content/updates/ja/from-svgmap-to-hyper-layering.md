@@ -1,8 +1,9 @@
 ---
 title: SVGMapからHyper-Layeringへ
-author: Satoru Takagi
+author: satoru-takagi
 date: 2026-09-24
 description: SVGMapは、Hyper-Layered Mapとして新たな段階へ進みます。本稿では、コミュニティの新しい拠点となるhyperlayering.orgのスタートと、SVGMapの中心にあったHyper-Layeringという考え方、そしてWebのオープンで分散的な原則を地理空間情報へ広げていく取り組みについて紹介します。
+# Use Table of Contents for long posts only.
 showToc: false
 ---
 
