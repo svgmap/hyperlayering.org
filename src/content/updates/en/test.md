@@ -1,8 +1,10 @@
 ---
 title: Images in Updates
-author: test
+author: ethan-mcintyre
 date: 2026-08-27
 description: A post showcasing Images in Update posts
+# Use Table of Contents for long posts only.
+showToc: false
 ---
 
 There are many ways to post images in an update.

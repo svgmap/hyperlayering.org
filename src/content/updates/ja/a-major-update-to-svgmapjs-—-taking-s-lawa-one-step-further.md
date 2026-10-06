@@ -1,8 +1,9 @@
 ---
 title: svgmapjsの大型アップデート — S-LaWAをさらに一歩前へ
-author: Satoru Takagi
+author: satoru-takagi
 date: 2026-09-25
 description: svgmapjsを大型アップデート。S-LaWAで独立したWeb Appを安全に統合し、任意の座標変換にも対応しました。
+# Use Table of Contents for long posts only.
 showToc: false
 ---
 

@@ -1,8 +1,9 @@
 ---
 title: From SVGMap to Hyper-Layering
-author: Satoru Takagi
+author: satoru-takagi
 date: 2026-09-24
 description: SVGMap is entering a new phase as Hyper-Layered Map. We introduce hyperlayering.org as the new home of the community and explain the idea of extending the Web’s open and decentralized principles to geographic information.
+# Use Table of Contents for long posts only.
 showToc: false
 ---
 

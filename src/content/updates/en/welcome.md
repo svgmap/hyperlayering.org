@@ -1,8 +1,10 @@
 ---
 title: Welcome!
-author: Ethan McIntyre
+author: ethan-mcintyre
 date: 2026-08-11
 description: Welcome to hyperlayering.org, home of the HLA project
+# Use Table of Contents for long posts only.
+showToc: false
 ---
 
 Welcome to [hyperlayering.org](https://hyperlayering.org/)! This website will serve as a hub for all things HLA; documentation, tutorials to help you get started, and updates on the project's development. 
