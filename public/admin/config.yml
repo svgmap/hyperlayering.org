@@ -93,6 +93,7 @@ collections:
     folder: src/content/authors
     identifier_field: name
     format: json
+    divider: true
     i18n: true
     fields: 
       - name: name
@@ -117,6 +118,7 @@ collections:
     media_folder: "{{media_folder}}/guidelines"
     public_folder: "{{public_folder}}/guidelines"
     preview_path: "/{{locale}}/guidelines/{{slug}}"
+    divider: true
     i18n: true
     fields:
       - name: title
