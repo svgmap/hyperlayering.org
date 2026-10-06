@@ -63,10 +63,15 @@ const t = useTranslations(lang);
         },
         {
           groupLabel: t("nav.resources"),
+          /* TODO: migrate "resources" to editable in CMS */
           links: [
             {
               label: t("nav.resources.naming-branding"),
               href: getRelativeLocaleUrl(lang, "/guidelines/naming-branding"),
+            },
+            {
+              label: t("nav.resources.brand-guideline"),
+              href: getRelativeLocaleUrl(lang, "/guidelines/hyper-layering-design-guide"),
             },
           ],
         },
