@@ -47,7 +47,12 @@ collections:
         i18n: true
       - name: author
         label: Author
-        widget: string
+        widget: relation
+        collection: authors
+        value_field: "{{slug}}"
+        display_fields: [name]
+        search_fields: [name, bio]
+        dropdown_threshold: 1
         i18n: duplicate
       - name: date
         label: Date
@@ -93,7 +98,6 @@ collections:
     folder: src/content/authors
     identifier_field: name
     format: json
-    divider: true
     i18n: true
     fields: 
       - name: name
@@ -111,6 +115,7 @@ collections:
         maxlength: 250
         required: false
         i18n: true
+  - divider: true
   - name: guidelines
     label: Guidelines
     label_singular: Guideline
@@ -118,7 +123,6 @@ collections:
     media_folder: "{{media_folder}}/guidelines"
     public_folder: "{{public_folder}}/guidelines"
     preview_path: "/{{locale}}/guidelines/{{slug}}"
-    divider: true
     i18n: true
     fields:
       - name: title
@@ -158,6 +162,7 @@ collections:
           - bulleted-list
           - numbered-list
           - quote
+  - divider: true
   - name: pages
     label: Pages
     label_singular: Page
