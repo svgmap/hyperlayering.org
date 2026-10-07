@@ -1,7 +1,7 @@
 {
-  "hero": {
-    "heading": "Hyper Layering",
-    "subheading": "Client-centric, de-centralized web mapping"
-  },
-  "about": "Hyper-Layering Architecture (HLA) is an open architecture for combining independent content, data, and services on the Web through geographic space.\n\nHyper-Layered Map (HLMap) is a Web map viewer based on HLA. In autumn 2026, SVGMap was renamed HLMap to reflect the broader Hyper-Layering concept.\n\nWith HLA, each layer can be an independent source of content, data, or services. Instead of relying solely on information aggregated by a portal, users can freely choose and combine different sources and layers directly in their browser.\n\nHLA is not merely a concept. It is a proven foundation technology that has been used for many years to integrate more than 200 Web-based systems as map layers."
+	"hero": {
+		"heading": "Hyper Layering",
+		"subheading": "Client-centric, de-centralized web mapping"
+	},
+	"about": "Hyper-Layering Architecture (HLA) is an open architecture for combining independent content, data, and services on the Web through geographic space.\n\nHyper-Layered Map (HLMap) is a Web map viewer based on HLA. In autumn 2026, SVGMap was renamed HLMap to reflect the broader Hyper-Layering concept.\n\nWith HLA, each layer can be an independent source of content, data, or services. Instead of relying solely on information aggregated by a portal, users can freely choose and combine different sources and layers directly in their browser.\n\nHLA is not merely a concept. It is a proven foundation technology that has been used for many years to integrate more than 200 Web-based systems as map layers."
 }
