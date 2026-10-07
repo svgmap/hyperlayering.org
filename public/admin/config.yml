@@ -171,7 +171,7 @@ collections:
       - name: home
         label: Home Page
         i18n: true
-        file: src/content/pages/home.{{locale}}.json
+        file: src/content/pages/{{locale}}/home.json
         fields:
           - name: hero
             label: Hero
@@ -188,10 +188,6 @@ collections:
                 i18n: true            
           - name: about 
             label: About 
-            widget: richtext 
+            widget: text 
             i18n: true
-            buttons: 
-            - bold
-            - italic
-            - link
             
