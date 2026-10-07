@@ -470,7 +470,7 @@
 		background-color: var(--hover-color);
 	}
 
-	&.accent {
+	&.accent, &[data-state*="accent"] {
 		--button-color: var(--accent);
 		--text-color: var(--accent-text);
 	}
