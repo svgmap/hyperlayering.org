@@ -12,12 +12,10 @@ interface TocProps {
 let { label = "On This Page", headers = new Map() }: TocProps = $props();
 
 const headerHeight = 68;
-$inspect(headers);
 
 let activeHeaderId = $state<string | null>(null);
 let isContainerWide = $state(false);
 let tocOpen = $state(false);
-$inspect(tocOpen);
 let tocElement = $state<HTMLElement | undefined>();
 
 const closeToc = () => {
@@ -104,7 +102,6 @@ onMount(() => {
 	onclick={(e) => {
 		if (isContainerWide && tocElement && !tocElement.contains(e.target as Node)) closeToc();
 	}}
-
 	onscrollcapture={(e) => {
 		if (isContainerWide && tocElement && !tocElement.contains(e.target as Node)) closeToc();
 	}}
