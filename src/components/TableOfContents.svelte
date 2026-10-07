@@ -50,7 +50,7 @@ onMount(() => {
 	const container = tocElement && getLayoutContainer(tocElement);
 	if (container) {
 		const updateContainerState = (width: number) => {
-			isContainerWide = Math.round(width) >= window.innerWidth;
+			isContainerWide = Math.round(width) >= document.documentElement.clientWidth;
 		};
 
 		resizeObserver = new ResizeObserver(([entry]) => {
@@ -78,7 +78,6 @@ onMount(() => {
 		};
 
 		const callback = (entries: IntersectionObserverEntry[]) => {
-			let highestIndex = 0;
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
 					activeHeaderId = entry.target.id;
@@ -114,6 +113,7 @@ onMount(() => {
 {#if headers.size}
 	<nav
 		class="toc"
+		class:wide={isContainerWide}
 		aria-label="Table of contents"
 		data-table-of-contents
 		bind:this={tocElement}
@@ -179,7 +179,7 @@ onMount(() => {
 			100dvh - (var(--header-height) + var(--space-md))
 		);
 
-		@container (width >= 100vw) {
+		&.wide {
 			top: var(--header-height);
 			width: 100%;
 			overflow: visible;
