@@ -27,9 +27,18 @@ const guideline = defineCollection({
 	}),
 });
 
+const authors = defineCollection({
+	loader: glob({ pattern: "**/*.json", base: "./src/content/authors" }),
+	schema: z.object({
+		name: z.string(),
+		photo: z.string().optional(),
+		bio: z.string().optional()
+	}),
+});
+
 const docs = defineCollection({
 	loader: docsLoader(),
 	schema: docsSchema(),
 });
 
-export const collections = { update, guideline, docs };
+export const collections = { update, guideline, docs, authors };
