@@ -36,9 +36,24 @@ const authors = defineCollection({
 	}),
 });
 
+const home = defineCollection({
+	loader: glob({ pattern: "**/home.json", base: "./src/content/pages" }),
+	schema: z.object({
+		hero: z.object({
+			heading: z.string(),
+			subheading: z.string(),
+		}),
+		aboutHyperLayering: z.array(z.object({
+			sectionTitle: z.string(),
+			sectionBody: z.string(),
+		})),
+		aboutCloser: z.string(),
+	}),
+});
+
 const docs = defineCollection({
 	loader: docsLoader(),
 	schema: docsSchema(),
 });
 
-export const collections = { update, guideline, docs, authors };
+export const collections = { update, guideline, docs, authors, home };
