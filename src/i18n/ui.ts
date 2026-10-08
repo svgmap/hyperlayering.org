@@ -23,6 +23,7 @@ export const ui = {
 		"nav.resources": "Resources",
 		"nav.resources.naming-branding": "Naming & Branding Guidelines",
 		"nav.resources.brand-guideline": "Brand Guideline",
+		"nav.copyright": `&#169; ${new Date().getFullYear()} Hyper Layering Community`,
 		"page.home.title": "Hyper Layering",
 		"page.home.tagline": "Client-centric, de-centralized web mapping",
 		"page.home.get-started-btn": "Get Started",
