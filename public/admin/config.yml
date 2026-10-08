@@ -189,7 +189,7 @@ collections:
           - name: aboutHyperLayering 
             label: About Hyper Layering (Sections)
             widget: list 
-            i18n: true
+            i18n: duplicate
             fields:
               - name: sectionTitle
                 label: Section Title
@@ -199,4 +199,8 @@ collections:
                 label: Section Body
                 widget: text
                 i18n: true
+          - name: aboutCloser
+            label: About Hyper Layering Closer
+            widget: text
+            i18n: true
             
