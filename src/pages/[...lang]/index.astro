@@ -12,18 +12,18 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 export async function getStaticPaths() {
-	const locales = Object.keys(languages);
-	return locales.map((locale) => ({
-		params: { lang: locale !== defaultLang ? locale : undefined },
-	}));
+  const locales = Object.keys(languages);
+  return locales.map((locale) => ({
+    params: { lang: locale !== defaultLang ? locale : undefined },
+  }));
 }
 
 const homePageContent = await getCollection("home", ({ id, data }) => {
-	const [homeLang] = id.split("/");
-	if (homeLang === lang) return data;
+  const [homeLang] = id.split("/");
+  if (homeLang === lang) return data;
 }).then((data) => {
-	if (data.length === 1) return data[0];
-	else Astro.logger.error("Unexpected Home Page query response");
+  if (data.length === 1) return data[0];
+  else Astro.logger.error("Unexpected Home Page query response");
 });
 ---
 
@@ -72,23 +72,34 @@ const homePageContent = await getCollection("home", ({ id, data }) => {
       </section>
     </article>
     <article id="about" class="about-section">
-      <section class="stack layout" data-state="stack--md">
+      <section class="layout stack" data-state="stack--md">
         <h2 class="text-center font-wide">About HLA</h2>
         <hr />
-        {
-          homePageContent?.data.aboutHyperLayering.map((section, index) => {
-            return (
-              <div class="flow about-group">
-                <h3>{section.sectionTitle}</h3>
-                <p>{section.sectionBody}</p>
-              </div>
-            );
-          })
-        }
-        <div class="flow text-lg font-wide font-bold text-center">
-          {homePageContent?.data.aboutCloser.split("\n").filter((s) => s.length > 0).map((line) => 
-          (<p class="text-wrap-balance">{line}</p>)
-        )}
+        <div class="stack">
+          {
+            homePageContent?.data.aboutHyperLayering.map((section, index) => {
+              return (
+                <Fragment>
+                  <div class="flow about-group">
+                    <h3 class="text-center">{section.sectionTitle}</h3>
+                    <p>{section.sectionBody}</p>
+                  </div>
+                  {homePageContent?.data.aboutHyperLayering.length &&
+                  homePageContent?.data.aboutHyperLayering.length !== index ? (
+                    <div class="vertical-dots" />
+                  ) : undefined}
+                </Fragment>
+              );
+            })
+          }
+          <div class="flow text-lg font-wide font-bold text-center">
+            {
+              homePageContent?.data.aboutCloser
+                .split("\n")
+                .filter((s) => s.length > 0)
+                .map((line) => <p class="text-wrap-balance">{line}</p>)
+            }
+          </div>
         </div>
       </section>
     </article>
@@ -221,20 +232,14 @@ const homePageContent = await getCollection("home", ({ id, data }) => {
         linear-gradient(to bottom, grey 1px, transparent 1px);
       transform: perspective(3000px) rotateX(45deg);
     }
-
-    .about-group::after {
-      content: "";
-      container-type: size;
-      display: flex;
-      width: 2px;
-      height: 4em;
-      border-inline-end: 2px dotted var(--text-tertiary);
-      margin-block: var(--space-xs);
-      margin-inline: auto;
-    }
   }
 
-  .dot-line {
-    
+  .vertical-dots {
+    display: flex;
+    width: 2px;
+    height: 4em;
+    border-inline-end: 2px dotted var(--text-tertiary);
+    margin-block: var(--space-sm);
+    margin-inline: auto;
   }
 </style>
