@@ -12,7 +12,7 @@ const { title, tocHeaders = new Map() } = Astro.props;
 <main>
   <article class="content-layout stack stack--zero">
     <section class="header-section">
-      <div class="layout--wide stack">
+      <div class="layout--wide stack" data-state="stack--xs">
         <small class="route row"><slot name="route" /></small>
         <h1 class="title">{title}</h1>
         <div class="details row">
@@ -75,6 +75,7 @@ const { title, tocHeaders = new Map() } = Astro.props;
     }
     .details {
       color: var(--text-secondary);
+      font-size: var(--font-base);
       justify-content: center;
     }
     .route {

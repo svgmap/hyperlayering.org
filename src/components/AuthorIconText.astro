@@ -1,0 +1,32 @@
+---
+import defaultIcon from "@assets/images/author_default.jpg";
+import { getAuthor } from "@utils/authors";
+
+interface Props {
+    authorSlug: string;
+    lang: string;
+}
+
+let { authorSlug, lang } = Astro.props;
+const authorData = await getAuthor(authorSlug, lang);
+---
+
+<span class="row" data-state="row--xs">
+    <img
+        class="author-icon"
+        src={authorData?.data.photo
+            ? authorData.data.photo
+            : defaultIcon.src}
+        alt={authorData?.data.name ?? "Unknown Author"}
+    />
+    <span>{authorData?.data.name ?? "Unknown Author"}</span>
+</span>
+
+<style scoped>
+    .author-icon {
+        height: 1.25em;
+        width: 1.25em;
+        border-radius: var(--round-full);
+        outline: 2px solid var(--text-secondary);
+    }
+</style>

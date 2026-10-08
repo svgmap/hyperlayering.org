@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import AuthorIconText from "@components/AuthorIconText.astro";
 import { defaultLang } from "@i18n/ui";
 import { getLangFromUrl } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -43,7 +44,7 @@ const { Content } = await render(post);
       </small>
     </Fragment>
     <Fragment slot="details">
-      <span>{post.data.author}</span>
+      <span><AuthorIconText authorSlug={post.data.author} lang={lang}/></span>
       <span>&#x2022;</span>
       <span>{post.data.date.toLocaleString(lang, { dateStyle: "long" })}</span>
     </Fragment>
