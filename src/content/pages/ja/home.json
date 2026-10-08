@@ -1,25 +1,26 @@
 {
-	"hero": {
-		"heading": "Hyper Layering",
-		"subheading": "クライアント中心の分散型ウェブマッピング"
-	},
-	"aboutHyperLayering": [
-		{
-			"sectionTitle": "Webの「Hyperlink」から、「Hyper Layering」へ",
-			"sectionBody": "Webの原点にあるのは、Hyperlinkです。\n\n世界中に分散するコンテンツを一か所に集めることなく、それぞれの場所に置いたまま相互に参照できる。このシンプルでオープンな仕組みが、Webを大きく発展させてきました。\n\nHyper Layeringは、このWebの考え方を、情報の「組み合わせ」へと発展させたものです。さまざまな組織が提供する情報を集約することなく、ユーザが必要な情報を選び、ブラウザ上で重ね合わせて利用できます。"
-		},
-		{
-			"sectionTitle": "It Started with Maps",
-			"sectionBody": "Maps share a common coordinate system: latitude and longitude.\n\nThese shared coordinates allow information from different organizations and systems to be overlaid as layers within the same geographic space.\n\nThe Web contains a wide range of information about terrain, roads, buildings, weather, transportation, disaster preparedness, sensors, and local communities. By combining these layers on a single map, we can see the relationships between them that  would otherwise be difficult to understand from any one source alone."
-		},
-		{
-			"sectionTitle": "はじまりは、地図でした",
-			"sectionBody": "地図には、緯度・経度という共通の「座標」があります。\n共通の座標があるからこそ、異なる組織やシステムが提供する情報を、同じ地理空間上に「レイヤ」として重ねることができます。\n\n地形、道路、建物、気象、交通、防災、センサー、地域情報。Web上には多様な情報が存在します。これらを重ねることで、個々の情報だけでは分からなかった関係や状況を、ひとつの地図の上で捉えることができます。\n\n情報は、それぞれの場所にあるまま\nHyper Layeringの特徴は、利用する情報をひとつのシステムに集約する必要がないことです。\n情報は、提供者自身が管理するWeb上のシステムに置いたまま利用できます。ユーザは必要なレイヤを選び、ブラウザ上で自由に重ね合わせます。\n\nこの分散型の情報利用を実現する基盤技術が、HLA（Hyper-Layering Architecture）です。そして、HLAに基づくWeb地図ビューアが、HLMap（Hyper-Layered Map / 旧称 SVGMap）です。"
-		},
-		{
-			"sectionTitle": "重ねることで、見えてくるもの",
-			"sectionBody": "異なる情報を同じ地理空間に重ねることで、別々に存在していた情報の関係が見えてきます。\n災害情報と避難施設、気象とセンサーデータ、交通と人の動き、地域情報と都市空間。どの情報を選び、どう組み合わせるかによって、同じ場所でも異なる見方ができます。"
-		}
-	],
-	"about": "Hyper-Layering Architecture（HLA）は、Web上の独立したコンテンツ、データ、サービスを、地理空間を共通の場として組み合わせるためのオープンな基盤技術です。\n\nHyper-Layered Map（HLMap）は、HLAに基づくWeb地図ビューアです。2026年秋、SVGMapから、Hyper-Layeringというコンセプトを表す名称に変更しました。\n\nHLAでは、それぞれのレイヤがコンテンツ、データ、サービスの発信主体となります。 ポータルサイトで集約された情報だけを利用するのではなく、ユーザーはブラウザ上で、さまざまな情報（レイヤー）を自由に選び、組み合わせて活用できます。\n\nHLAは単なるコンセプトではありません。200以上のWeb上のシステムをレイヤとして統合できる基盤技術として、長年にわたり実用化されています。"
+  "hero": {
+    "heading": "Hyper Layering",
+    "subheading": "クライアント中心の分散型ウェブマッピング"
+  },
+  "aboutHyperLayering": [
+    {
+      "sectionTitle": "Webの「Hyperlink」から、「Hyper Layering」へ",
+      "sectionBody": "Webの原点にあるのは、Hyperlinkです。\n\n世界中に分散するコンテンツを一か所に集めることなく、それぞれの場所に置いたまま相互に参照できる。このシンプルでオープンな仕組みが、Webを大きく発展させてきました。\n\nHyper Layeringは、このWebの考え方を、情報の「組み合わせ」へと発展させたものです。さまざまな組織が提供する情報を集約することなく、ユーザが必要な情報を選び、ブラウザ上で重ね合わせて利用できます。"
+    },
+    {
+      "sectionTitle": "はじまりは、地図でした",
+      "sectionBody": "地図には、緯度・経度という共通の「座標」があります。\n共通の座標があるからこそ、異なる組織やシステムが提供する情報を、同じ地理空間上に「レイヤ」として重ねることができます。\n\n地形、道路、建物、気象、交通、防災、センサー、地域情報。Web上には多様な情報が存在します。これらを重ねることで、個々の情報だけでは分からなかった関係や状況を、ひとつの地図の上で捉えることができます。"
+    },
+    {
+      "sectionTitle": "情報は、それぞれの場所にあるまま",
+      "sectionBody": "Hyper Layeringの特徴は、利用する情報をひとつのシステムに集約する必要がないことです。\n情報は、提供者自身が管理するWeb上のシステムに置いたまま利用できます。ユーザは必要なレイヤを選び、ブラウザ上で自由に重ね合わせます。\n\nこの分散型の情報利用を実現する基盤技術が、HLA（Hyper-Layering Architecture）です。そして、HLAに基づくWeb地図ビューアが、HLMap（Hyper-Layered Map / 旧称 SVGMap）です。"
+    },
+    {
+      "sectionTitle": "重ねることで、見えてくるもの",
+      "sectionBody": "異なる情報を同じ地理空間に重ねることで、別々に存在していた情報の関係が見えてきます。\n災害情報と避難施設、気象とセンサーデータ、交通と人の動き、地域情報と都市空間。どの情報を選び、どう組み合わせるかによって、同じ場所でも異なる見方ができます。"
+    }
+  ],
+  "aboutCloser": "情報を集めるのではなく、それぞれの場所にある情報を活かす。\n\nレイヤを重ね、組み合わせることで、これまで見えなかった関係を見つける。\n\nそれが、Hyper Layeringです。",
+  "about": "Hyper-Layering Architecture（HLA）は、Web上の独立したコンテンツ、データ、サービスを、地理空間を共通の場として組み合わせるためのオープンな基盤技術です。\n\nHyper-Layered Map（HLMap）は、HLAに基づくWeb地図ビューアです。2026年秋、SVGMapから、Hyper-Layeringというコンセプトを表す名称に変更しました。\n\nHLAでは、それぞれのレイヤがコンテンツ、データ、サービスの発信主体となります。 ポータルサイトで集約された情報だけを利用するのではなく、ユーザーはブラウザ上で、さまざまな情報（レイヤー）を自由に選び、組み合わせて活用できます。\n\nHLAは単なるコンセプトではありません。200以上のWeb上のシステムをレイヤとして統合できる基盤技術として、長年にわたり実用化されています。"
 }
