@@ -3,5 +3,23 @@
 		"heading": "Hyper Layering",
 		"subheading": "Client-centric, de-centralized web mapping"
 	},
+	"aboutHyperLayering": [
+		{
+			"sectionTitle": "From Hyperlinks to Hyper Layering",
+			"sectionBody": "At the heart of the Web is the hyperlink.\n\nContent distributed around the world can be linked and referenced, without the need for centralization. This simple, open mechanism has enabled the Web to grow.\n\nHyper Layering extends this  concept to the way we combine information. Users can select information they need from different organizations and overlay it in their browser without  involving a central system."
+		},
+		{
+			"sectionTitle": "It Started with Maps",
+			"sectionBody": "Maps share a common coordinate system: latitude and longitude.\n\nThese shared coordinates allow information from different organizations and systems to be overlaid as layers within the same geographic space.\n\nThe Web contains a wide range of information about terrain, roads, buildings, weather, transportation, disaster preparedness, sensors, and local communities. By combining these layers on a single map, we can see the relationships between them that  would otherwise be difficult to understand from any one source alone."
+		},
+		{
+			"sectionTitle": "Information Stays Where It Is",
+			"sectionBody": "A defining feature of Hyper Layering is that information used does not need to be consolidated into a single system.\n\nWith Hyper Layering, while information remains on the Web systems managed by its providers, users can select the layers they need and freely overlay them in their own browsers.\n\nThe underlying technology that enables this decentralized use of information is HLA (Hyper-Layering Architecture). HLMap (Hyper-Layered Map, formerly SVGMap) is a Web map viewer built on HLA."
+		},
+		{
+			"sectionTitle": "What Layering Reveals",
+			"sectionBody": "Overlaying different kinds of information within the same geographic space reveals connections between sources that were previously separate.\n\nDisaster information and evacuation facilities, weather and sensor data, transportation and people’s movements, local information and urban spaces: the information we choose and how we combine it can offer different perspectives on the same space."
+		}
+	],
 	"about": "Hyper-Layering Architecture (HLA) is an open architecture for combining independent content, data, and services on the Web through geographic space.\n\nHyper-Layered Map (HLMap) is a Web map viewer based on HLA. In autumn 2026, SVGMap was renamed HLMap to reflect the broader Hyper-Layering concept.\n\nWith HLA, each layer can be an independent source of content, data, or services. Instead of relying solely on information aggregated by a portal, users can freely choose and combine different sources and layers directly in their browser.\n\nHLA is not merely a concept. It is a proven foundation technology that has been used for many years to integrate more than 200 Web-based systems as map layers."
 }
