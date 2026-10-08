@@ -25,7 +25,6 @@ const homePageContent = await getCollection("home", ({ id, data }) => {
   if (data.length === 1) return data[0];
   else Astro.logger.error("Unexpected Home Page query response");
 });
-console.log(homePageContent);
 ---
 
 <BaseLayout>
@@ -82,10 +81,6 @@ console.log(homePageContent);
               <div class="flow about-group">
                 <h3>{section.sectionTitle}</h3>
                 <p>{section.sectionBody}</p>
-                {/*index !==
-                  homePageContent.data.aboutHyperLayering.length - 1 && (
-                  <div class="dot-line" />
-                )*/}
               </div>
             );
           })
