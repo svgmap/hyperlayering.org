@@ -127,11 +127,6 @@
 		line-height: 1.3;
 	}
 
-	small,
-	.text-sm {
-		font-size: var(--font-sm);
-	}
-
 	hr {
 		border: solid 0.5px var(--bg-tertiary);
 		margin-top: var(--space-xxs);
@@ -147,7 +142,7 @@
 	li,
 	dl,
 	small {
-		max-width: var(--paragraph-width);
+		max-width: 100%;
 	}
 
 	[role="region"][aria-labelledby][tabindex] {
@@ -262,11 +257,40 @@
 	text-align: left;
 }
 
+.text-wrap-balance {
+	text-wrap: balance;
+}
+
 .text-truncate-single {
 	min-width: 0;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+small,
+.text-sm {
+	font-size: var(--font-sm);
+}
+
+.text-lg {
+	font-size: var(--font-lg);
+}
+
+.text-xl {
+	font-size: var(--font-xl);
+}
+
+.text-2xl {
+	font-size: var(--font-2xl);
+}
+
+.text-3xl {
+	font-size: var(--font-3xl);
+}
+
+.text-4xl {
+	font-size: var(--font-3xl);
 }
 
 .link-unstyled {
@@ -300,7 +324,9 @@
 		--flow-space: var(--space-sm);
 	}
 
-	img, svg, figure {
+	img,
+	svg,
+	figure {
 		max-width: 95%;
 		margin: var(--_flow-space) auto;
 		border-radius: var(--round-xs);
@@ -317,19 +343,23 @@
 	flex-direction: column;
 	gap: var(--_stack-gap);
 
-	&[class*="stack--zero"], &[data-state*="stack--zero"] {
+	&[class*="stack--zero"],
+	&[data-state*="stack--zero"] {
 		--_stack-gap: 0;
 	}
 
-	&[class*="stack--xs"], &[data-state*="stack--xs"] {
+	&[class*="stack--xs"],
+	&[data-state*="stack--xs"] {
 		--_stack-gap: var(--space-xs);
 	}
 
-	&[class*="stack--sm"], &[data-state*="stack--sm"] {
+	&[class*="stack--sm"],
+	&[data-state*="stack--sm"] {
 		--_stack-gap: var(--space-sm);
 	}
 
-	&[class*="stack--md"], &[data-state*="stack--md"] {
+	&[class*="stack--md"],
+	&[data-state*="stack--md"] {
 		--_stack-gap: var(--space-md);
 	}
 }
@@ -343,7 +373,8 @@
 	align-items: center;
 	gap: var(--_gap);
 
-	&[class*="row--xs"], &[data-state*="row--xs"] {
+	&[class*="row--xs"],
+	&[data-state*="row--xs"] {
 		--_gap: var(--space-xs);
 	}
 }
@@ -416,9 +447,9 @@
 
 	&[data-state="sub-grid"] {
 		display: grid;
-		grid-template-rows: subgrid;   /* only rows; keep your own columns */
-		grid-row: span 3;              /* one per child: image, title, body */
-		gap: var(--space-xxs); 
+		grid-template-rows: subgrid; /* only rows; keep your own columns */
+		grid-row: span 3; /* one per child: image, title, body */
+		gap: var(--space-xxs);
 	}
 
 	.title {
@@ -474,7 +505,8 @@
 		background-color: var(--hover-color);
 	}
 
-	&.accent, &[data-state*="accent"] {
+	&.accent,
+	&[data-state*="accent"] {
 		--button-color: var(--accent);
 		--text-color: var(--accent-text);
 	}
