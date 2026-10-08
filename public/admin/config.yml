@@ -186,8 +186,17 @@ collections:
                 label: Subheading
                 widget: string
                 i18n: true            
-          - name: about 
-            label: About 
-            widget: text 
+          - name: aboutHyperLayering 
+            label: About Hyper Layering (Sections)
+            widget: list 
             i18n: true
+            fields:
+              - name: sectionTitle
+                label: Section Title
+                widget: string
+                i18n: true
+              - name: sectionBody
+                label: Section Body
+                widget: text
+                i18n: true
             
