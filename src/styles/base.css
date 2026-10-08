@@ -317,15 +317,19 @@
 	flex-direction: column;
 	gap: var(--_stack-gap);
 
-	&[class*="stack--zero"] {
+	&[class*="stack--zero"], &[data-state*="stack--zero"] {
 		--_stack-gap: 0;
 	}
 
-	&[class*="stack--sm"] {
+	&[class*="stack--xs"], &[data-state*="stack--xs"] {
+		--_stack-gap: var(--space-xs);
+	}
+
+	&[class*="stack--sm"], &[data-state*="stack--sm"] {
 		--_stack-gap: var(--space-sm);
 	}
 
-	&[class*="stack--md"] {
+	&[class*="stack--md"], &[data-state*="stack--md"] {
 		--_stack-gap: var(--space-md);
 	}
 }
@@ -339,7 +343,7 @@
 	align-items: center;
 	gap: var(--_gap);
 
-	&[class*="row--xs"] {
+	&[class*="row--xs"], &[data-state*="row--xs"] {
 		--_gap: var(--space-xs);
 	}
 }
