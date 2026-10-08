@@ -35,7 +35,7 @@ let t = $derived(useTranslations(lang));
         {/each}
     </section>
     <hr/>
-    <small class="copyright">&#169; 2026 <span translate="no">SVGMap Organization</span></small>
+    <small class="copyright">{@html t("nav.copyright")}</small>
 </footer>
 
 <style>
