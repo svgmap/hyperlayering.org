@@ -10,30 +10,30 @@ import { getAuthor } from "@utils/authors";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const updates = await Promise.all(
-  (
-    await getCollection("update", ({ id }) => {
-      const [updateLang, updateId] = id.split("/");
-      if (updateLang === lang) return updateId;
-    })
-  )
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-    .map(async (update) => {
-      const author = await getAuthor(update.data.author, lang);
-      return {
-        ...update,
-        data: {
-          ...update.data,
-          author: author?.data.name ?? "Unknown Author",
-        },
-      };
-    }),
+	(
+		await getCollection("update", ({ id }) => {
+			const [updateLang, updateId] = id.split("/");
+			if (updateLang === lang) return updateId;
+		})
+	)
+		.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+		.map(async (update) => {
+			const author = await getAuthor(update.data.author, lang);
+			return {
+				...update,
+				data: {
+					...update.data,
+					author: author?.data.name ?? "Unknown Author",
+				},
+			};
+		}),
 );
 
 export async function getStaticPaths() {
-  const locales = Object.keys(languages);
-  return locales.map((locale) => ({
-    params: { lang: locale !== defaultLang ? locale : undefined },
-  }));
+	const locales = Object.keys(languages);
+	return locales.map((locale) => ({
+		params: { lang: locale !== defaultLang ? locale : undefined },
+	}));
 }
 ---
 

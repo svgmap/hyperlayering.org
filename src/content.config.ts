@@ -32,7 +32,7 @@ const authors = defineCollection({
 	schema: z.object({
 		name: z.string(),
 		photo: z.string().optional(),
-		bio: z.string().optional()
+		bio: z.string().optional(),
 	}),
 });
 
@@ -43,10 +43,12 @@ const home = defineCollection({
 			heading: z.string(),
 			subheading: z.string(),
 		}),
-		aboutHyperLayering: z.array(z.object({
-			sectionTitle: z.string(),
-			sectionBody: z.string(),
-		})),
+		aboutHyperLayering: z.array(
+			z.object({
+				sectionTitle: z.string(),
+				sectionBody: z.string(),
+			}),
+		),
 		aboutCloser: z.string(),
 	}),
 });

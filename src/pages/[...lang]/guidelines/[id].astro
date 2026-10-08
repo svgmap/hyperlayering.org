@@ -24,7 +24,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { guideline } = Astro.props;
 const headings = tocHeadersToMap(
-  guideline.rendered?.metadata?.headings as TocItem[],
+	guideline.rendered?.metadata?.headings as TocItem[],
 );
 const showToc = guideline.data.showToc;
 const { Content } = await render(guideline);

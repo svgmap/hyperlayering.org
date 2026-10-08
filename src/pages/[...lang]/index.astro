@@ -12,18 +12,18 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 export async function getStaticPaths() {
-  const locales = Object.keys(languages);
-  return locales.map((locale) => ({
-    params: { lang: locale !== defaultLang ? locale : undefined },
-  }));
+	const locales = Object.keys(languages);
+	return locales.map((locale) => ({
+		params: { lang: locale !== defaultLang ? locale : undefined },
+	}));
 }
 
 const homePageContent = await getCollection("home", ({ id, data }) => {
-  const [homeLang] = id.split("/");
-  if (homeLang === lang) return data;
+	const [homeLang] = id.split("/");
+	if (homeLang === lang) return data;
 }).then((data) => {
-  if (data.length === 1) return data[0];
-  else Astro.logger.error("Unexpected Home Page query response");
+	if (data.length === 1) return data[0];
+	else Astro.logger.error("Unexpected Home Page query response");
 });
 ---
 

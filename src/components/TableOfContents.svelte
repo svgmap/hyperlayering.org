@@ -48,7 +48,8 @@ onMount(() => {
 	const container = tocElement && getLayoutContainer(tocElement);
 	if (container) {
 		const updateContainerState = (width: number) => {
-			isContainerWide = Math.round(width) >= document.documentElement.clientWidth;
+			isContainerWide =
+				Math.round(width) >= document.documentElement.clientWidth;
 		};
 
 		resizeObserver = new ResizeObserver(([entry]) => {

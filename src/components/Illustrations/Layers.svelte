@@ -1,9 +1,9 @@
 <script lang="ts">
-  let {
-    size = "100%",
-    color = "currentColor",
-    className = "",
-  }: IconProps = $props();
+let {
+	size = "100%",
+	color = "currentColor",
+	className = "",
+}: IconProps = $props();
 </script>
 
 <svg

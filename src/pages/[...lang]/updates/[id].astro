@@ -8,24 +8,24 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import ContentLayout from "@layouts/ContentLayout.astro";
 import { tocHeadersToMap } from "@utils/tocHeadersToMap";
 export async function getStaticPaths() {
-  const updates = await getCollection("update");
-  const parsedUpdates = updates.map((post) => {
-    const [updateLang, updateId] = post.id.split("/");
-    return {
-      params: {
-        lang: updateLang !== defaultLang ? updateLang : undefined,
-        id: updateId,
-      },
-      props: { post, updateId },
-    };
-  });
-  return parsedUpdates;
+	const updates = await getCollection("update");
+	const parsedUpdates = updates.map((post) => {
+		const [updateLang, updateId] = post.id.split("/");
+		return {
+			params: {
+				lang: updateLang !== defaultLang ? updateLang : undefined,
+				id: updateId,
+			},
+			props: { post, updateId },
+		};
+	});
+	return parsedUpdates;
 }
 
 const { post, updateId } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const headings = tocHeadersToMap(
-  post.rendered?.metadata?.headings as TocItem[],
+	post.rendered?.metadata?.headings as TocItem[],
 );
 const showToc = post.data.showToc;
 const { Content } = await render(post);
