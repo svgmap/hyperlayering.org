@@ -5,6 +5,18 @@ import { docsSchema } from "@astrojs/starlight/schema";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
+const urlOrPath = z.string().refine((value) => {
+	// Local path: single leading slash, no whitespace
+	if (/^\/(?!\/)\S*$/.test(value)) return true;
+
+	try {
+		const { protocol } = new URL(value);
+		return protocol === 'http:' || protocol === 'https:';
+	} catch {
+		return false;
+	}
+}, { message: 'Must be an http(s) URL or a local path starting with "/"' });
+
 const update = defineCollection({
 	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/updates" }),
 	schema: z.object({
@@ -58,4 +70,20 @@ const docs = defineCollection({
 	schema: docsSchema(),
 });
 
-export const collections = { update, guideline, docs, authors, home };
+const footer = defineCollection({
+	loader: glob({ pattern: "**/footer.json", base: "./src/content/navigation" }),
+	schema: z.object({
+		navGroup: z.array(
+			z.object({
+				groupTitle: z.string(),
+				navLinks: z.array(z.object({
+					linkLabel: z.string(),
+					isExternal: z.boolean().optional(),
+					link: urlOrPath,
+				})),
+			})
+		)
+	}),
+})
+
+export const collections = { update, guideline, docs, authors, home, footer };

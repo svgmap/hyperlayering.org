@@ -186,6 +186,10 @@ collections:
                 label: Subheading
                 widget: string
                 i18n: true            
+          - name: aboutTitle
+            label: About Section Header
+            widget: text
+            i18n: true
           - name: aboutHyperLayering 
             label: About Hyper Layering (Sections)
             widget: list 
@@ -203,4 +207,44 @@ collections:
             label: About Hyper Layering Closer
             widget: text
             i18n: true
-            
+  - divider: true
+  - name: navigation
+    label: Navigation
+    i18n: true
+    files:
+      - name: footer
+        label: Footer
+        i18n: true
+        file: src/content/navigation/{{locale}}/footer.json
+        fields:
+          - name: navGroup
+            label: Navigation Group
+            widget: list 
+            i18n: duplicate 
+            fields: 
+            - name: groupTitle
+              label: Navigation Group Title
+              widget: string
+              i18n: true
+            - name: navLinks
+              label: Navigation Group Links
+              widget: list
+              i18n: duplicate
+              fields:
+              - name: linkLabel
+                label: Link Label
+                widget: string
+                i18n: true
+              - name: isExternal
+                label: Is External Link
+                comment: Used to identify links that direct outside of hyperlayering.org
+                widget: boolean
+                i18n: duplicate
+              - name: link
+                label: Link / URL
+                comment: For internal pages, provide the route only (eg. "/guidelines/page-id")
+                widget: string
+                pattern: 
+                  - '^(?:https?:\/\/[^\s\/?#]+[^\s]*|\/(?!\/)[^\s]*)$'
+                  - 'Must be an http(s) URL or a local path starting with a single "/"'
+                i18n: duplicate
