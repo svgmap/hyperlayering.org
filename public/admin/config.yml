@@ -91,7 +91,7 @@ collections:
   - name: authors
     label: Authors
     label_singular: Author
-    icon: account_circle
+    icon: person_edit
     duplicate: false
     media_folder: "{{media_folder}}/authors"
     public_folder: "{{public_folder}}/authors"
@@ -119,6 +119,7 @@ collections:
   - name: guidelines
     label: Guidelines
     label_singular: Guideline
+    icon: contract
     folder: src/content/guidelines
     media_folder: "{{media_folder}}/guidelines"
     public_folder: "{{public_folder}}/guidelines"
@@ -166,6 +167,7 @@ collections:
   - name: pages
     label: Pages
     label_singular: Page
+    icon: web
     i18n: true
     files:
       - name: home
@@ -210,6 +212,7 @@ collections:
   - divider: true
   - name: navigation
     label: Navigation
+    icon: menu
     i18n: true
     files:
       - name: footer
