@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 	}));
 }
 
-const homePageContent = await getCollection("home", ({ id, data }) => {
+const homeContent = await getCollection("home", ({ id, data }) => {
 	const [homeLang] = id.split("/");
 	if (homeLang === lang) return data;
 }).then((data) => {
@@ -31,9 +31,9 @@ const homePageContent = await getCollection("home", ({ id, data }) => {
   <main>
     <section class="auto-grid grid-lg landing">
       <div class="landing-intro stack">
-        <h1 class="header fade-slide-in">{t("page.home.title")}</h1>
+        <h1 class="header fade-slide-in">{homeContent?.data.hero.heading}</h1>
         <p class="subtitle fade-slide-in" style="--delay: 200ms;">
-          {t("page.home.tagline")}
+          {homeContent?.data.hero.subheading}
         </p>
         <div class="fade-in" style="--delay: 600ms;">
           <a href="https://svgmap.org/demos/demo1/"
@@ -74,15 +74,15 @@ const homePageContent = await getCollection("home", ({ id, data }) => {
         <hr />
         <div class="stack">
           {
-            homePageContent?.data.aboutHyperLayering.map((section, index) => {
+            homeContent?.data.aboutHyperLayering.map((section, index) => {
               return (
                 <Fragment>
                   <div class="flow about-group">
                     <h3 class="text-center">{section.sectionTitle}</h3>
                     <p>{section.sectionBody}</p>
                   </div>
-                  {homePageContent?.data.aboutHyperLayering.length &&
-                  homePageContent?.data.aboutHyperLayering.length !== index ? (
+                  {homeContent?.data.aboutHyperLayering.length &&
+                  homeContent?.data.aboutHyperLayering.length !== index ? (
                     <div class="vertical-dots" />
                   ) : undefined}
                 </Fragment>
@@ -91,7 +91,7 @@ const homePageContent = await getCollection("home", ({ id, data }) => {
           }
           <div class="flow text-lg font-wide font-bold text-center">
             {
-              homePageContent?.data.aboutCloser
+              homeContent?.data.aboutCloser
                 .split("\n")
                 .filter((s) => s.length > 0)
                 .map((line) => <p class="text-wrap-balance">{line}</p>)
