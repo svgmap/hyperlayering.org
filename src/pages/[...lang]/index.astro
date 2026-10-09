@@ -12,18 +12,18 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 export async function getStaticPaths() {
-  const locales = Object.keys(languages);
-  return locales.map((locale) => ({
-    params: { lang: locale !== defaultLang ? locale : undefined },
-  }));
+	const locales = Object.keys(languages);
+	return locales.map((locale) => ({
+		params: { lang: locale !== defaultLang ? locale : undefined },
+	}));
 }
 
 const homePageContent = await getCollection("home", ({ id, data }) => {
-  const [homeLang] = id.split("/");
-  if (homeLang === lang) return data;
+	const [homeLang] = id.split("/");
+	if (homeLang === lang) return data;
 }).then((data) => {
-  if (data.length === 1) return data[0];
-  else Astro.logger.error("Unexpected Home Page query response");
+	if (data.length === 1) return data[0];
+	else Astro.logger.error("Unexpected Home Page query response");
 });
 ---
 
@@ -73,7 +73,7 @@ const homePageContent = await getCollection("home", ({ id, data }) => {
     </article>
     <article id="about" class="about-section">
       <section class="layout stack" data-state="stack--md">
-        <h2 class="text-center font-wide">About HLA</h2>
+        <h2 class="text-center font-wide">About Hyper Layering</h2>
         <hr />
         <div class="stack">
           {
@@ -191,7 +191,7 @@ const homePageContent = await getCollection("home", ({ id, data }) => {
       background-image:
         linear-gradient(
           to bottom,
-          var(--bg-secondary) 0%,
+          var(--bg-secondary) 20%,
           rgba(0, 0, 0, 0) 50%,
           var(--bg-secondary) 100%
         ),

@@ -3,7 +3,7 @@ let {
 	size = "1em",
 	color = "currentColor",
 	className = "",
-   label = "HLA Logo"
+	label = "HLA Logo",
 }: IconProps = $props();
 </script>
 

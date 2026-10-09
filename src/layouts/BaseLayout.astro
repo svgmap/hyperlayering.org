@@ -13,12 +13,12 @@ const { pageTitle = undefined } = Astro.props;
 const url = Astro.url;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const footerData = await getCollection("footer", ({ id, data })=> {
-  const [footerLang] = id.split("/");
-  if (footerLang === lang) return data;
+const footerData = await getCollection("footer", ({ id, data }) => {
+	const [footerLang] = id.split("/");
+	if (footerLang === lang) return data;
 }).then((data) => {
-  if (data.length === 1) return data[0];
-  else Astro.logger.error("Unexpected Footer data query response");
+	if (data.length === 1) return data[0];
+	else Astro.logger.error("Unexpected Footer data query response");
 });
 ---
 
