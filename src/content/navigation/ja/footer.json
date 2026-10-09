@@ -1,34 +1,34 @@
 {
-  "navGroup": [
-    {
-      "groupTitle": "Documentation",
-      "navLinks": [
-        {
-          "linkLabel": "API Documentation",
-          "isExternal": true,
-          "link": "https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8"
-        },
-        {
-          "linkLabel": "Tutorials",
-          "isExternal": false,
-          "link": "/tutorials"
-        }
-      ]
-    },
-    {
-      "groupTitle": "Resources",
-      "navLinks": [
-        {
-          "linkLabel": "Naming & Branding Guidelines",
-          "isExternal": false,
-          "link": "/guidelines/naming-branding"
-        },
-        {
-          "linkLabel": "Brand Guideline",
-          "isExternal": false,
-          "link": "/guidelines/hyper-layering-design-guide"
-        }
-      ]
-    }
-  ]
+	"navGroup": [
+		{
+			"groupTitle": "Documentation",
+			"navLinks": [
+				{
+					"linkLabel": "API Documentation",
+					"isExternal": true,
+					"link": "https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8"
+				},
+				{
+					"linkLabel": "Tutorials",
+					"isExternal": false,
+					"link": "/tutorials"
+				}
+			]
+		},
+		{
+			"groupTitle": "Resources",
+			"navLinks": [
+				{
+					"linkLabel": "Naming & Branding Guidelines",
+					"isExternal": false,
+					"link": "/guidelines/naming-branding"
+				},
+				{
+					"linkLabel": "Brand Guideline",
+					"isExternal": false,
+					"link": "/guidelines/hyper-layering-design-guide"
+				}
+			]
+		}
+	]
 }
