@@ -34,7 +34,7 @@ const toggleMenu = () => {
     class="brand font-wide row"
     href={getRelativeLocaleUrl(lang, "/")}
   >
-    <Logo></Logo>
+    <Logo label={t("nav.home")}></Logo>
     <span class="typemark">{title}</span>
   </a>
   <nav class="nav" class:nav-open={menuOpen}>

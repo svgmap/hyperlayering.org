@@ -1,17 +1,19 @@
 <script lang="ts">
 import { onMount } from "svelte";
-import { SvelteSet } from "svelte/reactivity";
+import { slide } from "svelte/transition";
+import Close from "./Icons/Close.svelte";
+import List from "./Icons/List.svelte";
 
 interface TocProps {
 	label?: string;
-	headers: TocItem[];
+	headers: Map<string, TocItem>;
 }
 
-let { label = "On This Page", headers = [] }: TocProps = $props();
+let { label = "On This Page", headers = new Map() }: TocProps = $props();
 
 const headerHeight = 68;
 
-let activeHeaderIds: SvelteSet<string> = new SvelteSet();
+let activeHeaderId = $state<string | null>(null);
 let isContainerWide = $state(false);
 let tocOpen = $state(false);
 let tocElement = $state<HTMLElement | undefined>();
@@ -28,7 +30,7 @@ const getLayoutContainer = (element: HTMLElement) => {
 	return parent;
 };
 
-const getHeaderElements = (headers: TocItem[]) => {
+const getHeaderElements = (headers: MapIterator<TocItem>) => {
 	const headerElements: HTMLElement[] = [];
 	headers.forEach((header) => {
 		const headerElement = document.getElementById(header.slug);
@@ -46,7 +48,8 @@ onMount(() => {
 	const container = tocElement && getLayoutContainer(tocElement);
 	if (container) {
 		const updateContainerState = (width: number) => {
-			isContainerWide = Math.round(width) >= window.innerWidth;
+			isContainerWide =
+				Math.round(width) >= document.documentElement.clientWidth;
 		};
 
 		resizeObserver = new ResizeObserver(([entry]) => {
@@ -64,7 +67,7 @@ onMount(() => {
 	}
 
 	// Intersection Observer
-	const headerElements = getHeaderElements(headers);
+	const headerElements = getHeaderElements(headers.values());
 	if (headerElements.length) {
 		const options = {
 			root: null,
@@ -76,12 +79,7 @@ onMount(() => {
 		const callback = (entries: IntersectionObserverEntry[]) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					activeHeaderIds.add(entry.target.id);
-					return;
-				}
-
-				if (entry.intersectionRatio <= 0) {
-					activeHeaderIds.delete(entry.target.id);
+					activeHeaderId = entry.target.id;
 				}
 			});
 		};
@@ -100,30 +98,68 @@ onMount(() => {
 });
 </script>
 
-{#if headers.length}
-	<nav class="toc" aria-label="Table of contents" data-table-of-contents bind:this={tocElement}>
-        <details class="stack toc-wrapper" bind:open={tocOpen}>
-            <summary class="font-bold toc-label">{label}</summary>
-			<div class="toc-list-wrapper">
-				<ol role="list" class="stack">
-                {#each headers as header (header.slug)}
-                    <li 
-						class:active={activeHeaderIds.has(header.slug)} 
-						class:subheading={header.depth >= 3} style={`--indent-amount: ${(header.depth - 3) + 1}`}
+<svelte:window
+	onkeydown={(e) => e.key === "Escape" && closeToc()}
+	onclick={(e) => {
+		if (isContainerWide && tocElement && !tocElement.contains(e.target as Node)) closeToc();
+	}}
+	onscrollcapture={(e) => {
+		if (isContainerWide && tocElement && !tocElement.contains(e.target as Node)) closeToc();
+	}}
+/>
+
+{#if headers.size}
+	<nav
+		class="toc"
+		class:wide={isContainerWide}
+		aria-label="Table of contents"
+		data-table-of-contents
+		bind:this={tocElement}
+	>
+		{#if !isContainerWide} 
+			<div class="toc-label font-bold">{label}</div>
+		{:else} 
+			<button 
+				onclick={() => (tocOpen = !tocOpen)}
+				class="toc-toggle-btn row row--xs font-bold" 
+				popovertarget="toc-dropdown"
+				aria-expanded={tocOpen}
+				aria-controls="toc-list"
+			>
+				{#if !tocOpen}
+				<List size={"1em"}/>
+				{:else}
+				<Close size={"1em"}/>
+				{/if}
+				{label}
+			</button>
+		{/if}
+		
+		{#if !isContainerWide || (isContainerWide && tocOpen)}
+		<ol
+			id={isContainerWide ? "toc-dropdown" : undefined}
+			role="list"
+			class="stack"
+			class:dropdown={isContainerWide}
+			transition:slide
+		>
+			{#each headers.values() as header (header.slug)}
+				<li
+					class:active={activeHeaderId === header.slug}
+					class:subheading={header.depth >= 3}
+					style={`--indent-amount: ${header.depth - 3 + 1}`}
+				>
+					<a
+						class="link-unstyled"
+						href={`#${header.slug}`}
+						onclick={closeToc}
 					>
-                        <a
-                            class="link-unstyled"
-                            href={`#${header.slug}`}
-							onclick={closeToc}
-                        >
-                            {header.text}
-                        </a>
-                    </li>
-                {/each}
-            	</ol>
-			</div>
-            
-        </details>
+						{header.text}
+					</a>
+				</li>
+			{/each}
+		</ol>
+		{/if}
 	</nav>
 {/if}
 
@@ -134,47 +170,67 @@ onMount(() => {
 		position: sticky;
 		top: calc(var(--header-height) + var(--space-md));
 		font-size: var(--font-sm);
-		width: 100%;
-		max-height: calc(100dvh - (var(--header-height) + (var(--space-md) * 2)));
-		border-radius: clamp(0px, calc((100cqi - 100%) * 1e5), var(--round-md));
-		@container (width >= 100vw) {
-			top: var(--header-height);
-		}
-	}
-
-	.toc-wrapper {
-		background-color: var(--bg-secondary);
-		border: 1px solid var(--bg-tertiary);
-		@container (width >= 100vw) {
-			border: none;
-		}
-		border-radius: inherit;
-		max-height: inherit;
-		width: 100%;
-		cursor: pointer;
-		gap: 0;
-	}
-
-	.toc-list-wrapper {
-		padding: 0 var(--space-md);
-		padding-block-end: var(--space-sm);
-		width: 100%;
-		flex-basis: 0;
+		margin-inline-start: auto;
+		width: min(30ch, 100%);
 		overflow-y: auto;
-		overflow-x: hidden;
+		max-height: calc(
+			100dvh - (var(--header-height) + var(--space-md))
+		);
+
+		&.wide {
+			top: var(--header-height);
+			width: 100%;
+			overflow: visible;
+			outline: 1px solid var(--bg-tertiary);
+		}
 	}
 
 	.toc-label {
-		padding: var(--space-sm) var(--space-md);
+		padding: var(--space-xs) 0;
 		width: 100%;
 		font-size: var(--font-base);
 		margin-bottom: 0;
+		position: sticky;
+		top: 0;
+		background: linear-gradient(to bottom, var(--bg-primary) 85%, rgba(0, 0, 0, 0) 100%);
+	}
+
+	.toc-toggle-btn {
+		z-index: 3;
+		cursor: pointer;
+		width: 100%;
+		padding: var(--space-xs) var(--space-md);
+		font-size: var(--font-base);
+		border-radius: 0;
+		border: none;
+		background-color: var(--bg-secondary);
+		anchor-name: --toc-toggle-btn;
+		transition-property: background-color;
+		transition-duration: var(--timing-fast);
+
+		&:hover {
+			background-color: var(--bg-tertiary);
+		}
 	}
 
 	.toc ol {
 		margin: 0;
 		padding: 0;
 		gap: 0;
+
+		&.dropdown {
+			position: absolute;
+			position-anchor: --toc-toggle-btn;
+			inset: auto;
+			margin: 0;
+			top: anchor(bottom);
+			left: anchor(left);
+			width: anchor-size(width);
+			padding: var(--space-xs) var(--space-md);
+			background-color: var(--bg-secondary);
+			max-height: calc(70svh - (anchor-size(height) + var(--header-height)));
+			overflow-y: auto;
+		}
 	}
 
 	.toc li {
@@ -187,15 +243,17 @@ onMount(() => {
 	}
 
 	.toc li.subheading {
-        --_indent-amount: var(--indent-amount, 1);
-		margin-inline-start: calc(var(--space-xs) * var(--_indent-amount));
+		--_indent-amount: var(--indent-amount, 1);
+		padding-inline-start: calc(var(--space-sm) * var(--_indent-amount));
 	}
 
 	.toc a {
 		display: inline-block;
 		padding: var(--space-xxs) var(--space-xs);
 		color: var(--text-tertiary);
-		transition: color var(--timing-fast), border-color var(--timing-fast);
+		transition:
+			color var(--timing-fast),
+			border-color var(--timing-fast);
 	}
 
 	.toc a:hover {

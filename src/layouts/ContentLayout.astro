@@ -3,19 +3,21 @@ import TableOfContents from "@components/TableOfContents.svelte";
 
 interface Props {
 	title: string;
-	tocHeaders?: TocItem[] | undefined;
+	tocHeaders?: Map<string, TocItem> | undefined;
 }
 
-const { title, tocHeaders = [] } = Astro.props;
+const { title, tocHeaders = new Map() } = Astro.props;
 ---
 
 <main>
-  <article class="content-layout stack">
-    <section class="stack layout--wide header-section">
-      <small class="route row"><slot name="route" /></small>
-      <h1 class="title">{title}</h1>
-      <div class="details row">
-        <slot name="details" />
+  <article class="content-layout stack stack--zero">
+    <section class="header-section">
+      <div class="layout--wide stack" data-state="stack--xs">
+        <small class="route row"><slot name="route" /></small>
+        <h1 class="title">{title}</h1>
+        <div class="details row">
+          <slot name="details" />
+        </div>
       </div>
     </section>
     <section id="content-body-wrapper">
@@ -34,11 +36,16 @@ const { title, tocHeaders = [] } = Astro.props;
     container-name: content-body;
     display: grid;
     grid-template-columns:
-      1fr minmax(min(calc((var(--paragraph-width) / 1.5) * 2), 100%), 1fr)
+      1fr minmax(min(var(--paragraph-width), 100%), 1fr)
       1fr;
     gap: var(--space-sm);
-    margin: 0 var(--space-md);
-    @container (width <= calc(var(--paragraph-width) * 2)) {
+    margin: var(--space-md);
+
+    /* 
+      80ch = --paragraph-width
+      needed for Chromium, as var() in @container is not supported 
+    */
+    @container (width <= calc(80ch * 1.75)) {
       display: flex;
       flex-direction: column-reverse;
       margin: 0;
@@ -56,19 +63,24 @@ const { title, tocHeaders = [] } = Astro.props;
 
   .content-layout {
     container-type: inline-size;
+    container-name: content-layout;
   }
 
   .header-section {
     background-color: var(--bg-secondary);
-    padding: var(--space-md);
-    border-radius: var(--round-lg);
+    padding: var(--space-md) 0;
 
+    .content {
+      width: min(var(--paragraph-width), 100%);
+    }
     .details {
       color: var(--text-secondary);
+      font-size: var(--font-base);
       justify-content: center;
     }
     .route {
       margin: 0 auto;
+      max-width: 100%;
       color: var(--text-tertiary);
     }
   }

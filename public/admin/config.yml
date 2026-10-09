@@ -13,6 +13,7 @@ public_folder: /assets
 
 media_libraries:
   all: 
+    filename_template: '{{year}}{{month}}{{day}}-{{uuid_short}}'
     slugify_filename: true
   default:
     config:
@@ -33,17 +34,25 @@ collections:
   - name: updates
     label: Updates
     label_singular: Update
+    icon: article
     folder: src/content/updates
+    media_folder: "{{media_folder}}/updates"
+    public_folder: "{{public_folder}}/updates"
     preview_path: "/{{locale}}/updates/{{slug}}"
     i18n: true
     fields:
       - name: title
         label: Title
-        widget: string
+        widget: text
         i18n: true
       - name: author
         label: Author
-        widget: string
+        widget: relation
+        collection: authors
+        value_field: "{{slug}}"
+        display_fields: [name]
+        search_fields: [name, bio]
+        dropdown_threshold: 1
         i18n: duplicate
       - name: date
         label: Date
@@ -52,7 +61,7 @@ collections:
         i18n: duplicate
       - name: description
         label: Description
-        widget: string
+        widget: text
         i18n: true
         maxlength: 250
       - name: showToc
@@ -79,10 +88,41 @@ collections:
           - bulleted-list
           - numbered-list
           - quote
+  - name: authors
+    label: Authors
+    label_singular: Author
+    icon: person_edit
+    duplicate: false
+    media_folder: "{{media_folder}}/authors"
+    public_folder: "{{public_folder}}/authors"
+    folder: src/content/authors
+    identifier_field: name
+    format: json
+    i18n: true
+    fields: 
+      - name: name
+        label: Name
+        widget: string
+        i18n: duplicate
+      - name: photo
+        label: Photo
+        widget: image
+        required: false
+        i18n: duplicate
+      - name: bio
+        label: Bio
+        widget: text
+        maxlength: 250
+        required: false
+        i18n: true
+  - divider: true
   - name: guidelines
     label: Guidelines
-    label_singular: Update
+    label_singular: Guideline
+    icon: contract
     folder: src/content/guidelines
+    media_folder: "{{media_folder}}/guidelines"
+    public_folder: "{{public_folder}}/guidelines"
     preview_path: "/{{locale}}/guidelines/{{slug}}"
     i18n: true
     fields:
@@ -123,3 +163,91 @@ collections:
           - bulleted-list
           - numbered-list
           - quote
+  - divider: true
+  - name: pages
+    label: Pages
+    label_singular: Page
+    icon: web
+    i18n: true
+    files:
+      - name: home
+        label: Home Page
+        i18n: true
+        file: src/content/pages/{{locale}}/home.json
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            i18n: true
+            fields: 
+              - name: heading
+                label: Heading
+                widget: string
+                i18n: true
+              - name: subheading
+                label: Subheading
+                widget: string
+                i18n: true            
+          - name: aboutTitle
+            label: About Section Header
+            widget: text
+            i18n: true
+          - name: aboutHyperLayering 
+            label: About Hyper Layering (Sections)
+            widget: list 
+            i18n: duplicate
+            fields:
+              - name: sectionTitle
+                label: Section Title
+                widget: string
+                i18n: true
+              - name: sectionBody
+                label: Section Body
+                widget: text
+                i18n: true
+          - name: aboutCloser
+            label: About Hyper Layering Closer
+            widget: text
+            i18n: true
+  - divider: true
+  - name: navigation
+    label: Navigation
+    icon: menu
+    i18n: true
+    files:
+      - name: footer
+        label: Footer
+        i18n: true
+        file: src/content/navigation/{{locale}}/footer.json
+        fields:
+          - name: navGroup
+            label: Navigation Group
+            widget: list 
+            i18n: duplicate 
+            fields: 
+            - name: groupTitle
+              label: Navigation Group Title
+              widget: string
+              i18n: true
+            - name: navLinks
+              label: Navigation Group Links
+              widget: list
+              i18n: duplicate
+              fields:
+              - name: linkLabel
+                label: Link Label
+                widget: string
+                i18n: true
+              - name: isExternal
+                label: Is External Link
+                comment: Used to identify links that direct outside of hyperlayering.org
+                widget: boolean
+                i18n: duplicate
+              - name: link
+                label: Link / URL
+                comment: For internal pages, provide the route only (eg. "/guidelines/page-id")
+                widget: string
+                pattern: 
+                  - '^(?:https?:\/\/[^\s\/?#]+[^\s]*|\/(?!\/)[^\s]*)$'
+                  - 'Must be an http(s) URL or a local path starting with a single "/"'
+                i18n: duplicate

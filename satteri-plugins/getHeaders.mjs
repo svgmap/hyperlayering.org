@@ -7,6 +7,7 @@ export const getHeaders = () =>
 			const headers = ctx.data.astro.frontmatter.headers ?? [];
 			if (node.depth !== 1) {
 				headers.push({
+					index: headers.length - 1,
 					depth: node.depth,
 					text: ctx.textContent(node),
 				});

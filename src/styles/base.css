@@ -127,11 +127,6 @@
 		line-height: 1.3;
 	}
 
-	small,
-	.text-sm {
-		font-size: var(--font-sm);
-	}
-
 	hr {
 		border: solid 0.5px var(--bg-tertiary);
 		margin-top: var(--space-xxs);
@@ -145,8 +140,9 @@
 
 	p,
 	li,
-	dl {
-		max-width: var(--paragraph-width);
+	dl,
+	small {
+		max-width: 100%;
 	}
 
 	[role="region"][aria-labelledby][tabindex] {
@@ -261,6 +257,42 @@
 	text-align: left;
 }
 
+.text-wrap-balance {
+	text-wrap: balance;
+}
+
+.text-truncate-single {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+small,
+.text-sm {
+	font-size: var(--font-sm);
+}
+
+.text-lg {
+	font-size: var(--font-lg);
+}
+
+.text-xl {
+	font-size: var(--font-xl);
+}
+
+.text-2xl {
+	font-size: var(--font-2xl);
+}
+
+.text-3xl {
+	font-size: var(--font-3xl);
+}
+
+.text-4xl {
+	font-size: var(--font-3xl);
+}
+
 .link-unstyled {
 	color: inherit;
 	text-decoration: none;
@@ -292,9 +324,12 @@
 		--flow-space: var(--space-sm);
 	}
 
-	img {
+	img,
+	svg,
+	figure {
 		max-width: 95%;
 		margin: var(--_flow-space) auto;
+		border-radius: var(--round-xs);
 	}
 
 	&.flow--dense {
@@ -308,11 +343,23 @@
 	flex-direction: column;
 	gap: var(--_stack-gap);
 
-	&[class*="stack--sm"] {
+	&[class*="stack--zero"],
+	&[data-state*="stack--zero"] {
+		--_stack-gap: 0;
+	}
+
+	&[class*="stack--xs"],
+	&[data-state*="stack--xs"] {
+		--_stack-gap: var(--space-xs);
+	}
+
+	&[class*="stack--sm"],
+	&[data-state*="stack--sm"] {
 		--_stack-gap: var(--space-sm);
 	}
 
-	&[class*="stack--md"] {
+	&[class*="stack--md"],
+	&[data-state*="stack--md"] {
 		--_stack-gap: var(--space-md);
 	}
 }
@@ -323,7 +370,13 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: var(--_row-justify);
+	align-items: center;
 	gap: var(--_gap);
+
+	&[class*="row--xs"],
+	&[data-state*="row--xs"] {
+		--_gap: var(--space-xs);
+	}
 }
 
 .grid {
@@ -359,7 +412,7 @@
 
 .layout--max {
 	margin: var(--space-sm) auto;
-	margin-inline: var(--space-sm);
+	margin-inline: var(--space-md);
 }
 
 /* === BLOCKS/COMPONENTS === */
@@ -390,6 +443,13 @@
 				outline: 0px solid var(--_border-color);
 			}
 		}
+	}
+
+	&[data-state="sub-grid"] {
+		display: grid;
+		grid-template-rows: subgrid; /* only rows; keep your own columns */
+		grid-row: span 3; /* one per child: image, title, body */
+		gap: var(--space-xxs);
 	}
 
 	.title {
@@ -445,7 +505,8 @@
 		background-color: var(--hover-color);
 	}
 
-	&.accent {
+	&.accent,
+	&[data-state*="accent"] {
 		--button-color: var(--accent);
 		--text-color: var(--accent-text);
 	}

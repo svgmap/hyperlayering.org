@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 // import LandingWindow from "components/LandingWindow.svelte"; -- temporarily removed
 import Decentralized from "@components/Illustrations/Decentralized.svelte";
@@ -16,46 +17,87 @@ export async function getStaticPaths() {
 		params: { lang: locale !== defaultLang ? locale : undefined },
 	}));
 }
+
+const homeContent = await getCollection("home", ({ id, data }) => {
+	const [homeLang] = id.split("/");
+	if (homeLang === lang) return data;
+}).then((data) => {
+	if (data.length === 1) return data[0];
+	else Astro.logger.error("Unexpected Home Page query response");
+});
 ---
 
 <BaseLayout>
   <main>
     <section class="auto-grid grid-lg landing">
       <div class="landing-intro stack">
-        <h1 class="header fade-slide-in">{t("page.home.title")}</h1>
-        <p class="subtitle fade-slide-in" style="--delay: 200ms;">{t("page.home.tagline")}</p>
-        <div class="row fade-in" style="--delay: 600ms;">
-          <a href={getRelativeLocaleUrl(lang, "tutorials")}
+        <h1 class="header fade-slide-in">{homeContent?.data.hero.heading}</h1>
+        <p class="subtitle fade-slide-in" style="--delay: 200ms;">
+          {homeContent?.data.hero.subheading}
+        </p>
+        <div class="fade-in" style="--delay: 600ms;">
+          <a href="https://svgmap.org/demos/demo1/"
             ><button class="button accent"
               >{t("page.home.get-started-btn")}</button
             ></a
           >
-          <button class="button">{t("page.home.about-btn")}</button>
         </div>
       </div>
     </section>
     <article class="feature-section layout--wide flow">
-      <h2 class="text-center">{t("page.home.features.title")}</h2>
+      <h2 class="text-center font-wide">{t("page.home.features.title")}</h2>
       <section class="auto-grid">
-        <article class="card stack text-center">
+        <article class="card text-center" data-state="sub-grid">
           <Decentralized className="image" />
           <h3 class="title">{t("page.home.features.decentralized.title")}</h3>
           <p class="body">{t("page.home.features.decentralized.body")}</p>
         </article>
-        <article class="card stack text-center">
+        <article class="card text-center" data-state="sub-grid">
           <Layers className="image" />
           <h3 class="title text-center">
-            {t("page.home.features.tiling.title")}
+            {t("page.home.features.layering.title")}
           </h3>
-          <p class="body">{t("page.home.features.tiling.body")}</p>
+          <p class="body">{t("page.home.features.layering.body")}</p>
         </article>
-        <article class="card stack text-center">
+        <article class="card text-center" data-state="sub-grid">
           <SourceCode className="image" />
           <h3 class="title text-center">
             {t("page.home.features.open-source.title")}
           </h3>
           <p class="body">{t("page.home.features.open-source.body")}</p>
         </article>
+      </section>
+    </article>
+    <article id="about" class="about-section">
+      <section class="layout stack" data-state="stack--md">
+        <h2 class="text-center font-wide">About Hyper Layering</h2>
+        <hr />
+        <div class="stack">
+          {
+            homeContent?.data.aboutHyperLayering.map((section, index) => {
+              return (
+                <Fragment>
+                  <div class="flow about-group">
+                    <h3 class="text-center">{section.sectionTitle}</h3>
+                    <p>{section.sectionBody}</p>
+                  </div>
+                  {homeContent?.data.aboutHyperLayering.length &&
+                  homeContent?.data.aboutHyperLayering.length !== index ? (
+                    <div class="vertical-dots" />
+                  ) : undefined}
+                </Fragment>
+              );
+            })
+          }
+          <div class="flow text-lg font-wide font-bold text-center">
+            {
+              homeContent?.data.aboutCloser
+                .split("\n")
+                .filter((s) => s.length > 0)
+                .map((line) => <p class="text-wrap-balance">{line}</p>)
+            }
+          </div>
+        </div>
       </section>
     </article>
   </main>
@@ -115,7 +157,6 @@ export async function getStaticPaths() {
 
     .subtitle {
       font-size: var(--font-lg);
-      margin-bottom: var(--space-sm);
     }
   }
 
@@ -126,7 +167,81 @@ export async function getStaticPaths() {
       & > * {
         --min-col-size: 100%;
       }
-      
     }
+  }
+
+  .about-section {
+    position: relative;
+    z-index: 1;
+    padding-block: var(--space-sm);
+    overflow: hidden;
+    &::before {
+      container-type: size;
+      top: 0;
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background-image:
+        linear-gradient(
+          to bottom,
+          var(--bg-secondary) 20%,
+          rgba(0, 0, 0, 0) 50%,
+          var(--bg-secondary) 100%
+        ),
+        radial-gradient(
+          circle at 100% 50%,
+          oklch(from var(--green) l c h / 0.06) 0%,
+          transparent 60%
+        ),
+        radial-gradient(
+          circle at 50% 25%,
+          oklch(from var(--blue) l c h / 0.08) 0%,
+          transparent 60%
+        ),
+        radial-gradient(
+          circle at 0% 100%,
+          oklch(from var(--purple) l c h / 0.08) 0%,
+          transparent 60%
+        ),
+        radial-gradient(
+          circle at 50% 50%,
+          var(--bg-primary) 0%,
+          transparent 90%
+        ),
+        linear-gradient(
+          to left,
+          var(--bg-primary) 0%,
+          rgba(0, 0, 0, 0) 25% 75%,
+          var(--bg-primary) 100%
+        );
+    }
+    &::after {
+      container-type: size;
+      top: 0;
+      display: block;
+      position: absolute;
+      z-index: -2;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background-size: 1em 1em;
+      background-image:
+        linear-gradient(to right, var(--bg-tertiary) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--bg-tertiary) 1px, transparent 1px);
+      transform: perspective(3000px) rotateX(45deg);
+    }
+  }
+
+  .vertical-dots {
+    display: flex;
+    width: 2px;
+    height: 4em;
+    border-inline-end: 2px dotted var(--text-tertiary);
+    margin-block: var(--space-sm);
+    margin-inline: auto;
   }
 </style>

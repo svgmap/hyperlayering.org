@@ -2,11 +2,11 @@
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
 type LinkGroup = {
-	groupLabel: string;
-	links: {
-		label: string;
-		href: string;
-		external?: boolean;
+	groupTitle: string;
+	navLinks: {
+		linkLabel: string;
+		link: string;
+		isExternal?: boolean;
 	}[];
 };
 
@@ -25,10 +25,10 @@ let t = $derived(useTranslations(lang));
     <section class="link-grid">
         {#each linkGroups as linkGroup}
             <article>
-            <h2 class="section-header">{linkGroup.groupLabel}</h2>
+            <h2 class="section-header">{linkGroup.groupTitle}</h2>
             <ul role="list">
-            {#each linkGroup.links as link}
-                <li><a href={link.href} class={[link.external && "external"]}>{link.label}</a></li>        
+            {#each linkGroup.navLinks as navLink}
+                <li><a href={navLink.link} class={[navLink.isExternal && "external"]}>{navLink.linkLabel}</a></li>        
             {/each}
             </ul>
         </article>

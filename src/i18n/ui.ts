@@ -22,6 +22,7 @@ export const ui = {
 		"nav.documentation.api": "API Documentation",
 		"nav.resources": "Resources",
 		"nav.resources.naming-branding": "Naming & Branding Guidelines",
+		"nav.resources.brand-guideline": "Brand Guideline",
 		"nav.copyright": `&#169; ${new Date().getFullYear()} Hyper Layering Community`,
 		"page.home.title": "Hyper Layering",
 		"page.home.tagline": "Client-centric, de-centralized web mapping",
@@ -30,10 +31,10 @@ export const ui = {
 		"page.home.features.title": "Why Hyper Layering?",
 		"page.home.features.decentralized.title": "Decentralized",
 		"page.home.features.decentralized.body":
-			"In HLA, Mapping layers are built as self-contained web applications.",
-		"page.home.features.tiling.title": "Advanced Tiling",
-		"page.home.features.tiling.body":
-			"HLA offers a highly performant tiling system, able to handle large scale mapping data with ease.",
+			"In HLA, mapping layers are loosely coupled via hyperlinks, functioning as independent web applications.",
+		"page.home.features.layering.title": "Layering on Client",
+		"page.home.features.layering.body":
+			"HLA empowers users to dynamically compose these independent layers directly on their own devices.",
 		"page.home.features.open-source.title": "Open Source",
 		"page.home.features.open-source.body":
 			"HLA is a fully open-source project that is actively maintained and has been used by enterprises for 15+ years.",
@@ -50,16 +51,18 @@ export const ui = {
 		"nav.mobile-toggle.label.open": "ナビゲーションメニューを開く",
 		"nav.mobile-toggle.label.close": "ナビゲーションメニューを閉じる",
 		"nav.github.message": "GitHubでこのプロジェクトを詳しく見る",
+		"nav.resources.brand-guideline":
+			"ハイパー・レイヤリング ブランドガイドライン",
 		"page.home.tagline": "クライアント中心の分散型ウェブマッピング",
 		"page.home.get-started-btn": "HLMapをはじめる",
 		"page.home.about-btn": "プロジェクトについて",
 		"page.home.features.title": "なぜハイパー・レイヤリングなのか？",
 		"page.home.features.decentralized.title": "分散型",
 		"page.home.features.decentralized.body":
-			"HLAでは、マッピングレイヤーは独立したWebアプリケーションとして構築されます。",
-		"page.home.features.tiling.title": "高度なタイル配置",
-		"page.home.features.tiling.body":
-			"HLAは、大規模な地図データを容易に処理できる、高性能なタイリングシステムを提供しています。",
+			"HLAでは、マッピングレイヤーはハイパーリンクを介して疎結合されており、独立したWebアプリケーションとして機能します。",
+		"page.home.features.layering.title": "クライアント側でのレイヤリング",
+		"page.home.features.layering.body":
+			"HLAにより、ユーザーは自身のデバイス上で、これらの独立したレイヤーを動的に組み合わせることができるようになります。",
 		"page.home.features.open-source.title": "オープンソース",
 		"page.home.features.open-source.body":
 			"HLAは、積極的にメンテナンスが行われている完全なオープンソースプロジェクトであり、15年以上にわたり企業で利用されてきました。",
