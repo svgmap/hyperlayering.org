@@ -3,6 +3,7 @@ interface IconProps {
 	size?: number | string;
 	color?: string;
 	className?: string;
+	label?: string;
 }
 
 interface NavMenuItem {
