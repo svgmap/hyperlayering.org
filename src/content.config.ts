@@ -6,7 +6,6 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const urlOrPath = z.string().refine((value) => {
-	// Local path: single leading slash, no whitespace
 	if (/^\/(?!\/)\S*$/.test(value)) return true;
 
 	try {
