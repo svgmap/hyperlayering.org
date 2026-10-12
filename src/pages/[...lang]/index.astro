@@ -30,7 +30,7 @@ const homeContent = await getCollection("home", ({ id, data }) => {
 <BaseLayout>
   <main>
     <section class="auto-grid grid-lg landing">
-      <div class="landing-intro stack">
+      <div class="landing-intro stack stack--center">
         <h1 class="header fade-slide-in">{homeContent?.data.hero.heading}</h1>
         <p class="subtitle fade-slide-in" style="--delay: 200ms;">
           {homeContent?.data.hero.subheading}
@@ -144,8 +144,6 @@ const homeContent = await getCollection("home", ({ id, data }) => {
     }
 
     .landing-intro {
-      justify-content: center;
-      align-items: center;
       min-height: 30vh;
       max-width: min(100%, var(--paragraph-width));
       margin: auto;

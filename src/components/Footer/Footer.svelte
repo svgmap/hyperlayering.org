@@ -21,7 +21,7 @@ let lang = $derived(getLangFromUrl(currentUrl));
 let t = $derived(useTranslations(lang));
 </script>
 
-<footer class="site-footer stack stack--sm">
+<footer class="site-footer stack stack--sm layout--max">
     <section class="link-grid">
         {#each linkGroups as linkGroup}
             <article>
@@ -40,8 +40,6 @@ let t = $derived(useTranslations(lang));
 
 <style>
     .site-footer {
-        margin: var(--space-sm) auto;
-	    margin-inline: var(--space-md);
         background-color: var(--bg-secondary);
         padding: var(--space-md);
         border-radius: var(--round-md);
