@@ -350,7 +350,7 @@ small,
 	&[class*="stack--center"],
 	&[data-state*="stack--center"] {
 		justify-content: center;
-      	align-items: center;
+		align-items: center;
 	}
 
 	&[class*="stack--zero"],
