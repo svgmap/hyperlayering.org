@@ -1,0 +1,15 @@
+{
+  "header": "Layer Collections",
+  "layerCollections": [
+    {
+      "label": "Japanese Layer",
+      "url": "https://svgmap.github.io/svgMapDemo/",
+      "image": "/assets/layerCollections/20261013-0a4b64dcfd4b.webp"
+    },
+    {
+      "label": "Canadian Layers",
+      "url": "https://svgmap.github.io/canadianSvgmapAppLayers/demoTests/",
+      "image": "/assets/layerCollections/20261013-38769a1833e4.webp"
+    }
+  ]
+}
