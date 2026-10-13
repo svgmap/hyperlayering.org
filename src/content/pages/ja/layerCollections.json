@@ -1,15 +1,15 @@
 {
-  "header": "レイヤーコレクション",
-  "layerCollections": [
-    {
-      "label": "日本のレイヤー",
-      "url": "https://svgmap.github.io/svgMapDemo/",
-      "image": "/assets/layerCollections/20261013-0a4b64dcfd4b.webp"
-    },
-    {
-      "label": "カナディアン・レイヤーズ",
-      "url": "https://svgmap.github.io/canadianSvgmapAppLayers/demoTests/",
-      "image": "/assets/layerCollections/20261013-38769a1833e4.webp"
-    }
-  ]
+	"header": "レイヤーコレクション",
+	"layerCollections": [
+		{
+			"label": "日本のレイヤー",
+			"url": "https://svgmap.github.io/svgMapDemo/",
+			"image": "/assets/layerCollections/20261013-0a4b64dcfd4b.webp"
+		},
+		{
+			"label": "カナディアン・レイヤーズ",
+			"url": "https://svgmap.github.io/canadianSvgmapAppLayers/demoTests/",
+			"image": "/assets/layerCollections/20261013-38769a1833e4.webp"
+		}
+	]
 }
