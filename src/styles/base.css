@@ -437,7 +437,36 @@ small,
 	background-color: var(--_card-color);
 	border: solid 1px var(--_border-color);
 
-	&[clickable="true"] {
+	.title {
+		font-size: var(--font-lg);
+		font-weight: 700;
+		color: var(--text-main);
+	}
+
+	.body {
+		color: var(--text-secondary);
+		font-size: var(--font-sm);
+		line-height: 1.5em;
+		margin-block-end: var(--space-xs);
+	}
+
+	.details {
+		color: var(--text-tertiary);
+		font-size: var(--font-sm);
+	}
+
+	.image {
+		min-width: 100%;
+		border-radius: var(--round-sm);
+		border: solid 1px oklch(from var(--_card-color) l c h);
+	}
+
+	a > & {
+		min-height: 100%; /* TODO: not crazy about this, should be refactored later */
+	}
+
+	&[clickable="true"],
+	&[data-state*="card--clickable"] {
 		cursor: pointer;
 		transition-property: background-color, outline;
 		transition-behavior: allow-discrete;
@@ -455,36 +484,11 @@ small,
 		}
 	}
 
-	&[data-state="sub-grid"] {
+	&[data-state*="sub-grid"] {
 		display: grid;
 		grid-template-rows: subgrid; /* only rows; keep your own columns */
 		grid-row: span 3; /* one per child: image, title, body */
 		gap: var(--space-xxs);
-	}
-
-	.title {
-		font-size: var(--font-lg);
-		font-weight: 700;
-		color: var(--text-main);
-	}
-
-	.body {
-		color: var(--text-secondary);
-	}
-
-	.details {
-		color: var(--text-tertiary);
-		font-size: var(--font-sm);
-	}
-
-	.image {
-		min-width: 100%;
-		border-radius: var(--round-sm);
-		border: solid 1px oklch(from var(--_card-color) l c h);
-	}
-
-	a > & {
-		min-height: 100%; /* TODO: not crazy about this, should be refactored later */
 	}
 }
 
@@ -516,7 +520,7 @@ small,
 	}
 
 	&.accent,
-	&[data-state*="accent"] {
+	&[data-state*="button--accent"] {
 		--button-color: var(--accent);
 		--text-color: var(--accent-text);
 	}
