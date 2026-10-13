@@ -67,6 +67,18 @@ const home = defineCollection({
 	}),
 });
 
+const layerCollections = defineCollection({
+	loader: glob({ pattern: "**/layerCollections.json", base: "./src/content/pages" }),
+	schema: z.object({
+		header: z.string(),
+		layerCollections: z.array(z.object({
+			label: z.string(),
+			url: urlOrPath,
+			image: urlOrPath,
+		}))
+	}),
+});
+
 const docs = defineCollection({
 	loader: docsLoader(),
 	schema: docsSchema(),
@@ -90,4 +102,4 @@ const footer = defineCollection({
 	}),
 });
 
-export const collections = { update, guideline, docs, authors, home, footer };
+export const collections = { update, guideline, docs, authors, home, layerCollections, footer };

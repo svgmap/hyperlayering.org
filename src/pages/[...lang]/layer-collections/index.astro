@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import { defaultLang, languages } from "@i18n/ui";
+import { getLangFromUrl } from "@i18n/utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+    const locales = Object.keys(languages);
+    return locales.map((locale) => ({
+        params: { lang: locale !== defaultLang ? locale : undefined },
+    }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const layerCollections = await getCollection(
+    "layerCollections",
+    ({ id, data }) => {
+        const [pageLang] = id.split("/");
+        if (pageLang === lang) return data;
+    },
+).then((data) => {
+    if (data.length === 1) return data[0];
+    else Astro.logger.error("Unexpected Home Page query response");
+});
+---
+
+<BaseLayout>
+    <main class="layout--wide">
+        <article class="stack stack--md">
+            <h1>{layerCollections?.data.header}</h1>
+            <div class="auto-grid" data-state="sub-grid">
+            {
+                layerCollections?.data.layerCollections.map((collection) => {
+                    return (
+                        <a href={collection.url}>
+                            <article
+                                class="card stack"
+                                data-state="card--clickable"
+                            >
+                                <img fetchpriority="high" class="image" src={collection.image} />
+                                <h2 class="title text-center">{collection.label}</h2>
+                            </article>
+                        </a>
+                    );
+                })
+            }
+            </div>
+        </article>
+    </main>
+</BaseLayout>
