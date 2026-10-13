@@ -5,22 +5,22 @@ import { getLangFromUrl } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-    const locales = Object.keys(languages);
-    return locales.map((locale) => ({
-        params: { lang: locale !== defaultLang ? locale : undefined },
-    }));
+	const locales = Object.keys(languages);
+	return locales.map((locale) => ({
+		params: { lang: locale !== defaultLang ? locale : undefined },
+	}));
 }
 
 const lang = getLangFromUrl(Astro.url);
 const layerCollections = await getCollection(
-    "layerCollections",
-    ({ id, data }) => {
-        const [pageLang] = id.split("/");
-        if (pageLang === lang) return data;
-    },
+	"layerCollections",
+	({ id, data }) => {
+		const [pageLang] = id.split("/");
+		if (pageLang === lang) return data;
+	},
 ).then((data) => {
-    if (data.length === 1) return data[0];
-    else Astro.logger.error("Unexpected Home Page query response");
+	if (data.length === 1) return data[0];
+	else Astro.logger.error("Unexpected Home Page query response");
 });
 ---
 
