@@ -17,6 +17,7 @@ export const ui = {
 		"nav.mobile-toggle.label.open": "Open Navigation Menu",
 		"nav.mobile-toggle.label.close": "Close Navigation Menu",
 		"nav.github.message": "Explore the project on GitHub",
+		"nav.layerCollections": "Try HLMap",
 		"nav.documentation": "Documentation",
 		"nav.documentation.tutorials": "Tutorials",
 		"nav.documentation.api": "API Documentation",

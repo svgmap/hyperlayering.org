@@ -41,6 +41,11 @@ const toggleMenu = () => {
     {#each links as link}
       <a class="nav-item" href={link.href}>{link.label}</a>
     {/each}
+    <a href={getRelativeLocaleUrl(lang, "/layer-collections")}>
+      <button class="launch-btn">
+        {t("nav.layerCollections")}
+      </button>
+    </a>
     <button
       aria-label={t("nav.lang-btn.label")}
       name={t("nav.lang-btn.label")}
@@ -99,6 +104,25 @@ const toggleMenu = () => {
     color: var(--text-main);
     transition: color var(--timing-normal) ease-out;
     border-block-end: 1px solid var(--bg-tertiary);
+
+
+    /* TODO: refactor to button class modifier (post-launch) */
+    .launch-btn {
+      cursor: pointer;
+      padding: 0 var(--space-xs);
+      border-radius: var(--round-md);
+      border: 2px solid var(--text-secondary);
+      background-color: transparent;
+      transition-property: background-color, color, box-shadow;
+      transition-duration: var(--timing-fast);
+      transition-behavior: allow-discrete;
+
+      &:hover, &:focus-within {
+        color: var(--accent-text);
+        background-color: var(--accent);
+        box-shadow: 0 0 10px oklch(from var(--text-tertiary) l c h / 0.5);
+      }        
+    }
 
     .brand {
       color: inherit;

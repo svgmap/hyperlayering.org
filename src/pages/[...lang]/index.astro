@@ -36,9 +36,9 @@ const homeContent = await getCollection("home", ({ id, data }) => {
           {homeContent?.data.hero.subheading}
         </p>
         <div class="fade-in" style="--delay: 600ms;">
-          <a href="https://svgmap.org/demos/demo1/"
+          <a href={getRelativeLocaleUrl(lang, "/layer-collections")}
             ><button class="button accent"
-              >{t("page.home.get-started-btn")}</button
+              >{t("nav.layerCollections")}</button
             ></a
           >
         </div>

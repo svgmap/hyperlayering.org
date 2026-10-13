@@ -209,6 +209,34 @@ collections:
             label: About Hyper Layering Closer
             widget: text
             i18n: true
+      - name: layerCollections
+        label: Layer Collections
+        i18n: true
+        file: src/content/pages/{{locale}}/layerCollections.json
+        media_folder: "{{media_folder}}/layerCollections"
+        public_folder: "{{public_folder}}/layerCollections"
+        fields:
+          - name: header
+            label: Header
+            widget: string
+            i18n: true
+          - name: layerCollections 
+            label: Layers
+            widget: list 
+            i18n: duplicate
+            fields: 
+            - name: label
+              label: Layer Collection Label
+              widget: string
+              i18n: true
+            - name: url
+              label: Layer Collection URL
+              widget: string
+              i18n: duplicate
+            - name: image
+              label: Collection Image
+              widget: image
+              i18n: duplicate
   - divider: true
   - name: navigation
     label: Navigation
