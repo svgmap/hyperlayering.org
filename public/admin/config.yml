@@ -209,6 +209,20 @@ collections:
             label: About Hyper Layering Closer
             widget: text
             i18n: true
+      - name: about
+        label: About Us
+        i18n: true
+        file: src/content/pages/{{locale}}/about.json
+        fields:
+          - name: header
+            label: Page Header
+            widget: string
+            i18n: true   
+          - name: about
+            label: About Us Blurb
+            widget: richtext
+            i18n: true
+            format: html    
       - name: layerCollections
         label: Layer Collections
         i18n: true

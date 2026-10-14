@@ -67,6 +67,14 @@ const home = defineCollection({
 	}),
 });
 
+const about = defineCollection({
+	loader: glob({ pattern: "**/about.json", base: "./src/content/pages" }),
+	schema: z.object({
+		header: z.string(),
+		about: z.string(),
+	}),
+});
+
 const layerCollections = defineCollection({
 	loader: glob({
 		pattern: "**/layerCollections.json",
@@ -113,6 +121,7 @@ export const collections = {
 	docs,
 	authors,
 	home,
+	about,
 	layerCollections,
 	footer,
 };

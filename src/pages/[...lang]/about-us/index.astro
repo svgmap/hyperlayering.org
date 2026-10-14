@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import { defaultLang, languages } from "@i18n/ui";
+import { getLangFromUrl } from "@i18n/utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ContentLayout from "@layouts/ContentLayout.astro";
+
+export async function getStaticPaths() {
+	const locales = Object.keys(languages);
+	return locales.map((locale) => ({
+		params: { lang: locale !== defaultLang ? locale : undefined },
+	}));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const aboutPage = await getCollection("about", ({ id, data }) => {
+	const [pageLang] = id.split("/");
+	if (pageLang === lang) return data;
+}).then((data) => {
+	if (data.length === 1) return data[0];
+	else Astro.logger.error("Unexpected Home Page query response");
+});
+---
+
+<BaseLayout>
+    <ContentLayout title={aboutPage?.data.header ?? "About"}>
+        <Fragment slot="content">
+            <section class="flow" set:html={aboutPage?.data.about} />
+        </Fragment>
+    </ContentLayout>
+</BaseLayout>

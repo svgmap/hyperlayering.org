@@ -13,6 +13,7 @@ export const ui = {
 		"nav.tutorials": "Tutorials",
 		"nav.demos": "Demos",
 		"nav.updates": "Updates",
+		"nav.about-us": "About Us",
 		"nav.lang-btn.label": "Change Language",
 		"nav.mobile-toggle.label.open": "Open Navigation Menu",
 		"nav.mobile-toggle.label.close": "Close Navigation Menu",
