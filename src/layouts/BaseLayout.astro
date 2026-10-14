@@ -47,6 +47,10 @@ const footerData = await getCollection("footer", ({ id, data }) => {
           href: getRelativeLocaleUrl(lang, "/updates"),
           label: t("nav.updates"),
         },
+        {
+          href: getRelativeLocaleUrl(lang, "/about-us"),
+          label: t("nav.about-us"),
+        },
       ]}
       currentUrl={url}
     >
