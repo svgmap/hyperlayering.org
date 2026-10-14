@@ -24,7 +24,7 @@ Hyper Layeringを表すために使用される標準ロゴ。
 
 ![](/assets/guidelines/20261014-320d1ffe82e1.webp)
 
-「Layer H」のロゴを書体ブランドの識別マークと並べて表示する場合は、2Xの文字間隔を使用すること。
+「Layer H」のロゴを書体ブランドの識別マークと並べて表示する場合は、2Xの余白を設けてください。
 
 ![](/assets/guidelines/20261014-805b2ec88741.webp)
 
