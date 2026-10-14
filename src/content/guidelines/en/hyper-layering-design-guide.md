@@ -18,13 +18,13 @@ The standard Logo used to identify Hyper Layering.
 
 #### Protected Space
 
-Measurement X is the width of the bold lines in the Layer Link H Logo.
+Measurement X is the width of the bold lines in the Layer H Logo.
 
-Spacing of 1.5X shall be used for when displaying the Layer Link H Logo on its own.
+Spacing of 1.5X shall be used for when displaying the Layer H Logo on its own.
 
 ![](/assets/guidelines/20261014-320d1ffe82e1.webp)
 
-Spacing of 2X shall be used when displaying the Layer Link H logo alongside a typeface brand identifier.
+Spacing of 2X shall be used when displaying the Layer H logo alongside a typeface brand identifier.
 
 ![](/assets/guidelines/20261014-805b2ec88741.webp)
 

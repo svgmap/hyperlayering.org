@@ -18,9 +18,9 @@ Hyper Layeringを表すために使用される標準ロゴ。
 
 #### 保護された空間
 
-寸法 X は、「Layer Link H」ロゴの太い線の幅です。
+寸法 X は、「Layer H」ロゴの太い線の幅です。
 
-「Layer Link H」ロゴを単独で表示する場合は、1.5Xの余白を設けてください。
+「Layer H」ロゴを単独で表示する場合は、1.5Xの余白を設けてください。
 
 ![](/assets/guidelines/20261014-320d1ffe82e1.webp)
 
