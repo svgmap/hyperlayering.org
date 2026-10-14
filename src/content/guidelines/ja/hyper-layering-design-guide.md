@@ -38,7 +38,7 @@ HLA（Hyper Layer Architecture）の略称が入った標準ロゴ。
 
 ロゴとテキストの間隔を3倍にし、ロゴの周囲全体との間隔も3倍にします。
 
-![](/assets/guidelines/20261014-37157e7cf563.webp)
+![](/assets/guidelines/20261014-6554bd7f0dcf.webp)
 
 ### ワードマーク・ロゴ 2
 

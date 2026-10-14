@@ -38,7 +38,7 @@ The standard Logo with an abbreviated HLA (Hyper Layer Architecture).
 
 Distance 3X between the logo and the text, as well as 3X between the entire perimeter of the Logo.
 
-![](/assets/guidelines/20261014-37157e7cf563.webp)
+![](/assets/guidelines/20261014-6554bd7f0dcf.webp)
 
 ### Wordmark Logo 2
 
