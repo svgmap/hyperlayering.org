@@ -6,7 +6,8 @@ interface Props {
 	tocHeaders?: Map<string, TocItem> | undefined;
 }
 
-const { title, tocHeaders = new Map() } = Astro.props;
+const { title, tocHeaders = undefined } = Astro.props;
+console.log("headers", tocHeaders);
 ---
 
 <main>
@@ -20,11 +21,11 @@ const { title, tocHeaders = new Map() } = Astro.props;
         </div>
       </div>
     </section>
-    <section id="content-body-wrapper">
+    <section id="content-body-wrapper" class:list={[ { "toc-content-layout": tocHeaders !== undefined }]}>
       <div class="content-body layout flow">
         <slot name="content" />
       </div>
-      <TableOfContents headers={tocHeaders} client:only="svelte" />
+      <TableOfContents headers={tocHeaders ?? new Map()} client:only="svelte" />
     </section>
   </article>
 </main>
@@ -48,17 +49,22 @@ const { title, tocHeaders = new Map() } = Astro.props;
     @container (width <= calc(80ch * 1.75)) {
       display: flex;
       flex-direction: column-reverse;
-      margin: 0;
+      margin-inline: 0;
+
       * {
         --header-scroll-margin: 2;
       }
+
+        &[class*="toc-content-layout"]{
+          margin-block: 0;
+        } 
     }
   }
 
   .content-body {
     max-width: 100%;
     grid-column: 2;
-    margin-block-start: 0; /* Overriding .layout styling */
+    margin-block-start: 0;
   }
 
   .content-layout {
