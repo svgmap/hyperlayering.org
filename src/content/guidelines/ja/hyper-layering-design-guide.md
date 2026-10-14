@@ -22,7 +22,7 @@ Hyper Layeringを表すために使用される標準ロゴ。
 
 「Layer Link H」ロゴを単独で表示する場合は、1.5倍の余白を設けてください。
 
-![](/assets/full-distance-1.5x.webp)
+![](/assets/guidelines/20261014-320d1ffe82e1.webp)
 
 「Layer Link H」のロゴを書体ブランドの識別マークと並べて表示する場合は、2Xの文字間隔を使用すること。
 

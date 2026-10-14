@@ -22,7 +22,7 @@ Measurement x is the width of the bold lines in the Layer Link H Logo.
 
 Spacing of 1.5X shall be used for when displaying the Layer Link H Logo on its own.
 
-![](/assets/full-distance-1.5x.webp)
+![](/assets/guidelines/20261014-320d1ffe82e1.webp)
 
 Spacing of 2X shall be used when displaying the Layer Link H logo alongside a typeface brand identifier.
 
