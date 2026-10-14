@@ -38,7 +38,7 @@ HLA（Hyper Layer Architecture）の略称が入ったロゴです。
 
 ロゴとテキストの間隔を2Xにし、ロゴの周囲全体との間隔は3Xにします。
 
-![](/assets/guidelines/20261014-d512910d8c2d.webp)
+![](/assets/guidelines/20261014-a92f136cf163.webp)
 
 ### ワードマーク・ロゴ 2
 
@@ -54,7 +54,7 @@ HLA（Hyper Layer Architecture）の略称が入ったロゴです。
 
 ### ロゴの使用制限
 
-「Hyper Layering」のブランディングを使用する際は、以下の点を避けてください：
+「Hyper Layering」のロゴを使用する際は、以下の点を避けてください：
 ![](/assets/guidelines/20261013-36c0aca43a7d.webp)
 
 ## 色の使い方
@@ -86,7 +86,7 @@ Malachite Green の背景の上に、Sheet White ／ Pure White の「Layer H」
 
 ### メインカラーパレット
 
-HLコミュニティプロジェクトの主要なカラーパレット。
+HL Community プロジェクトの主要なカラーパレット。
 
 | Swatch | Color | Hex | RGB | CMYK |
 | --- | --- | --- | --- | --- |
@@ -132,7 +132,7 @@ HL Community のすべてのプロジェクトで主に使用されているフ�
 
 ### 見出しと小見出し
 
-すべての見出しおよび小見出しには、「Zen Kaku Gothic New」の太字を使用します。小見出しが階層が下るにつれて太字のままフォントサイズを小さくしていき、最終的に標準テキストと同じサイズになります。
+すべての見出しと小見出しには「Zen Kaku Gothic New」の太字を使用します。 小見出しは階層が下がるにつれて段階的にフォントサイズを小さくします。ただし、フォントサイズの下限は標準テキスト（本文）と同じサイズを最小とし、それ未満には縮小しません。
 
 ### 標準テキスト
 
