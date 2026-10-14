@@ -12,7 +12,7 @@ showToc: true
 
 ### メインロゴ
 
-Hyper Layeringを表すために使用される標準ロゴ。
+Hyper Layeringを表すために使用される標準ロゴです。
 
 ![](/assets/logo1.webp)
 
@@ -30,7 +30,7 @@ Hyper Layeringを表すために使用される標準ロゴ。
 
 ### ワードマーク・ロゴ 1
 
-HLA（Hyper Layer Architecture）の略称が入った標準ロゴ。
+HLA（Hyper Layer Architecture）の略称が入ったロゴです。
 
 ![](/assets/guidelines/20261014-bef002e0bfee.webp)
 
@@ -42,7 +42,7 @@ HLA（Hyper Layer Architecture）の略称が入った標準ロゴ。
 
 ### ワードマーク・ロゴ 2
 
-「Hyper Layering」を施した標準ロゴ。
+「Hyper Layering」を施したロゴです。
 
 ![](/assets/guidelines/20261014-aef331e96198.webp)
 
