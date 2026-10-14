@@ -24,9 +24,9 @@ Hyper Layeringを表すために使用される標準ロゴ。
 
 ![](/assets/full-distance-1.5x.webp)
 
-「Layer Link H」のロゴを書体ブランドの識別マークと並べて表示する場合は、3Xの文字間隔を使用すること。
+「Layer Link H」のロゴを書体ブランドの識別マークと並べて表示する場合は、2Xの文字間隔を使用すること。
 
-![](/assets/full-distance-3x.webp)
+![](/assets/guidelines/20261014-805b2ec88741.webp)
 
 ### ワードマーク・ロゴ 1
 

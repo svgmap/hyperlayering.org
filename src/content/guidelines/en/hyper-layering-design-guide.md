@@ -24,9 +24,9 @@ Spacing of 1.5X shall be used for when displaying the Layer Link H Logo on its o
 
 ![](/assets/full-distance-1.5x.webp)
 
-Spacing of 3X shall be used when displaying the Layer Link H logo alongside a typeface brand identifier.
+Spacing of 2X shall be used when displaying the Layer Link H logo alongside a typeface brand identifier.
 
-![](/assets/full-distance-3x.webp)
+![](/assets/guidelines/20261014-805b2ec88741.webp)
 
 ### Wordmark Logo 1
 
