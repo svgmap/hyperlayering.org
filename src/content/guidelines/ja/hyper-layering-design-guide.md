@@ -124,11 +124,7 @@ HL Community プロジェクトの主要なカラーパレット。
 
 ## フォント
 
-各タイポグラフィのバリエーションは、情報の優先順位や構造を明確にし、ユーザーにとって読みやすいものとなるよう厳選されています。
-
-HL Community のすべてのプロジェクトで主に使用されているフォントは「Zen Kaku Gothic New」です。このフォントが、ページやアプリの各レベルを示すために使用されています。
-
-![](/assets/guidelines/20261013-9f01ebf4d7f1.webp)
+HL Community のすべてのプロジェクトで主に使用されているフォントは「Zen Kaku Gothic New」です。![](/assets/guidelines/20261013-9f01ebf4d7f1.webp)
 
 ### 見出しと小見出し
 
