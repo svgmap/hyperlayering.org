@@ -32,25 +32,25 @@ Hyper Layeringを表すために使用される標準ロゴ。
 
 HLA（Hyper Layer Architecture）の略称が入った標準ロゴ。
 
-![](/assets/logo2.webp)
+![](/assets/guidelines/20261014-bef002e0bfee.webp)
 
 #### 保護された空間
 
 ロゴとテキストの間隔を3倍にし、ロゴの周囲全体との間隔も3倍にします。
 
-![](/assets/hla-distance.webp)
+![](/assets/guidelines/20261014-37157e7cf563.webp)
 
 ### ワードマーク・ロゴ 2
 
 「ハイパー・レイヤリング」を施した標準ロゴ。
 
-![](/assets/logo3.webp)
+![](/assets/guidelines/20261014-aef331e96198.webp)
 
 #### 保護された空間
 
 ロゴとテキストの間隔を3倍にし、ロゴの周囲全体との間隔も3倍にします。
 
-![](/assets/hltext-distance.webp)
+![](/assets/guidelines/20261014-86cbd7094df7.webp)
 
 ### ロゴの使用制限
 

@@ -32,25 +32,25 @@ Spacing of 3X shall be used when displaying the Layer Link H logo alongside a ty
 
 The standard Logo with an abbreviated HLA (Hyper Layer Architecture).
 
-![](/assets/logo2.webp)
+![](/assets/guidelines/20261014-bef002e0bfee.webp)
 
 #### Protected Space
 
 Distance 3X between the logo and the text, as well as 3X between the entire perimeter of the Logo.
 
-![](/assets/hla-distance.webp)
+![](/assets/guidelines/20261014-37157e7cf563.webp)
 
 ### Wordmark Logo 2
 
 The standard Logo with "Hyper Layering".
 
-![](/assets/logo3.webp)
+![](/assets/guidelines/20261014-aef331e96198.webp)
 
 #### Protected Space
 
 Distance 3X between the logo and the text, as well as 3X between the entire perimeter of the Logo.
 
-![](/assets/hltext-distance.webp)
+![](/assets/guidelines/20261014-86cbd7094df7.webp)
 
 ### Logo Restrictions
 
