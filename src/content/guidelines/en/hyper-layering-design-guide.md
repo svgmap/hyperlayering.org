@@ -18,7 +18,7 @@ The standard Logo used to identify Hyper Layering.
 
 #### Protected Space
 
-Measurement x is the width of the bold lines in the Layer Link H Logo.
+Measurement X is the width of the bold lines in the Layer Link H Logo.
 
 Spacing of 1.5X shall be used for when displaying the Layer Link H Logo on its own.
 
@@ -93,7 +93,7 @@ The primary palette for HL comunity projects.
 
 | Swatch | Color | Hex | RGB | CMYK |
 | --- | --- | --- | --- | --- |
-| <div class="custom-card" style="background: #00BD5E; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green | #00BD5E | 138, 189, 0 | 27, 0, 100, 26 |
+| <div class="custom-card" style="background: #00BD5E; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green | #00BD5E | 0, 189, 94 | 100, 0, 50, 26 |
 | <div class="custom-card" style="background: #11161E; padding: 30px; outline: 1px solid #11161E"></div> | Space Black | #11161E | 17, 22, 30 | 43, 27, 0, 88 |
 | <div class="custom-card" style="background: #F8F8F8; padding: 30px; outline: 1px solid #11161E"></div> | Sheet White | #F8F8F8 | 248, 248, 248 | 0, 0, 0, 3 |
 | <div class="custom-card" style="background: #D90928; padding: 30px; outline: 1px solid #11161E"></div> | Ruby Red | #D90928 | 217, 9, 40 | 0, 96, 82, 15 |
@@ -106,7 +106,7 @@ The primary palette for HL comunity projects.
 | --- | --- | --- | --- | --- |
 | <div class="custom-card" style="background: #B1FFD8; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green +2 | #B1FFD8 | 177, 255, 216 | 31, 0, 15, 0 |
 | <div class="custom-card" style="background: #5BE49F; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green +1 | #5BE49F | 91, 228, 159 | 60, 0, 30, 11 |
-| <div class="custom-card" style="background: #00BD5E; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green | #00BD5E | 138, 189, 0 | 27, 0, 100, 26 |
+| <div class="custom-card" style="background: #00BD5E; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green | #00BD5E | 0, 189, 94 | 100, 0, 50, 26 |
 | <div class="custom-card" style="background: #006130; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green -1 | #006130 | 0, 97, 48 | 100, 0, 51, 62 |
 | <div class="custom-card" style="background: #5A6177; padding: 30px; outline: 1px solid #11161E;"></div> | Space Black +3 | #5A6177 | 90, 97, 119 | 24, 18, 0, 53 |
 | <div class="custom-card" style="background: #42485A; padding: 30px; outline: 1px solid #11161E;"></div> | Space Black +2 | #42485A | 66, 72, 90 | 27, 20, 0, 65 |
