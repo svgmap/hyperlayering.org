@@ -16,7 +16,7 @@ Hyper Layeringを表すために使用される標準ロゴ。
 
 ![](/assets/logo1.webp)
 
-#### 保護された空間
+#### アイソレーション
 
 寸法 X は、「Layer H」ロゴの太い線の幅です。
 
@@ -24,7 +24,7 @@ Hyper Layeringを表すために使用される標準ロゴ。
 
 ![](/assets/guidelines/20261014-320d1ffe82e1.webp)
 
-「Layer Link H」のロゴを書体ブランドの識別マークと並べて表示する場合は、2Xの文字間隔を使用すること。
+「Layer H」のロゴを書体ブランドの識別マークと並べて表示する場合は、2Xの文字間隔を使用すること。
 
 ![](/assets/guidelines/20261014-805b2ec88741.webp)
 
@@ -34,7 +34,7 @@ HLA（Hyper Layer Architecture）の略称が入った標準ロゴ。
 
 ![](/assets/guidelines/20261014-bef002e0bfee.webp)
 
-#### 保護された空間
+#### アイソレーション
 
 ロゴとテキストの間隔を2Xにし、ロゴの周囲全体との間隔は3Xにします。
 
@@ -42,11 +42,11 @@ HLA（Hyper Layer Architecture）の略称が入った標準ロゴ。
 
 ### ワードマーク・ロゴ 2
 
-「ハイパー・レイヤリング」を施した標準ロゴ。
+「Hyper Layering」を施した標準ロゴ。
 
 ![](/assets/guidelines/20261014-aef331e96198.webp)
 
-#### 保護された空間
+#### アイソレーション
 
 ロゴとテキストの間隔を2Xにし、ロゴの周囲全体との間隔は3Xにします。
 
@@ -86,8 +86,6 @@ Malachite Green の背景の上に、Sheet White ／ Pure White の「Layer H」
 
 ### メインカラーパレット
 
-#### 価値観
-
 HLコミュニティプロジェクトの主要なカラーパレット。
 
 | Swatch | Color | Hex | RGB | CMYK |
@@ -98,8 +96,6 @@ HLコミュニティプロジェクトの主要なカラーパレット。
 | <div class="custom-card" style="background: #D90928; padding: 30px; outline: 1px solid #11161E"></div> | Ruby Red | #D90928 | 217, 9, 40 | 0, 96, 82, 15 |
 
 ### 拡張パレット
-
-#### 価値観
 
 | Swatch | Color | Hex | RGB | CMYK |
 | --- | --- | --- | --- | --- |
@@ -124,24 +120,20 @@ HLコミュニティプロジェクトの主要なカラーパレット。
 
 ![](/assets/hyper-layering-colour-english-1-.pptx-3.webp)![](/assets/hyper-layering-colour-english-1-.pptx-2-1.webp)![](/assets/hyper-layering-colour-english-1-.pptx-1.webp)
 
-どのような状況においても、「シートホワイト」は純白に、「スペースブラック」は純黒に置き換えることができます。
+どのような状況においても、「Sheet White」は Pure White に、「Space Black」は Pitch Black に置き換えることができます。
 
-## 書体
+## フォント
 
-各タイポグラフィのバリエーションは、構成や階層感を確立し、ユーザーにとって読みやすいものとなるよう厳選されています。
+各タイポグラフィのバリエーションは、情報の優先順位や構造を明確にし、ユーザーにとって読みやすいものとなるよう厳選されています。
 
-HLコミュニティのすべてのプロジェクトで主に使用されているフォントは「Zen Kaku Gothic」です。このフォントのさまざまなバリエーションが、ページやアプリの各レベルを示すために使用されています。
+HL Community のすべてのプロジェクトで主に使用されているフォントは「Zen Kaku Gothic New」です。このフォントが、ページやアプリの各レベルを示すために使用されています。
 
 ![](/assets/guidelines/20261013-9f01ebf4d7f1.webp)
 
 ### 見出しと小見出し
 
-すべての見出しおよび小見出しには、「Zen Kaku Gothic」の太字を使用します。小見出し
-が階層を下るにつれて、太字の指定は解除されませんが、フォントサイズは徐々に小さくな
-り、最終的に小見出しのフォントサイズは標準テキストと同じサイズになります。
+すべての見出しおよび小見出しには、「Zen Kaku Gothic New」の太字を使用します。小見出しが階層が下るにつれて太字のままフォントサイズを小さくしていき、最終的に標準テキストと同じサイズになります。
 
 ### 標準テキスト
 
-HLコミュニティプロジェクト内のすべての標準テキストには、デフォルトのフォントに変更や
-バリエーションを加えない「Zen Kaku Gothic」のREGULARバリエーションを使用しま
-す。
+HL Community プロジェクト内のすべての標準テキストには、デフォルトのフォントに変更やバリエーションを加えない「Zen Kaku Gothic New」の標準フォントを使用します。
