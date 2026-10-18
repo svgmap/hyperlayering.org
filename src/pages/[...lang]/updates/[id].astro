@@ -3,7 +3,7 @@ import { getCollection, render } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import AuthorIconText from "@components/AuthorIconText.astro";
 import { defaultLang } from "@i18n/ui";
-import { getLangFromUrl } from "@i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ContentLayout from "@layouts/ContentLayout.astro";
 import { tocHeadersToMap } from "@utils/tocHeadersToMap";
@@ -24,6 +24,7 @@ export async function getStaticPaths() {
 
 const { post, updateId } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const headings = tocHeadersToMap(
 	post.rendered?.metadata?.headings as TocItem[],
 );
@@ -31,7 +32,7 @@ const showToc = post.data.showToc;
 const { Content } = await render(post);
 ---
 
-<BaseLayout pageTitle={`Updates - ${post.data.title}`}>
+<BaseLayout pageTitle={`${post.data.title} - ${t("page.updates.title")}`}>
   <ContentLayout
     title={post.data.title}
     tocHeaders={showToc ? (headings ?? undefined) : undefined}

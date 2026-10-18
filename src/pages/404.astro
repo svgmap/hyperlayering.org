@@ -6,7 +6,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<BaseLayout>
+<BaseLayout pageTitle={t("page.404.title")}>
     <article class="not-found-page stack stack--sm stack--center">
         <h1>{t("page.404.title")}</h1>
         <p>{t("page.404.subtitle")}</p>

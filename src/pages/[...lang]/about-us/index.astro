@@ -22,7 +22,7 @@ const aboutPage = await getCollection("about", ({ id, data }) => {
 });
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={aboutPage?.data.header}>
     <ContentLayout title={aboutPage?.data.header ?? "About"}>
         <Fragment slot="content">
             <section class="about-content flow" set:html={aboutPage?.data.about} />
