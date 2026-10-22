@@ -2,8 +2,8 @@
 import TableOfContents from "@components/TableOfContents.svelte";
 
 interface Props {
-  title: string;
-  tocHeaders?: Map<string, TocItem> | undefined;
+	title: string;
+	tocHeaders?: Map<string, TocItem> | undefined;
 }
 
 const { title, tocHeaders = undefined } = Astro.props;
