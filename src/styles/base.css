@@ -315,6 +315,10 @@ small,
 	left: 1rem;
 }
 
+.image-fit {
+	object-fit: cover;
+}
+
 /* === LAYOUTS === */
 
 .flow {
@@ -467,6 +471,7 @@ small,
 
 	&[clickable="true"],
 	&[data-state*="card--clickable"] {
+		position: relative;
 		cursor: pointer;
 		transition-property: background-color, outline;
 		transition-behavior: allow-discrete;
@@ -482,12 +487,19 @@ small,
 				outline: 0px solid var(--_border-color);
 			}
 		}
+
+		a::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+		}
 	}
 
 	&[data-state*="sub-grid"] {
+		--_subgrid-row-span: var(--subgrid-row-span, 3);
 		display: grid;
-		grid-template-rows: subgrid; /* only rows; keep your own columns */
-		grid-row: span 3; /* one per child: image, title, body */
+		grid-template-rows: subgrid;
+		grid-row: span var(--_subgrid-row-span);
 		gap: var(--space-xxs);
 	}
 }
