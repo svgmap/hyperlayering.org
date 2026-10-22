@@ -1,5 +1,4 @@
 import { getCollection } from "astro:content";
-import { defaultLang, languages } from "@i18n/ui";
 import { parseValidLang } from "@i18n/utils";
 
 export async function getAuthor(authorSlug: string, lang: string) {
@@ -14,5 +13,3 @@ export async function getAuthor(authorSlug: string, lang: string) {
 	if (selectedAuthor.length !== 1) return null;
 	return selectedAuthor[0];
 }
-
-export async function getAuthorName(authorSlug: string, lang: string) {}
