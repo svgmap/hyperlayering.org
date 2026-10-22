@@ -28,8 +28,8 @@ const toggleMenu = () => {
 	menuOpen = !menuOpen;
 };
 
-const changeLocale = async (locale: typeof lang) => {
-	await chooseLocale(locale);
+const changeLocale = (locale: typeof lang) => {
+	chooseLocale(locale);
 };
 </script>
 
