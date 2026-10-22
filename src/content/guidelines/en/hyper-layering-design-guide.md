@@ -8,7 +8,7 @@ showToc: true
 
 ## Logo and Wordmark
 
-[Download the logo package](hyperlayering.org\public\sassets\hlaLogo.svg)
+[Download the logo package](..\assets\hlaLogo.svg)
 
 The "Layer H" logo is the main Identifier for HLA, along with 2 different typeface identifiers.
 
