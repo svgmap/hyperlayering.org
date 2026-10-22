@@ -8,7 +8,7 @@ showToc: true
 
 ## Logo and Wordmark
 
-[Viewthe logo package](..\assets\hlaLogo.svg)
+View the logo package
 <a href="..\assets\hlaLogo.svg" download="hlaLogo">Download Logo Package</a>
 
 The "Layer H" logo is the main Identifier for HLA, along with 2 different typeface identifiers.
