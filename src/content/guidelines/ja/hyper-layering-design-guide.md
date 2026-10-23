@@ -8,6 +8,8 @@ showToc: true
 
 ## ロゴとワードマーク
 
+<a href="/assets/hlaLogos.zip" download="hlaLogo"><button class="button">ロゴパッケージをダウンロード</button></a>
+
 「Layer H」のロゴは、2種類の異なる書体による識別マークとともに、HLAの主要な識別マークとなっています。
 
 ### メインロゴ
