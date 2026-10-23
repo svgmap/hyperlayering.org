@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.10",
-		"@biomejs/biome": "2.5.0",
+		"@biomejs/biome": "2.6.2",
 		"@testing-library/svelte": "^5.4.1",
 		"@types/node": "^26.1.1",
 		"esbuild": "^0.28.2",
