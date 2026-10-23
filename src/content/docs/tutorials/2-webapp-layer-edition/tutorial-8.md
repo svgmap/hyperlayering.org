@@ -267,10 +267,9 @@ Load the mesh data and visualize each individual mesh as an SVG `rect` element.
   - `setMesh(...)`: Function that visualizes each individual mesh
     - `xd, yd`: Calculate the geographic coordinates of the mesh (xd: longitude, yd: latitude)
       - Note: Be careful with the y-coordinate: The orientation of the SVG content coordinates and the geographic coordinates (latitude axis) are reversed. Therefore, north (the side with larger latitude values) becomes the origin in SVG coordinates (the side with smaller SVG y-coordinate values).
-    - `cl = document.createElement(“rect”);`: Visualizes the mesh as a rect element
+        - `cl = document.createElement(“rect”);`: Visualizes the mesh as a rect element
       - `cl.setAttribute - x,y,width,height`: Converts the geographic coordinate values to SVG coordinate values and sets them to the SVG rect element
-      - In ArrayMesh.svg, the `globalCoordinateSystem` element is hardcoded based on the specified transformation coefficients (100, 0, 0, -100, 0, 0).
-    - `getColor(val, minVal, maxVal)`: Converts the value to be visualized into a color code.
+      - In ArrayMesh.svg, the `globalCoordinateSystem` element is hardcoded based on the specified transformation coefficients (100, 0, 0, -100, 0, 0). - `getColor(val, minVal, maxVal)`: Converts the value to be visualized into a color code.
       - `HSVtoRGB(h, s, v)`: A function that converts HSV values into RGB values (color information that can be set in SVG, etc.).
       - In this tutorial, we perform a [heatmap-style](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%88%E3%83%9E%E3%83%83%E3%83%97) visualization by mapping values to the [hue (H value) of the HSV (Hue, Saturation, Value)](https://ja.wikipedia.org/wiki/HSV%E8%89%B2%E7%A9%BA%E9%96%93) color space. (S and V are set to their maximum values (the most vivid colors).)
   - `svgMap.refreshScreen()` If DOM redrawing is required at times other than when zooming or scrolling, you must explicitly trigger the [redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).

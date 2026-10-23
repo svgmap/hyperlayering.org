@@ -70,8 +70,8 @@ title: "チュートリアル14 WebApp Layer ベクトル地理情報サービ�
     - `getUSGSURL()` USGSが配信する地震データを取得するためのGETリクエストを生成
       - クロスオリジンアクセスを行うリクエストを作っています。[USGS Earthquake GeoJSON Real-time Feeds](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) は `access-control-allow-origin: *` レスポンスヘッダを持っているためアクセス可能です。
         - `loadAndDrawGeoJson()` 非同期でjsonデータを取得し描画する関数
-      - `loadJSON()` ブラウザ側キャッシュを効かせないように、常に変化する適当なクエリパートをつけています( `getTime()` [より適切な方法](https://hacks.mozilla.org/2016/03/referrer-and-cache-control-apis-for-fetch/) がありますが、ここでは古典的なBad Tipsを用いています)
-      - `buildSchema()`
+          - `loadJSON()` ブラウザ側キャッシュを効かせないように、常に変化する適当なクエリパートをつけています( `getTime()` [より適切な方法](https://hacks.mozilla.org/2016/03/referrer-and-cache-control-apis-for-fetch/) がありますが、ここでは古典的なBad Tipsを用いています)
+          - `buildSchema()`
         - [svgMapGIStool.drawGeoJson](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#drawGeoJson) 関数で可視化する際に、[SVGMap.jsが持つメタデータ表示フレームワーク](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#metadata.E3.83.95.E3.83.AC.E3.83.BC.E3.83.A0.E3.83.AF.E3.83.BC.E3.82.AF)に適応させるためのスキーマデータを構築するとともに、SVGMapコンテンツのドキュメントルート要素に設定
         - svgMapGIStool.drawGeoJson関数で渡す末尾の引数(metaSchema)を生成している - `setMagColors()`
         - [svgMapGIStool.drawGeoJson](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#drawGeoJson)関数の持つ、各フィーチャーのproperties値を使ってスタイルを設定可能な機能を使い、マグニチュード値をもとにpointフィーチャの色を指定 - `svgMapGIStool.drawGeoJson()`

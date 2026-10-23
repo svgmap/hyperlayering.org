@@ -97,7 +97,7 @@ Sarahama Sports Center, 248-1,3,3,9999
   - For Windows, pre-compiled binaries are available at [gisinternals.com](https://www.gisinternals.com/), as described [here](https://gdal.org/download.html#windows).
     - Installation/Windows
       - [Stable Releases](https://www.gisinternals.com/release.php)　⇒ MSVC 2017 x64 (other compilation environments are also supported) ⇒ Generic installer for the GDAL core components (gdal-*-core.msi)
-    - How to run ogr2ogr / Windows
+        - How to run ogr2ogr / Windows
       - Windows Menu ⇒ All Apps ⇒ GDAL ⇒ GDAL * Run in the command prompt launched via Command Prompt.
 - CSV header row:
   - The header row of the National Land Numerical Information consists of mechanically assigned numbers (such as P27_001). It will be easier to understand if you refer to the explanation of the attribute information in the [National Land Numerical Information](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P27.html) and rewrite the CSV header row with feature names before tile division.

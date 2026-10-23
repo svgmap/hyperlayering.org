@@ -31,14 +31,13 @@ sidebar:
 
 市区町村コードをキーにした市区町村名の連想配列を作るためのデータを読み込んでいる点と、それを用いたカスタムダイアログを出現させるためのコールバック関数を設定している点が追加部分になります。
 
-
 - onload=async function()
   - [svgMap.setShowPoiProperty](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#setShowPoiProperty)( customShowPoiProperty, layerID);
     - 紐付いたレイヤーのオブジェクトをヒットしたときに出現する処理に独自のコールバック関数(customShowPoiProperty)に指定する
     - Custom ShowPoiProperty
       - ヒットしたオブジェクトのcontent属性にある市区町村コードをKeyにしてlgDictionaryを辞書引き、自治体名を求める
         - 一つのメッシュに複数の自治体が属しているケースがある点に注意
-      - svgMap.showModal(html,400,180); 用意したhtmlをSVGMapフレームワークのモーダルダイアログに渡す
+          - svgMap.showModal(html,400,180); 用意したhtmlをSVGMapフレームワークのモーダルダイアログに渡す
 - async function loadLGdictionary()`{` // 自治体名辞書を作る
   - lgDictionary={};//市区町村コードをKeyとした自治体名辞書
 - function buildMeshTileSvg(meshs, sourceID)

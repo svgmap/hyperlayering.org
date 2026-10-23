@@ -104,9 +104,9 @@ CSV data based on the query parameters will be returned. The first line is the s
     - `svgImage` : The SVGMap document object for the layer embedded in the webApp associated with the layer
       - Reference: [Manual #svgImage](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#metadata.E3.83.95.E3.83.AC.E3.83.BC.E3.83.A0.E3.83.AF.E3.83.BC.E3.82.AF)
         - `schema` : Place a schema in the property of the document element of the associated layer's SVGMap content
-      - Reference: [SVGMap.js metadata framework](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#metadata.E3.83.95.E3.83.AC.E3.83.BC.E3.83.A0.E3.83.AF.E3.83.BC.E3.82.AF) - ``"transform", `ref(svg,${lng},${-lat})` ``: Using [TransformRef](https://www.w3.org/TR/SVGTiny12/single-page.html#coords-transform-ref) in svg1.2 , we have placed an icon that does not change size.
-      - Reference: [Supported attributes](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.B1.9E.E6.80.A7) - `"content"` : Metadata is set in CSV format - `"xlink:href", "#p0"` : Refer to the symbol (red circle) with id:p0 in the defs element - `svgMap.refreshScreen();` : Redraw the SVGMap content once the DOM is created
-      - Reference: [Redraw Limit](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
+          - Reference: [SVGMap.js metadata framework](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#metadata.E3.83.95.E3.83.AC.E3.83.BC.E3.83.A0.E3.83.AF.E3.83.BC.E3.82.AF) - ``"transform", `ref(svg,${lng},${-lat})` ``: Using [TransformRef](https://www.w3.org/TR/SVGTiny12/single-page.html#coords-transform-ref) in svg1.2 , we have placed an icon that does not change size.
+          - Reference: [Supported attributes](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.B1.9E.E6.80.A7) - `"content"` : Metadata is set in CSV format - `"xlink:href", "#p0"` : Refer to the symbol (red circle) with id:p0 in the defs element - `svgMap.refreshScreen();` : Redraw the SVGMap content once the DOM is created
+          - Reference: [Redraw Limit](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
 
 CanadianGeoNames.html
 

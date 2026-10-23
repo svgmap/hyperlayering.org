@@ -268,10 +268,9 @@ minX:124.1539312,maxX:145.7870748,minY:24.33444293,maxY:45.51431213,partX:100,pa
   - `setMesh(...)`: 一個一個のメッシュを可視化している関数
     - `xd, yd`: メッシュの地理座標値(xd:経度, yd:緯度)を算出している
       - y座標に注意：SVGコンテンツの座標と地理的な座標(緯度の座標軸)の向きが逆。そのため北（緯度の値が大きい側）がSVG座標での原点（SVGのY座標の値が小さい側）になる。
-    - `cl = document.createElement(“rect”);`: rect要素としてメッシュを可視化
+        - `cl = document.createElement(“rect”);`: rect要素としてメッシュを可視化
       - `cl.setAttribute - x,y,width,height`: 地理座標値をSVGコンテンツの座標値に変換し、SVGのrect要素に設定
-      - ArrayMesh.svgの、 `globalCoordinateSystem` 要素で、指定した変換係数(100,0,0,-100,0,0)を前提に決め打ちしている
-    - `getColor(val, minVal, maxVal)`: 可視化する値を色コードに変換
+      - ArrayMesh.svgの、 `globalCoordinateSystem` 要素で、指定した変換係数(100,0,0,-100,0,0)を前提に決め打ちしている - `getColor(val, minVal, maxVal)`: 可視化する値を色コードに変換
       - `HSVtoRGB(h, s, v)`: HSV値をRGB値(SVGなどで設定できる色情報)に変換する関数。
       - このチュートリアルでは、 [HSV(Hue(色相), Satulation(彩度), Value(明度))色空間](https://ja.wikipedia.org/wiki/HSV%E8%89%B2%E7%A9%BA%E9%96%93) の色相(H値)に、値を関連付けて、 [ヒートマップ](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%88%E3%83%9E%E3%83%83%E3%83%97) 的な可視化を行っています。(S,Vは最大値に設定（一番くっきりした色）)
   - `svgMap.refreshScreen()` 伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)を明示する必要があります。
