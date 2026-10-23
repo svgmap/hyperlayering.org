@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 11: WebApp Layer - Location-Specification UI Using Maps'
+title: "Tutorial 11: WebApp Layer - Location-Specification UI Using Maps"
 sidebar:
   order: 11
 ---
@@ -19,7 +19,6 @@ To see the actual operation, click on [mesh3b.html](https://svgmap.org/examples/
 ## Tutorial {#tutorial}
 
 Based on [Tutorial 10](../tutorial-10/index.md), we will build an interactive application that calculates and displays the geoid elevation at a specified location on a map. The distinctive code is located in the webApp linked to the layer.
-
 - [Click here](https://svgmap.org/examples/tutorials/mesh3b/mesh3b.html) to see how it works.
 - The file used is a [ZIP archive file](https://www.svgmap.org/examples/tutorials/mesh3b.zip).
 
@@ -83,17 +82,16 @@ There aren't any major differences from [Tutorial 10](../tutorial-10/index.md#co
 ### [rasterMeshI.html](https://svgmap.org/examples/tutorials/mesh3b/rasterMeshI.html), [geoidCalc.js](https://svgmap.org/examples/tutorials/mesh3b/geoidCalc.js) {#raster-mesh-geoid-calc}
 
 The code from [Tutorial 10](../tutorial-10/index.md) now includes a UI for specifying a location on a map and a function to calculate the geoid height at that location.
-
 - The UI for specifying locations on the map uses an additional library for SVGMap.js called SVGMapAuthoring.js.
 - Geoid high-level calculation: Using [bilinear interpolation](https://en.wikipedia.org/wiki/Bilinear_interpolation), values ​​​​at arbitrary positions are calculated using grid data.
-	- For bilinear interpolation, please refer to the documentation (**asc_instruction_sheet.pdf**) **included with the** geoid height data (TEXT data) package published by the Geospatial Information Authority of Japan on [this page](https://fgd.gsi.go.jp/download/geoid.php), as it contains the calculation formula. ( The function in this tutorial is based on the formula in that document.) ```getGeoidHeight(lng,lat)```
-- ```initPOIUI``` Initialize the UI for specifying a location on the map when the page loads.
-	- ```svgMapAuthoringTool.initPOIregistTool```
-		- ```id="pointInputUI"``` In the div element,
-		- This tool registers a UI element for placing point information on a map, which can be used with [svgMapAuthoringTool](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMapAuthoringTool). ([initPOIregistTool](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#initPOIregistTool))
-		- ```POIUIcbFunc``` This is a callback function that is called when the operation to set a point is performed. It obtains latitude and longitude information from the UI, (```getGeoidHeightpasses```) it to a function that calculates geoid height, and displays the answer.
-- ```getGeoidHeight``` A function to calculate geoid height from grid data.
-	- Bilinear interpolation is used to calculate the geoid height at any given latitude and longitude (within the range of grid data).
+  - For bilinear interpolation, please refer to the documentation (**asc_instruction_sheet.pdf**) **included with the** geoid height data (TEXT data) package published by the Geospatial Information Authority of Japan on [this page](https://fgd.gsi.go.jp/download/geoid.php), as it contains the calculation formula. ( The function in this tutorial is based on the formula in that document.) `getGeoidHeight(lng,lat)`
+- `initPOIUI` Initialize the UI for specifying a location on the map when the page loads.
+  - `svgMapAuthoringTool.initPOIregistTool`
+    - `id="pointInputUI"` In the div element,
+    - This tool registers a UI element for placing point information on a map, which can be used with [svgMapAuthoringTool](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMapAuthoringTool). ([initPOIregistTool](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#initPOIregistTool))
+    - `POIUIcbFunc` This is a callback function that is called when the operation to set a point is performed. It obtains latitude and longitude information from the UI, (`getGeoidHeightpasses`) it to a function that calculates geoid height, and displays the answer.
+- `getGeoidHeight` A function to calculate geoid height from grid data.
+  - Bilinear interpolation is used to calculate the geoid height at any given latitude and longitude (within the range of grid data).
 
 geoidCalc.js
 

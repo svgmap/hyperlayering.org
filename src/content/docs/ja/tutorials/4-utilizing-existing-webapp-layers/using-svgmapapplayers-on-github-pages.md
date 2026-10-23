@@ -1,5 +1,5 @@
 ---
-title: 'svgmapAppLayers GitHub Pagesの利用'
+title: "svgmapAppLayers GitHub Pagesの利用"
 ---
 
 ## はじめに  {#introduction}
@@ -10,7 +10,7 @@ title: 'svgmapAppLayers GitHub Pagesの利用'
 
 [The svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers) リポジトリは、SVGMap.jsで利用できる様々な機能やコンテンツ提供する [WebApp Layers](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.82.A6.E3.82.A7.E3.83.96.E3.82.A2.E3.83.97.E3.83.AA.E3.82.B1.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3.E3.81.AB.E3.82.88.E3.82.8B.E5.8B.95.E7.9A.84.E3.81.AA.E5.9C.B0.E5.9B.B3.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E3.81.A8.E3.80.81.E3.81.9D.E3.81.AE.E3.83.8F.E3.82.A4.E3.83.91.E3.83.BC.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.AA.E3.83.B3.E3.82.B0) を集めたものです。いずれもオープンソースとして公開されています。(ライセンスは [MPL2](https://www.mozilla.org/en-US/MPL/2.0/) ( [日本語参考訳](https://www.mozilla.jp/documents/mpl/2.0/) ) (SVGMap.jsと同じ))
 
-また、このリポジトリは [GitHub Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/what-is-github-pages)としてセットアップされています。リポジトリのルートは  [https://svgmap.github.io/svgmapAppLayers/](https://svgmap.github.io/svgmapAppLayers/) です。
+また、このリポジトリは [GitHub Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/what-is-github-pages)としてセットアップされています。リポジトリのルートは [https://svgmap.github.io/svgmapAppLayers/](https://svgmap.github.io/svgmapAppLayers/) です。
 
 そこで、本章ではGitHub Pagesとして公開されたsvgmapAppLayersのレイヤーを直接参照して地図ページを構築してみたいと思います。
 
@@ -21,7 +21,7 @@ title: 'svgmapAppLayers GitHub Pagesの利用'
 
 - svgmapAppLayersのルートディレクトリのGitHub PagesのURLは、 [https://svgmap.github.io/svgmapAppLayers/](https://svgmap.github.io/svgmapAppLayers/)
 - svgmapAppLayersに登録されているレイヤーの一覧は [Container.svgのソース](https://github.com/svgmap/svgmapAppLayers/blame/main/Container.svg)で確認
-    - svgmapAppLayersのGitHub PagesのwebAppを直接参照できないレイヤーは data-cross-origin-restrictedアトリビュートが付いています
+  - svgmapAppLayersのGitHub PagesのwebAppを直接参照できないレイヤーは data-cross-origin-restrictedアトリビュートが付いています
     - クロスオリジンアクセスプロキシの設定が必要なレイヤーは、data-cross-origin-proxy-requiredアトリビュートが付いています
     - [コンテナsvg生成支援webApp](https://svg2.mbsrv.net/examples/tutorials/ghAppLayers/containerGenerator.html)を使うと簡単にContainer.svgを生成できます
 - 必要に応じてプロキシーを構築する
@@ -34,20 +34,20 @@ title: 'svgmapAppLayers GitHub Pagesの利用'
 ### 使えるレイヤーの一覧 {#list-of-available-layers}
 
 - [こちらのページ](https://svg2.mbsrv.net/examples/tutorials/ghAppLayers/containerGenerator.html) を参照してください
-    - このページは [https://github.com/svgmap/svgmapAppLayers/blob/main/Container.svg](https://github.com/svgmap/svgmapAppLayers/blob/main/Container.svg) をもとに生成されています。
+  - このページは [https://github.com/svgmap/svgmapAppLayers/blob/main/Container.svg](https://github.com/svgmap/svgmapAppLayers/blob/main/Container.svg) をもとに生成されています。
 - corsRestricted がtrueのレイヤーはGitHub Pagesの直接参照では使えません
 - corsProxyRequired がtrueのレイヤーはプロキシーを用意する必要があります
 
 ## プロキシーが必要ないレイヤーだけを使ってみる {#try-using-only-the-layers-that-dont-require-proxies}
 
 - プロキシーが不要なレイヤーだけを使うページを作成してみます。プロキシの設定がないので簡単です。
-    - 完全に静的なホスティングで運用可能です。( ご自身で構築したGitHub Pagesで公開することも可能です）
+  - 完全に静的なホスティングで運用可能です。( ご自身で構築したGitHub Pagesで公開することも可能です）
 - 実際の動作は [こちら](https://svgmap.org/examples/tutorials/ghAppLayers/ghAppLayers.html) をクリック
 
 ### コンテナ（Conainer.svg）の準備 {#preparing-container-svg}
 
 - [こちらのページ](https://svg2.mbsrv.net/examples/tutorials/ghAppLayers/containerGenerator.html#withoutProxy) を表示
-    - プロキシが必要なレイヤーはあらかじめチェックが外れています。(GitHub Pagesの直接参照ができないレイヤー含)
+  - プロキシが必要なレイヤーはあらかじめチェックが外れています。(GitHub Pagesの直接参照ができないレイヤー含)
 - 表示したいレイヤーにチェックして、Container.svgを保存する（もしくは表示する)ボタンを押すと、Container.svgを取得できます。直接参照するリンクが組み込まれたContainerが取得できます。
 
 ### 地図ページのhtml (ghAppLayers.html) {#html-for-map-page}
@@ -102,7 +102,7 @@ title: 'svgmapAppLayers GitHub Pagesの利用'
 ## プロキシーが必要なレイヤーも使えるようにセットアップする {#set-up-so-that-layers-requiring-proxies-can-also-be-used}
 
 - プロキシーが必要なレイヤーも使うページを作成してみます。
-    - プロキシーサービスの準備が必要です(PHPでも運用は可能(本チュートリアルではPHPを使用した例を提示))
+  - プロキシーサービスの準備が必要です(PHPでも運用は可能(本チュートリアルではPHPを使用した例を提示))
 - 実際の動作は[こちら](https://svgmap.org/devinfo/devkddi/tutorials/ghAppLayers/ghAppLayers_wpxy.html)をクリック
 
 ### コンテナ（Container_wpxy.svg）の準備 {#preparing-the-container-wpxy-svg}
@@ -114,10 +114,10 @@ title: 'svgmapAppLayers GitHub Pagesの利用'
 ### 地図ページのhtml (ghAppLayers_wpxy.html) {#the-html-file-for-the-map-page}
 
 - 違いはProxyを使用できるようにSVGMap.jsをセットアップしている点です。詳しくは [こちらの情報](../../3-web-service-integration/cross-origin-access/index.md) を参照ください。
-    - import `{ CorsProxy }` from [https://cdn.jsdelivr.net/gh/svgmap/svgmapjs@latest/CorsProxyModule.js'](https://cdn.jsdelivr.net/gh/svgmap/svgmapjs@latest/CorsProxyModule.js') ;でプロキシーを扱うライブラリを読み込み、
+  - import `{ CorsProxy }` from [https://cdn.jsdelivr.net/gh/svgmap/svgmapjs@latest/CorsProxyModule.js'](https://cdn.jsdelivr.net/gh/svgmap/svgmapjs@latest/CorsProxyModule.js') ;でプロキシーを扱うライブラリを読み込み、
     - corsProxy.setServiceでセットアップし
-        - (この例では同じディレクトリに設置したPHPによるプロキシ(./simpleCORSproxy.php)を指定)
-    - svgMap.setProxyURLFactoryで、SVGMap.jsに組み込んでいます。
+      - (この例では同じディレクトリに設置したPHPによるプロキシ(./simpleCORSproxy.php)を指定)
+        - svgMap.setProxyURLFactoryで、SVGMap.jsに組み込んでいます。
 - 使用するコンテナsvgは"Container.svg"としています。
 
 ```html
@@ -177,7 +177,6 @@ svgMap.setProxyURLFactory(null,null,null, corsProxy.getURLfunction(), true); // 
 ### プロキシーの準備 {#preparing-a-proxy}
 
 今回はPHPが使えるホスティング上でPHPによる簡易プロキシーを設定することにします
-
 - // Set acceptable referer criteria　の行は、このhtmlのあるドメイン(svgmap.org)からのアクセスみに受け付ける簡単な制限を設定しています。
 - 詳しくは [単純なプロキシ実装例](https://www.svgmap.org/wiki/index.php?title=%E5%8D%98%E7%B4%94%E3%81%AA%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E5%AE%9F%E8%A3%85%E4%BE%8B)を参照ください。
 

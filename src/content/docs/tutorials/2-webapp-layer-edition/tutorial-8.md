@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 8: WebApp Layer Mesh Data'
+title: "Tutorial 8: WebApp Layer Mesh Data"
 sidebar:
   order: 8
 ---
@@ -32,16 +32,16 @@ Mesh data has a data structure in which data is arranged on an equally spaced gr
 In Japan, regional standard meshes are commonly used for determining mesh intervals, origins, and numbering rules for each mesh. ( [See References 1](https://www.biodic.go.jp/kiso/col_mesh.html) , [2](https://www.stat.go.jp/data/mesh/m_tuite.html) , [and 3](https://ja.wikipedia.org/wiki/%E5%9C%B0%E5%9F%9F%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5). Note that regional standard meshes are not a data format for mesh data.)
 
 **10x8 meshData (X0=xx,Y0=yy,interval=ii)**
-|---|---|---|---|---|---|---|---|---|---|
-|---|---|---|---|---|---|---|---|---|---|
-| Val0,0	| Val1,0	| Val2,0	| Val3,0	| Val4,0	| Val5,0	| Val6,0	| Val7,0	| Val8,0	| Val9,0| 
-| Val0,1	| Val1,1	| Val2,1	| Val3,1	| Val4,1	| Val5,1	| Val6,1	| Val7,1	| Val8,1	| Val9,1| 
-| Val0,2	| Val1,2	| Val2,2	| Val3,2	| Val4,2	| Val5,2	| Val6,2	| Val7,2	| Val8,2	| Val9,2| 
-| Val0,3	| Val1,3	| Val2,3	| Val3,3	| Val4,3	| Val5,3	| Val6,3	| Val7,3	| Val8,3	| Val9,3| 
-| Val0,4	| Val1,4	| Val2,4	| Val3,4	| Val4,4	| Val5,4	| Val6,4	| Val7,4	| Val8,4	| Val9,4| 
-| Val0,5	| Val1,5	| Val2,5	| Val3,5	| Val4,5	| Val5,5	| Val6,5	| Val7,5	| Val8,5	| Val9.5| 
-| Val0,6	| Val1,6	| Val2,6	| Val3,6	| Val4,6	| Val5,6	| Val6,6	| Val7,6	| Val8,6	| Val9,6| 
-| Val0,7	| Val1,7	| Val2,7	| Val3,7	| Val4,7	| Val5,7	| Val6,7	| Val7,7	| Val8,7	| Val9,7| 
+| ---    | ---    | ---    | ---    | ---    | ---    | ---    | ---    | ---    | ---    |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| Val0,0 | Val1,0 | Val2,0 | Val3,0 | Val4,0 | Val5,0 | Val6,0 | Val7,0 | Val8,0 | Val9,0 |
+| Val0,1 | Val1,1 | Val2,1 | Val3,1 | Val4,1 | Val5,1 | Val6,1 | Val7,1 | Val8,1 | Val9,1 |
+| Val0,2 | Val1,2 | Val2,2 | Val3,2 | Val4,2 | Val5,2 | Val6,2 | Val7,2 | Val8,2 | Val9,2 |
+| Val0,3 | Val1,3 | Val2,3 | Val3,3 | Val4,3 | Val5,3 | Val6,3 | Val7,3 | Val8,3 | Val9,3 |
+| Val0,4 | Val1,4 | Val2,4 | Val3,4 | Val4,4 | Val5,4 | Val6,4 | Val7,4 | Val8,4 | Val9,4 |
+| Val0,5 | Val1,5 | Val2,5 | Val3,5 | Val4,5 | Val5,5 | Val6,5 | Val7,5 | Val8,5 | Val9.5 |
+| Val0,6 | Val1,6 | Val2,6 | Val3,6 | Val4,6 | Val5,6 | Val6,6 | Val7,6 | Val8,6 | Val9,6 |
+| Val0,7 | Val1,7 | Val2,7 | Val3,7 | Val4,7 | Val5,7 | Val6,7 | Val7,7 | Val8,7 | Val9,7 |
 
 In the diagram above, each square represents a single mesh, the number inside the square is the mesh number (the number in the two-dimensional array), and each square contains a value. The metadata X0, Y0, and interval in parentheses represent the coordinates of the origin and the mesh interval. (Metadata may also include data units, coordinate systems, and descriptions.)
 
@@ -54,11 +54,12 @@ There are two main types of data format structures that are known:
 - The mesh data shown in the diagram above has been directly converted into data.
 - Commonly used ASCII (text) encoding formats: [AAIGrid (Wikipedia](https://en.wikipedia.org/wiki/Esri_grid) - [GDAL explanation)](https://gdal.org/en/stable/drivers/raster/aaigrid.html)
 - Because the data is easily compressed, differential encoding and binary encoding are frequently used. Sometimes, the bit image data format (however, a lossless format) is used as is.
-	- [Rough TIFF](https://ja.wikipedia.org/wiki/GeoTIFF)
-	- [Example of elevation](https://maps.gsi.go.jp/development/demtile.html) tiles from the Geospatial Information Authority of Japan (encoded in PNG format)
-	- [List of GDAL raster drivers](https://gdal.org/drivers/raster/index.html)
+  - [Rough TIFF](https://ja.wikipedia.org/wiki/GeoTIFF)
+  - [Example of elevation](https://maps.gsi.go.jp/development/demtile.html) tiles from the Geospatial Information Authority of Japan (encoded in PNG format)
+  - [List of GDAL raster drivers](https://gdal.org/drivers/raster/index.html)
 
 #### [Gridded XYZ](https://gdal.org/drivers/raster/xyz.html)
+
 - The data is encoded using the Point feature format, but with the constraint that the Point coordinates must always lie on the grid.
 - The difference from a Raster is that each record contains coordinate values ​​​​(X,Y).
 
@@ -82,7 +83,6 @@ X2,Y2,Value22
 ```
 
 Note that in Gridded XYZ, the order of the records does not matter. Additionally, if there is no data at a grid point, that record can be omitted. Depending on the data, records with duplicate X and Y values (i.e., unnormalized data) may be swapped. A key feature of this format is that it allows for such representation even when the data is not normalized.
-
 - [Please also refer to the following](https://gdal.org/drivers/raster/xyz.html):
 
 Example of a data format conversion tool: [https://gdal.org/programs/gdal_grid.html](https://gdal.org/programs/gdal_grid.html)
@@ -90,28 +90,27 @@ Example of a data format conversion tool: [https://gdal.org/programs/gdal_grid.h
 #### Data formats used in this tutorial
 
 We will use a text-encoded raster format.
-
 - Header row (first row)
 - Comma-separated, two-dimensional array data (second row onwards)
-	- Each mesh cell contains a single value [real number] (multiple values, such as temperature and humidity, are not allowed)
-	- Column (row) direction: X-direction
-		- The direction in which the number of columns increases is the same as the direction in which the X grid coordinates increase
-	- Row direction: Y-direction
-		- The direction in which the number of rows increases is the same as the direction in which the Y grid coordinates decrease
+  - Each mesh cell contains a single value [real number] (multiple values, such as temperature and humidity, are not allowed)
+  - Column (row) direction: X-direction
+    - The direction in which the number of columns increases is the same as the direction in which the X grid coordinates increase
+  - Row direction: Y-direction
+    - The direction in which the number of rows increases is the same as the direction in which the Y grid coordinates decrease
 
 #### Header row
 
 - List pairs of [attribute name]:[attribute value] separated by commas.
 - Attribute Name
-	- minX : Minimum X (longitude) value of the mesh area [real number] (coordinate of the left edge of the rectangle enclosing the entire area in the figure above)
-	- maxX : Maximum X (longitude) value of the mesh area [real number] (coordinate of the right edge of the rectangle enclosing the entire area in the figure above)
-	- minY: Minimum Y (latitude) value of the mesh area [real number] (the bottom-left coordinate of the rectangle enclosing the entire area shown above)
-	- maxY: Maximum Y (latitude) value of the mesh area [real number] (the top-right coordinate of the rectangle enclosing the entire area shown above)
-	- partX: Number of meshes in the X (longitude) direction of the mesh area [natural number]
-	- partY: Number of meshes in the Y (latitude) direction of the mesh area [natural number]
-	- valName: Unit of the mesh value [string]	
-	- minVal: Minimum value of the mesh [real number]
-	- maxVal: Maximum value of the mesh [real number]
+  - minX : Minimum X (longitude) value of the mesh area [real number] (coordinate of the left edge of the rectangle enclosing the entire area in the figure above)
+  - maxX : Maximum X (longitude) value of the mesh area [real number] (coordinate of the right edge of the rectangle enclosing the entire area in the figure above)
+  - minY: Minimum Y (latitude) value of the mesh area [real number] (the bottom-left coordinate of the rectangle enclosing the entire area shown above)
+  - maxY: Maximum Y (latitude) value of the mesh area [real number] (the top-right coordinate of the rectangle enclosing the entire area shown above)
+  - partX: Number of meshes in the X (longitude) direction of the mesh area [natural number]
+  - partY: Number of meshes in the Y (latitude) direction of the mesh area [natural number]
+  - valName: Unit of the mesh value [string]
+  - minVal: Minimum value of the mesh [real number]
+  - maxVal: Maximum value of the mesh [real number]
 
 #### Sample data for practical use
 
@@ -223,7 +222,7 @@ minX:124.1539312,maxX:145.7870748,minY:24.33444293,maxY:45.51431213,partX:100,pa
 
 - The theme layer displaying GeoJSON and the background map (OpenStreetMap) are loaded using the animation element.
 - As in [Tutorial 6](../tutorial-6/index.md#containersvg-container-svg), the layer is set to be clickable.
-	- As described later, the clickable class attribute is specified to visualize the mesh data as vector data and enable interactivity.
+  - As described later, the clickable class attribute is specified to visualize the mesh data as vector data and enable interactivity.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?>
@@ -241,8 +240,8 @@ minX:124.1539312,maxX:145.7870748,minY:24.33444293,maxY:45.51431213,partX:100,pa
 ### ArrayMesh.svg {#array-mesh-svg}
 
 - The data-controller attribute of the document root element (the svg element) specifies the [web app that will control this layer](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI).
-	- ```data-controller="ArrayMesh.html#exec=appearOnLayerLoad```
-	- The ```exec=appearOnLayerLoad``` setting causes the web app window to appear when the layer is displayed. (For more details, [click here](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
+  - `data-controller="ArrayMesh.html#exec=appearOnLayerLoad`
+  - The `exec=appearOnLayerLoad` setting causes the web app window to appear when the layer is displayed. (For more details, [click here](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?>
@@ -260,23 +259,21 @@ minX:124.1539312,maxX:145.7870748,minY:24.33444293,maxY:45.51431213,partX:100,pa
 ### ArrayMesh.html, ArrayMesh.js {#array-mesh}
 
 Load the mesh data and visualize each individual mesh as an SVG `rect` element.
-
-- ```addEventListener(“load”, async function(){..``` : Load mesh data via the fetch API after the web app loads
-	- The mesh data is stored in `csvLines[]` as strings separated by line breaks
-- ```getCsvProps(headerLine)```: Load the header row
-- ```getRange()```: Calculate the minimum and maximum values of the visualization data (for heatmap color mapping)
-- ```drawMesh()```: Load the mesh data line by line, split it by column, and visualize each mesh individually
-	- ```setMesh(...)```: Function that visualizes each individual mesh
-		- ```xd, yd```: Calculate the geographic coordinates of the mesh (xd: longitude, yd: latitude)
-			- Note: Be careful with the y-coordinate: The orientation of the SVG content coordinates and the geographic coordinates (latitude axis) are reversed. Therefore, north (the side with larger latitude values) becomes the origin in SVG coordinates (the side with smaller SVG y-coordinate values).
-		- ```cl = document.createElement(“rect”);```: Visualizes the mesh as a rect element
-			- ```cl.setAttribute - x,y,width,height```: Converts the geographic coordinate values to SVG coordinate values and sets them to the SVG rect element
-			- In ArrayMesh.svg, the ```globalCoordinateSystem``` element is hardcoded based on the specified transformation coefficients (100, 0, 0, -100, 0, 0).
-		- ```getColor(val, minVal, maxVal)```: Converts the value to be visualized into a color code.
-			- ```HSVtoRGB(h, s, v)```: A function that converts HSV values into RGB values (color information that can be set in SVG, etc.).
-			- In this tutorial, we perform a [heatmap-style](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%88%E3%83%9E%E3%83%83%E3%83%97) visualization by mapping values to the [hue (H value) of the HSV (Hue, Saturation, Value)](https://ja.wikipedia.org/wiki/HSV%E8%89%B2%E7%A9%BA%E9%96%93) color space. (S and V are set to their maximum values (the most vivid colors).)
-	- ```svgMap.refreshScreen()``` If DOM redrawing is required at times other than when zooming or scrolling, you must explicitly trigger the [redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).
-		- [Reference Information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
+- `addEventListener(“load”, async function(){..` : Load mesh data via the fetch API after the web app loads
+  - The mesh data is stored in `csvLines[]` as strings separated by line breaks
+- `getCsvProps(headerLine)`: Load the header row
+- `getRange()`: Calculate the minimum and maximum values of the visualization data (for heatmap color mapping)
+- `drawMesh()`: Load the mesh data line by line, split it by column, and visualize each mesh individually
+  - `setMesh(...)`: Function that visualizes each individual mesh
+    - `xd, yd`: Calculate the geographic coordinates of the mesh (xd: longitude, yd: latitude)
+      - Note: Be careful with the y-coordinate: The orientation of the SVG content coordinates and the geographic coordinates (latitude axis) are reversed. Therefore, north (the side with larger latitude values) becomes the origin in SVG coordinates (the side with smaller SVG y-coordinate values).
+        - `cl = document.createElement(“rect”);`: Visualizes the mesh as a rect element
+          - `cl.setAttribute - x,y,width,height`: Converts the geographic coordinate values to SVG coordinate values and sets them to the SVG rect element
+          - In ArrayMesh.svg, the `globalCoordinateSystem` element is hardcoded based on the specified transformation coefficients (100, 0, 0, -100, 0, 0). - `getColor(val, minVal, maxVal)`: Converts the value to be visualized into a color code.
+          - `HSVtoRGB(h, s, v)`: A function that converts HSV values into RGB values (color information that can be set in SVG, etc.).
+          - In this tutorial, we perform a [heatmap-style](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%88%E3%83%9E%E3%83%83%E3%83%97) visualization by mapping values to the [hue (H value) of the HSV (Hue, Saturation, Value)](https://ja.wikipedia.org/wiki/HSV%E8%89%B2%E7%A9%BA%E9%96%93) color space. (S and V are set to their maximum values (the most vivid colors).)
+  - `svgMap.refreshScreen()` If DOM redrawing is required at times other than when zooming or scrolling, you must explicitly trigger the [redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).
+    - [Reference Information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
 
 ```html
 <!DOCTYPE html>
@@ -320,63 +317,63 @@ var csvPath = "mesh.csv";
 
 var csvLines, csvProps;
 
-addEventListener("load",async function(){
+addEventListener("load", async function () {
 	csvLines = await getText(csvPath);
 	csvLines = csvLines.split("\n");
-	csvProps=getCsvProps(csvLines[0]);
-	vminI.value=csvProps.minVal;
-	vmaxI.value=csvProps.maxVal;
+	csvProps = getCsvProps(csvLines[0]);
+	vminI.value = csvProps.minVal;
+	vmaxI.value = csvProps.maxVal;
 	getRange();
 	drawMesh(csvLines, csvProps);
 });
 
-function drawMesh(csvLines, csvProps, minVal, maxVal){
-	if (!minVal){
+function drawMesh(csvLines, csvProps, minVal, maxVal) {
+	if (!minVal) {
 		minVal = csvProps.minVal;
 	}
-	if (!maxVal){
+	if (!maxVal) {
 		maxVal = csvProps.maxVal;
 	}
-	for ( var i = 1 ; i < csvProps.partY + 1 ; i++ ){
+	for (var i = 1; i < csvProps.partY + 1; i++) {
 		var strTxt = csvLines[i].split(",");
-		for ( var j = 0 ; j < csvProps.partX ; j++ ){
-			if ( strTxt[j].replace(/\s+/g, "") !=""){
+		for (var j = 0; j < csvProps.partX; j++) {
+			if (strTxt[j].replace(/\s+/g, "") != "") {
 				var val = Number(strTxt[j]);
-				setMesh( j , i-1 , val, csvProps, minVal, maxVal );
+				setMesh(j, i - 1, val, csvProps, minVal, maxVal);
 			}
 		}
 	}
 	svgMap.refreshScreen();
 }
 
-function setMesh( xp , yp , value, csvProps, minVal, maxVal ){
-//		console.log("call getMesh:");
+function setMesh(xp, yp, value, csvProps, minVal, maxVal) {
+	//		console.log("call getMesh:");
 	var color = getColor(value, minVal, maxVal);
-	var cl = svgImage.getElementById(xp+":"+yp);
-	if ( cl ){
-		cl.setAttribute("fill" , color);
+	var cl = svgImage.getElementById(xp + ":" + yp);
+	if (cl) {
+		cl.setAttribute("fill", color);
 	} else {
 		var xd = csvProps.minX + xp * csvProps.twd; // rectの西
 		var yd = csvProps.maxY - yp * csvProps.thd; // rectの北
-		
+
 		cl = document.createElement("rect"); // Should be used NS ( for Firefox!!)
-		cl.setAttribute("x" ,  100 * xd );
-		cl.setAttribute("y" , -100 * yd );
-		cl.setAttribute("width" , 100 * csvProps.twd );
-		cl.setAttribute("height" , 100 * csvProps.thd );
-		cl.setAttribute("content" , value);
-		cl.setAttribute("fill" , color);
-		cl.setAttribute("id", xp+":"+yp);
+		cl.setAttribute("x", 100 * xd);
+		cl.setAttribute("y", -100 * yd);
+		cl.setAttribute("width", 100 * csvProps.twd);
+		cl.setAttribute("height", 100 * csvProps.thd);
+		cl.setAttribute("content", value);
+		cl.setAttribute("fill", color);
+		cl.setAttribute("id", xp + ":" + yp);
 		svgImage.getElementsByTagName("svg")[0].appendChild(cl);
 	}
 }
 
-function getCsvProps(headerLine){
-	var hp = getHeaderParams( headerLine );
-	console.log("sc_param:",hp);
+function getCsvProps(headerLine) {
+	var hp = getHeaderParams(headerLine);
+	console.log("sc_param:", hp);
 	svgImage.documentElement.setAttribute("property", hp.valName);
-	
-	csvProps={
+
+	csvProps = {
 		minX: Number(hp.minX),
 		maxX: Number(hp.maxX),
 		minY: Number(hp.minY),
@@ -385,111 +382,135 @@ function getCsvProps(headerLine){
 		maxVal: Number(hp.maxVal),
 		partX: Number(hp.partX),
 		partY: Number(hp.partY),
-	}
-	
-	csvProps.twd = ( csvProps.maxX - csvProps.minX ) / csvProps.partX;
-	csvProps.thd = ( csvProps.maxY - csvProps.minY ) / csvProps.partY;
-	
-	return ( csvProps );
+	};
+
+	csvProps.twd = (csvProps.maxX - csvProps.minX) / csvProps.partX;
+	csvProps.thd = (csvProps.maxY - csvProps.minY) / csvProps.partY;
+
+	return csvProps;
 	updateTile();
 }
 
-function getHeaderParams( hash ){
+function getHeaderParams(hash) {
 	hash = hash.split(",");
-	for ( var i = 0 ; i < hash.length ; i++ ){
+	for (var i = 0; i < hash.length; i++) {
 		hash[i] = hash[i].split(":");
-		if ( hash[i][1] ){
+		if (hash[i][1]) {
 			hash[hash[i][0]] = hash[i][1];
 		} else {
 			hash[hash[i][0]] = true;
 		}
 	}
-	return ( hash );
+	return hash;
 }
 
-async function getText(path){
+async function getText(path) {
 	var response = await fetch(path);
 	var txt = await response.text();
-	return ( txt );
+	return txt;
 }
 
-function getColor( val, minVal, maxVal ){
-	
+function getColor(val, minVal, maxVal) {
 	// value clip
-	if ( val > maxVal ){
+	if (val > maxVal) {
 		val = maxVal;
 	}
-	if ( val < minVal ){
+	if (val < minVal) {
 		val = minVal;
 	}
-	
+
 	// Hue値の算出(最大値:H=0(赤) , 最小値:H=270(青紫) 逆周り)
-	var h = 270 - 270 * (val - minVal) / (maxVal - minVal);
-	
-	var ans = HSVtoRGB (h, 255, 255);
-	
-	return ("#"+ pad16(ans.r) + pad16(ans.g) + pad16(ans.b));
+	var h = 270 - (270 * (val - minVal)) / (maxVal - minVal);
+
+	var ans = HSVtoRGB(h, 255, 255);
+
+	return "#" + pad16(ans.r) + pad16(ans.g) + pad16(ans.b);
 }
 
-function pad16( val ){
-	var bv =  "00" + val.toString(16);
+function pad16(val) {
+	var bv = "00" + val.toString(16);
 	bv = bv.substr(bv.length - 2, 2);
-	return ( bv );
+	return bv;
 }
 
-function HSVtoRGB (h, s, v) { // from http://d.hatena.ne.jp/ja9/20100903/1283504341
+function HSVtoRGB(h, s, v) {
+	// from http://d.hatena.ne.jp/ja9/20100903/1283504341
 	var r, g, b; // 0..255
 	while (h < 0) {
 		h += 360;
 	}
 	h = h % 360;
-	
+
 	// 特別な場合 saturation = 0
 	if (s == 0) {
 		// → RGB は V に等しい
 		v = Math.round(v);
-		return {'r': v, 'g': v, 'b': v};
+		return { r: v, g: v, b: v };
 	}
 	s = s / 255;
-	
+
 	var i = Math.floor(h / 60) % 6,
-	f = (h / 60) - i,
-	p = v * (1 - s),
-	q = v * (1 - f * s),
-	t = v * (1 - (1 - f) * s);
+		f = h / 60 - i,
+		p = v * (1 - s),
+		q = v * (1 - f * s),
+		t = v * (1 - (1 - f) * s);
 
 	switch (i) {
-	case 0 :
-		r = v;  g = t;  b = p;  break;
-	case 1 :
-		r = q;  g = v;  b = p;  break;
-	case 2 :
-		r = p;  g = v;  b = t;  break;
-	case 3 :
-		r = p;  g = q;  b = v;  break;
-	case 4 :
-		r = t;  g = p;  b = v;  break;
-	case 5 :
-		r = v;  g = p;  b = q;  break;
+		case 0:
+			r = v;
+			g = t;
+			b = p;
+			break;
+		case 1:
+			r = q;
+			g = v;
+			b = p;
+			break;
+		case 2:
+			r = p;
+			g = v;
+			b = t;
+			break;
+		case 3:
+			r = p;
+			g = q;
+			b = v;
+			break;
+		case 4:
+			r = t;
+			g = p;
+			b = v;
+			break;
+		case 5:
+			r = v;
+			g = p;
+			b = q;
+			break;
 	}
-	return {'r': Math.round(r), 'g': Math.round(g), 'b': Math.round(b)};
+	return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
 }
 
-
-function getRange(){
-	if ( isNaN(vminI.value) || isNaN(vmaxI.value) ){return}
+function getRange() {
+	if (isNaN(vminI.value) || isNaN(vmaxI.value)) {
+		return;
+	}
 	var minVal = Number(vminI.value);
 	var maxVal = Number(vmaxI.value);
-	if ( minVal > maxVal){[minVal, maxVal] = [maxVal, minVal]}
-	
+	if (minVal > maxVal) {
+		[minVal, maxVal] = [maxVal, minVal];
+	}
+
 	document.getElementById("scalemin").innerHTML = minVal.toPrecision(5);
 	document.getElementById("scalemax").innerHTML = maxVal.toPrecision(5);
-	document.getElementById("scalemid").innerHTML = ((maxVal + minVal)/2.0).toPrecision(5);
-	return{minVal,maxVal}
+	document.getElementById("scalemid").innerHTML = (
+		(maxVal + minVal) /
+		2.0
+	).toPrecision(5);
+	return { minVal, maxVal };
 }
 
-function setRange(){
-	var range=getRange();
+function setRange() {
+	var range = getRange();
 	drawMesh(csvLines, csvProps, range.minVal, range.maxVal);
 }
 ```

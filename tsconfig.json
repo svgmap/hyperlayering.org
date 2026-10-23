@@ -11,7 +11,8 @@
 			"@styles/*": ["./src/styles/*"],
 			"@images/*": ["./src/images/*"],
 			"@assets/*": ["./src/assets/*"],
-			"@i18n/*": ["./src/i18n/*"]
+			"@i18n/*": ["./src/i18n/*"],
+			"@utils/*": ["./src/utils/*"]
 		}
 	}
 }

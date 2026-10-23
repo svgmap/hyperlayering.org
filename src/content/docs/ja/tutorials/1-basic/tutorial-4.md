@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル4 Bitmapイメージ地図表示'
+title: "チュートリアル4 Bitmapイメージ地図表示"
 ---
 
 ## はじめに  {#introduction}
@@ -9,7 +9,6 @@ title: 'チュートリアル4 Bitmapイメージ地図表示'
 ### ファイル構造 {#file-structure}
 
 ファイル構造は以下の通りです：
-
 - ファイル構成は[tutrial4ディレクトリ](https://www.svgmap.org/examples/tutorials/tutorial4/tutorial4.html)ディレクトリに以下のファイルがあります。
   - [tutorial4.html](https://www.svgmap.org/examples/tutorials/tutorial4/tutorial4.html)
     - チュートリアル4用のhtml。tutrial1.htmlと同様の内容。
@@ -30,7 +29,6 @@ title: 'チュートリアル4 Bitmapイメージ地図表示'
 ### tutorial4.html {#tutorial4-html}
 
 基本的に[チュートリアル2b](../tutorial-2b/index.md)で使用したtutorial2b.htmlと同様。
-
 - SVGMapのコアプログラムファイル(SVGMapLv0.1_r18module.js)を読み込み、SVGMapの各種APIを利用可能にする。
 - レイヤーリストUI用のCSSを読み込み
 - 地図表示部分を(DIVで)定義し、そこに表示するレイヤをまとめたSVGファイル(Containers.svg)を読み込む(上記SVGMapのコアプログラムにて自動的にVisibleになっているレイヤが表示される)。
@@ -115,7 +113,7 @@ title: 'チュートリアル4 Bitmapイメージ地図表示'
 
 #### 経度緯度とSVGコンテンツのXY座標との関係 {#relationship-between-lon-lat-xy-coord}
 
-```globalCoordinateSystem``` 要素の ```transform``` 属性（一次変換マトリクスの６つの値）で指定されます
+`globalCoordinateSystem` 要素の `transform` 属性（一次変換マトリクスの６つの値）で指定されます
 
 ```
 Xsvg = a * 経度 + c * 緯度 + e 
@@ -132,12 +130,12 @@ Ysvg = -緯度
 #### image要素のパラメータ {#image-element-parameters}
 
 - image要素によってビットイメージを配置しています
-  - ```xlink:href="[ビットイメージのURL]"``` 配置するビットイメージのURL
-  - ```x="139.1063918412553"``` 配置するX原点＝西端の経度（139.10..°）
-  - ```y="-35.90355823638255"``` 配置するX原点＝北端の緯度（35.903..°）をマイナスにした値
-  - ```width="0.8140711890480361"``` 幅（経度で0.81°）
-  - ```height="0.41815015611484085"``` 高さ (緯度で0.41°）
-  - ```preserveAspectRatio="none"``` ビットイメージの実際のサイズのアスペクト比を変えてでも上記指定領域にぴったりと配置する　([参考：SVG spec](https://www.w3.org/TR/SVG2/coords.html#PreserveAspectRatioAttribute))
+  - `xlink:href="[ビットイメージのURL]"` 配置するビットイメージのURL
+  - `x="139.1063918412553"` 配置するX原点＝西端の経度（139.10..°）
+  - `y="-35.90355823638255"` 配置するX原点＝北端の緯度（35.903..°）をマイナスにした値
+  - `width="0.8140711890480361"` 幅（経度で0.81°）
+  - `height="0.41815015611484085"` 高さ (緯度で0.41°）
+  - `preserveAspectRatio="none"` ビットイメージの実際のサイズのアスペクト比を変えてでも上記指定領域にぴったりと配置する　([参考：SVG spec](https://www.w3.org/TR/SVG2/coords.html#PreserveAspectRatioAttribute))
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 

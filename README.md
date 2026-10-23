@@ -1,4 +1,5 @@
 # hyperlayering.org
+
 The source code for the Hyper Layering Architecture project's website.
 
 ## Tech Stack

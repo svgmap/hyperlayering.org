@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル5 WebApp Layer タイルピラミッド'
+title: "チュートリアル5 WebApp Layer タイルピラミッド"
 sidebar:
   order: 5
 ---
@@ -13,7 +13,6 @@ sidebar:
 ### ファイル構造 {#file-structure}
 
 ファイル構造は以下の通りです：
-
 - ファイル構成は[tutorial5](https://www.svgmap.org/examples/tutorials/tutorial5) ディレクトリに以下のファイルがあります。
   - [Tutorial5.html](https://www.svgmap.org/examples/tutorials/tutorial5/tutorial5.html)
     - チュートリアル5用のhtml。tutrial2b.htmlと同様の内容。
@@ -112,7 +111,6 @@ WebApp Layerの名の通り、レイヤーに紐付けられるのはjavascript�
 外部のOpenStreetMapを表示するためのWebAppが紐付けられたSVG Mapコンテンツレイヤーファイル。
 
 SVGMap.jsの持つ [WebApp Layer機構](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.82.A6.E3.82.A7.E3.83.96.E3.82.A2.E3.83.97.E3.83.AA.E3.82.B1.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3.E3.81.AB.E3.82.88.E3.82.8B.E5.8B.95.E7.9A.84.E3.81.AA.E5.9C.B0.E5.9B.B3.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E3.81.A8.E3.80.81.E3.81.9D.E3.81.AE.E3.83.8F.E3.82.A4.E3.83.91.E3.83.BC.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.AA.E3.83.B3.E3.82.B0) を活用します。
-
 - SVGコンテンツのドキュメント要素(svg要素)のdata-controller属性でウェブアプリケーション(javascriptコードが載ったhtmlコンテンツ)を参照することで、SVGMapコンテンツのレイヤーにウェブアプリを紐づけます。
   - #exec=hiddenOnLayerLoad ハッシュは、同ウェブアプリケーションを非表示状態で起動させます。 [解説書#レイヤー固有のUI](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI) の詳細を参照
 - ウェブアプリでDOMを直接生成するので、コンテンツの中身はほとんど空になっています。
@@ -139,7 +137,7 @@ Note: ここで使用しているOpenStreetMapのタイルはいわゆるウェ�
 
 #### dynamicOSM_r11.html
 
-htmlは、[レイヤー固有のUIの初期化処理のための共通ライブラリ(svgMapLayerLib.js)の読み込み](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI.E3.81.AE.E3.81.9F.E3.82.81.E3.81.AEhtml.E6.96.87.E6.9B.B8.28webApp.29.E3.81.AE.E6.A7.8B.E9.80.A0.E3.83.BB.E4.BD.9C.E6.B3.95) と、このレイヤー固有の処理内容を記述したscriptコード部```dynamicOSM_r11.js```、及びUI(html,css等)から構成されます。
+htmlは、[レイヤー固有のUIの初期化処理のための共通ライブラリ(svgMapLayerLib.js)の読み込み](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI.E3.81.AE.E3.81.9F.E3.82.81.E3.81.AEhtml.E6.96.87.E6.9B.B8.28webApp.29.E3.81.AE.E6.A7.8B.E9.80.A0.E3.83.BB.E4.BD.9C.E6.B3.95) と、このレイヤー固有の処理内容を記述したscriptコード部`dynamicOSM_r11.js`、及びUI(html,css等)から構成されます。
 
 dynamicOSM_r11.html
 
@@ -162,30 +160,30 @@ dynamicOSM_r11.html
 
 #### dynamicOSM_r11.js
 
-- ```onload``` 通常のwebAppと同様、このhtmlに関係するリソースの読み込み完了後実行される関数
-  - ```svgMap``` [コアフレームワークインスタンス](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMap)
-    - ```svgMap.refreshScreen()```伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画を明示](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)する必要があります。
+- `onload` 通常のwebAppと同様、このhtmlに関係するリソースの読み込み完了後実行される関数
+  - `svgMap` [コアフレームワークインスタンス](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMap)
+    - `svgMap.refreshScreen()`伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画を明示](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)する必要があります。
       - [参考情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
-- ```preRenderFunction()```この関数を定義すると、 [画面の再描画の度に、その直前にこの関数が実行されます。](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#preRenderFunction)
-  - ```svgImagesProps``` [webAppに紐づいたSVGコンテンツの各種情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImageProps) 
+- `preRenderFunction()`この関数を定義すると、 [画面の再描画の度に、その直前にこの関数が実行されます。](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#preRenderFunction)
+  - `svgImagesProps` [webAppに紐づいたSVGコンテンツの各種情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImageProps)
     - [解説書参照 ](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImageProps), [参照2](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.97.E3.83.AD.E3.83.91.E3.83.86.E3.82.A3.E3.83.AA.E3.82.B9.E3.83.88)
-    - ```svgImageProps.scale``` SVGコンテンツの座標系の画面の座標系に対するスケール (注：地理座標系とは異なる) ([参考情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.97.E3.83.AD.E3.83.91.E3.83.86.E3.82.A3.E3.83.AA.E3.82.B9.E3.83.88))
-  - ```svgMap.getGeoViewBox()``` [表示領域を地理座標で取得](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#getGeoViewBox).
-  - ```getTileSet``` 表示すべきタイルのリスト(連想配列)を取得(詳細後述)
-  - ```svgImage``` [ 紐付けられたSVGMapコンテンツのDOM](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImage)
+    - `svgImageProps.scale` SVGコンテンツの座標系の画面の座標系に対するスケール (注：地理座標系とは異なる) ([参考情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.97.E3.83.AD.E3.83.91.E3.83.86.E3.82.A3.E3.83.AA.E3.82.B9.E3.83.88))
+  - `svgMap.getGeoViewBox()` [表示領域を地理座標で取得](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#getGeoViewBox).
+  - `getTileSet` 表示すべきタイルのリスト(連想配列)を取得(詳細後述)
+  - `svgImage` [ 紐付けられたSVGMapコンテンツのDOM](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImage)
     - OSMのタイルはsvgのimage要素としてsvg DOMに配置されます。また、getTileSetで得た各タイルのタイル番号(連想配列のKey)をmetadata属性に設定しています。
     - スクロール後、この関数(preRenderFunction)が再度呼び出された時、前ステップまでに既に描画済みのタイルのうち、スクロール後も描画すべきタイルはそのまま残しておくための処理をこのmetadataの値をもとに行います。
-  - ```getTile``` タイルリストの連想配列の情報(ZoomLevel,X,Y)をもとに、新たに取得すべきタイルのためのimage要素を得る
+  - `getTile` タイルリストの連想配列の情報(ZoomLevel,X,Y)をもとに、新たに取得すべきタイルのためのimage要素を得る
     - OSMのビットイメージタイルはsvgのimage要素として貼り付けられます。
-    - ```getURL```  ZoomLevel,X,Yから、実際のOSMのタイルのURLを生成する関数
-    - ```XY2latLng``` ZoomLevel,X,Yから、タイルの地理座標の領域を得る関数
-- ```getTileSet``` 現在のズームレベルと表示領域において、表示すべきタイルをリストアップする関数
+    - `getURL` ZoomLevel,X,Yから、実際のOSMのタイルのURLを生成する関数
+    - `XY2latLng` ZoomLevel,X,Yから、タイルの地理座標の領域を得る関数
+- `getTileSet` 現在のズームレベルと表示領域において、表示すべきタイルをリストアップする関数
   - OSM Slippy Map Tileの、[Zoom](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Zoom_levels) 及び [XY番号](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#X_and_Y) を求め、それをキーにした連想配列を返却します。
   - OSM Slippy Map Tileは、[ウェブメルカトル](https://en.wikipedia.org/wiki/Mercator_projection#Web_Mercator) 図法上で再帰的に２ｘ２等分したタイルピラミッドになっています。
     - ウェブメルカトル図法は、(経度±180度、緯度±85.05113度)の範囲を正方形の地図として構築します。
-  - ```latLng2XY``` ウェブメルカトル図法上の、指定したZoomLevelにおいて、地球全図を一枚の大きな正方形のビットイメージと想定したときの、指定した緯度経度のぞのビットイメージ上での座標値を求める
-    - ```lvl2Res```  ZoomLevelから対応する地球全体のビットイメージの幅を求める(Level0:256px)
-  - ```XY2TileXY``` 上記地球全図の一枚の大きな正方形のビットイメージ上のXY座標から、それをタイル分割したときに、その座標が属するタイルの番号（タイルのX番号、Y番号）を得る
+  - `latLng2XY` ウェブメルカトル図法上の、指定したZoomLevelにおいて、地球全図を一枚の大きな正方形のビットイメージと想定したときの、指定した緯度経度のぞのビットイメージ上での座標値を求める
+    - `lvl2Res` ZoomLevelから対応する地球全体のビットイメージの幅を求める(Level0:256px)
+  - `XY2TileXY` 上記地球全図の一枚の大きな正方形のビットイメージ上のXY座標から、それをタイル分割したときに、その座標が属するタイルの番号（タイルのX番号、Y番号）を得る
 
   dynamicOSM_r11.js
 
@@ -196,7 +194,7 @@ dynamicOSM_r11.html
 // Dynamic OpemStreetMap Layer for SVGMap Sample for SVGMapLevel0 > r10
 //
 // Programmed by Satoru Takagi
-// 
+//
 // License: (MPL v2)
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -274,7 +272,7 @@ function getTile(tileX, tileY, level, crs) {
 	var tLatLngBR = XY2latLng(
 		tileX * tilePix + tilePix,
 		tileY * tilePix + tilePix,
-		level
+		level,
 	);
 	var tSvgBR = svgMap.transform(tLatLngBR.lng, tLatLngBR.lat, crs);
 	tSvg.width = tSvgBR.x - tSvg.x; // 効率悪い・・改善後回し

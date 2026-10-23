@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 2a: Coastline Map and Airport POI Display'
+title: "Tutorial 2a: Coastline Map and Airport POI Display"
 ---
 
 ## Introduction
@@ -11,7 +11,6 @@ This is a tutorial that adds airport POIs [(Points of Interest)](https://ja.wiki
 ### File Structure
 
 The [tutorial2 directory](https://www.svgmap.org/examples/tutorials/tutorial2) contains the following files. The file structure is as follows:
-
 - [tutorial2.html](https://www.svgmap.org/examples/tutorials/tutorial2/tutorial2.html)
   - HTML for Tutorial 2. Same content as tutorial1.html.
 - Container.svg
@@ -47,7 +46,6 @@ tutorial2.html
 ### tutorial2.html
 
 Basically the same as tutorial1.html used in Tutorial 1.
-
 - Loads the SVGMap core program file (SVGMapLv0.1_r18module.js) and makes various SVGMap APIs available.
 - Defines the map display area (using a DIV) and loads an SVG file (Containers.svg) that contains the layers to be displayed (layers that are automatically made visible in the SVGMap core program above will be displayed).
 - Defines the display of the zoom up, zoom down, and GPS buttons and their behavior when clicked (calling the respective APIs of the SVGMap core program).

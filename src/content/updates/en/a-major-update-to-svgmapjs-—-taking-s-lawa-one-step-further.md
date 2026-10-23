@@ -1,8 +1,9 @@
 ---
 title: A Major Update to svgmapjs — Taking S-LaWA One Step Further
-author: Satoru Takagi
+author: satoru-takagi
 date: 2026-09-25
 description: A major svgmapjs update brings S-LaWA one step further, enabling secure integration of independent Web Apps with arbitrary coordinate transformations.
+# Use Table of Contents for long posts only.
 showToc: false
 ---
 

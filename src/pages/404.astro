@@ -6,8 +6,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<BaseLayout>
-    <article class="not-found-page stack">
+<BaseLayout pageTitle={t("page.404.title")}>
+    <article class="not-found-page stack stack--sm stack--center">
         <h1>{t("page.404.title")}</h1>
         <p>{t("page.404.subtitle")}</p>
         <a href={getRelativeLocaleUrl(lang, "/")}><button class="button">{t("page.404.return-btn")}</button></a>
@@ -16,8 +16,6 @@ const t = useTranslations(lang);
 
 <style>
     .not-found-page {
-        align-items: center;
-        justify-content: center;
         height: 100%;
         h1 {
             font-size: var(--font-5xl);

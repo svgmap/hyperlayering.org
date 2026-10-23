@@ -1,25 +1,23 @@
 ---
-title: '独自ホストにsvgmapAppLayersをコピーして利用'
+title: "独自ホストにsvgmapAppLayersをコピーして利用"
 ---
 
 ## はじめに  {#introduction}
 
 [svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers) の内容をダウンロードし、独自に用意したホストにコピー（クローン）して利用します。前章のGitHub Pagesの参照であった制限は生じません。
-
 - 実際の動作は[こちら](https://www.svgmap.org/examples/tutorials/ghAppLayersClone/ghAppLayers_clone.html) をクリック
   - (このサンプルでは、国交省道路交通情報のレイヤー群と、CSVオーサリングツールレイヤー、basemapsのみを使用しています)
 
 本章では、[svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers)リポジトリを自分のホストにコピーして使用します。 前章の[制限事項](../using-svgmapapplayers-on-github-pages/index.md#制限事項-restrictions)はありませんが、svgmapAppLayersリポジトリのアップデートの反映は自身で行う必要があります。
-
 - 実際の動作は[こちら](https://www.svgmap.org/examples/tutorials/ghAppLayersClone/ghAppLayers_clone.html) をクリック
   - このサンプルでは、国交省道路交通情報のレイヤー群と、CSVオーサリングツールレイヤー、basemapsのみを使用しています
 - 使用ファイルの [ZIPアーカイブファイル](https://www.svgmap.org/examples/tutorials/ghAppLayersClone.zip)
 
 ### あらすじ {#synopsis}
 
-- [https://github.com/svgmap/svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers)  をダウンロード（git cloneでも良い）する
+- [https://github.com/svgmap/svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers) をダウンロード（git cloneでも良い）する
   - [zipダウンロードする場合](https://github.com/svgmap/svgmapAppLayers/archive/refs/heads/main.zip) (解凍必要)
-  - git cloneの場合: ```git clone git@github.com:svgmap/svgmapAppLayers.git```
+  - git cloneの場合: `git clone git@github.com:svgmap/svgmapAppLayers.git`
 - 自身が運営しているホストに内容をコピーする
 - Container.svgを編集し、掲載したいレイヤーを選択する
 - 必要に応じてプロキシーを構築する
@@ -27,7 +25,7 @@ title: '独自ホストにsvgmapAppLayersをコピーして利用'
 ### 手順 {#procedure}
 
 - [svgmapAppLayer](https://github.com/svgmap/svgmapAppLayers)の内容を複製します
-  - [https://github.com/svgmap/svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers) の UI(`<>`Codeボタン⇒ [Download ZIP](https://github.com/svgmap/svgmapAppLayers/archive/refs/heads/main.zip)) でダウンロードする(解凍はシンボリックリンクが有効な環境(linux等)で実施) か、gitコマンドでクローンする　```git clone git@github.com:svgmap/svgmapAppLayers```
+  - [https://github.com/svgmap/svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers) の UI(`<>`Codeボタン⇒ [Download ZIP](https://github.com/svgmap/svgmapAppLayers/archive/refs/heads/main.zip)) でダウンロードする(解凍はシンボリックリンクが有効な環境(linux等)で実施) か、gitコマンドでクローンする　`git clone git@github.com:svgmap/svgmapAppLayers`
 - 使いたいレイヤー以外のディレクトリは消去して構いません
   - ただしcommonLib（共通ライブラリ）は、各ディレクトリの中からシンボリックリンクが張られているファイル群のため、基本的には削除できません。(使用するレイヤーのディレクトリから参照されていないファイルを消すことは可能）
 - authoringLayers内のbbsディレクトリ(authoringLayers/bbs)はphpを使って、オーサリングしたものをサーバに保存する機能に関する実装です、このチュートリアルでは扱いませんので不用意なサーバ動作を防ぐため必ず削除してください。

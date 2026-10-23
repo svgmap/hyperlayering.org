@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル2b 海岸線地図とPOI(空港)表示　(レイヤリング)'
+title: "チュートリアル2b 海岸線地図とPOI(空港)表示　(レイヤリング)"
 ---
 
 ## はじめ {#introduction}
@@ -11,7 +11,6 @@ title: 'チュートリアル2b 海岸線地図とPOI(空港)表示　(レイヤ
 ### ファイル構造 {#file-structure}
 
 ファイル構成は[tutorial2bディレクトリ](https://www.svgmap.org/examples/tutorials/tutorial2b/)に以下のファイルがあります。
-
 - [tutorial2b.html](https://www.svgmap.org/examples/tutorials/tutorial2b/tutorial2b.html)
   - チュートリアル2b用のhtml。tutrial1.htmlに対して、レイヤーリスト・On/Off UIを設置している。(id="layerList"のdiv要素)
 - [Container.svg](https://www.svgmap.org/examples/tutorials/tutorial2b/Container.svg)
@@ -48,7 +47,6 @@ tutorial2b.html
 ### tutorial2b.html {#tutorial2b-html}
 
 チュートリアル1で使用したtutorial1.htmlに対して、レイヤーリスト表示・制御用UIを追加。（ただし、なくてもレイヤリング自体は可能。レイヤの表示非表示UIが使えないのみ）
-
 - レイヤーリストUIを設置
   - id="**layerList**"の空の div要素を設置する（id名はフレームワークによって規定）
   - このlayerList div要素用のスタイルシートを読み込む([#layerListStyle.css](#layer-list-style-css))
@@ -161,26 +159,26 @@ tutorial2b.html
 ```css
 /** レイヤーリストUIのスタイルシート **/
 body {
-  font-family: Meiryo;
+	font-family: Meiryo;
 }
 #layerTable {
-  background: #ffe0e0;
-  border: 2px solid #bbb;
+	background: #ffe0e0;
+	border: 2px solid #bbb;
 }
 .layerItem {
-  background-color: white;
+	background-color: white;
 }
 .noGroup {
-  background-color: #fff0f0;
+	background-color: #fff0f0;
 }
 #layerList {
-  background-color: #ffff80;
-  opacity: 0.8;
-  font-size: 12px;
+	background-color: #ffff80;
+	opacity: 0.8;
+	font-size: 12px;
 }
 
 #layerList button {
-  padding: 1px 3px;
+	padding: 1px 3px;
 }
 ```
 

@@ -4,6 +4,7 @@ import { defaultLang } from "@i18n/ui";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ContentLayout from "@layouts/ContentLayout.astro";
+import { tocHeadersToMap } from "@utils/tocHeadersToMap";
 export async function getStaticPaths() {
 	const guidelines = await getCollection("guideline");
 	const parsedGuidelines = guidelines.map((guideline) => {
@@ -22,8 +23,9 @@ export async function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { guideline } = Astro.props;
-const headings =
-	(guideline.rendered?.metadata?.headings as TocItem[]) ?? undefined;
+const headings = tocHeadersToMap(
+	guideline.rendered?.metadata?.headings as TocItem[],
+);
 const showToc = guideline.data.showToc;
 const { Content } = await render(guideline);
 ---

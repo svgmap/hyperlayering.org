@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル2a 海岸線地図と空港POI表示'
+title: "チュートリアル2a 海岸線地図と空港POI表示"
 ---
 
 ## はじめ {#introduction}
@@ -11,7 +11,6 @@ title: 'チュートリアル2a 海岸線地図と空港POI表示'
 ### ファイル構造 {#file-structure}
 
 ファイル構成は[tutorial2ディレクトリ](https://www.svgmap.org/examples/tutorials/tutorial2)に以下のファイルがあります。
-
 - [tutorial2.html](https://www.svgmap.org/examples/tutorials/tutorial2/tutorial2.html)
   - チュートリアル2用のhtml。tutrial1.htmlと同様の内容。
 - Container.svg
@@ -47,7 +46,6 @@ tutorial2.html
 ### tutorial2.html {#tutorial2-html}
 
 基本的に、チュートリアル1で使用したtutorial1.htmlと同様。
-
 - SVGMapのコアプログラムファイル(SVGMapLv0.1_r18module.js)を読み込み、SVGMapの各種APIを利用可能にする。
 - 地図表示部分を(DIVで)定義し、そこに表示するレイヤをまとめたSVGファイル(Containers.svg)を読み込む(上記SVGMapのコアプログラムにて自動的にVisibleになっているレイヤが表示される)。
 - ズームアップ・ズームダウン・GPSの各ボタンの表示とクリック時の動作(SVGMapのコアプログラムのそれぞれのAPIを呼び出す)を定義。

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 2c: OpenStreetMap and POI (airport) display (layering)'
+title: "Tutorial 2c: OpenStreetMap and POI (airport) display (layering)"
 ---
 
 ## Introduction  {#introduction}
@@ -9,7 +9,6 @@ In this tutorial, we will use OpenStreetMap as the background map to create a mo
 ### File Structure {#file-structure}
 
 The file structure is as follows:
-
 - The tutrial2c directory contains the following files
   - [tutorial2c.html](https://www.svgmap.org/examples/tutorials/tutorial2c/tutorial2c.html)
 - The background map referenced in Container.svg has been replaced from Coastline.svg to dynamicOSM_r11.svg.
@@ -87,7 +86,6 @@ This is the same as [Tutorial 2B](../tutorial-2b/index.md)
 In the previous chapter, we replaced Coastline.svg with dynamicOSM_r11.svg, but by using the layer function, users can choose from multiple background maps from the UI.
 
 You can also use the same method to set up multiple add-on information items and switch between them.
-  
 - Click [here](http://svg2.mbsrv.net/examples/tutorials/tutorial2c/tutorial2c_add.html) to see it in action .
   - If you click on the layer list UI in the upper left corner of the screen, you can choose from two background maps.
 - The file used is [here](https://svg2.mbsrv.net/examples/tutorials/tutorial2c/)
@@ -101,7 +99,6 @@ The difference is the contents of Container.svg
 ### Container_add.svg {#container_add-svg}
 
 **The key point is the animation** element (there are no other differences).
-
 - Set multiple **animation** elements for the background map content
 - Give each background map a different title attribute
 - **Class** attribute

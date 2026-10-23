@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 1: Coastal Map Display'
+title: "Tutorial 1: Coastal Map Display"
 ---
 
 ## Introduction {#introduction}
@@ -9,7 +9,6 @@ This is a tutorial for displaying Japan's coastline. [Click here to see it in ac
 ### File Structure {#file-structure}
 
 The following files are present in the tutorial1 directory. This section explains how to download the files used in the tutorial.
-
 - [tutorial1.html](https://www.svgmap.org/examples/tutorials/tutorial1/tutorial1.html)
   - Loads the SVGMap core program files (SVGMapLv0.1_r17.js and SVGMapLv0.1_LayerUI2_r4.js) to enable the use of SVGMap's various APIs.
   - Defines the map display area (using a DIV element) and loads the SVG file (Containers.svg) that groups the layers to be displayed (the layers automatically set to Visible by the SVGMap core program above will be displayed).
@@ -29,7 +28,6 @@ The following files are present in the tutorial1 directory. This section explain
 ### Files Used {#files-used}
 
 The files used in this tutorial can be obtained from the following locations:
-
 - [ZIP archive file](https://www.svgmap.org/examples/tutorials/tutorial1.zip)
 - [https://svgmap.org/examples/tutorials/tutorial1/](https://svgmap.org/examples/tutorials/tutorial1/) : HTML page for displaying the map and map content
   - [img directory](https://svgmap.org/examples/tutorials/tutorial1/img/) : Images and icons
@@ -62,21 +60,18 @@ tutorial1.html
 ##### Windows (using wget2) {#wget2}
 
 [wget2](https://gitlab.com/gnuwget/wget2/) is also available for Windows. Locate and download the Windows executable: wget2.zip from the [wget2 release URL](https://gitlab.com/gnuwget/wget2/-/releases).
-
 - Use it in Command Prompt or PowerShell.
 - Since the wget2.exe file is contained within the zip archive, either add it to your path or navigate to the directory where you saved the exe file using `cd` before executing it.
 
 ### Placing content files on the server {#content-files-on-server}
 
 This tutorial runs on a classic static web host (such as Apache).
-
 - Place the tutorial distribution files in a directory on your static web host, using a suitable name.
   - Open the placed content in a web browser (such as Chrome) using the URL provided for the static web host.
     - **Important**: Browser caching can cause confusion during trial and error. Practice with Developer Tools open and the cache clearing option enabled in their settings. (Cache disabling applies to the window where DevTools is open)
       - Chrome setup method: From the window displaying the practice content, open DevTools (CTRL+SHIFT+I, Settings menu (︙) - More Tools - Developer Tools) ⇒ Settings (gear icon top-right) ⇒ Network (while DevTools is open) ⇒ Disable cache.
 
 Standalone execution is also possible on the terminal PC (though an internet connection is required).
-
 - Note: Insufficient validation
 - Place the tutorial distribution files in an appropriate directory (folder).
 - **Important**: Open a Chrome browser with the `--allow-file-access-from-files` option and open index.html here to enable operation.

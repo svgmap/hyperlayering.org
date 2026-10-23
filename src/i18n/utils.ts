@@ -18,3 +18,18 @@ export function pathWithoutLocale(url: URL) {
 	if (lang === defaultLang) return url.pathname;
 	return url.pathname.replace(`/${lang}/`, "/");
 }
+
+export function parseValidLang(lang: string) {
+	if (lang in Object.keys(ui)) return lang as keyof typeof ui;
+	return defaultLang;
+}
+
+export function chooseLocale(locale: string) {
+	const validatedLocale = parseValidLang(locale);
+
+	try {
+		localStorage.setItem("hyperlayering.locale", validatedLocale);
+	} catch {
+		console.warn("Unable to set hyperlayering.locale localStorage item");
+	}
+}

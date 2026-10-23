@@ -7,6 +7,7 @@ import Logo from "@components/Icons/Logo.svelte";
 import Menu from "@components/Icons/Menu.svelte";
 import { languages } from "@i18n/ui";
 import {
+	chooseLocale,
 	getLangFromUrl,
 	pathWithoutLocale,
 	useTranslations,
@@ -26,6 +27,10 @@ let menuOpen = $state(false);
 const toggleMenu = () => {
 	menuOpen = !menuOpen;
 };
+
+const changeLocale = (locale: typeof lang) => {
+	chooseLocale(locale);
+};
 </script>
 
 <header class="site-header">
@@ -34,13 +39,18 @@ const toggleMenu = () => {
     class="brand font-wide row"
     href={getRelativeLocaleUrl(lang, "/")}
   >
-    <Logo></Logo>
+    <Logo label={t("nav.home")}></Logo>
     <span class="typemark">{title}</span>
   </a>
   <nav class="nav" class:nav-open={menuOpen}>
     {#each links as link}
       <a class="nav-item" href={link.href}>{link.label}</a>
     {/each}
+    <a href={getRelativeLocaleUrl(lang, "/layer-collections")}>
+      <button class="launch-btn">
+        {t("nav.layerCollections")}
+      </button>
+    </a>
     <button
       aria-label={t("nav.lang-btn.label")}
       name={t("nav.lang-btn.label")}
@@ -75,7 +85,7 @@ const toggleMenu = () => {
     <ul role="list">
       {#each Object.entries(languages) as [code, label]}
         <li>
-          <a href={getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}
+          <a onclick={changeLocale} href={getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}
             >{label}</a
           >
         </li>
@@ -95,10 +105,29 @@ const toggleMenu = () => {
     align-items: center;
     padding: var(--space-sm) var(--space-md);
     background: var(--bg-primary);
-    font-size: var(--font-base);
+    font-size: var(--font-sm);
     color: var(--text-main);
     transition: color var(--timing-normal) ease-out;
     border-block-end: 1px solid var(--bg-tertiary);
+
+
+    /* TODO: refactor to button class modifier (post-launch) */
+    .launch-btn {
+      cursor: pointer;
+      padding: 0 var(--space-xs);
+      border-radius: var(--round-md);
+      border: 2px solid var(--text-secondary);
+      background-color: transparent;
+      transition-property: background-color, color, box-shadow;
+      transition-duration: var(--timing-fast);
+      transition-behavior: allow-discrete;
+
+      &:hover, &:focus-within {
+        color: var(--accent-text);
+        background-color: var(--accent);
+        box-shadow: 0 0 10px oklch(from var(--text-tertiary) l c h / 0.5);
+      }        
+    }
 
     .brand {
       color: inherit;
@@ -133,7 +162,7 @@ const toggleMenu = () => {
     align-items: center;
 
     .nav-item {
-      color: inherit;
+      color: var(--text-secondary);
       text-decoration-color: transparent;
       text-underline-offset: var(--space-sm);
       transition:
@@ -141,7 +170,7 @@ const toggleMenu = () => {
         text-decoration-color var(--timing-fast),
         text-underline-offset var(--timing-fast);
       &:hover {
-        color: var(--text-secondary);
+        color: var(--text-primary);
         text-decoration: underline solid var(--accent) 2px;
         text-underline-offset: var(--space-xxs);
       }

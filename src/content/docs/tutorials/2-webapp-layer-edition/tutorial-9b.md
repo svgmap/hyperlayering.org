@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 9b WebApp Layer Mesh Tile (Custom Dialog)'
+title: "Tutorial 9b WebApp Layer Mesh Tile (Custom Dialog)"
 sidebar:
   order: 9.5
 ---
@@ -20,7 +20,6 @@ To see the actual operation, click on [mesh2b.html](https://svgmap.org/examples/
 In addition to [Tutorial 9](../tutorial-9/index.md), we will customize the dialog box that appears when you click on a mesh (specifically, a rect element).
 
 The customized dialog searches for and displays the name of the local government based on the mesh code listed in the mesh's metada. At smaller scales, it displays the prefecture name; at larger scales, it displays the city/town/village name.
-
 - [Click here](https://svgmap.org/devinfo/devkddi/tutorials/mesh2b/mesh2b.html) to see how it works.
 - The file used is a [ZIP archive file](https://www.svgmap.org/examples/tutorials/mesh2b.zip).
 
@@ -31,21 +30,18 @@ The difference lies in the web app associated with the layer.
 This explains the additions made to [meshTileViewer.html](https://svgmap.org/examples/tutorials/mesh2/meshTileViewer.html) , the WebApp from [Tutorial 9](../tutorial-9/index.md).
 
 The added parts are the loading of data to create an associative array of city/town names using the city/town code as the key, and the setting of a callback function to display a custom dialog using that data.
-
-
-
 - onload=async function()
-	- [svgMap.setShowPoiProperty](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#setShowPoiProperty)( customShowPoiProperty, layerID);
-		- Specify a custom callback function (customShowPoiProperty) for the process that occurs when an object in the associated layer is hit.
-		- Custom ShowPoiProperty
-			- The name of the municipality is obtained by using the city/town code in the content attribute of the hit object as the key to look up the lgDictionary in the dictionary.
-				- Note that in some cases, multiple municipalities may belong to a single grid.
-			- svgMap.showModal(html,400,180); Passes the prepared HTML to the modal dialog of the SVGMap framework.
+  - [svgMap.setShowPoiProperty](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#setShowPoiProperty)( customShowPoiProperty, layerID);
+    - Specify a custom callback function (customShowPoiProperty) for the process that occurs when an object in the associated layer is hit.
+    - Custom ShowPoiProperty
+      - The name of the municipality is obtained by using the city/town code in the content attribute of the hit object as the key to look up the lgDictionary in the dictionary.
+        - Note that in some cases, multiple municipalities may belong to a single grid.
+          - svgMap.showModal(html,400,180); Passes the prepared HTML to the modal dialog of the SVGMap framework.
 - async function loadLGdictionary() // Create a dictionary of local government names
-	- lgDictionary={}; // Dictionary of municipality names using city/ward/town/village codes as keys
+  - lgDictionary={}; // Dictionary of municipality names using city/ward/town/village codes as keys
 - function buildMeshTileSvg(meshs, sourceID)
-	- rect.setAttribute("content",meshNumb+","+meshs[meshNumb].join(" "));
-		- meshes[meshNumb] Municipal code
+  - rect.setAttribute("content",meshNumb+","+meshs[meshNumb].join(" "));
+    - meshes[meshNumb] Municipal code
 
 meshTileViewerB.js
 
