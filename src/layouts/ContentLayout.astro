@@ -7,7 +7,6 @@ interface Props {
 }
 
 const { title, tocHeaders = undefined } = Astro.props;
-console.log("headers", tocHeaders);
 ---
 
 <main>
@@ -21,7 +20,10 @@ console.log("headers", tocHeaders);
         </div>
       </div>
     </section>
-    <section id="content-body-wrapper" class:list={[ { "toc-content-layout": tocHeaders !== undefined }]}>
+    <section
+      id="content-body-wrapper"
+      class:list={[{ "toc-content-layout": tocHeaders !== undefined }]}
+    >
       <div class="content-body layout flow">
         <slot name="content" />
       </div>
@@ -51,13 +53,12 @@ console.log("headers", tocHeaders);
       flex-direction: column-reverse;
       margin-inline: 0;
 
-      * {
-        --header-scroll-margin: 2;
+      &[class*="toc-content-layout"] {
+        margin-block: 0;
+        * {
+          --header-scroll-margin: 2;
+        }
       }
-
-        &[class*="toc-content-layout"]{
-          margin-block: 0;
-        } 
     }
   }
 

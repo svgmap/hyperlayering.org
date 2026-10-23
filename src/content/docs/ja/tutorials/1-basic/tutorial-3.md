@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル3 タイリングされた海岸線地図の表示'
+title: "チュートリアル3 タイリングされた海岸線地図の表示"
 ---
 
 ## はじめに  {#introduction}
@@ -9,7 +9,6 @@ title: 'チュートリアル3 タイリングされた海岸線地図の表示'
 ### ファイル構造 {#file-structure}
 
 ファイル構造は以下の通りです：
-
 - [tutorial3 ディレクトリ](https://www.svgmap.org/examples/tutorials/tutorial3/) には以下のファイルが含まれています。
   - [tutorial3.html](https://www.svgmap.org/examples/tutorials/tutorial3/tutorial3.html)
     - チュートリアル3用のhtml。tutrial1.htmlと同様の内容。
@@ -87,7 +86,6 @@ tutorial1.html
 ### tutorial3.html {#tutorial3-html}
 
 基本的に、チュートリアル1で使用したtutorial1.htmlと同様。
-
 - SVGMapのコアプログラムファイル(SVGMapLv0.1_r18module.js)を読み込み、SVGMapの各種APIを利用可能にする。
 - 地図表示部分を(DIVで)定義し、そこに表示するレイヤをまとめたSVGファイル(Containers.svg)を読み込む(上記SVGMapのコアプログラムにて自動的にVisibleになっているレイヤが表示される)。
 - ズームアップ・ズームダウン・GPSの各ボタンの表示とクリック時の動作(SVGMapのコアプログラムのそれぞれのAPIを呼び出す)を定義。
@@ -159,7 +157,6 @@ tutorial1.html
 SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要素-animation-element)によるタイリングを実施している例になります。
 
 タイリングは、実際のデータが保存されているタイルコンテンツと、それを統合するコンテナコンテンツ(このファイル)から構成されます。
-
 - この例では、4×4(16)にタイル分割したそれぞれのSVGMapファイルを統合しているコンテナコンテンツ。
 - **animation要素**を使用して16個全てのタイルを参照
   - xlink:href属性にタイルコンテンツのリンクを記述
@@ -170,13 +167,12 @@ SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要�
 #### 各タイルの配置 {#placement-of-each-tile}
 
 **Coastline.svg**
-| + | X座標小 経度小 | .. | .. | X座標小 経度小
-|---|---|---|---|---|
-| Y座標小、緯度大 | 0_0.svg | 1_0.svg | 2_0.svg | 3_0.svg
-| .. | 	0_1.svg | 1_1.svg | 2_1.svg | 3_1.svg
-| .. | 0_2.svg | 1_2.svg | 2_2.svg | 3_2.svg
-| Y座標大、緯度小 | 0_3.svg | 1_2.svg | 2_2.svg | 3_2.svg
-
+| +               | X座標小 経度小 | ..      | ..      | X座標小 経度小 |
+| --------------- | -------------- | ------- | ------- | -------------- |
+| Y座標小、緯度大 | 0_0.svg        | 1_0.svg | 2_0.svg | 3_0.svg        |
+| ..              | 0_1.svg        | 1_1.svg | 2_1.svg | 3_1.svg        |
+| ..              | 0_2.svg        | 1_2.svg | 2_2.svg | 3_2.svg        |
+| Y座標大、緯度小 | 0_3.svg        | 1_2.svg | 2_2.svg | 3_2.svg        |
 - 各タイルの幅、高さ：width,height属性値：width="659.2878" height="631.5991"
 - 各タイルの原点（タイル左上隅の座標）：x,y属性値
   - x：12078.24557, 12737.53337, 13396.82117, 14056.10897
@@ -221,7 +217,7 @@ SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要�
 ### 分割されたSVGファイル {#split-svg-files}
 
 - 0_0.svg
-地図データのない部分
+  地図データのない部分
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -231,7 +227,7 @@ SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要�
 ```
 
 - 0_1.svg
-地図データのない部分。
+  地図データのない部分。
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -241,7 +237,7 @@ SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要�
 ```
 
 - 0_2.svg
-地図データのない部分。
+  地図データのない部分。
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -369,7 +365,7 @@ SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要�
 </details>
 
 - 1_0.svg
-地図データのない部分。
+  地図データのない部分。
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -2842,7 +2838,7 @@ SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要�
 </details>
 
 - 2_3.svg
-地図データのない部分。
+  地図データのない部分。
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -3291,7 +3287,7 @@ SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要�
 </details>
 
 - 3_2.svg
-地図データのない部分。
+  地図データのない部分。
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -3301,7 +3297,7 @@ SVGMapコンテンツの [animation要素](../tutorial-1/index.md#animation要�
 ```
 
 - 3_3.svg
-地図データのない部分。
+  地図データのない部分。
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 

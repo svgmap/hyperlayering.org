@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル1 海岸線地図表示'
+title: "チュートリアル1 海岸線地図表示"
 ---
 
 ## はじめに {#introduction}
@@ -11,7 +11,6 @@ title: 'チュートリアル1 海岸線地図表示'
 ### ファイル構造 {#file-structure}
 
 tutorial1ディレクトリに以下のファイルがあります。** チュートリアルで使うファイルのダウンロード方法を解説します。
-
 - tutrial1.html
   - SVGMapのコアプログラムファイル(SVGMapLv0.1_r17.jsおよびSVGMapLv0.1_LayerUI2_r4.js)を読み込み、SVGMapの各種APIを利用可能にする。
   - 地図表示部分を(DIVで)定義し、そこに表示するレイヤをまとめたSVGファイル(Containers.svg)を読み込む(上記SVGMapのコアプログラムにて自動的にVisibleになっているレイヤが表示される)。
@@ -31,7 +30,6 @@ tutorial1ディレクトリに以下のファイルがあります。** チュ�
 ### 使用ファイル {#files-used}
 
 本チュートリアルで使用しているファイルは以下から取得できます。
-
 - [ZIPアーカイブファイル](https://www.svgmap.org/examples/tutorials/tutorial1.zip)
 - [https://svgmap.org/examples/tutorials/tutorial1/](https://svgmap.org/examples/tutorials/tutorial1/) : 地図を表示するhtmlページや地図コンテンツ
   - [imgディレクトリ](https://svgmap.org/examples/tutorials/tutorial1/img/) : アイコン等のイメージ
@@ -188,7 +186,7 @@ svgY = b * geoX + d * geoY + f
 - [チュートリアル2b](../tutorial-2b/index.md)に具体例
 - `x,y,width,height`属性 レイヤーが取り得る最大領域を設定する (必須の属性)
   - レイヤリングではあまり気にする必要なく、常に-30000,-30000,60000,60000など非常に大きい領域を設定すれば良いです。
-- `title` 属性: レイヤー名　他のレイヤーとレイヤー名が重複してはなりません。  (必須の属性)
+- `title` 属性: レイヤー名　他のレイヤーとレイヤー名が重複してはなりません。 (必須の属性)
 - `visibility` 属性: 期表示状態を設定する（もしレイヤーリストUIを設置しないと初期表示状態から変更不可能です） 省略でVisible
 - `class` 属性: レイヤーリストUIのグルーピングが可能。その他ベクトル図形のクリッカブル機能を制御できる。[こちらを参照してください](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#class.E5.B1.9E.E6.80.A7.E3.81.AB.E3.82.88.E3.82.8B.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E3.81.AE.E3.82.B0.E3.83.AB.E3.83.BC.E3.83.94.E3.83.B3.E3.82.B0.E3.83.BB.E3.82.AF.E3.83.AA.E3.83.83.E3.82.AB.E3.83.96.E3.83.AB.E6.A9.9F.E8.83.BD.E3.81.AE.E6.8F.90.E4.BE.9B) (オプション)
 - レイヤーの順番は、下の行ほど上のレイヤーになる。[SVGのPainters Model](https://www.w3.org/TR/SVG11/render.html#PaintersModel)

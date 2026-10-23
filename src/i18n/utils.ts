@@ -1,4 +1,4 @@
-import { defaultLang, languages, ui } from "./ui";
+import { defaultLang, ui } from "./ui";
 
 export function getLangFromUrl(url: URL) {
 	const [, lang] = url.pathname.split("/");
@@ -20,6 +20,16 @@ export function pathWithoutLocale(url: URL) {
 }
 
 export function parseValidLang(lang: string) {
-	if (lang in Object.keys(languages)) return lang as keyof typeof languages;
+	if (lang in Object.keys(ui)) return lang as keyof typeof ui;
 	return defaultLang;
+}
+
+export function chooseLocale(locale: string) {
+	const validatedLocale = parseValidLang(locale);
+
+	try {
+		localStorage.setItem("hyperlayering.locale", validatedLocale);
+	} catch {
+		console.warn("Unable to set hyperlayering.locale localStorage item");
+	}
 }

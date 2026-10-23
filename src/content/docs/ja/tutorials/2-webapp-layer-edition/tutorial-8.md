@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル8 WebApp Layer メッシュデータ'
+title: "チュートリアル8 WebApp Layer メッシュデータ"
 sidebar:
   order: 8
 ---
@@ -32,16 +32,16 @@ webAppで非同期読み込みにより、2次元配列形式のメッシュデ�
 日本では、メッシュ間隔と原点、および各メッシュへの附番規則として、地域基準メッシュがよく用いられています。 [参考１](https://www.biodic.go.jp/kiso/col_mesh.html) , [参考２](https://www.stat.go.jp/data/mesh/m_tuite.html) , [参考３](https://ja.wikipedia.org/wiki/%E5%9C%B0%E5%9F%9F%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5)（なお、地域基準メッシュはメッシュデータのデータ形式ではない）
 
 **10x8 meshData (X0=xx,Y0=yy,interval=ii)**
-|---|---|---|---|---|---|---|---|---|---|
-|---|---|---|---|---|---|---|---|---|---|
-| Val0,0	| Val1,0	| Val2,0	| Val3,0	| Val4,0	| Val5,0	| Val6,0	| Val7,0	| Val8,0	| Val9,0| 
-| Val0,1	| Val1,1	| Val2,1	| Val3,1	| Val4,1	| Val5,1	| Val6,1	| Val7,1	| Val8,1	| Val9,1| 
-| Val0,2	| Val1,2	| Val2,2	| Val3,2	| Val4,2	| Val5,2	| Val6,2	| Val7,2	| Val8,2	| Val9,2| 
-| Val0,3	| Val1,3	| Val2,3	| Val3,3	| Val4,3	| Val5,3	| Val6,3	| Val7,3	| Val8,3	| Val9,3| 
-| Val0,4	| Val1,4	| Val2,4	| Val3,4	| Val4,4	| Val5,4	| Val6,4	| Val7,4	| Val8,4	| Val9,4| 
-| Val0,5	| Val1,5	| Val2,5	| Val3,5	| Val4,5	| Val5,5	| Val6,5	| Val7,5	| Val8,5	| Val9.5| 
-| Val0,6	| Val1,6	| Val2,6	| Val3,6	| Val4,6	| Val5,6	| Val6,6	| Val7,6	| Val8,6	| Val9,6| 
-| Val0,7	| Val1,7	| Val2,7	| Val3,7	| Val4,7	| Val5,7	| Val6,7	| Val7,7	| Val8,7	| Val9,7| 
+| ---    | ---    | ---    | ---    | ---    | ---    | ---    | ---    | ---    | ---    |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| Val0,0 | Val1,0 | Val2,0 | Val3,0 | Val4,0 | Val5,0 | Val6,0 | Val7,0 | Val8,0 | Val9,0 |
+| Val0,1 | Val1,1 | Val2,1 | Val3,1 | Val4,1 | Val5,1 | Val6,1 | Val7,1 | Val8,1 | Val9,1 |
+| Val0,2 | Val1,2 | Val2,2 | Val3,2 | Val4,2 | Val5,2 | Val6,2 | Val7,2 | Val8,2 | Val9,2 |
+| Val0,3 | Val1,3 | Val2,3 | Val3,3 | Val4,3 | Val5,3 | Val6,3 | Val7,3 | Val8,3 | Val9,3 |
+| Val0,4 | Val1,4 | Val2,4 | Val3,4 | Val4,4 | Val5,4 | Val6,4 | Val7,4 | Val8,4 | Val9,4 |
+| Val0,5 | Val1,5 | Val2,5 | Val3,5 | Val4,5 | Val5,5 | Val6,5 | Val7,5 | Val8,5 | Val9.5 |
+| Val0,6 | Val1,6 | Val2,6 | Val3,6 | Val4,6 | Val5,6 | Val6,6 | Val7,6 | Val8,6 | Val9,6 |
+| Val0,7 | Val1,7 | Val2,7 | Val3,7 | Val4,7 | Val5,7 | Val6,7 | Val7,7 | Val8,7 | Val9,7 |
 
 上の図で、個々の升目が一個のメッシュ、升目の中の数字はメッシュの番号(二次元配列の番号)、それぞれの升目の中に値が入ります。また括弧の中のメタデータX0,Y0,intervalが原点の座標値、メッシュ間隔です。（メタデータとしてはさらにデータの単位や座標系・説明などが記述されることがある）
 
@@ -54,11 +54,12 @@ webAppで非同期読み込みにより、2次元配列形式のメッシュデ�
 - 上図メッシュデータの構造をそのままデータ化したものです。
 - よく使用されるASCII(テキスト)符号化形式:[AAIGrid (Wikipedia](https://en.wikipedia.org/wiki/Esri_grid) ([GDAL explanation)](https://gdal.org/en/stable/drivers/raster/aaigrid.html))
 - 圧縮が効きやすいデータのため、差分符号化、バイナリ符号化も よく行われます。ビットイメージデータ形式（ただしロスレス形式）をそのまま利用することもあります。
-	- [GeoTIFF](https://ja.wikipedia.org/wiki/GeoTIFF)
-	- [地理院の標高タイル](https://maps.gsi.go.jp/development/demtile.html)の例(PNGで符号化)
-	- [GDALのラスタードライバ一覧](https://gdal.org/drivers/raster/index.html)
+  - [GeoTIFF](https://ja.wikipedia.org/wiki/GeoTIFF)
+  - [地理院の標高タイル](https://maps.gsi.go.jp/development/demtile.html)の例(PNGで符号化)
+  - [GDALのラスタードライバ一覧](https://gdal.org/drivers/raster/index.html)
 
 #### [Gridded XYZ](https://gdal.org/drivers/raster/xyz.html)
+
 - Pointフィーチャの形式を用いてデータを符号化します。ただしPointの座標が必ずグリッド上にしか存在しないように制約をかけます。
 - Rasterとの違いは、各レコードに座標値(X,Y)が入る点です。
 
@@ -82,7 +83,6 @@ X2,Y2,Value22
 ```
 
 ここで、Gridded XYZではレコードの並びの順番は問いません。また、格子点にデータが無い場合はそのレコードは省略をできます。データによってはX,Y値が重複するデータ（正規化されていないデータ）が交換されることもあります。このように正規化されていなくても記述できることが特徴的と言えます。
-
 - [こちらも参考にしてください。](https://gdal.org/drivers/raster/xyz.html):
 
 データ形式構造間の変換ツールの例： [https://gdal.org/programs/gdal_grid.html](https://gdal.org/programs/gdal_grid.html)
@@ -90,28 +90,28 @@ X2,Y2,Value22
 #### 本チュートリアルのデータ形式
 
 テキスト符号化したRaster形式を用いることにします。
-
 - ヘッダ行（最初の1行）
 - カンマ区切り、2次元配列データ（2行目以降）
-	- 一個のメッシュに対して一個の値が入る[実数](温度と湿度など複数の値は許容されない)
-	- カラム（桁）方向：X方向
-		- 桁が増える方向が、Xのグリッド座標も増える方向
-	- ロー（行）方向：Y方向
-		- 行が増える方向は、Yのグリッド座標が減る方向
+  - 一個のメッシュに対して一個の値が入る[実数](温度と湿度など複数の値は許容されない)
+  - カラム（桁）方向：X方向
+    - 桁が増える方向が、Xのグリッド座標も増える方向
+  - ロー（行）方向：Y方向
+    - 行が増える方向は、Yのグリッド座標が減る方向
 
 #### ヘッダ行
 
-- [属性名]:[属性値]の組をカンマ区切りで並べる。
+- [属性名]: [属性値]の組をカンマ区切りで並べる。
+
 - 属性名
-	- minX : メッシュ領域のX(経度)の最小値[実数]（上の図の全体を囲む四角形の左端の座標）
-	- maxX : メッシュ領域のX(経度)の最大値[実数]（同、右端の座標）
-	- minY : メッシュ領域のY(緯度)の最小値[実数]（同、下端の座標）
-	- maxY : メッシュ領域のY(緯度)の最大値[実数]（同、上端の座標）
-	- partX : メッシュ領域X(経度)方向のメッシュ個数[自然数]
-	- partY : メッシュ領域Y(緯度)方向のメッシュ個数[自然数]
-	- valName : メッシュの値の単位[文字列]	
-	- minVal : メッシュの値の最小値[実数]
-	- maxVal : メッシュの値の最大値[実数]
+  - minX : メッシュ領域のX(経度)の最小値[実数]（上の図の全体を囲む四角形の左端の座標）
+  - maxX : メッシュ領域のX(経度)の最大値[実数]（同、右端の座標）
+  - minY : メッシュ領域のY(緯度)の最小値[実数]（同、下端の座標）
+  - maxY : メッシュ領域のY(緯度)の最大値[実数]（同、上端の座標）
+  - partX : メッシュ領域X(経度)方向のメッシュ個数[自然数]
+  - partY : メッシュ領域Y(緯度)方向のメッシュ個数[自然数]
+  - valName : メッシュの値の単位[文字列]
+  - minVal : メッシュの値の最小値[実数]
+  - maxVal : メッシュの値の最大値[実数]
 
 #### 実際に使うサンプルデータ
 
@@ -223,7 +223,7 @@ minX:124.1539312,maxX:145.7870748,minY:24.33444293,maxY:45.51431213,partX:100,pa
 
 - GeoJsonを表示する主題レイヤと、背景地図(OpenStreetMap)をanimation要素で読み込んでいます。
 - [チュートリアル6](../tutorial-6/index.md#containersvg-container-svg)同様にクリッカブルなレイヤーを指定しています。
-	- 後述のように、メッシュデータをベクトルデータとして可視化し対話性を実現するため、class属性でclickableを指定しています。
+  - 後述のように、メッシュデータをベクトルデータとして可視化し対話性を実現するため、class属性でclickableを指定しています。
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?>
@@ -241,8 +241,8 @@ minX:124.1539312,maxX:145.7870748,minY:24.33444293,maxY:45.51431213,partX:100,pa
 ### ArrayMesh.svg {#array-mesh-svg}
 
 - ドキュメントルート要素(svg要素)の、data-controller属性で、この[レイヤーを操作するwebApp](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI)を指定しています。
-	- ```data-controller="ArrayMesh.html#exec=appearOnLayerLoad```
-	- The ```exec=appearOnLayerLoad``` レイヤが表示状態になるとwebAppのウィンドが出現する設定です。([詳しくはこちら](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
+  - `data-controller="ArrayMesh.html#exec=appearOnLayerLoad`
+  - The `exec=appearOnLayerLoad` レイヤが表示状態になるとwebAppのウィンドが出現する設定です。([詳しくはこちら](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?>
@@ -260,23 +260,22 @@ minX:124.1539312,maxX:145.7870748,minY:24.33444293,maxY:45.51431213,partX:100,pa
 ### ArrayMesh.html, ArrayMesh.js {#array-mesh}
 
 メッシュデータを読み込み、一個一個のメッシュをsvgのrect要素として可視化します。
-
-- ```addEventListener(“load”, async function(){..``` : webAppロード後 fetchAPIでメッシュデータを読み込み
-	- メッシュデータは１行ごとに切り分けられた文字列として、csvLines[]に格納
-- ```getCsvProps(headerLine)```: ヘッダ行を読み込み
-- ```getRange()```: （ヒートマップの色分けのための）可視化値の最大最小値を算出
-- ```drawMesh()```: メッシュデータを１行ずつ読み込み、さらにカラムで分割し、メッシュデータを一個づつ可視化している
-	- ```setMesh(...)```: 一個一個のメッシュを可視化している関数
-		- ```xd, yd```: メッシュの地理座標値(xd:経度, yd:緯度)を算出している
-			- y座標に注意：SVGコンテンツの座標と地理的な座標(緯度の座標軸)の向きが逆。そのため北（緯度の値が大きい側）がSVG座標での原点（SVGのY座標の値が小さい側）になる。
-		- ```cl = document.createElement(“rect”);```: rect要素としてメッシュを可視化
-			- ```cl.setAttribute - x,y,width,height```: 地理座標値をSVGコンテンツの座標値に変換し、SVGのrect要素に設定
-			- ArrayMesh.svgの、 ```globalCoordinateSystem``` 要素で、指定した変換係数(100,0,0,-100,0,0)を前提に決め打ちしている
-		- ```getColor(val, minVal, maxVal)```: 可視化する値を色コードに変換
-			- ```HSVtoRGB(h, s, v)```: HSV値をRGB値(SVGなどで設定できる色情報)に変換する関数。
-			- このチュートリアルでは、 [HSV(Hue(色相), Satulation(彩度), Value(明度))色空間](https://ja.wikipedia.org/wiki/HSV%E8%89%B2%E7%A9%BA%E9%96%93) の色相(H値)に、値を関連付けて、 [ヒートマップ](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%88%E3%83%9E%E3%83%83%E3%83%97) 的な可視化を行っています。(S,Vは最大値に設定（一番くっきりした色）)
-	- ```svgMap.refreshScreen()``` 伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)を明示する必要があります。
-		- [参考情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
+- `addEventListener(“load”, async function(){..` : webAppロード後 fetchAPIでメッシュデータを読み込み
+  - メッシュデータは１行ごとに切り分けられた文字列として、csvLines[]に格納
+- `getCsvProps(headerLine)`: ヘッダ行を読み込み
+- `getRange()`: （ヒートマップの色分けのための）可視化値の最大最小値を算出
+- `drawMesh()`: メッシュデータを１行ずつ読み込み、さらにカラムで分割し、メッシュデータを一個づつ可視化している
+  - `setMesh(...)`: 一個一個のメッシュを可視化している関数
+    - `xd, yd`: メッシュの地理座標値(xd:経度, yd:緯度)を算出している
+      - y座標に注意：SVGコンテンツの座標と地理的な座標(緯度の座標軸)の向きが逆。そのため北（緯度の値が大きい側）がSVG座標での原点（SVGのY座標の値が小さい側）になる。
+    - `cl = document.createElement(“rect”);`: rect要素としてメッシュを可視化
+      - `cl.setAttribute - x,y,width,height`: 地理座標値をSVGコンテンツの座標値に変換し、SVGのrect要素に設定
+      - ArrayMesh.svgの、 `globalCoordinateSystem` 要素で、指定した変換係数(100,0,0,-100,0,0)を前提に決め打ちしている
+    - `getColor(val, minVal, maxVal)`: 可視化する値を色コードに変換
+      - `HSVtoRGB(h, s, v)`: HSV値をRGB値(SVGなどで設定できる色情報)に変換する関数。
+      - このチュートリアルでは、 [HSV(Hue(色相), Satulation(彩度), Value(明度))色空間](https://ja.wikipedia.org/wiki/HSV%E8%89%B2%E7%A9%BA%E9%96%93) の色相(H値)に、値を関連付けて、 [ヒートマップ](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%88%E3%83%9E%E3%83%83%E3%83%97) 的な可視化を行っています。(S,Vは最大値に設定（一番くっきりした色）)
+  - `svgMap.refreshScreen()` 伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)を明示する必要があります。
+    - [参考情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
 
 ```html
 <!DOCTYPE html>
@@ -320,63 +319,63 @@ var csvPath = "mesh.csv";
 
 var csvLines, csvProps;
 
-addEventListener("load",async function(){
+addEventListener("load", async function () {
 	csvLines = await getText(csvPath);
 	csvLines = csvLines.split("\n");
-	csvProps=getCsvProps(csvLines[0]);
-	vminI.value=csvProps.minVal;
-	vmaxI.value=csvProps.maxVal;
+	csvProps = getCsvProps(csvLines[0]);
+	vminI.value = csvProps.minVal;
+	vmaxI.value = csvProps.maxVal;
 	getRange();
 	drawMesh(csvLines, csvProps);
 });
 
-function drawMesh(csvLines, csvProps, minVal, maxVal){
-	if (!minVal){
+function drawMesh(csvLines, csvProps, minVal, maxVal) {
+	if (!minVal) {
 		minVal = csvProps.minVal;
 	}
-	if (!maxVal){
+	if (!maxVal) {
 		maxVal = csvProps.maxVal;
 	}
-	for ( var i = 1 ; i < csvProps.partY + 1 ; i++ ){
+	for (var i = 1; i < csvProps.partY + 1; i++) {
 		var strTxt = csvLines[i].split(",");
-		for ( var j = 0 ; j < csvProps.partX ; j++ ){
-			if ( strTxt[j].replace(/\s+/g, "") !=""){
+		for (var j = 0; j < csvProps.partX; j++) {
+			if (strTxt[j].replace(/\s+/g, "") != "") {
 				var val = Number(strTxt[j]);
-				setMesh( j , i-1 , val, csvProps, minVal, maxVal );
+				setMesh(j, i - 1, val, csvProps, minVal, maxVal);
 			}
 		}
 	}
 	svgMap.refreshScreen();
 }
 
-function setMesh( xp , yp , value, csvProps, minVal, maxVal ){
-//		console.log("call getMesh:");
+function setMesh(xp, yp, value, csvProps, minVal, maxVal) {
+	//		console.log("call getMesh:");
 	var color = getColor(value, minVal, maxVal);
-	var cl = svgImage.getElementById(xp+":"+yp);
-	if ( cl ){
-		cl.setAttribute("fill" , color);
+	var cl = svgImage.getElementById(xp + ":" + yp);
+	if (cl) {
+		cl.setAttribute("fill", color);
 	} else {
 		var xd = csvProps.minX + xp * csvProps.twd; // rectの西
 		var yd = csvProps.maxY - yp * csvProps.thd; // rectの北
-		
+
 		cl = document.createElement("rect"); // Should be used NS ( for Firefox!!)
-		cl.setAttribute("x" ,  100 * xd );
-		cl.setAttribute("y" , -100 * yd );
-		cl.setAttribute("width" , 100 * csvProps.twd );
-		cl.setAttribute("height" , 100 * csvProps.thd );
-		cl.setAttribute("content" , value);
-		cl.setAttribute("fill" , color);
-		cl.setAttribute("id", xp+":"+yp);
+		cl.setAttribute("x", 100 * xd);
+		cl.setAttribute("y", -100 * yd);
+		cl.setAttribute("width", 100 * csvProps.twd);
+		cl.setAttribute("height", 100 * csvProps.thd);
+		cl.setAttribute("content", value);
+		cl.setAttribute("fill", color);
+		cl.setAttribute("id", xp + ":" + yp);
 		svgImage.getElementsByTagName("svg")[0].appendChild(cl);
 	}
 }
 
-function getCsvProps(headerLine){
-	var hp = getHeaderParams( headerLine );
-	console.log("sc_param:",hp);
+function getCsvProps(headerLine) {
+	var hp = getHeaderParams(headerLine);
+	console.log("sc_param:", hp);
 	svgImage.documentElement.setAttribute("property", hp.valName);
-	
-	csvProps={
+
+	csvProps = {
 		minX: Number(hp.minX),
 		maxX: Number(hp.maxX),
 		minY: Number(hp.minY),
@@ -385,111 +384,135 @@ function getCsvProps(headerLine){
 		maxVal: Number(hp.maxVal),
 		partX: Number(hp.partX),
 		partY: Number(hp.partY),
-	}
-	
-	csvProps.twd = ( csvProps.maxX - csvProps.minX ) / csvProps.partX;
-	csvProps.thd = ( csvProps.maxY - csvProps.minY ) / csvProps.partY;
-	
-	return ( csvProps );
+	};
+
+	csvProps.twd = (csvProps.maxX - csvProps.minX) / csvProps.partX;
+	csvProps.thd = (csvProps.maxY - csvProps.minY) / csvProps.partY;
+
+	return csvProps;
 	updateTile();
 }
 
-function getHeaderParams( hash ){
+function getHeaderParams(hash) {
 	hash = hash.split(",");
-	for ( var i = 0 ; i < hash.length ; i++ ){
+	for (var i = 0; i < hash.length; i++) {
 		hash[i] = hash[i].split(":");
-		if ( hash[i][1] ){
+		if (hash[i][1]) {
 			hash[hash[i][0]] = hash[i][1];
 		} else {
 			hash[hash[i][0]] = true;
 		}
 	}
-	return ( hash );
+	return hash;
 }
 
-async function getText(path){
+async function getText(path) {
 	var response = await fetch(path);
 	var txt = await response.text();
-	return ( txt );
+	return txt;
 }
 
-function getColor( val, minVal, maxVal ){
-	
+function getColor(val, minVal, maxVal) {
 	// value clip
-	if ( val > maxVal ){
+	if (val > maxVal) {
 		val = maxVal;
 	}
-	if ( val < minVal ){
+	if (val < minVal) {
 		val = minVal;
 	}
-	
+
 	// Hue値の算出(最大値:H=0(赤) , 最小値:H=270(青紫) 逆周り)
-	var h = 270 - 270 * (val - minVal) / (maxVal - minVal);
-	
-	var ans = HSVtoRGB (h, 255, 255);
-	
-	return ("#"+ pad16(ans.r) + pad16(ans.g) + pad16(ans.b));
+	var h = 270 - (270 * (val - minVal)) / (maxVal - minVal);
+
+	var ans = HSVtoRGB(h, 255, 255);
+
+	return "#" + pad16(ans.r) + pad16(ans.g) + pad16(ans.b);
 }
 
-function pad16( val ){
-	var bv =  "00" + val.toString(16);
+function pad16(val) {
+	var bv = "00" + val.toString(16);
 	bv = bv.substr(bv.length - 2, 2);
-	return ( bv );
+	return bv;
 }
 
-function HSVtoRGB (h, s, v) { // from http://d.hatena.ne.jp/ja9/20100903/1283504341
+function HSVtoRGB(h, s, v) {
+	// from http://d.hatena.ne.jp/ja9/20100903/1283504341
 	var r, g, b; // 0..255
 	while (h < 0) {
 		h += 360;
 	}
 	h = h % 360;
-	
+
 	// 特別な場合 saturation = 0
 	if (s == 0) {
 		// → RGB は V に等しい
 		v = Math.round(v);
-		return {'r': v, 'g': v, 'b': v};
+		return { r: v, g: v, b: v };
 	}
 	s = s / 255;
-	
+
 	var i = Math.floor(h / 60) % 6,
-	f = (h / 60) - i,
-	p = v * (1 - s),
-	q = v * (1 - f * s),
-	t = v * (1 - (1 - f) * s);
+		f = h / 60 - i,
+		p = v * (1 - s),
+		q = v * (1 - f * s),
+		t = v * (1 - (1 - f) * s);
 
 	switch (i) {
-	case 0 :
-		r = v;  g = t;  b = p;  break;
-	case 1 :
-		r = q;  g = v;  b = p;  break;
-	case 2 :
-		r = p;  g = v;  b = t;  break;
-	case 3 :
-		r = p;  g = q;  b = v;  break;
-	case 4 :
-		r = t;  g = p;  b = v;  break;
-	case 5 :
-		r = v;  g = p;  b = q;  break;
+		case 0:
+			r = v;
+			g = t;
+			b = p;
+			break;
+		case 1:
+			r = q;
+			g = v;
+			b = p;
+			break;
+		case 2:
+			r = p;
+			g = v;
+			b = t;
+			break;
+		case 3:
+			r = p;
+			g = q;
+			b = v;
+			break;
+		case 4:
+			r = t;
+			g = p;
+			b = v;
+			break;
+		case 5:
+			r = v;
+			g = p;
+			b = q;
+			break;
 	}
-	return {'r': Math.round(r), 'g': Math.round(g), 'b': Math.round(b)};
+	return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
 }
 
-
-function getRange(){
-	if ( isNaN(vminI.value) || isNaN(vmaxI.value) ){return}
+function getRange() {
+	if (isNaN(vminI.value) || isNaN(vmaxI.value)) {
+		return;
+	}
 	var minVal = Number(vminI.value);
 	var maxVal = Number(vmaxI.value);
-	if ( minVal > maxVal){[minVal, maxVal] = [maxVal, minVal]}
-	
+	if (minVal > maxVal) {
+		[minVal, maxVal] = [maxVal, minVal];
+	}
+
 	document.getElementById("scalemin").innerHTML = minVal.toPrecision(5);
 	document.getElementById("scalemax").innerHTML = maxVal.toPrecision(5);
-	document.getElementById("scalemid").innerHTML = ((maxVal + minVal)/2.0).toPrecision(5);
-	return{minVal,maxVal}
+	document.getElementById("scalemid").innerHTML = (
+		(maxVal + minVal) /
+		2.0
+	).toPrecision(5);
+	return { minVal, maxVal };
 }
 
-function setRange(){
-	var range=getRange();
+function setRange() {
+	var range = getRange();
 	drawMesh(csvLines, csvProps, range.minVal, range.maxVal);
 }
 ```

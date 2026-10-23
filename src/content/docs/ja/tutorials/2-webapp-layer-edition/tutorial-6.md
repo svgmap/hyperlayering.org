@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル6 WebApp Layer geoJSON'
+title: "チュートリアル6 WebApp Layer geoJSON"
 sidebar:
   order: 6
 ---
@@ -95,8 +95,8 @@ webAppで非同期読み込みにより[GeoJSONデータ](https://ja.wikipedia.o
 ### geoJsonExample1.svg {#geo-json-example1-svg}
 
 - ドキュメントルート要素(svg要素)の、data-controller属性で、この [レイヤーを操作するwebApp](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI)を指定しています。
-	- ```data-controller="geoJsonExample1.html#exec=appearOnLayerLoad```
-	- ```exec=appearOnLayerLoad``` は、レイヤが表示状態になるとwebAppのウィンドが出現する設定です。 ([詳しくはこちら](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
+  - `data-controller="geoJsonExample1.html#exec=appearOnLayerLoad`
+  - `exec=appearOnLayerLoad` は、レイヤが表示状態になるとwebAppのウィンドが出現する設定です。 ([詳しくはこちら](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
 - defs要素でgeoJsonのポイントフィーチャーを可視化するときに使うマーカー(アイコン)を定義しています
 
 ```svg
@@ -127,7 +127,7 @@ geoJsonExample1.svgに紐付けられたwebApp([レイヤー固有のUI](https:/
 
 #### geoJsonexample1.html
 
-htmlは、[レイヤー固有のUIの初期化処理のための共通ライブラリ(svgMapLayerLib.js)の読み込み](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI.E3.81.AE.E3.81.9F.E3.82.81.E3.81.AEhtml.E6.96.87.E6.9B.B8.28webApp.29.E3.81.AE.E6.A7.8B.E9.80.A0.E3.83.BB.E4.BD.9C.E6.B3.95)と、このレイヤー固有の処理内容を記述したscriptコード部(```geoJsonExample1.js```)、及びUI(html,css等)から構成されます。
+htmlは、[レイヤー固有のUIの初期化処理のための共通ライブラリ(svgMapLayerLib.js)の読み込み](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI.E3.81.AE.E3.81.9F.E3.82.81.E3.81.AEhtml.E6.96.87.E6.9B.B8.28webApp.29.E3.81.AE.E6.A7.8B.E9.80.A0.E3.83.BB.E4.BD.9C.E6.B3.95)と、このレイヤー固有の処理内容を記述したscriptコード部(`geoJsonExample1.js`)、及びUI(html,css等)から構成されます。
 
 ```html
 <!doctype html>
@@ -150,14 +150,14 @@ htmlは、[レイヤー固有のUIの初期化処理のための共通ライブ�
 
 - [レイヤー固有のUI:拡張AP](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E6.8B.A1.E5.BC.B5API)記載の通りsvgImage, svgMapGIStoolオブジェクトが自動的にwindowに組み込まれています。
 - geoJsonExample1.svgに紐付けられ、 [そのDOMをコントロールできるwebApp](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI).
-- このアプリでは簡単なUIを持ち、 ```dataPaths``` で設定した　いくつかのgeoJsonデータを選択できるようになっています。
-- ```loadJSON(url)``` : [await](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/async_function[) [fetch](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch) を使って [GeoJSON](https://ja.wikipedia.org/wiki/GeoJSON) を非同期読み込み
-- [SVGMap GISライブラリ(svgMapGIStool)](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMapGIStool..E3.81.A7.E5.91.BC.E3.81.B3.E5.87.BA.E3.81.9B.E3.82.8BAPI)の ```drawGeoJson``` 関数を使用し、geoJsonをSVGMapコンテンツ(のDOM)への変換をしています。
-	- 変数 layerID 組み込み変数 ([the documentation #layerID](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#layerID)参照)
-	- なお、自力でgeoJsonをSVGMapコンテンツのDOMに変換することももちろん可能ですが、チュートリアル6ではライブラリを使っています。
-	- ```drawGeoJson``` 関数については [解説書#drawGeoJson](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#drawGeoJson)を参照
-- ```svgMap.refreshScreen()```  伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画を明示](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)する必要があります。
-	- [参考情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
+- このアプリでは簡単なUIを持ち、 `dataPaths` で設定した　いくつかのgeoJsonデータを選択できるようになっています。
+- `loadJSON(url)` : [await](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/async_function[) [fetch](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch) を使って [GeoJSON](https://ja.wikipedia.org/wiki/GeoJSON) を非同期読み込み
+- [SVGMap GISライブラリ(svgMapGIStool)](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMapGIStool..E3.81.A7.E5.91.BC.E3.81.B3.E5.87.BA.E3.81.9B.E3.82.8BAPI)の `drawGeoJson` 関数を使用し、geoJsonをSVGMapコンテンツ(のDOM)への変換をしています。
+  - 変数 layerID 組み込み変数 ([the documentation #layerID](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#layerID)参照)
+  - なお、自力でgeoJsonをSVGMapコンテンツのDOMに変換することももちろん可能ですが、チュートリアル6ではライブラリを使っています。
+  - `drawGeoJson` 関数については [解説書#drawGeoJson](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#drawGeoJson)を参照
+- `svgMap.refreshScreen()` 伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画を明示](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)する必要があります。
+  - [参考情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
 
 ```js
 var dataPaths = {
@@ -165,61 +165,79 @@ var dataPaths = {
 	"A34a-180316.geojson": "世界遺産構成資産範囲ポリゴンデータ",
 	"A34d-180316.geojson": "世界遺産構成資産範囲ライン（代表点）",
 	"A34c-180316.geojson": "世界遺産構成資産範囲ラインデータ",
-	"A34e-180316.geojson":"世界遺産構成資産",
+	"A34e-180316.geojson": "世界遺産構成資産",
 	"A34f-180316.geojson": "世界遺産緩衝地帯ポリゴンデータ",
-	"A34g-180316.geojson":"世界遺産緩衝地帯ポリゴン（代表点）",
-	"C28-20_Airport.geojson":"空港データ空港",
-	"C28-20_AirportReferencePoint.geojson":"空港データ標点",
+	"A34g-180316.geojson": "世界遺産緩衝地帯ポリゴン（代表点）",
+	"C28-20_Airport.geojson": "空港データ空港",
+	"C28-20_AirportReferencePoint.geojson": "空港データ標点",
 	"C28-20_SurveyContent.geojson": "空港データ調査内容",
-	"C28-20_TerminalBuilding.geojson":"空港データターミナルビル",
-	"N02-20_RailroadSection.geojson":"鉄道データ鉄道",
-	"N02-20_Station.geojson":"鉄道データ駅"
+	"C28-20_TerminalBuilding.geojson": "空港データターミナルビル",
+	"N02-20_RailroadSection.geojson": "鉄道データ鉄道",
+	"N02-20_Station.geojson": "鉄道データ駅",
 };
 
-addEventListener("load", function(){
+addEventListener("load", function () {
 	buildDataSelect();
 	changeData();
 });
 
-function changeData(){
+function changeData() {
 	var path = dataSelect.options[dataSelect.selectedIndex].value;
 	loadAndDrawGeoJson(path);
 }
 
-async function loadAndDrawGeoJson(dataPath){
+async function loadAndDrawGeoJson(dataPath) {
 	var gjs = await loadJSON(dataPath);
 	var parentElm = svgImage.getElementById("mapContents");
 	removeChildren(parentElm);
-	svgMapGIStool.drawGeoJson(gjs, layerID, "orange", 2, "orange", "p0", "poi", "", parentElm);
+	svgMapGIStool.drawGeoJson(
+		gjs,
+		layerID,
+		"orange",
+		2,
+		"orange",
+		"p0",
+		"poi",
+		"",
+		parentElm,
+	);
 	svgMap.refreshScreen();
 }
 
-function buildDataSelect(){
+function buildDataSelect() {
 	var first = true;
-	for ( var dataPath in dataPaths){
-		dataSelect.insertAdjacentHTML('beforeend', '<option value="' + dataPath +'" >'+dataPaths[dataPath]+'</option>');
+	for (var dataPath in dataPaths) {
+		dataSelect.insertAdjacentHTML(
+			"beforeend",
+			'<option value="' + dataPath + '" >' + dataPaths[dataPath] + "</option>",
+		);
 	}
 }
 
-async function loadJSON(url){
-	var dt = getDateStr(new Date(),10);
-	var response = await fetch(url+"?time="+dt); // Add some dummy query part to always get the latest data. Bad Tips...
+async function loadJSON(url) {
+	var dt = getDateStr(new Date(), 10);
+	var response = await fetch(url + "?time=" + dt); // Add some dummy query part to always get the latest data. Bad Tips...
 	// https://stackoverflow.com/questions/37204296/cache-invalidation-using-the-query-string-bad-practice
 	// https://stackoverflow.com/questions/9692665/cache-busting-via-params
 	var json = await response.json();
-	return ( json );
+	return json;
 }
 
-function getDateStr(dateData , tStep){
-	var mind = tStep * Math.floor( dateData.getUTCMinutes() / tStep );
-	var ans = dateData.getUTCFullYear()+ pad(dateData.getUTCMonth() + 1) + pad(dateData.getUTCDate()) + pad(dateData.getUTCHours()) + pad(mind);
-	return ( ans );
+function getDateStr(dateData, tStep) {
+	var mind = tStep * Math.floor(dateData.getUTCMinutes() / tStep);
+	var ans =
+		dateData.getUTCFullYear() +
+		pad(dateData.getUTCMonth() + 1) +
+		pad(dateData.getUTCDate()) +
+		pad(dateData.getUTCHours()) +
+		pad(mind);
+	return ans;
 }
-function pad( inp ){
-	return (("0"+inp).slice(-2));
+function pad(inp) {
+	return ("0" + inp).slice(-2);
 }
 
-function removeChildren(element){
+function removeChildren(element) {
 	while (element.firstChild) element.removeChild(element.firstChild);
 }
 ```

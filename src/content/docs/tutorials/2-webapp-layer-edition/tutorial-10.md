@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 10: Converting WebApp Layer Mesh Data to Bit Image'
+title: "Tutorial 10: Converting WebApp Layer Mesh Data to Bit Image"
 sidebar:
   order: 10
 ---
@@ -22,7 +22,6 @@ To actually do it, click on [mesh3.html](https://svgmap.org/examples/tutorials/m
 Mesh data (Grid data),also known as [raster data](../tutorial-8/index.md#raster), is in a format almost identical to the bit image data formats (such as PNG and JPEG) commonly used for web content. Therefore, we will build a web application that dynamically converts mesh data into bit image content (PNG format) and displays it on a map screen. This offers performance advantages.
 
 The distinctive code is found in the webApp linked to the layer.
-
 - [Click here](https://svgmap.org/examples/tutorials/mesh3/mesh3.html) to see how it works.
 - The file used is a [ZIP archive file](https://www.svgmap.org/examples/tutorials/mesh3.zip).
 
@@ -37,7 +36,6 @@ The detailed specifications of this data are described in the package documentat
 Note that the data format uses spaces as delimiters, not commas, and each Raw (column) does not end on a single line, but rather breaks every 255 characters.
 
 Regarding the data itself, it's important to note the difference between the definition of the grid data's origin and the origin when it's visualized as a bit image. (See the two points below)
-
 - Because the Y (latitude) axis is oriented in the opposite direction, the origin of the original raster data is at the southern end, and the origin of the bit image is at the top end.
 - The origin of raster data is the center position of the pixel when it is visualized as a bit image, whereas the origin when positioning a bit image is the upper left corner of the pixel.
 
@@ -70,16 +68,15 @@ Nothing has changed from before.
 ### [rasterMesh.html](https://svgmap.org/examples/tutorials/mesh3/rasterMesh.html), [rasterMesh.js](https://svgmap.org/examples/tutorials/mesh3/rasterMesh.js) {#raster-mesh}
 
 This process dynamically generates a bit image using the raster data of the loaded text, and then visualizes it by pasting it onto the associated rasterMesh.svg file.
-
-- ```onload=async function()```
-	- ```await buildData()``` Asynchronous function that reads mesh data and saves it to a global variable.
-	- ```var duri = buildImage()```
-		- Use the specified Canvas element for the task, generate a bit image from the loaded data, and output it as a [dataURI](https://developer.mozilla.org/ja/docs/Web/HTTP/Basics_of_HTTP/Data_URIs).
-		- ```canvas.toDataURL()``` The [toDataURL](https://developer.mozilla.org/ja/docs/Web/API/HTMLCanvasElement/toDataURL) method of the canvas object generates a PNG bit image as the DataURL.
-	- ```imageGeoArea``` As noted in the [data precautions](../tutorial-10/index.md#data-to-use-data-to-use), we are calculating the area information needed to map the bit image to SVG coordinates.
-	- ```buildSvgImage()``` The generated bit image (dataURI) and its region information are used to embed the bit image into the SVG DOM associated with the webApp.
-		- ```svgImage``` The DOM (Document object) of the SVG content associated with this web application is predefined.
-	- ```svgMap.refreshScreen()``` Once asynchronous loading, data generation, and SVGMap DOM editing are complete, explicitly trigger a redraw to reflect the changes on the screen. ([Reference](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90))
+- `onload=async function()`
+  - `await buildData()` Asynchronous function that reads mesh data and saves it to a global variable.
+  - `var duri = buildImage()`
+    - Use the specified Canvas element for the task, generate a bit image from the loaded data, and output it as a [dataURI](https://developer.mozilla.org/ja/docs/Web/HTTP/Basics_of_HTTP/Data_URIs).
+    - `canvas.toDataURL()` The [toDataURL](https://developer.mozilla.org/ja/docs/Web/API/HTMLCanvasElement/toDataURL) method of the canvas object generates a PNG bit image as the DataURL.
+  - `imageGeoArea` As noted in the [data precautions](../tutorial-10/index.md#data-to-use-data-to-use), we are calculating the area information needed to map the bit image to SVG coordinates.
+  - `buildSvgImage()` The generated bit image (dataURI) and its region information are used to embed the bit image into the SVG DOM associated with the webApp.
+    - `svgImage` The DOM (Document object) of the SVG content associated with this web application is predefined.
+  - `svgMap.refreshScreen()` Once asynchronous loading, data generation, and SVGMap DOM editing are complete, explicitly trigger a redraw to reflect the changes on the screen. ([Reference](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90))
 
 rasterMesh.js
 

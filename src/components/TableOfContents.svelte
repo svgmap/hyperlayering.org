@@ -14,7 +14,7 @@ let { label = "On This Page", headers = new Map() }: TocProps = $props();
 const headerHeight = 68;
 
 let activeHeaderId = $state<string | null>(null);
-let isContainerWide = $state(false);
+let isContainerWide = $state<boolean | null>(null);
 let tocOpen = $state(false);
 let tocElement = $state<HTMLElement | undefined>();
 
@@ -48,8 +48,16 @@ onMount(() => {
 	const container = tocElement && getLayoutContainer(tocElement);
 	if (container) {
 		const updateContainerState = (width: number) => {
-			isContainerWide =
+			const nextIsContainerWide =
 				Math.round(width) >= document.documentElement.clientWidth;
+
+			if (isContainerWide === null) {
+				isContainerWide = nextIsContainerWide;
+				return;
+			}
+
+			if (nextIsContainerWide && !isContainerWide) tocOpen = false;
+			isContainerWide = nextIsContainerWide;
 		};
 
 		resizeObserver = new ResizeObserver(([entry]) => {
@@ -63,7 +71,8 @@ onMount(() => {
 		resizeObserver.observe(container);
 		window.addEventListener("resize", updateViewportState);
 		updateViewportState();
-		tocOpen = !isContainerWide;
+	} else {
+		isContainerWide = false;
 	}
 
 	// Intersection Observer
@@ -111,14 +120,15 @@ onMount(() => {
 {#if headers.size}
 	<nav
 		class="toc"
-		class:wide={isContainerWide}
+		class:wide={isContainerWide === true}
 		aria-label="Table of contents"
 		data-table-of-contents
 		bind:this={tocElement}
 	>
-		{#if !isContainerWide} 
+		{#if isContainerWide !== null}
+		{#if !isContainerWide}
 			<div class="toc-label font-bold">{label}</div>
-		{:else} 
+		{:else}
 			<button 
 				onclick={() => (tocOpen = !tocOpen)}
 				class="toc-toggle-btn row row--xs font-bold" 
@@ -127,9 +137,9 @@ onMount(() => {
 				aria-controls="toc-list"
 			>
 				{#if !tocOpen}
-				<List size={"1em"}/>
+				<List size="1em" />
 				{:else}
-				<Close size={"1em"}/>
+				<Close size="1em" />
 				{/if}
 				{label}
 			</button>
@@ -159,6 +169,7 @@ onMount(() => {
 				</li>
 			{/each}
 		</ol>
+		{/if}
 		{/if}
 	</nav>
 {/if}

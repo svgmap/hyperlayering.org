@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル7 WebApp Layer ベクトルタイル'
+title: "チュートリアル7 WebApp Layer ベクトルタイル"
 sidebar:
   order: 7
 ---
@@ -7,7 +7,6 @@ sidebar:
 ## はじめに  {#introduction}
 
 webAppで非同期読み込みによりタイル分割されたCSVのPointジオメトリファイルを読み込み、SVGMapフレームワークのライブラリを使ってSVGMapコンテンツのDOMに変換し表示するチュートリアルです。
-
 - 実際の動作は、[tiling1.html](https://svgmap.org/examples/tutorials/tiling1/tiling1.html)をクリック。
 
 ### ソースコード {#source-code}
@@ -18,14 +17,13 @@ webAppで非同期読み込みによりタイル分割されたCSVのPointジオ
 - simpleTiling.svg: UIを持ったレイヤーを操作するwebApp [tutorial 6](../tutorial-6/index.md)とほぼ同じ
 - simpleTiling.html:
 - simpleTiling.js:
-	- GeoJsonを読む点は[Tutorial 6](../tutorial-6/index.md)と同様
-	- 表示領域に応じてGeoJsonを動的に読み込む
-		- 小縮尺(広いエリア)表示のとき、読み込むタイルが多くなりすぎる場合は読み込みをやめ表示させない
+  - GeoJsonを読む点は[Tutorial 6](../tutorial-6/index.md)と同様
+  - 表示領域に応じてGeoJsonを動的に読み込む
+    - 小縮尺(広いエリア)表示のとき、読み込むタイルが多くなりすぎる場合は読み込みをやめ表示させない
 
 ## チュートリアル {#tutorial}
 
 バックエンドにDBMSなどの動的な機構を持たせず、比較的大きなサイズのベクトルデータ（ここではポイントジオメトリデータを扱います）をタイル分割しWebMap/GISとして快適に利用できるコンテンツにします。このようなデザインはGISの世界では[ベクトルタイル](https://en.wikipedia.org/wiki/Vector_tiles)と呼ばれますが、より一般には[Jamstack pattern](https://en.wikipedia.org/wiki/Jamstack)と呼ばれるパターンの一種でしょう。
-
 - 実際の動作は、[こちら](https://svgmap.org/examples/tutorials/tiling1/tiling1.html)をクリック。
 - 使用ファイルの [ZIPアーカイブファイル](https://www.svgmap.org/examples/tutorials/tiling1.zip).
 
@@ -36,7 +34,7 @@ webAppで非同期読み込みによりタイル分割されたCSVのPointジオ
 ### Format of Tiled CSV Data {#format-of-tiled-csv-data}
 
 - 緯度経度とも、１度×１度ごとにタイル分割。
-	- tile_[経度]_[緯度].csv
+  - tile_[経度]_[緯度].csv
 
 #### データの例(tile_125_24.csv)
 
@@ -89,27 +87,27 @@ X,Y,P27_001,P27_002,P27_003,P27_004,P27_005,P27_006,P27_007,P27_008,P27_009
 #### Shapefile->CSV変換
 
 - OGR2OGRで変換
-	- コマンド：　```ogr2ogr -lco GEOMETRY=AS_XY P27-13.csv P27-13.shp```
-		- [オプションの参考情報](https://qiita.com/tohka383/items/d3d1bf80db2cfb416330#csv)
+  - コマンド：　`ogr2ogr -lco GEOMETRY=AS_XY P27-13.csv P27-13.shp`
+    - [オプションの参考情報](https://qiita.com/tohka383/items/d3d1bf80db2cfb416330#csv)
 
 #### Notes
 
 - OGR2OGR:
-	- ogr2ogrは[GDAL](https://gdal.org/)と呼ばれるよく知られたOSSのGISツール集に同梱されているベクトルデータの変換ツール。
-	- Windows版は[こちら](https://gdal.org/download.html#windows)に紹介されているように [gisinternals.com](https://www.gisinternals.com/)でコンパイル済みのバイナリが配布されています。
-		- インストール/Windows
-			- [Stable Releases](https://www.gisinternals.com/release.php)　　⇒　MSVC 2017 x64 (他コンパイル環境も可)　⇒　Generic installer for the GDAL core components (gdal-*-core.msi)
-		- ogr2ogrの実行方法/Windows
-			- Windowsメニュー　⇒　すべてのアプリ　⇒　GDAL　⇒　GDAL * Command Prompt で起動したコマンドプロンプト上で動かす
+  - ogr2ogrは[GDAL](https://gdal.org/)と呼ばれるよく知られたOSSのGISツール集に同梱されているベクトルデータの変換ツール。
+  - Windows版は[こちら](https://gdal.org/download.html#windows)に紹介されているように [gisinternals.com](https://www.gisinternals.com/)でコンパイル済みのバイナリが配布されています。
+    - インストール/Windows
+      - [Stable Releases](https://www.gisinternals.com/release.php)　　⇒　MSVC 2017 x64 (他コンパイル環境も可)　⇒　Generic installer for the GDAL core components (gdal-*-core.msi)
+    - ogr2ogrの実行方法/Windows
+      - Windowsメニュー　⇒　すべてのアプリ　⇒　GDAL　⇒　GDAL * Command Prompt で起動したコマンドプロンプト上で動かす
 - CSVのヘッダ行：
-	- 国土数値情報のヘッダ行は機械的に割り振られた番号(P27_001など)になっている。[国土数値情報の属性情報の説明](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P27.html) を見て、タイル分割前にCSVのヘッダ行を地物名に書き換えるとわかりやすくなります。
+  - 国土数値情報のヘッダ行は機械的に割り振られた番号(P27_001など)になっている。[国土数値情報の属性情報の説明](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P27.html) を見て、タイル分割前にCSVのヘッダ行を地物名に書き換えるとわかりやすくなります。
 
 #### CSVのタイル分割
 
 - [simpleTiling.py](https://svgmap.org/examples/tutorials/tiling1/simpleTiling.py)を用意したのでこれを使います
 - 作業ディレクトリにtilesディレクトリを作成
-- コマンド：　```python simpleTiling.py P27-13.csv 0 1```
-	- 参考 : [Windows版Pythonのインストール](https://www.python.jp/install/windows/install.html)
+- コマンド：　`python simpleTiling.py P27-13.csv 0 1`
+  - 参考 : [Windows版Pythonのインストール](https://www.python.jp/install/windows/install.html)
 
 ### tiling1.html {#tiling1-html}
 
@@ -163,7 +161,7 @@ X,Y,P27_001,P27_002,P27_003,P27_004,P27_005,P27_006,P27_007,P27_008,P27_009
 ### Container.svg {#container-svg}
 
 - [チュートリアル6](../tutorial-6/index.md)のhtmlと特に違いはありません。
-	- GeoJsonデータはベクトルタイルデータのため、class属性で[clickable](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#class.E5.B1.9E.E6.80.A7.E3.81.AB.E3.82.88.E3.82.8B.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E3.81.AE.E3.82.B0.E3.83.AB.E3.83.BC.E3.83.94.E3.83.B3.E3.82.B0.E3.83.BB.E3.82.AF.E3.83.AA.E3.83.83.E3.82.AB.E3.83.96.E3.83.AB.E6.A9.9F.E8.83.BD.E3.81.AE.E6.8F.90.E4.BE.9B)を指定しています。
+  - GeoJsonデータはベクトルタイルデータのため、class属性で[clickable](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#class.E5.B1.9E.E6.80.A7.E3.81.AB.E3.82.88.E3.82.8B.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E3.81.AE.E3.82.B0.E3.83.AB.E3.83.BC.E3.83.94.E3.83.B3.E3.82.B0.E3.83.BB.E3.82.AF.E3.83.AA.E3.83.83.E3.82.AB.E3.83.96.E3.83.AB.E6.A9.9F.E8.83.BD.E3.81.AE.E6.8F.90.E4.BE.9B)を指定しています。
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?>
@@ -203,18 +201,18 @@ X,Y,P27_001,P27_002,P27_003,P27_004,P27_005,P27_006,P27_007,P27_008,P27_009
 - simpleTiling.svgに紐付けられ、[そのDOMをコントロールできるwebApp](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI)
 -  表示領域に応じてタイル分割されたGeoJsonデータを動的に読み込みます。この点は [チュートリアル5](../tutorial-5/index.md)と類似しています。
 - 縮尺に応じたピラミッド構造は持っていないので、このチュートリアルのほうが単純です。
-- その代わり、小縮尺(縮小表示)では読み込むデータが大量になりすぎるので、読み込みを行わず、描画を消去し(```removeAllTiles()```)、webAppのウィンド上に拡大を促すメッセージを出します。
-- ```addEventListener("zoomPanMap",zpmFunc)``` : 伸縮スクロールが発生したときに、 zpmFunc()を呼び出す。
-- ```zpmFunc()``` : 表示領域に応じて読み込むべきタイルを選別して表示する
-- ```svgMap.getGeoViewBox()``` : 地理的な表示領域を取得
-- ```getTileList(geoViewBox)``` : 表示すべきタイルをリストアップする
-- ```delete tiles[tileKey]``` : 表示領域から外れたタイルのグループを消去
-- ```await loadCSV()``` : 既に読み込み済みのものを除き、表示すべきタイルデータ(CSV)を読み込み
-- ```drawTiles()```：読み込んだCSVデータを表示する
+- その代わり、小縮尺(縮小表示)では読み込むデータが大量になりすぎるので、読み込みを行わず、描画を消去し(`removeAllTiles()`)、webAppのウィンド上に拡大を促すメッセージを出します。
+- `addEventListener("zoomPanMap",zpmFunc)` : 伸縮スクロールが発生したときに、 zpmFunc()を呼び出す。
+- `zpmFunc()` : 表示領域に応じて読み込むべきタイルを選別して表示する
+- `svgMap.getGeoViewBox()` : 地理的な表示領域を取得
+- `getTileList(geoViewBox)` : 表示すべきタイルをリストアップする
+- `delete tiles[tileKey]` : 表示領域から外れたタイルのグループを消去
+- `await loadCSV()` : 既に読み込み済みのものを除き、表示すべきタイルデータ(CSV)を読み込み
+- `drawTiles()`：読み込んだCSVデータを表示する
 - タイルを表示するためのグループを作成
-- ```csv2geojson``` : 読み込んだCSVからgeoJsonを生成する
-- ```svgMapGIStool.drawGeoJson()``` : geoJsonからSVGのDOMを生成
-- ```svgMap.refreshScreen()``` 伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画を明示](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)する必要があります。
+- `csv2geojson` : 読み込んだCSVからgeoJsonを生成する
+- `svgMapGIStool.drawGeoJson()` : geoJsonからSVGのDOMを生成
+- `svgMap.refreshScreen()` 伸縮スクロール以外のタイミングでDOMの再描画が必要な場合、 [再描画を明示](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen)する必要があります。
 - [参考情報](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
 
 ```html
@@ -234,133 +232,152 @@ X,Y,P27_001,P27_002,P27_003,P27_004,P27_005,P27_006,P27_007,P27_008,P27_009
 ```
 
 ```js
-addEventListener("load",init);
-addEventListener("zoomPanMap",zpmFunc);
+addEventListener("load", init);
+addEventListener("zoomPanMap", zpmFunc);
 
-var latCol=10;
-var lngCol=9;
-var tilesTh=8; // 画面の中に入るタイルの枚数の閾値（縮小すると読み込むタイルが多くなりすぎ重くなるのを防ぐ）
+var latCol = 10;
+var lngCol = 9;
+var tilesTh = 8; // 画面の中に入るタイルの枚数の閾値（縮小すると読み込むタイルが多くなりすぎ重くなるのを防ぐ）
 
-function init(){
+function init() {
 	zpmFunc();
 }
 
-function getTileList(geoViewBox){
-	var tileNames={};
-	for ( var ty = Math.floor(geoViewBox.y) ; ty<= Math.floor(geoViewBox.y+geoViewBox.height) ; ty++){
-		for ( var tx = Math.floor(geoViewBox.x) ; tx <= Math.floor(geoViewBox.x+geoViewBox.width) ; tx++){
-			var tile="tile_" + tx + "_" + ty;
-			tileNames[tile]=true;
+function getTileList(geoViewBox) {
+	var tileNames = {};
+	for (
+		var ty = Math.floor(geoViewBox.y);
+		ty <= Math.floor(geoViewBox.y + geoViewBox.height);
+		ty++
+	) {
+		for (
+			var tx = Math.floor(geoViewBox.x);
+			tx <= Math.floor(geoViewBox.x + geoViewBox.width);
+			tx++
+		) {
+			var tile = "tile_" + tx + "_" + ty;
+			tileNames[tile] = true;
 		}
 	}
-	return ( tileNames);
+	return tileNames;
 }
 
-var tiles={}; // データ(CSVを配列化したもの)をタイルごとに格納する変数
+var tiles = {}; // データ(CSVを配列化したもの)をタイルごとに格納する変数
 
-async function zpmFunc(){
+async function zpmFunc() {
 	var geoViewBox = svgMap.getGeoViewBox();
-	var tileList=getTileList(geoViewBox);
-	
-	if (Object.keys(tileList).length < tilesTh ){
-		for ( var tileKey in tiles ){ // 必要ないデータを消す
-			if ( !tileList[tileKey]){
+	var tileList = getTileList(geoViewBox);
+
+	if (Object.keys(tileList).length < tilesTh) {
+		for (var tileKey in tiles) {
+			// 必要ないデータを消す
+			if (!tileList[tileKey]) {
 				delete tiles[tileKey];
 			}
 		}
-		for ( var tileKey in tileList ){ // 不足しているデータを読み込む
-			if ( !tiles[tileKey] ){
-				tiles[tileKey]=await loadCSV(`tiles/${tileKey}.csv`); // テンプレートリテラル
+		for (var tileKey in tileList) {
+			// 不足しているデータを読み込む
+			if (!tiles[tileKey]) {
+				tiles[tileKey] = await loadCSV(`tiles/${tileKey}.csv`); // テンプレートリテラル
 			}
 		}
-		message.innerText="-";
+		message.innerText = "-";
 		drawTiles(tileList);
 	} else {
-		message.innerText="Too many tiles, please zoom in.";
+		message.innerText = "Too many tiles, please zoom in.";
 		removeAllTiles();
 	}
 }
 
-function removeAllTiles(){
-	tiles={};
+function removeAllTiles() {
+	tiles = {};
 	var groups = svgImage.getElementById("mapTiles").children;
-	for ( var i = groups.length -1 ; i >= 0 ; i-- ){
-		groups[i].remove(); 
+	for (var i = groups.length - 1; i >= 0; i--) {
+		groups[i].remove();
 	}
 	svgMap.refreshScreen();
 }
 
-function drawTiles(tileList){
+function drawTiles(tileList) {
 	// tileList:表示すべきタイルのキー(ID)の連想配列
 	var tileGroup = svgImage.getElementById("mapTiles");
 	var groups = tileGroup.children;
-	for ( var i = groups.length -1 ; i >= 0 ; i-- ){
+	for (var i = groups.length - 1; i >= 0; i--) {
 		var groupKey = groups[i].getAttribute("id");
-		if ( !tileList[groupKey]){
+		if (!tileList[groupKey]) {
 			groups[i].remove(); // 表示する必要のないグループは消す
 		} else {
 			delete tileList[groupKey]; // すでに描画済みのタイルなのでtileListから消す
 		}
 	}
 	// tileListは、新たに描画すべきタイルのリストとなった
-	for ( var tileKey in tileList){
+	for (var tileKey in tileList) {
 		var grp = svgImage.createElement("g");
-		grp.setAttribute("id",tileKey);
+		grp.setAttribute("id", tileKey);
 		tileGroup.appendChild(grp);
-		if ( tiles[tileKey] ){
+		if (tiles[tileKey]) {
 			var geoJson = csv2geojson(tiles[tileKey], lngCol, latCol);
-			svgMapGIStool.drawGeoJson(geoJson, layerID, "", 0, "", "p0", "poi", "", grp);
+			svgMapGIStool.drawGeoJson(
+				geoJson,
+				layerID,
+				"",
+				0,
+				"",
+				"p0",
+				"poi",
+				"",
+				grp,
+			);
 		}
-		
 	}
 	svgMap.refreshScreen();
 }
 
 var schema;
 
-async function loadCSV(url){
+async function loadCSV(url) {
 	var response = await fetch(url);
-	if ( response.ok ){
+	if (response.ok) {
 		var txt = await response.text();
-		txt=txt.split("\n");
-		var csv=[];
+		txt = txt.split("\n");
+		var csv = [];
 		var schemaLine = true;
-		for ( line of txt){
+		for (line of txt) {
 			line = line.trim();
-			if ( schemaLine ){
+			if (schemaLine) {
 				schema = line;
-				svgImage.documentElement.setAttribute("property",schema);
+				svgImage.documentElement.setAttribute("property", schema);
 			} else {
-				if ( line !=""){
-					line=line.split(",");
+				if (line != "") {
+					line = line.split(",");
 					csv.push(line);
 				}
 			}
 			schemaLine = false;
 		}
-		return ( csv );
+		return csv;
 	} else {
-		return ( null );
+		return null;
 	}
 }
 
-function csv2geojson(csvArray, lngCol, latCol){
-	var geoJson = {type: "FeatureCollection",  features: []}
-	for ( var csvRecord of csvArray ){
+function csv2geojson(csvArray, lngCol, latCol) {
+	var geoJson = { type: "FeatureCollection", features: [] };
+	for (var csvRecord of csvArray) {
 		var lng = Number(csvRecord[lngCol]);
 		var lat = Number(csvRecord[latCol]);
-		var feature = { type: "Feature",
+		var feature = {
+			type: "Feature",
 			geometry: {
 				type: "Point",
-				"coordinates": [lng, lat]
+				coordinates: [lng, lat],
 			},
-			"properties": {
-				"csvMetadata": csvRecord.toString() // この処理は非常に雑です。
-			}
-		}
+			properties: {
+				csvMetadata: csvRecord.toString(), // この処理は非常に雑です。
+			},
+		};
 		geoJson.features.push(feature);
 	}
-	return(geoJson);
+	return geoJson;
 }
-
 ```

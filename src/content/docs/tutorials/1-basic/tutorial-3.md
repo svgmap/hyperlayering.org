@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 3: Displaying a tiled coastline map'
+title: "Tutorial 3: Displaying a tiled coastline map"
 ---
 
 ## Introduction  {#introduction}
@@ -9,7 +9,6 @@ This tutorial splits the content of Tutorial 1 into multiple tiles and displays 
 ### File Structure {#file-structure}
 
 The file structure is as follows:
-
 - [The tutorial3 directory](https://www.svgmap.org/examples/tutorials/tutorial3/) contains the following files.
   - [tutorial3.html](https://www.svgmap.org/examples/tutorials/tutorial3/tutorial3.html)
     - HTML for Tutorial 3. Same content as tutrial1.html.
@@ -87,7 +86,6 @@ tutorial1.html
 ### tutorial3.html {#tutorial3-html}
 
 Basically the same as tutorial1.html used in Tutorial 1.
-
 - Loads the SVGMap core program file (SVGMapLv0.1_r18module.js) and makes various SVGMap APIs available.
 - Define the map display area (using a DIV) and load an SVG file (Containers.svg) that contains the layers to be displayed there (layers that are automatically made visible in the SVGMap core program above will be displayed).
 - Defines the display of the zoom up, zoom down, and GPS buttons and their behavior when clicked (calling the respective APIs of the SVGMap core program).
@@ -159,7 +157,6 @@ Basically the same as tutorial1.html used in Tutorial 1.
 This is an example of tiling using [the animation element](../tutorial-1/index.md#animation-element-animation-element) of SVGMap content.
 
 Tiling consists of tile content, where the actual data is stored, and container content (this file) that integrates it.
-
 - In this example, the container content integrates each SVGMap file divided into 4x4 (16) tiles.
 - Referencing all 16 tiles using the animation element
   - Write the link to the tile content in the xlink:href attribute
@@ -170,13 +167,12 @@ Tiling consists of tile content, where the actual data is stored, and container 
 #### Placement of each tile {#placement-of-each-tile}
 
 **Coastline.svg**
-| + | X coordinate small, Small Longitude | .. | .. | X coordinate large, Large Longitude
-|---|---|---|---|---|
-| Small Y coordinate, large latitude | 0_0.svg | 1_0.svg | 2_0.svg | 3_0.svg
-| .. | 	0_1.svg | 1_1.svg | 2_1.svg | 3_1.svg
-| .. | 0_2.svg | 1_2.svg | 2_2.svg | 3_2.svg
-| Large Y coordinate, small latitude | 0_3.svg | 1_2.svg | 2_2.svg | 3_2.svg
-
+| +                                  | X coordinate small, Small Longitude | ..      | ..      | X coordinate large, Large Longitude |
+| ---------------------------------- | ----------------------------------- | ------- | ------- | ----------------------------------- |
+| Small Y coordinate, large latitude | 0_0.svg                             | 1_0.svg | 2_0.svg | 3_0.svg                             |
+| ..                                 | 0_1.svg                             | 1_1.svg | 2_1.svg | 3_1.svg                             |
+| ..                                 | 0_2.svg                             | 1_2.svg | 2_2.svg | 3_2.svg                             |
+| Large Y coordinate, small latitude | 0_3.svg                             | 1_2.svg | 2_2.svg | 3_2.svg                             |
 - Width and height of each tile: width,height attribute values: width="659.2878" height="631.5991"
 - Origin of each tile (coordinates of the upper left corner of the tile): x, y attribute values
   - x：12078.24557, 12737.53337, 13396.82117, 14056.10897
@@ -221,7 +217,7 @@ Tiling consists of tile content, where the actual data is stored, and container 
 ### Split SVG files {#split-svg-files}
 
 - 0_0.svg
-Areas without map data.
+  Areas without map data.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -231,7 +227,7 @@ Areas without map data.
 ```
 
 - 0_1.svg
-Areas without map data.
+  Areas without map data.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -241,7 +237,7 @@ Areas without map data.
 ```
 
 - 0_2.svg
-Areas without map data.
+  Areas without map data.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -369,7 +365,7 @@ Areas without map data.
 </details>
 
 - 1_0.svg
-Areas without map data.
+  Areas without map data.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -2842,7 +2838,7 @@ Areas without map data.
 </details>
 
 - 2_3.svg
-Areas without map data.
+  Areas without map data.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -3291,7 +3287,7 @@ Areas without map data.
 </details>
 
 - 3_2.svg
-Areas without map data.
+  Areas without map data.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -3301,7 +3297,7 @@ Areas without map data.
 ```
 
 - 3_3.svg
-Areas without map data.
+  Areas without map data.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 

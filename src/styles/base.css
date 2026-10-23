@@ -41,13 +41,13 @@
 	}
 
 	body {
-		margin: 0;
-		min-block-size: 100svh;
 		display: grid;
 		grid-template-rows: auto 1fr auto;
-		line-height: 1.6;
-		-webkit-font-smoothing: antialiased;
+		min-block-size: 100svh;
+		margin: 0;
 		container-name: body;
+		-webkit-font-smoothing: antialiased;
+		line-height: 1.6;
 	}
 
 	main {
@@ -96,8 +96,8 @@
 		--header-scroll-margin to multiply the default scroll margin on headers
 		*/
 		--_header-scroll-margin: var(--header-scroll-margin, 1);
-		text-wrap: balance;
 		color: var(--text-main);
+		text-wrap: balance;
 		scroll-margin-block-start: calc(
 			(var(--header-height) * var(--_header-scroll-margin) + var(--space-xxs))
 		);
@@ -114,11 +114,11 @@
 	}
 
 	h2 {
+		margin-bottom: 0.75rem;
 		font-size: var(--font-2xl);
 		font-weight: 700;
 		line-height: 1.2;
 		letter-spacing: -0.02em;
-		margin-bottom: 0.75rem;
 	}
 
 	h3 {
@@ -128,9 +128,9 @@
 	}
 
 	hr {
-		border: solid 0.5px var(--bg-tertiary);
 		margin-top: var(--space-xxs);
 		margin-bottom: var(--space-xxs);
+		border: solid 0.5px var(--bg-tertiary);
 	}
 
 	ul[role="list"],
@@ -155,13 +155,13 @@
 
 	table {
 		--_table-bg-color: var(--table-bg-color, var(--bg-primary));
-		border-spacing: 2px;
-		table-layout: fixed;
-		border-collapse: collapse;
 		width: max(var(--paragraph-width), 100%);
 		color: var(--text-secondary);
-		background-color: var(--_table-bg-color);
+		table-layout: fixed;
 		caption-side: bottom;
+		border-spacing: 2px;
+		border-collapse: collapse;
+		background-color: var(--_table-bg-color);
 
 		thead,
 		tfoot {
@@ -202,8 +202,8 @@
 		--_link-color: var(--link-color, var(--text-main));
 		color: var(--_link-color);
 		text-decoration-color: inherit;
-		transition-property: text-decoration-color;
 		transition-duration: var(--timing-fast);
+		transition-property: text-decoration-color;
 
 		&:hover {
 			text-decoration-color: var(--accent);
@@ -212,29 +212,29 @@
 		&.external {
 			margin-inline-end: calc(var(--space-xxs) + 1em);
 			&::after {
-				background-color: currentcolor;
-				content: "(external)";
-				mask-size: cover;
-				mask-image: url(/images/external-link.svg);
 				position: absolute;
 				display: inline-block;
 				width: 1em;
 				height: 1em;
-				transform: translateY(0.5em);
 				margin-inline-start: var(--space-xxs);
+				content: "(external)";
+				background-color: currentcolor;
+				mask-image: url(/images/external-link.svg);
+				mask-size: cover;
+				transform: translateY(0.5em);
 			}
 		}
 	}
 
 	:not(pre) > code {
-		font-family: var(--font-mono);
-		font-weight: normal;
-		font-size: 0.8em;
-		color: var(--text-accent);
 		padding: var(--space-xxs);
-		border-radius: var(--round-xs);
+		font-family: var(--font-mono);
+		font-size: 0.8em;
+		font-weight: normal;
+		color: var(--text-accent);
 		background: var(--bg-secondary);
 		border: 1px solid var(--bg-tertiary);
+		border-radius: var(--round-xs);
 	}
 }
 
@@ -303,16 +303,20 @@ small,
 }
 
 .skip-link {
-	display: inline-block;
-	padding: var(--space-xxs) var(--space-sm);
-	background: var(--color-light);
-	color: var(--text);
-	text-decoration: none;
-	font-weight: 700;
-	text-transform: uppercase;
 	position: absolute;
 	top: 1rem;
 	left: 1rem;
+	display: inline-block;
+	padding: var(--space-xxs) var(--space-sm);
+	font-weight: 700;
+	color: var(--text);
+	text-transform: uppercase;
+	text-decoration: none;
+	background: var(--color-light);
+}
+
+.image-fit {
+	object-fit: cover;
 }
 
 /* === LAYOUTS === */
@@ -349,8 +353,8 @@ small,
 
 	&[class*="stack--center"],
 	&[data-state*="stack--center"] {
-		justify-content: center;
 		align-items: center;
+		justify-content: center;
 	}
 
 	&[class*="stack--zero"],
@@ -379,9 +383,9 @@ small,
 	--_row-justify: var(--row-justify, start);
 	display: flex;
 	flex-direction: row;
-	justify-content: var(--_row-justify);
-	align-items: center;
 	gap: var(--_gap);
+	align-items: center;
+	justify-content: var(--_row-justify);
 
 	&[class*="row--xs"],
 	&[data-state*="row--xs"] {
@@ -401,11 +405,11 @@ small,
 .auto-grid {
 	--_min-col-size: var(--min-col-size, 300px);
 	display: grid;
-	gap: var(--space-sm, 1rem);
 	grid-template-columns: repeat(
 			var(--grid-type, auto-fit),
 			minmax(min(var(--_min-col-size), 100%), 1fr)
 		);
+	gap: var(--space-sm, 1rem);
 	container-type: inline-size;
 }
 
@@ -430,12 +434,12 @@ small,
 .card {
 	--_card-color: var(--card-color, var(--bg-secondary));
 	--_border-color: var(--border-color, var(--bg-tertiary));
-	padding: var(--space-sm);
-	border-radius: var(--round-sm);
 	height: auto;
+	padding: var(--space-sm);
 	color: var(--text-secondary);
 	background-color: var(--_card-color);
 	border: solid 1px var(--_border-color);
+	border-radius: var(--round-sm);
 
 	.title {
 		font-size: var(--font-lg);
@@ -444,21 +448,21 @@ small,
 	}
 
 	.body {
-		color: var(--text-secondary);
+		margin-block-end: var(--space-xs);
 		font-size: var(--font-sm);
 		line-height: 1.5em;
-		margin-block-end: var(--space-xs);
+		color: var(--text-secondary);
 	}
 
 	.details {
-		color: var(--text-tertiary);
 		font-size: var(--font-sm);
+		color: var(--text-tertiary);
 	}
 
 	.image {
 		min-width: 100%;
-		border-radius: var(--round-sm);
 		border: solid 1px oklch(from var(--_card-color) l c h);
+		border-radius: var(--round-sm);
 	}
 
 	a > & {
@@ -467,6 +471,7 @@ small,
 
 	&[clickable="true"],
 	&[data-state*="card--clickable"] {
+		position: relative;
 		cursor: pointer;
 		transition-property: background-color, outline;
 		transition-behavior: allow-discrete;
@@ -475,19 +480,26 @@ small,
 
 		&:hover,
 		&:focus-within {
-			background-color: oklch(from var(--_card-color) l c h / 0.5);
 			outline: 2px solid var(--_border-color);
+			background-color: oklch(from var(--_card-color) l c h / 0.5);
 
 			@starting-style {
 				outline: 0px solid var(--_border-color);
 			}
 		}
+
+		a::after {
+			position: absolute;
+			inset: 0;
+			content: "";
+		}
 	}
 
 	&[data-state*="sub-grid"] {
+		--_subgrid-row-span: var(--subgrid-row-span, 3);
 		display: grid;
-		grid-template-rows: subgrid; /* only rows; keep your own columns */
-		grid-row: span 3; /* one per child: image, title, body */
+		grid-template-rows: subgrid;
+		grid-row: span var(--_subgrid-row-span);
 		gap: var(--space-xxs);
 	}
 }
@@ -515,8 +527,8 @@ small,
 
 	&:hover {
 		outline-width: 3px;
-		box-shadow: 0 0 10px oklch(from var(--text-tertiary) l c h / 0.5);
 		background-color: var(--hover-color);
+		box-shadow: 0 0 10px oklch(from var(--text-tertiary) l c h / 0.5);
 	}
 
 	&.accent,
@@ -527,15 +539,15 @@ small,
 }
 
 .icon-wrapper {
-	height: fit-content;
 	width: fit-content;
-	background-color: transparent;
-	color: var(--text-main);
-	border-radius: 0;
+	height: fit-content;
 	padding: 0;
-	border: none;
 	font-weight: bold;
+	color: var(--text-main);
 	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
 	transition: all var(--timing-fastest);
 
 	&:hover {

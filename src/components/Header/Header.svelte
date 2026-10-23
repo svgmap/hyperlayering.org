@@ -7,6 +7,7 @@ import Logo from "@components/Icons/Logo.svelte";
 import Menu from "@components/Icons/Menu.svelte";
 import { languages } from "@i18n/ui";
 import {
+	chooseLocale,
 	getLangFromUrl,
 	pathWithoutLocale,
 	useTranslations,
@@ -25,6 +26,10 @@ let t = $derived(useTranslations(lang));
 let menuOpen = $state(false);
 const toggleMenu = () => {
 	menuOpen = !menuOpen;
+};
+
+const changeLocale = (locale: typeof lang) => {
+	chooseLocale(locale);
 };
 </script>
 
@@ -80,7 +85,7 @@ const toggleMenu = () => {
     <ul role="list">
       {#each Object.entries(languages) as [code, label]}
         <li>
-          <a href={getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}
+          <a onclick={changeLocale} href={getRelativeLocaleUrl(code, pathWithoutLocale(currentUrl))}
             >{label}</a
           >
         </li>
@@ -100,7 +105,7 @@ const toggleMenu = () => {
     align-items: center;
     padding: var(--space-sm) var(--space-md);
     background: var(--bg-primary);
-    font-size: var(--font-base);
+    font-size: var(--font-sm);
     color: var(--text-main);
     transition: color var(--timing-normal) ease-out;
     border-block-end: 1px solid var(--bg-tertiary);
@@ -157,7 +162,7 @@ const toggleMenu = () => {
     align-items: center;
 
     .nav-item {
-      color: inherit;
+      color: var(--text-secondary);
       text-decoration-color: transparent;
       text-underline-offset: var(--space-sm);
       transition:
@@ -165,7 +170,7 @@ const toggleMenu = () => {
         text-decoration-color var(--timing-fast),
         text-underline-offset var(--timing-fast);
       &:hover {
-        color: var(--text-secondary);
+        color: var(--text-primary);
         text-decoration: underline solid var(--accent) 2px;
         text-underline-offset: var(--space-xxs);
       }

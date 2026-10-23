@@ -7,6 +7,9 @@ export const languages = {
 
 export const defaultLang = "en";
 
+export type Locale = keyof typeof languages;
+export const locales = Object.keys(languages) as Locale[];
+
 export const ui = {
 	en: {
 		"nav.home": "Home",
@@ -49,6 +52,10 @@ export const ui = {
 		"page.404.return-btn": "Return to home",
 	},
 	ja: {
+		"nav.home": "ホーム",
+		"nav.tutorials": "チュートリアル",
+		"nav.updates": "お知らせ",
+		"nav.about-us": "私たちについて",
 		"nav.lang-btn.label": "言語を変更する",
 		"nav.mobile-toggle.label.open": "ナビゲーションメニューを開く",
 		"nav.mobile-toggle.label.close": "ナビゲーションメニューを閉じる",

@@ -1,8 +1,8 @@
 ---
-title: 'Introduction'
+title: "Introduction"
 ---
 
-SVGMap.js leverages a wide range [Jamstack patterns](https://en.wikipedia.org/wiki/Jamstack)  through its [advanced and flexible tiling mechanism](https://satakagi.github.io/mapsForWebWS2020-docs/QuadTreeCompositeTilingAndVectorTileStandard.html), significantly reducing the need for dynamic web services with high server overhead compared to traditional frameworks. (References: [Tutorial using SVGMapTools](https://github.com/svgmap/svgMapTools/tree/master/tutorials) , [Quad Tree Composite Tiling and the standardization of tiling](https://satakagi.github.io/mapsForWebWS2020-docs/QuadTreeCompositeTilingAndVectorTileStandard.html)) 
+SVGMap.js leverages a wide range [Jamstack patterns](https://en.wikipedia.org/wiki/Jamstack) through its [advanced and flexible tiling mechanism](https://satakagi.github.io/mapsForWebWS2020-docs/QuadTreeCompositeTilingAndVectorTileStandard.html), significantly reducing the need for dynamic web services with high server overhead compared to traditional frameworks. (References: [Tutorial using SVGMapTools](https://github.com/svgmap/svgMapTools/tree/master/tutorials) , [Quad Tree Composite Tiling and the standardization of tiling](https://satakagi.github.io/mapsForWebWS2020-docs/QuadTreeCompositeTilingAndVectorTileStandard.html))
 
 However, dynamic service integration is often necessary, so here we will implement this method as a webApp layer using existing public web services. (Therefore, this tutorial will only cover the use of dynamic services and will not delve into building the dynamic service itself. [GeoServer](https://ja.wikipedia.org/wiki/GeoServer) , [MapServer](https://ja.wikipedia.org/wiki/MapServer) , [PostgREST + PostGIS](https://gis-ops.com/postgrest-postgis-api-tutorial-geospatial-api-in-5-minutes/), etc., can be used for this implementation. SVGMap.org also publishes code for building a high-performance dynamic service called [redisSvgMap.](https://github.com/svgmap/redisSvgMap))
 

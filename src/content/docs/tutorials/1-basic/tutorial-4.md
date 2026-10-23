@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 4: Bitmap Image Map Display'
+title: "Tutorial 4: Bitmap Image Map Display"
 ---
 
 ## Introduction  {#introduction}
@@ -10,7 +10,6 @@ This is a tutorial that overlays some bitmap image maps onto the contents of Tut
 ### File Structure {#file-structure}
 
 The file structure is as follows:
-
 - [The tutrial4 directory](https://www.svgmap.org/examples/tutorials/tutorial4/tutorial4.html) contains the following files.
   - [tutorial4.html](https://www.svgmap.org/examples/tutorials/tutorial4/tutorial4.html)
     - HTML for Tutorial 4. Same content as tutrial1.html.
@@ -31,7 +30,6 @@ The file structure is as follows:
 ### tutorial4.html {#tutorial4-html}
 
 Basically the same as [tutorial2b.html](../tutorial-2b/index.md) used in Tutorial 2b .
-
 - Loads the SVGMap core program file (SVGMapLv0.1_r18module.js) and makes various SVGMap APIs available.
 - Load CSS for layer list UI
 - Define the map display area (using a DIV) and load an SVG file (Containers.svg) that contains the layers to be displayed there (layers that are automatically made visible in the SVGMap core program above will be displayed).
@@ -116,7 +114,7 @@ Basically the same as [tutorial2b.html](../tutorial-2b/index.md) used in Tutoria
 
 #### Relationship between longitude and latitude and XY coordinates of SVG content {#relationship-between-lon-lat-xy-coord}
 
-```globalCoordinateSystem transform``` Specified by the element attributes (six values ​​of the linear transformation matrix)
+`globalCoordinateSystem transform` Specified by the element attributes (six values ​​of the linear transformation matrix)
 
 ```
 Xsvg = a * longitude + c * latitude + e 
@@ -133,12 +131,12 @@ Ysvg = -latitude
 #### Image element parameters {#image-element-parameters}
 
 - The bit image is placed using the image element.
-  - ```xlink:href="[ビットイメージのURL]"``` URL of the bit image to be placed
-  - ```x="139.1063918412553"``` X origin of placement = western longitude (139.10°)
-  - ```y="-35.90355823638255"``` X origin to place = negative value of northernmost latitude (35.903°)
-  - ```width="0.8140711890480361"``` Width (0.81° longitude)
-  - ```height="0.41815015611484085"``` Height (0.41° latitude)
-  - ```preserveAspectRatio="none"``` Even if the aspect ratio of the actual size of the bit image is changed, it will be placed exactly in the specified area ([Reference: SVG spec](https://www.w3.org/TR/SVG2/coords.html#PreserveAspectRatioAttribute))
+  - `xlink:href="[ビットイメージのURL]"` URL of the bit image to be placed
+  - `x="139.1063918412553"` X origin of placement = western longitude (139.10°)
+  - `y="-35.90355823638255"` X origin to place = negative value of northernmost latitude (35.903°)
+  - `width="0.8140711890480361"` Width (0.81° longitude)
+  - `height="0.41815015611484085"` Height (0.41° latitude)
+  - `preserveAspectRatio="none"` Even if the aspect ratio of the actual size of the bit image is changed, it will be placed exactly in the specified area ([Reference: SVG spec](https://www.w3.org/TR/SVG2/coords.html#PreserveAspectRatioAttribute))
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 

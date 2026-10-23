@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial Intro'
+title: "Tutorial Intro"
 sidebar:
   order: 0
 ---
@@ -9,7 +9,6 @@ This is a tutorial on SVGMap. It will introduce you to everything from simple to
 [This tutorial](https://github.com/svgmap/svgMapTools/tree/master/tutorials) is recommended for users who want to use their data as SVGMap using the tool without development.
 
 Directory structure for the tutorial programme.
-
 - Simply copy the entire contents of each directory for Tutorials 1 to N, and the content created in that tutorial will function correctly.
 - How to download files used in the tutorials
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 7: WebApp Layer Vector Tiles'
+title: "Tutorial 7: WebApp Layer Vector Tiles"
 sidebar:
   order: 7
 ---
@@ -7,7 +7,6 @@ sidebar:
 ## Introduction  {#introduction}
 
 This tutorial demonstrates how to load a tiled CSV Point geometry file into a web application using asynchronous loading, convert it to an SVGMap DOM using the SVGMap framework library, and then display it.
-
 - To see the actual operation, click on [tiling1.html](https://svgmap.org/examples/tutorials/tiling1/tiling1.html).
 
 ### Source Code {#source-code}
@@ -18,14 +17,13 @@ This tutorial demonstrates how to load a tiled CSV Point geometry file into a we
 - simpleTiling.svg: Almost identical to webApp [tutorial 6](../tutorial-6/index.md), which manipulates layers with a UI.
 - simpleTiling.html:
 - simpleTiling.js:
-	- Reading GeoJSON is the same as in [Tutorial 6](../tutorial-6/index.md).
-	- Dynamically load GeoJSON based on the display area.
-		- When displaying a small scale (wide area), if too many tiles need to be loaded, the loading process will stop and the tiles will not be displayed.
+  - Reading GeoJSON is the same as in [Tutorial 6](../tutorial-6/index.md).
+  - Dynamically load GeoJSON based on the display area.
+    - When displaying a small scale (wide area), if too many tiles need to be loaded, the loading process will stop and the tiles will not be displayed.
 
 ## Tutorial {#tutorial}
 
 This approach avoids using dynamic mechanisms like a DBMS in the backend, instead tiling relatively large vector data (in this case, point geometry data) to create content that can be comfortably used as a WebMap/GIS. This type of design is called [vector tiling](https://en.wikipedia.org/wiki/Vector_tiles) in the GIS world, but it's more commonly known as a [Jamstack pattern](https://en.wikipedia.org/wiki/Jamstack).
-
 - [Click here](https://svgmap.org/examples/tutorials/tiling1/tiling1.html) to see how it works .
 - The file used is a [ZIP archive file](https://www.svgmap.org/examples/tutorials/tiling1.zip).
 
@@ -36,7 +34,7 @@ Furthermore, SVGMap.js can implement tiling for larger datasets that are not pos
 ### Format of Tiled CSV Data {#format-of-tiled-csv-data}
 
 - Both latitude and longitude are divided into 1-degree x 1-degree tiles.
-	- tile_[longitude]_[latitude].csv
+  - tile_[longitude]_[latitude].csv
 
 #### Example data (tile_125_24.csv)
 
@@ -89,27 +87,27 @@ Sarahama Sports Center, 248-1,3,3,9999
 #### Shapefile to CSV conversion
 
 - Convert using OGR2OGR
-	- command:　```ogr2ogr -lco GEOMETRY=AS_XY P27-13.csv P27-13.shp```
-		- [Optional information](https://qiita.com/tohka383/items/d3d1bf80db2cfb416330#csv)
+  - command:　`ogr2ogr -lco GEOMETRY=AS_XY P27-13.csv P27-13.shp`
+    - [Optional information](https://qiita.com/tohka383/items/d3d1bf80db2cfb416330#csv)
 
 #### Notes
 
 - OGR2OGR:
-	- ogr2ogr is a vector data conversion tool included in [GDAL](https://gdal.org/), a well-known open-source GIS toolset.
-	- For Windows, pre-compiled binaries are available at [gisinternals.com](https://www.gisinternals.com/), as described [here](https://gdal.org/download.html#windows).
-		- Installation/Windows
-			- [Stable Releases](https://www.gisinternals.com/release.php)　⇒ MSVC 2017 x64 (other compilation environments are also supported) ⇒ Generic installer for the GDAL core components (gdal-*-core.msi)
-		- How to run ogr2ogr / Windows
-			- Windows Menu ⇒ All Apps ⇒ GDAL ⇒ GDAL * Run in the command prompt launched via Command Prompt.
+  - ogr2ogr is a vector data conversion tool included in [GDAL](https://gdal.org/), a well-known open-source GIS toolset.
+  - For Windows, pre-compiled binaries are available at [gisinternals.com](https://www.gisinternals.com/), as described [here](https://gdal.org/download.html#windows).
+    - Installation/Windows
+      - [Stable Releases](https://www.gisinternals.com/release.php)　⇒ MSVC 2017 x64 (other compilation environments are also supported) ⇒ Generic installer for the GDAL core components (gdal-*-core.msi)
+    - How to run ogr2ogr / Windows
+      - Windows Menu ⇒ All Apps ⇒ GDAL ⇒ GDAL * Run in the command prompt launched via Command Prompt.
 - CSV header row:
-	- The header row of the National Land Numerical Information consists of mechanically assigned numbers (such as P27_001). It will be easier to understand if you refer to the explanation of the attribute information in the [National Land Numerical Information](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P27.html) and rewrite the CSV header row with feature names before tile division.
+  - The header row of the National Land Numerical Information consists of mechanically assigned numbers (such as P27_001). It will be easier to understand if you refer to the explanation of the attribute information in the [National Land Numerical Information](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P27.html) and rewrite the CSV header row with feature names before tile division.
 
 #### CSV Tiling
 
 - [I've prepared a file called simpleTiling.py](https://svgmap.org/examples/tutorials/tiling1/simpleTiling.py), so we'll use that.
 - tilesCreate a directory in the working directory.
-- command:　```python simpleTiling.py P27-13.csv 0 1```
-	- Reference: [Installing Python for Windows](https://www.python.jp/install/windows/install.html)
+- command:　`python simpleTiling.py P27-13.csv 0 1`
+  - Reference: [Installing Python for Windows](https://www.python.jp/install/windows/install.html)
 
 ### tiling1.html {#tiling1-html}
 
@@ -163,7 +161,7 @@ Sarahama Sports Center, 248-1,3,3,9999
 ### Container.svg {#container-svg}
 
 - There are no significant differences from the HTML in [Tutorial 6](../tutorial-6/index.md).
-	- Since GeoJSON data is vector tile data, the class attribute is specified as [clickable](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#class.E5.B1.9E.E6.80.A7.E3.81.AB.E3.82.88.E3.82.8B.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E3.81.AE.E3.82.B0.E3.83.AB.E3.83.BC.E3.83.94.E3.83.B3.E3.82.B0.E3.83.BB.E3.82.AF.E3.83.AA.E3.83.83.E3.82.AB.E3.83.96.E3.83.AB.E6.A9.9F.E8.83.BD.E3.81.AE.E6.8F.90.E4.BE.9B).
+  - Since GeoJSON data is vector tile data, the class attribute is specified as [clickable](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#class.E5.B1.9E.E6.80.A7.E3.81.AB.E3.82.88.E3.82.8B.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E3.81.AE.E3.82.B0.E3.83.AB.E3.83.BC.E3.83.94.E3.83.B3.E3.82.B0.E3.83.BB.E3.82.AF.E3.83.AA.E3.83.83.E3.82.AB.E3.83.96.E3.83.AB.E6.A9.9F.E8.83.BD.E3.81.AE.E6.8F.90.E4.BE.9B).
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -203,18 +201,18 @@ Sarahama Sports Center, 248-1,3,3,9999
 - A web app that can be linked to simpleTiling.svg and [control its DOM](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI).
 -  system dynamically loads GeoJSON data that has been tiled according to the display area. This is similar to [Tutorial 5](../tutorial-5/index.md).
 - Since it doesn't have a pyramidal structure that scales down, this tutorial is simpler.
-- Instead, because loading too much data would be required at a small scale (reduced display), the data is not loaded, the rendering is cleared, ```removeAllTiles()``` and a message prompting zooming in is displayed on the webApp window.
-- ```addEventListener("zoomPanMap",zpmFunc)``` When scaling scroll occurs, call zpmFunc().
-- ```zpmFunc()``` Selects and displays tiles to load based on the display area.
-- ```svgMap.getGeoViewBox()``` Get geographical display area
-- ```getTileList(geoViewBox)``` List the tiles to be displayed.
-- ```delete tiles[tileKey]``` Delete groups of tiles that are outside the display area.
-- ```await loadCSV()``` Load the tile data (CSV) to be displayed, excluding those already loaded.
-- ```drawTiles()```: Displays the loaded CSV data
+- Instead, because loading too much data would be required at a small scale (reduced display), the data is not loaded, the rendering is cleared, `removeAllTiles()` and a message prompting zooming in is displayed on the webApp window.
+- `addEventListener("zoomPanMap",zpmFunc)` When scaling scroll occurs, call zpmFunc().
+- `zpmFunc()` Selects and displays tiles to load based on the display area.
+- `svgMap.getGeoViewBox()` Get geographical display area
+- `getTileList(geoViewBox)` List the tiles to be displayed.
+- `delete tiles[tileKey]` Delete groups of tiles that are outside the display area.
+- `await loadCSV()` Load the tile data (CSV) to be displayed, excluding those already loaded.
+- `drawTiles()`: Displays the loaded CSV data
 - Create a group to display tiles
-- ```csv2geojson``` Generate geoJSON from the imported CSV file.
-- ```svgMapGIStool.drawGeoJson()``` Generate an SVG DOM from geoJSON.
-- ```svgMap.refreshScreen()``` If the DOM needs to be redrawn at a time other than during scaling/scrolling, you must [explicitly request a redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).
+- `csv2geojson` Generate geoJSON from the imported CSV file.
+- `svgMapGIStool.drawGeoJson()` Generate an SVG DOM from geoJSON.
+- `svgMap.refreshScreen()` If the DOM needs to be redrawn at a time other than during scaling/scrolling, you must [explicitly request a redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).
 - [Reference information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
 
 ```html
@@ -234,132 +232,146 @@ Sarahama Sports Center, 248-1,3,3,9999
 ```
 
 ```js
-addEventListener("load",init); 
-addEventListener("zoomPanMap",zpmFunc); 
+addEventListener("load", init);
+addEventListener("zoomPanMap", zpmFunc);
 
-var latCol=10; 
-var lngCol=9; 
-var tilesTh=8; // Threshold for the number of tiles that fit on the screen (prevents the system from becoming too slow when zooming out due to too many tiles being loaded) 
+var latCol = 10;
+var lngCol = 9;
+var tilesTh = 8; // Threshold for the number of tiles that fit on the screen (prevents the system from becoming too slow when zooming out due to too many tiles being loaded)
 
-function init(){ 
-	zpmFunc(); 
-} 
+function init() {
+	zpmFunc();
+}
 
-function getTileList(geoViewBox){ 
-	var tileNames={}; 
-	for ( var ty = Math.floor(geoViewBox.y) ; ty<= Math.floor(geoViewBox.y+geoViewBox.height) ; ty++){ 
-		for ( var tx = Math.floor(geoViewBox.x) ; tx <= Math.floor(geoViewBox.x+geoViewBox.width) ; tx++){ 
-			var tile="tile_" + tx + "_" + ty; 
-		} 
-	} 
-	return ( tileNames); 
-			} 
-var 
-tiles={}; // Variable to store data (CSV as an array) for each tile 
-async function zpmFunc(){ 
-	var geoViewBox = svgMap.getGeoViewBox(); 
-	var tileList=getTileList(geoViewBox); 
-	if (Object.keys(tileList).length < tilesTh ){ 
-		for ( var tileKey in tiles ){ // Delete unnecessary data 
-			if ( !tileList[tileKey]){ 
-				delete tiles[tileKey]; 
-			} 
-		} 
-		for ( var tileKey in tileList ){ // Load missing data 
-			if ( !tiles[tileKey] ){ 
-				tiles[tileKey]=await loadCSV(`tiles/${tileKey}.csv`); // Template literal 
-			} 
-		} 
-		message.innerText="-"; 
-		drawTiles(tileList); 
-	} else { 
-		message.innerText="Too many tiles, Please zoom in."; 
-		removeAllTiles(); 
-	} 
-} 
-function removeAllTiles(){ 
-	tiles={}; 
-	var groups = svgImage.getElementById("mapTiles").children; 
-	for ( var i = groups.length -1 ; i >= 0 ; i-- ){ 
-		groups[i].remove(); 
-	} 
-	svgMap.refreshScreen(); 
-} 
-function drawTiles(tileList){ 
-	// tileList: Associative array of tile keys (IDs) to display 
-	var tileGroup = svgImage.getElementById("mapTiles"); 
-	var groups = tileGroup.children; 
-	for ( var i = groups.length -1 ; i >= 0 ; i-- ){ 
-		var groupKey = groups[i].getAttribute("id"); 
-		if ( !tileList[groupKey]){ 
-			groups[i].remove(); // Remove groups that do not need to be displayed 
-		} else { 
-			delete tileList[groupKey]; // Remove from tileList as it has already been drawn 
-		} 
-	} 
-	// tileList is now a list of tiles to be drawn 
-	for ( var tileKey in tileList){ 
-		var grp = svgImage.createElement("g"); 
-		grp.setAttribute("id",tileKey); 
-		tileGroup.appendChild(grp); 
-		if ( tiles[tileKey] ){ 
-			var geoJson = csv2geojson(tiles[tileKey], lngCol, latCol); 
-			svgMapGIStool.drawGeoJson(geoJson, layerID, "",0, "", "p0", "poi", "", grp); 
+function getTileList(geoViewBox) {
+	var tileNames = {};
+	for (
+		var ty = Math.floor(geoViewBox.y);
+		ty <= Math.floor(geoViewBox.y + geoViewBox.height);
+		ty++
+	) {
+		for (
+			var tx = Math.floor(geoViewBox.x);
+			tx <= Math.floor(geoViewBox.x + geoViewBox.width);
+			tx++
+		) {
+			var tile = "tile_" + tx + "_" + ty;
 		}
+	}
+	return tileNames;
+}
+var tiles = {}; // Variable to store data (CSV as an array) for each tile
+async function zpmFunc() {
+	var geoViewBox = svgMap.getGeoViewBox();
+	var tileList = getTileList(geoViewBox);
+	if (Object.keys(tileList).length < tilesTh) {
+		for (var tileKey in tiles) {
+			// Delete unnecessary data
+			if (!tileList[tileKey]) {
+				delete tiles[tileKey];
+			}
+		}
+		for (var tileKey in tileList) {
+			// Load missing data
+			if (!tiles[tileKey]) {
+				tiles[tileKey] = await loadCSV(`tiles/${tileKey}.csv`); // Template literal
+			}
+		}
+		message.innerText = "-";
+		drawTiles(tileList);
+	} else {
+		message.innerText = "Too many tiles, Please zoom in.";
+		removeAllTiles();
+	}
+}
+function removeAllTiles() {
+	tiles = {};
+	var groups = svgImage.getElementById("mapTiles").children;
+	for (var i = groups.length - 1; i >= 0; i--) {
+		groups[i].remove();
+	}
+	svgMap.refreshScreen();
+}
+function drawTiles(tileList) {
+	// tileList: Associative array of tile keys (IDs) to display
+	var tileGroup = svgImage.getElementById("mapTiles");
+	var groups = tileGroup.children;
+	for (var i = groups.length - 1; i >= 0; i--) {
+		var groupKey = groups[i].getAttribute("id");
+		if (!tileList[groupKey]) {
+			groups[i].remove(); // Remove groups that do not need to be displayed
+		} else {
+			delete tileList[groupKey]; // Remove from tileList as it has already been drawn
+		}
+	}
+	// tileList is now a list of tiles to be drawn
+	for (var tileKey in tileList) {
+		var grp = svgImage.createElement("g");
+		grp.setAttribute("id", tileKey);
+		tileGroup.appendChild(grp);
+		if (tiles[tileKey]) {
+			var geoJson = csv2geojson(tiles[tileKey], lngCol, latCol);
+			svgMapGIStool.drawGeoJson(
+				geoJson,
+				layerID,
+				"",
+				0,
+				"",
+				"p0",
+				"poi",
+				"",
+				grp,
+			);
+		}
+	}
+	svgMap.refreshScreen();
+}
 
+var schema;
 
-	
+async function loadCSV(url) {
+	var response = await fetch(url);
+	if (response.ok) {
+		var txt = await response.text();
+		txt = txt.split("\n");
+		var csv = [];
+		var schemaLine = true;
+		for (line of txt) {
+			line = line.trim();
+			if (schemaLine) {
+				schema = line;
+				svgImage.documentElement.setAttribute("property", schema);
+			} else {
+				if (line != "") {
+					line = line.split(",");
+					csv.push(line);
+				}
+			}
+			schemaLine = false;
+		}
+		return csv;
+	} else {
+		return null;
+	}
+}
 
-
-		
-	} 
-	svgMap.refreshScreen(); 
-} 
-
-var schema; 
-
-async function loadCSV(url){ 
-	var response = await fetch(url); 
-	if ( response.ok ){ 
-		var txt = await response.text(); 
-		txt=txt.split("\n"); 
-		var csv=[]; 
-		var schemaLine = true; 
-		for ( line of txt){ 
-			line = line.trim(); 
-			if ( schemaLine ){ 
-				schema = line; 
-				svgImage.documentElement.setAttribute("property",schema); 
-			} else { 
-				if ( line !=""){ 
-					line=line.split(","); 
-					csv.push(line); 
-				} 
-			} 
-			schemaLine = false; 
-		} 
-		return ( csv ); 
-	} else { 
-		return ( null ); 
-	} 
-} 
-
-function csv2geojson(csvArray, lngCol, latCol){ 
-	var geoJson = {type: "FeatureCollection", features: []} 
-	for ( var csvRecord of csvArray){ 
-		var lng = Number(csvRecord[lngCol]); 
-		var lat = Number(csvRecord[latCol]); 
-		var feature = { type: "Feature", 
-			geometry: { 
-				type: "Point", 
-				"coordinates": [lng, lat] 
-			}, 
-			"properties": { 
-				"csvMetadata": csvRecord.toString() // This process is very rough. 
-			} 
-		} 
-		geoJson.features.push(feature); 
-	} 
-	return(geoJson); 
+function csv2geojson(csvArray, lngCol, latCol) {
+	var geoJson = { type: "FeatureCollection", features: [] };
+	for (var csvRecord of csvArray) {
+		var lng = Number(csvRecord[lngCol]);
+		var lat = Number(csvRecord[latCol]);
+		var feature = {
+			type: "Feature",
+			geometry: {
+				type: "Point",
+				coordinates: [lng, lat],
+			},
+			properties: {
+				csvMetadata: csvRecord.toString(), // This process is very rough.
+			},
+		};
+		geoJson.features.push(feature);
+	}
+	return geoJson;
 }
 ```

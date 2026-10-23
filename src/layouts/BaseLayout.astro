@@ -18,7 +18,7 @@ const footerData = await getCollection("footer", ({ id, data }) => {
 	if (footerLang === lang) return data;
 }).then((data) => {
 	if (data.length === 1) return data[0];
-	else Astro.logger.error("Unexpected Footer data query response");
+	Astro.logger.error("Unexpected Footer data query response");
 });
 ---
 
@@ -33,6 +33,7 @@ const footerData = await getCollection("footer", ({ id, data }) => {
     <title>
       {`${pageTitle === undefined ? "" : pageTitle + " | "}Hyper Layering`}
     </title>
+    <slot name="head"/>
   </head>
   <body>
     <Header

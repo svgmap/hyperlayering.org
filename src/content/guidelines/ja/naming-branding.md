@@ -35,7 +35,6 @@ Hyper Layeringは、特定の地図やアプリケーションだけを指すも
 ### Layering
 
 Layeringは、レイヤをつなぎ、重ね、組み合わせる「考え方・行為・プロセス・アプローチ」を表します。
-
 - Hyper Layering
 - Hyper Layering Architecture
 - Hyper Layering Community
@@ -43,7 +42,6 @@ Layeringは、レイヤをつなぎ、重ね、組み合わせる「考え方・
 ### Layered
 
 Layeredは、Hyper Layeringの考え方によって構成・実現された「状態・成果物・プロダクト・システム」を表します。
-
 - Hyper Layered Map
 - Hyper Layered Knowledge Network
 - Hyper Layered Digital Twin
@@ -72,13 +70,13 @@ HL → Hyper Layeringの思想・技術を共有するブランドファミリ�
 
 ## 5.ブランド体系
 
-| **分類** | **正式名称** | **ブランド名称／略称** |
-| --- | --- | --- |
-| Core Concept | Hyper Layering | Hyper Layering |
-| Architecture | Hyper Layering Architecture | HLA |
-| Community | Hyper Layering Community | Hyper Layering Community / HLC |
-| Map / Product | Hyper Layered Map | HLMap |
-| Knowledge Concept | Hyper Layered Knowledge Network | HLKN |
+| **分類**          | **正式名称**                    | **ブランド名称／略称**         |
+| ----------------- | ------------------------------- | ------------------------------ |
+| Core Concept      | Hyper Layering                  | Hyper Layering                 |
+| Architecture      | Hyper Layering Architecture     | HLA                            |
+| Community         | Hyper Layering Community        | Hyper Layering Community / HLC |
+| Map / Product     | Hyper Layered Map               | HLMap                          |
+| Knowledge Concept | Hyper Layered Knowledge Network | HLKN                           |
 
 重要なのは、正式名称とブランド名称を必ずしも機械的な頭文字の対応関係にしないことです。正式名称は意味を正確に表現し、ブランド名称では HLを共通のブランド識別子として使用します。
 
@@ -97,7 +95,6 @@ Brand Name：HLMap
 ## 7. SVGMapからHLMapへの移行
 
 SVGMapは長年使用されてきた名称であり、既存ユーザーや関係者との連続性を維持するため、一定の移行期間は旧名称を併記します。
-
 - 正式な説明：HLMap (formerly SVGMap)
 - 日本語：HLMap（旧称：SVGMap）
 - 展示・図版・短い紹介文：HLMap (SVGMap)
