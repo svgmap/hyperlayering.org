@@ -98,7 +98,7 @@ X,Y,P27_001,P27_002,P27_003,P27_004,P27_005,P27_006,P27_007,P27_008,P27_009
     - インストール/Windows
       - [Stable Releases](https://www.gisinternals.com/release.php)　　⇒　MSVC 2017 x64 (他コンパイル環境も可)　⇒　Generic installer for the GDAL core components (gdal-*-core.msi)
         - ogr2ogrの実行方法/Windows
-      - Windowsメニュー　⇒　すべてのアプリ　⇒　GDAL　⇒　GDAL * Command Prompt で起動したコマンドプロンプト上で動かす
+          - Windowsメニュー　⇒　すべてのアプリ　⇒　GDAL　⇒　GDAL * Command Prompt で起動したコマンドプロンプト上で動かす
 - CSVのヘッダ行：
   - 国土数値情報のヘッダ行は機械的に割り振られた番号(P27_001など)になっている。[国土数値情報の属性情報の説明](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P27.html) を見て、タイル分割前にCSVのヘッダ行を地物名に書き換えるとわかりやすくなります。
 

@@ -30,7 +30,6 @@ The difference lies in the web app associated with the layer.
 This explains the additions made to [meshTileViewer.html](https://svgmap.org/examples/tutorials/mesh2/meshTileViewer.html) , the WebApp from [Tutorial 9](../tutorial-9/index.md).
 
 The added parts are the loading of data to create an associative array of city/town names using the city/town code as the key, and the setting of a callback function to display a custom dialog using that data.
-
 - onload=async function()
   - [svgMap.setShowPoiProperty](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#setShowPoiProperty)( customShowPoiProperty, layerID);
     - Specify a custom callback function (customShowPoiProperty) for the process that occurs when an object in the associated layer is hit.
