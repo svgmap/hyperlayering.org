@@ -30,7 +30,6 @@ sidebar:
 [チュートリアル9](../tutorial-9/index.md) のWebApp、 [meshTileViewer.html](https://svgmap.org/examples/tutorials/mesh2/meshTileViewer.html)に対して追加されている部分を解説します。
 
 市区町村コードをキーにした市区町村名の連想配列を作るためのデータを読み込んでいる点と、それを用いたカスタムダイアログを出現させるためのコールバック関数を設定している点が追加部分になります。
-
 - onload=async function()
   - [svgMap.setShowPoiProperty](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#setShowPoiProperty)( customShowPoiProperty, layerID);
     - 紐付いたレイヤーのオブジェクトをヒットしたときに出現する処理に独自のコールバック関数(customShowPoiProperty)に指定する
