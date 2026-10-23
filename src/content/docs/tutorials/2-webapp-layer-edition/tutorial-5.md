@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 5: WebApp Layer - Tile Pyramid'
+title: "Tutorial 5: WebApp Layer - Tile Pyramid"
 sidebar:
   order: 5
 ---
@@ -13,7 +13,6 @@ This tutorial demonstrates how to create a layer using [OpenStreetMap's tile pyr
 ### File Structure {#file-structure}
 
 The file structure is as follows:
-
 - [the tutorial5](https://www.svgmap.org/examples/tutorials/tutorial5) directory contains the following files.
   - [Tutorial5.html](https://www.svgmap.org/examples/tutorials/tutorial5/tutorial5.html)
     - HTML for Tutorial 5. Same content as tutorial2b.html.
@@ -112,7 +111,6 @@ The file used is a [ZIP archive file](https://www.svgmap.org/examples/tutorials/
 An SVG map content layer file with a web application linked to display an external OpenStreetMap.
 
 We will utilize [the WebApp Layer mechanism](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.82.A6.E3.82.A7.E3.83.96.E3.82.A2.E3.83.97.E3.83.AA.E3.82.B1.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3.E3.81.AB.E3.82.88.E3.82.8B.E5.8B.95.E7.9A.84.E3.81.AA.E5.9C.B0.E5.9B.B3.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E3.81.A8.E3.80.81.E3.81.9D.E3.81.AE.E3.83.8F.E3.82.A4.E3.83.91.E3.83.BC.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.AA.E3.83.B3.E3.82.B0) provided by SVGMap.js .
-
 - By referencing the web application (HTML content containing JavaScript code) in the data-controller attribute of the SVG content's document element (svg element), the web application is linked to the SVGMap content layer.
   - The #exec=hiddenOnLayerLoad hash will launch the web application in a hidden state. See [the documentation](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI) for details on layer-specific UI.
 - Because the DOM is generated directly in the web application, the content is mostly empty.
@@ -135,11 +133,11 @@ We will utilize [the WebApp Layer mechanism](https://www.svgmap.org/wiki/index.p
 
 This will be used to implement a feature ([Level of Detail](https://en.wikipedia.org/wiki/Level_of_detail_(computer_graphics))) that dynamically retrieves and displays tiles appropriate to the display range and zoom level from the OpenStreetMap server .
 
-*Note: The OpenStreetMap tiles used here are uniform mesh tiles on the so-called Web Mercator projection. On the other hand, the SVGMap content used in this tutorial uses the [azimuthal equidistant projection](https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%B7%9D%E5%86%86%E7%AD%92%E5%9B%B3%E6%B3%95) (Plate Caree: a projection that directly plots longitude and latitude on the X,Y plane, commonly used in business and technical fields). Therefore, projection conversion is necessary, but for simplicity, this tutorial only uses a linear conversion of the tiles. At small scales, such as the size of the Japanese archipelago, you may see some discrepancies due to the difference in projections. (SVGMap.js also supports [more accurate projection conversion](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.A1.E3.83.AB.E3.82.AB.E3.83.88.E3.83.AB.E5.9B.B3.E6.B3.95.E3.82.92.E5.90.AB.E3.82.80.E4.BB.BB.E6.84.8F.E3.81.AE.E5.9B.B3.E6.B3.95.E3.81.AE.E5.AE.9A.E7.BE.A9.E3.81.A8.E3.81.9D.E3.81.AE.E5.90.88.E6.88.90.E6.A9.9F.E8.83.BD.28.EF.BC.9Erev16.29).)*
+_Note: The OpenStreetMap tiles used here are uniform mesh tiles on the so-called Web Mercator projection. On the other hand, the SVGMap content used in this tutorial uses the [azimuthal equidistant projection](https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%B7%9D%E5%86%86%E7%AD%92%E5%9B%B3%E6%B3%95) (Plate Caree: a projection that directly plots longitude and latitude on the X,Y plane, commonly used in business and technical fields). Therefore, projection conversion is necessary, but for simplicity, this tutorial only uses a linear conversion of the tiles. At small scales, such as the size of the Japanese archipelago, you may see some discrepancies due to the difference in projections. (SVGMap.js also supports [more accurate projection conversion](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.A1.E3.83.AB.E3.82.AB.E3.83.88.E3.83.AB.E5.9B.B3.E6.B3.95.E3.82.92.E5.90.AB.E3.82.80.E4.BB.BB.E6.84.8F.E3.81.AE.E5.9B.B3.E6.B3.95.E3.81.AE.E5.AE.9A.E7.BE.A9.E3.81.A8.E3.81.9D.E3.81.AE.E5.90.88.E6.88.90.E6.A9.9F.E8.83.BD.28.EF.BC.9Erev16.29).)_
 
 #### dynamicOSM_r11.html
 
-The HTML consists of a [common library](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI.E3.81.AE.E3.81.9F.E3.82.81.E3.81.AEhtml.E6.96.87.E6.9B.B8.28webApp.29.E3.81.AE.E6.A7.8B.E9.80.A0.E3.83.BB.E4.BD.9C.E6.B3.95) (svgMapLayerLib.js) for initializing the layer-specific UI , a script code section describing the layer-specific processing ```dynamicOSM_r11.js```, and the UI (HTML, CSS, etc.).
+The HTML consists of a [common library](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI.E3.81.AE.E3.81.9F.E3.82.81.E3.81.AEhtml.E6.96.87.E6.9B.B8.28webApp.29.E3.81.AE.E6.A7.8B.E9.80.A0.E3.83.BB.E4.BD.9C.E6.B3.95) (svgMapLayerLib.js) for initializing the layer-specific UI , a script code section describing the layer-specific processing `dynamicOSM_r11.js`, and the UI (HTML, CSS, etc.).
 
 dynamicOSM_r11.html
 
@@ -162,30 +160,30 @@ dynamicOSM_r11.html
 
 #### dynamicOSM_r11.js
 
-- ```onload``` Similar to a regular web application, this function is executed after the loading of the HTML-related resources is complete.
-  - ```svgMap``` [Core Framework Instance](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMap)
-    - ```svgMap.refreshScreen()``` If the DOM needs to be redrawn at a time other than during scaling/scrolling, you must [explicitly request a redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).
+- `onload` Similar to a regular web application, this function is executed after the loading of the HTML-related resources is complete.
+  - `svgMap` [Core Framework Instance](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMap)
+    - `svgMap.refreshScreen()` If the DOM needs to be redrawn at a time other than during scaling/scrolling, you must [explicitly request a redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).
       - [Reference information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
-- ```preRenderFunction()``` When this function is defined, it will be [executed immediately](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#preRenderFunction) before each screen redraw.
-  - ```svgImagesProps``` [Various information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImageProps) about SVG content linked to a web app.
+- `preRenderFunction()` When this function is defined, it will be [executed immediately](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#preRenderFunction) before each screen redraw.
+  - `svgImagesProps` [Various information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImageProps) about SVG content linked to a web app.
     - [See explanatory manual](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImageProps), [see reference 2](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.97.E3.83.AD.E3.83.91.E3.83.86.E3.82.A3.E3.83.AA.E3.82.B9.E3.83.88)
-    - ```svgImageProps.scale``` The scale of the SVG content's coordinate system relative to the screen's coordinate system (Note: This is different from a geographic coordinate system) ([Reference Information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.97.E3.83.AD.E3.83.91.E3.83.86.E3.82.A3.E3.83.AA.E3.82.B9.E3.83.88))
-  - ```svgMap.getGeoViewBox()``` Obtain the display area using [geographic coordinates](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#getGeoViewBox).
-  - ```getTileSet``` Obtain a list of tiles to display (associative array) (details below).
-  - ```svgImage``` The DOM of the [linked SVGMap content](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImage)
+    - `svgImageProps.scale` The scale of the SVG content's coordinate system relative to the screen's coordinate system (Note: This is different from a geographic coordinate system) ([Reference Information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.97.E3.83.AD.E3.83.91.E3.83.86.E3.82.A3.E3.83.AA.E3.82.B9.E3.83.88))
+  - `svgMap.getGeoViewBox()` Obtain the display area using [geographic coordinates](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#getGeoViewBox).
+  - `getTileSet` Obtain a list of tiles to display (associative array) (details below).
+  - `svgImage` The DOM of the [linked SVGMap content](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgImage)
     - OSM tiles are placed in the SVG DOM as SVG image elements. Additionally, the tile number (key in the associative array) of each tile obtained with getTileSet is set in the metadata attribute.
     - When this function (preRenderFunction) is called again after scrolling, it uses the value of this metadata to ensure that tiles that have already been drawn up to the previous step and should be drawn again after scrolling remain in place.
-  - ```getTile``` Based on the information (ZoomLevel, X, Y) in the tile list's associative array, obtain the image element for the tile to be retrieved.
+  - `getTile` Based on the information (ZoomLevel, X, Y) in the tile list's associative array, obtain the image element for the tile to be retrieved.
     - OSM bit image tiles are pasted as SVG image elements.
-    - ```getURL``` A function that generates the URL of an actual OSM tile from ZoomLevel, X, and Y.
-    - ```XY2latLng``` A function that obtains the geographic coordinate region of a tile from ZoomLevel, X, and Y.
-- ```getTileSet```A function that lists the tiles to be displayed at the current zoom level and display area.
+    - `getURL` A function that generates the URL of an actual OSM tile from ZoomLevel, X, and Y.
+    - `XY2latLng` A function that obtains the geographic coordinate region of a tile from ZoomLevel, X, and Y.
+- `getTileSet`A function that lists the tiles to be displayed at the current zoom level and display area.
   - [This function](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Zoom_levels) retrieves the Zoom and [XY coordinates](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#X_and_Y) of an OSM Slippy Map Tile and returns an associative array using these coordinates as keys.
   - OSM Slippy Map Tiles are tile pyramids that are recursively divided into 2x2 sections on the [Web Mercator projection](https://en.wikipedia.org/wiki/Mercator_projection#Web_Mercator).
     - The Web Mercator projection constructs a square map over a range of (longitude ±180 degrees, latitude ±85.05113 degrees).
-  - ```latLng2XY``` This method calculates the coordinates of a specified latitude and longitude on a bit image, assuming the entire Earth is represented as a single large square bit image on the Web Mercator projection at a specified zoom level.
-    - ```lvl2Res``` Calculate the width of the corresponding bit image of the entire Earth from the ZoomLevel (Level0: 256px)
-  - ```XY2TileXY``` From the XY coordinates on a large square bit image of the Earth shown above, when it is tiled, the tile number (tile's X number, Y number) to which those coordinates belong can be obtained.
+  - `latLng2XY` This method calculates the coordinates of a specified latitude and longitude on a bit image, assuming the entire Earth is represented as a single large square bit image on the Web Mercator projection at a specified zoom level.
+    - `lvl2Res` Calculate the width of the corresponding bit image of the entire Earth from the ZoomLevel (Level0: 256px)
+  - `XY2TileXY` From the XY coordinates on a large square bit image of the Earth shown above, when it is tiled, the tile number (tile's X number, Y number) to which those coordinates belong can be obtained.
 
   dynamicOSM_r11.js
 

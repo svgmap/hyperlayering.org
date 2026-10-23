@@ -1,8 +1,8 @@
 ---
-title: 'はじめに'
+title: "はじめに"
 ---
 
-SVGMap.jsは[高度で柔軟なタイリング機構](https://satakagi.github.io/mapsForWebWS2020-docs/QuadTreeCompositeTilingAndVectorTileStandard.html) により [Jamstackのパターン](https://en.wikipedia.org/wiki/Jamstack)を幅広く活用できるため、サーバのオーバヘッドが大きい動的なウェブサービスが必要なケースを従来のフレームワークと比べて大幅に減らすことができます。（参考:[SVGMapToolsを使ったチュートリアル](https://github.com/svgmap/svgMapTools/tree/master/tutorials)、[Quad Tree Composite Tiling and the standardization of tiling](https://satakagi.github.io/mapsForWebWS2020-docs/QuadTreeCompositeTilingAndVectorTileStandard.html)) 
+SVGMap.jsは[高度で柔軟なタイリング機構](https://satakagi.github.io/mapsForWebWS2020-docs/QuadTreeCompositeTilingAndVectorTileStandard.html) により [Jamstackのパターン](https://en.wikipedia.org/wiki/Jamstack)を幅広く活用できるため、サーバのオーバヘッドが大きい動的なウェブサービスが必要なケースを従来のフレームワークと比べて大幅に減らすことができます。（参考:[SVGMapToolsを使ったチュートリアル](https://github.com/svgmap/svgMapTools/tree/master/tutorials)、[Quad Tree Composite Tiling and the standardization of tiling](https://satakagi.github.io/mapsForWebWS2020-docs/QuadTreeCompositeTilingAndVectorTileStandard.html))
 
 それでも動的なサービスの結合が必要なことは多くあるため、ここではその方法を既存の公開ウェブサービスを利用したwebAppレイヤーとして実装してみます。（依ってこのチュートリアルでは動的なサービスの利用に留まり、動的なサービス側を構築することには踏み込みません。[GeoServer](https://ja.wikipedia.org/wiki/GeoServer) , [MapServer](https://ja.wikipedia.org/wiki/MapServer) , [PostgREST + PostGIS](https://gis-ops.com/postgrest-postgis-api-tutorial-geospatial-api-in-5-minutes/)等はその実装に利用できるでしょう。SVGMap.orgでも[redisSvgMap.](https://github.com/svgmap/redisSvgMap)という 高性能な動的サービスを構築するためのコードを公開しています。）
 

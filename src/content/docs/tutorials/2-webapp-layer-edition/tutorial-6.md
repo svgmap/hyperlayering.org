@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 6: WebApp Layer geoJSON'
+title: "Tutorial 6: WebApp Layer geoJSON"
 sidebar:
   order: 6
 ---
@@ -95,8 +95,8 @@ The only difference from the HTML in [Tutorial 2b](../../1-basic/tutorial-2b/ind
 ### geoJsonExample1.svg {#geo-json-example1-svg}
 
 - The `data-controller` attribute of the document root element (the `svg` element) specifies [the webApp](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI) that will operate this layer .
-	- ```data-controller="geoJsonExample1.html#exec=appearOnLayerLoad```
-	- ```exec=appearOnLayerLoad``` This setting causes the webApp window to appear when the layer becomes visible. ([See here for details](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
+  - `data-controller="geoJsonExample1.html#exec=appearOnLayerLoad`
+  - `exec=appearOnLayerLoad` This setting causes the webApp window to appear when the layer becomes visible. ([See here for details](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
 - The `defs` element defines the markers (icons) used when visualizing point features in geoJSON.
 
 ```svg
@@ -127,7 +127,7 @@ The only difference from the HTML in [Tutorial 2b](../../1-basic/tutorial-2b/ind
 
 #### geoJsonexample1.html
 
-The HTML consists of a [common library](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI.E3.81.AE.E3.81.9F.E3.82.81.E3.81.AEhtml.E6.96.87.E6.9B.B8.28webApp.29.E3.81.AE.E6.A7.8B.E9.80.A0.E3.83.BB.E4.BD.9C.E6.B3.95) (svgMapLayerLib.js) for initializing the layer-specific UI , a script code section describing the layer-specific processing ```geoJsonExample1.js```, and the UI (HTML, CSS, etc.).
+The HTML consists of a [common library](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI.E3.81.AE.E3.81.9F.E3.82.81.E3.81.AEhtml.E6.96.87.E6.9B.B8.28webApp.29.E3.81.AE.E6.A7.8B.E9.80.A0.E3.83.BB.E4.BD.9C.E6.B3.95) (svgMapLayerLib.js) for initializing the layer-specific UI , a script code section describing the layer-specific processing `geoJsonExample1.js`, and the UI (HTML, CSS, etc.).
 
 ```html
 <!doctype html>
@@ -150,76 +150,97 @@ The HTML consists of a [common library](https://www.svgmap.org/wiki/index.php?ti
 
 - [Layer-specific UI](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E6.8B.A1.E5.BC.B5API): As described in the extended API documentation, svgImage and svgMapGIStool objects are automatically incorporated into the window.
 - A web app that is linked to geoJsonExample1.svg and can [control its DOM](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI).
-- This app has a simple UI and ```dataPaths``` allows you to select from several geoJSON data sets that you have configured.
-- ```loadJSON(url)``` Asynchronous loading of [GeoJSON](https://ja.wikipedia.org/wiki/GeoJSON) data using [await](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/async_function[) [fetch](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch)
-- This code uses functions from the [SVGMap GIS library (svgMapGIStool)](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMapGIStool..E3.81.A7.E5.91.BC.E3.81.B3.E5.87.BA.E3.81.9B.E3.82.8BAPI) ```drawGeoJson``` to convert geoJSON to SVGMap content (its DOM).
-	- The variable `layerID` is a built-in variable (see [the documentation #layerID](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#layerID)).
-	- While it is certainly possible to convert geoJSON to SVGMap content DOM manually, Tutorial 6 uses a library.
-	- ```drawGeoJson``` For details on the function, please refer to the [documentation #drawGeoJson](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#drawGeoJson).
-- ```svgMap.refreshScreen()``` If the DOM needs to be redrawn at a time other than during scaling/scrolling, you must [explicitly request a redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).
-	- [Reference information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
+- This app has a simple UI and `dataPaths` allows you to select from several geoJSON data sets that you have configured.
+- `loadJSON(url)` Asynchronous loading of [GeoJSON](https://ja.wikipedia.org/wiki/GeoJSON) data using [await](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/async_function[) [fetch](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch)
+- This code uses functions from the [SVGMap GIS library (svgMapGIStool)](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMapGIStool..E3.81.A7.E5.91.BC.E3.81.B3.E5.87.BA.E3.81.9B.E3.82.8BAPI) `drawGeoJson` to convert geoJSON to SVGMap content (its DOM).
+  - The variable `layerID` is a built-in variable (see [the documentation #layerID](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#layerID)).
+  - While it is certainly possible to convert geoJSON to SVGMap content DOM manually, Tutorial 6 uses a library.
+  - `drawGeoJson` For details on the function, please refer to the [documentation #drawGeoJson](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#drawGeoJson).
+- `svgMap.refreshScreen()` If the DOM needs to be redrawn at a time other than during scaling/scrolling, you must [explicitly request a redraw](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#refreshScreen).
+  - [Reference information](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
 
 ```js
 var dataPaths = {
-	"A34b-180316.geojson": "World Heritage Site Component Area Polygon (Representative Point)",
+	"A34b-180316.geojson":
+		"World Heritage Site Component Area Polygon (Representative Point)",
 	"A34a-180316.geojson": "World Heritage Site Component Area Polygon Data",
-	"A34d-180316.geojson": "World Heritage Site Component Boundary Line (Representative Point)",
+	"A34d-180316.geojson":
+		"World Heritage Site Component Boundary Line (Representative Point)",
 	"A34c-180316.geojson": "World Heritage Site Component Boundary Line Data",
-	"A34e-180316.geojson":"World Heritage Component",
+	"A34e-180316.geojson": "World Heritage Component",
 	"A34f-180316.geojson": "World Heritage Buffer Zone Polygon Data",
-	"A34g-180316.geojson":"World Heritage Buffer Zone Polygon (Representative Point)",
-	"C28-20_Airport.geojson":"Airport Data Airport",
-	"C28-20_AirportReferencePoint.geojson":"Airport data reference point",
+	"A34g-180316.geojson":
+		"World Heritage Buffer Zone Polygon (Representative Point)",
+	"C28-20_Airport.geojson": "Airport Data Airport",
+	"C28-20_AirportReferencePoint.geojson": "Airport data reference point",
 	"C28-20_SurveyContent.geojson": "Airport Data Survey Content",
-	"C28-20_TerminalBuilding.geojson":"Airport Data Terminal Building",
-	"N02-20_RailroadSection.geojson":"Railway Data Railway",
-	"N02-20_Station.geojson":"Railway data station"
+	"C28-20_TerminalBuilding.geojson": "Airport Data Terminal Building",
+	"N02-20_RailroadSection.geojson": "Railway Data Railway",
+	"N02-20_Station.geojson": "Railway data station",
 };
 
-addEventListener("load", function(){
+addEventListener("load", function () {
 	buildDataSelect();
 	changeData();
 });
 
-function changeData(){
+function changeData() {
 	var path = dataSelect.options[dataSelect.selectedIndex].value;
 	loadAndDrawGeoJson(path);
 }
 
-async function loadAndDrawGeoJson(dataPath){
+async function loadAndDrawGeoJson(dataPath) {
 	var gjs = await loadJSON(dataPath);
 	var parentElm = svgImage.getElementById("mapContents");
 	removeChildren(parentElm);
-	svgMapGIStool.drawGeoJson(gjs, layerID, "orange", 2, "orange", "p0", "poi", "", parentElm);
+	svgMapGIStool.drawGeoJson(
+		gjs,
+		layerID,
+		"orange",
+		2,
+		"orange",
+		"p0",
+		"poi",
+		"",
+		parentElm,
+	);
 	svgMap.refreshScreen();
 }
 
-function buildDataSelect(){
+function buildDataSelect() {
 	var first = true;
-	for ( var dataPath in dataPaths){
-		dataSelect.insertAdjacentHTML('beforeend', '<option value="' + dataPath +'" >'+dataPaths[dataPath]+'</option>');
+	for (var dataPath in dataPaths) {
+		dataSelect.insertAdjacentHTML(
+			"beforeend",
+			'<option value="' + dataPath + '" >' + dataPaths[dataPath] + "</option>",
+		);
 	}
 }
 
-async function loadJSON(url){
-	var dt = getDateStr(new Date(),10);
-	var response = await fetch(url+"?time="+dt); // Add some dummy query part to always get the latest data. Bad Tips...
+async function loadJSON(url) {
+	var dt = getDateStr(new Date(), 10);
+	var response = await fetch(url + "?time=" + dt); // Add some dummy query part to always get the latest data. Bad Tips...
 	// https://stackoverflow.com/questions/37204296/cache-invalidation-using-the-query-string-bad-practice
 	// https://stackoverflow.com/questions/9692665/cache-busting-via-params
 	var json = await response.json();
-	return ( json );
+	return json;
 }
 
-function getDateStr(dateData , tStep){
-	var mind = tStep * Math.floor( dateData.getUTCMinutes() / tStep );
-	var ans = dateData.getUTCFullYear()+ pad(dateData.getUTCMonth() + 1) + pad(dateData.getUTCDate()) + pad(dateData.getUTCHours()) + pad(mind);
-	return ( ans );
+function getDateStr(dateData, tStep) {
+	var mind = tStep * Math.floor(dateData.getUTCMinutes() / tStep);
+	var ans =
+		dateData.getUTCFullYear() +
+		pad(dateData.getUTCMonth() + 1) +
+		pad(dateData.getUTCDate()) +
+		pad(dateData.getUTCHours()) +
+		pad(mind);
+	return ans;
 }
-function pad( inp ){
-	return (("0"+inp).slice(-2));
+function pad(inp) {
+	return ("0" + inp).slice(-2);
 }
 
-function removeChildren(element){
+function removeChildren(element) {
 	while (element.firstChild) element.removeChild(element.firstChild);
 }
 ```

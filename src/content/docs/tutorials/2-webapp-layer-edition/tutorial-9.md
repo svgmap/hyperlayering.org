@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 9: WebApp Layer Mesh Tiles (Tiled Mesh Data)'
+title: "Tutorial 9: WebApp Layer Mesh Tiles (Tiled Mesh Data)"
 sidebar:
   order: 9
 ---
@@ -26,7 +26,6 @@ To actually use it, click on [mesh2.html](https://svgmap.org/examples/tutorials/
 This tutorial displays tiled mesh data. [Tutorial 8](../tutorial-8/index.md), we will be using [Gridded XYZ type mesh data](../tutorial-8/index.md#gridded-xyz).
 
 Furthermore, we will be dealing with larger data (more mesh count, finer detail) than in [Tutorial 8](../tutorial-8/index.md).Therefore, in addition to tiling, we will also construct a simple tile pyramid and implement a function ([Level of Detail](https://en.wikipedia.org/wiki/Level_of_detail_(computer_graphics))) that changes the data displayed at small and large scales.
-
 - [Click here](https://svgmap.org/examples/tutorials/mesh2/mesh2.html) to see how it works.
 - The file used is a [ZIP archive file](https://www.svgmap.org/examples/tutorials/mesh2.zip).
 
@@ -49,34 +48,32 @@ Furthermore, we will be dealing with larger data (more mesh count, finer detail)
 - We will retrieve the data using [this WebApp](https://www.svgmap.org/examples/lvl0.1/etcLayers/meshCoder/japanMesh_r3.html).
 - This web application automatically retrieves all CSV files from [the Statistics Bureau's list of municipal mesh codes](https://www.stat.go.jp/data/mesh/m_itiran.html) and allows you to save CSV data at a specified mesh level. (All operations are performed within a browser.)
 - How to operate
-	- Access [japanMesh_r3.html](https://www.svgmap.org/examples/lvl0.1/etcLayers/meshCoder/japanMesh_r3.html)
-		- Please wait a while until the CSV data collection is complete.
-	- ```市区町村``` Menu
-	- ```３次メッシュ``` Menu
-	- ```集計実行``` Press
-	- Selecting "Download CSV ```mesh.csv```" will save the CSV file.
+  - Access [japanMesh_r3.html](https://www.svgmap.org/examples/lvl0.1/etcLayers/meshCoder/japanMesh_r3.html)
+    - Please wait a while until the CSV data collection is complete.
+  - `市区町村` Menu
+  - `３次メッシュ` Menu
+  - `集計実行` Press
+  - Selecting "Download CSV `mesh.csv`" will save the CSV file.
 
 ### Construction of a tile pyramid {#construction-of-a-tile-pyramid}
 
 This tutorial uses a [Jamstack](https://en.wikipedia.org/wiki/Jamstack) configuration that does not deploy a database or dynamic web services in the backend .
 
 Static tile pyramid data (a set of CSV files) will be generated from the acquired raw data. The tool used for generation is [mesh2tileBasic.py](https://svgmap.org/examples/tutorials/mesh2/mesh2tileBasic.py), which is provided here .
-
 - Save [mesh2tileBasic.py](https://svgmap.org/examples/tutorials/mesh2/mesh2tileBasic.py) to your local PC
-- ```tiles``` Prepare a directory in the working directory.
-- ```python mesh2tileBasic.py mesh.csv```　Execute (mesh.csv is the file path of the downloaded original data)
-- ```tiles``` The directory contains the tiled mesh data.
+- `tiles` Prepare a directory in the working directory.
+- `python mesh2tileBasic.py mesh.csv`　Execute (mesh.csv is the file path of the downloaded original data)
+- `tiles` The directory contains the tiled mesh data.
 
 ### Explanation of tile pyramid data {#explination-of-tile-pyramid-data}
 
 #### [top.csv](https://www.svgmap.org/examples/tutorials/mesh2/meshTiles/top.csv)
 
 Data for small scale (data for the vertices of the tile pyramid)
-
 - 1st line: Blank line
 - From the second line onwards:
-	- First digit: Local government code (prefecture code, 2 digits)
-	- Second digit and beyond: Secondary mesh code, variable length
+  - First digit: Local government code (prefecture code, 2 digits)
+  - Second digit and beyond: Secondary mesh code, variable length
 - Excerpt from actual data
 
 ```
@@ -90,14 +87,13 @@ Data for small scale (data for the vertices of the tile pyramid)
 #### [4-digit number].csv Example: [5339.csv](https://www.svgmap.org/examples/tutorials/mesh2/meshTiles/5339.csv)
 
 Tile-divided data for large scale (divided at the primary mesh level).
-
 - [Four-digit number] in the filename: Primary mesh code
 - Line 1: Primary mesh code
 - From the second line onwards:
-	- First digit: Local government code (city/ward/town/village code, 5 digits)
-	- Second digit and beyond: The last four characters of the tertiary mesh code (variable length)
-		- By adding the primary mesh code from the first line to the beginning, the tertiary mesh code can be obtained (simple data compression).
-		- The reason the first line of top.csv is blank is so that it can be processed using the same rules.
+  - First digit: Local government code (city/ward/town/village code, 5 digits)
+  - Second digit and beyond: The last four characters of the tertiary mesh code (variable length)
+    - By adding the primary mesh code from the first line to the beginning, the tertiary mesh code can be obtained (simple data compression).
+    - The reason the first line of top.csv is blank is so that it can be processed using the same rules.
 - Excerpts from actual data
 
 ```
@@ -112,13 +108,13 @@ Tile-divided data for large scale (divided at the primary mesh level).
 #### Note
 
 - The two types of files mentioned above correspond to [Gridded XYZ](../tutorial-8/index.md#gridded-xyz) data. Although it may appear that there is no XY data, this is because the mesh code is information encoded from the gridded XY coordinates.
-- Furthermore, the most common type of gridded XYZ data has one XYZ data point per row. However, the data presented here is　 ```Z,XY1,XY2,XY3.....XYn```　slightly unconventional, as it encodes multiple XY values ​​​​with a common Z value onto a single row using a variable-length encoding method (to reduce the data size).
+- Furthermore, the most common type of gridded XYZ data has one XYZ data point per row. However, the data presented here is　 `Z,XY1,XY2,XY3.....XYn`　slightly unconventional, as it encodes multiple XY values ​​​​with a common Z value onto a single row using a variable-length encoding method (to reduce the data size).
 
 #### code_name.csv
 
 - [Data for Tutorial 9b](../tutorial-9b/index.md). This is dictionary data between city/town/village codes and municipality names.
 - First digit: City/ward/town/village code (5-digit number)
-	- The prefectural government code can be obtained by taking the first two characters.
+  - The prefectural government code can be obtained by taking the first two characters.
 - Second digit: Country name
 - Third digit: Prefecture name
 - Second digit: City/ward/town/village name
@@ -136,7 +132,7 @@ Tile-divided data for large scale (divided at the primary mesh level).
 
 - The theme layer, which displays mesh data, and the background map (OpenStreetMap) are loaded using the animation element.
 - Similar to [Tutorial 6](../tutorial-6/index.md#containersvg-container-svg), a clickable layer is specified.
-	- As described later, the `clickable` attribute is specified in the `class` attribute to visualize the mesh data as vector data and enable interactivity.
+  - As described later, the `clickable` attribute is specified in the `class` attribute to visualize the mesh data as vector data and enable interactivity.
 
 ```svg
 <?xml version="1.0" encoding="UTF-8"?>
@@ -154,8 +150,8 @@ Tile-divided data for large scale (divided at the primary mesh level).
 ### meshTileViewer.svg {#mesh-tile-viewer-svg}
 
 - The `data-controller` attribute of the document root element (the `svg` element) specifies the [webApp that will operate this layer](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E3.83.AC.E3.82.A4.E3.83.A4.E3.83.BC.E5.9B.BA.E6.9C.89.E3.81.AEUI).
-	- ```data-controller="meshTileViewer.html#exec=hiddenOnLayerLoad```
-	- ```exec=hiddenOnLayerLoad``` This setting causes the webApp window to hide when a layer is displayed. ([See here for details](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
+  - `data-controller="meshTileViewer.html#exec=hiddenOnLayerLoad`
+  - `exec=hiddenOnLayerLoad` This setting causes the webApp window to hide when a layer is displayed. ([See here for details](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E8.A9.B3.E7.B4.B0))
 - This is empty content with no data; the web app that manipulates the mentioned layer dynamically manipulates the DOM of this SVG content to make it visible.
 
 ```svg
@@ -169,31 +165,30 @@ Tile-divided data for large scale (divided at the primary mesh level).
 ### meshTileViewer.html, meshTileViewer.js {#mesh-tile-viewer}
 
 The mesh data, which has been divided and layered as a tile pyramid, is loaded according to the scale and display area, and the DOM of the above SVG content is manipulated to visualize each individual mesh as an SVG rect element.
-
 - onload
-	- ```document.addEventListener("zoomPanMap", updateLayer,false);``` Set up a handler for the event that SVGMap.js emits when scrolling to resize (to change the displayed content according to the resize scrolling).
-	- ```updateLayer();``` Immediately after loading, the above handler is executed directly to create the initial display state.
-- ```updateLayer()``` Download data and draw maps according to the scale and area.
-	- ```svgMap.getGeoViewBox();``` The SVGMap.js API retrieves the geographic coordinates of the displayed area.
-	- ```svgImageProps.scale``` SVGMap.js API: The current display scale of the SVGMap content associated with this WebApp.
-	- ```getTileURLs()``` A function to list the filenames of tiles that should be displayed in the case of large-scale display (based on the displayed area).
-	- ```maintainImages``` An associative array listing the filenames of tiles that were displayed one step before the scaling scroll and that should be retained in the current step.
-		- The elements are grouped into tile units (SVG gelements), and management is performed on a tile-by-tile basis.
-		- The `data-src` attribute of the corresponding tile is set to the filename of the tile, and this is used for identification.
-- ```showTileMap()``` New data is loaded, the data for one tile to be displayed is constructed, and it is passed to the drawing routine (asynchronously).
-	- ```meshData```: Variables used to temporarily construct mesh data (structured associative array)
-		- meshData[mesh code][0..n]: Municipality code (Note that one mesh municipalities may contain within Fukusu)
-- ```buildMeshTileSvg()```
-	- ```svgImage``` The DOM object of the SVG content (meshTileViewer.svg) associated with this webApp.
-	- ```g``` Group mesh data of tile content using SVG elements.
-	- ```rect``` Visualize each mesh data using SVG elements.
-		- ```data-src``` Set the source filename of the tile content in the attribute (for determining reuse in the next step).
-	- ```getHue()``` A function that uses a suitable hash function to assign a suitable color (hue H value) to a local government code.
-	- ```HSVtoRGB()```A function to calculate RGB values ​​​​from HSV values ​​​​(S and V are fixed at their maximum values).
-	- ```blendColor()``` Additive color mixing function (because multiple municipalities (and their colors) may be assigned to a single mesh, color mixing is performed.)
-	- ```svgMap.refreshScreen()``` Once DOM generation is complete, instruct the system to render.
-		- Each time a tile is read, a redraw will occur (displayed progressively).
-		- [reference](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
+  - `document.addEventListener("zoomPanMap", updateLayer,false);` Set up a handler for the event that SVGMap.js emits when scrolling to resize (to change the displayed content according to the resize scrolling).
+  - `updateLayer();` Immediately after loading, the above handler is executed directly to create the initial display state.
+- `updateLayer()` Download data and draw maps according to the scale and area.
+  - `svgMap.getGeoViewBox();` The SVGMap.js API retrieves the geographic coordinates of the displayed area.
+  - `svgImageProps.scale` SVGMap.js API: The current display scale of the SVGMap content associated with this WebApp.
+  - `getTileURLs()` A function to list the filenames of tiles that should be displayed in the case of large-scale display (based on the displayed area).
+  - `maintainImages` An associative array listing the filenames of tiles that were displayed one step before the scaling scroll and that should be retained in the current step.
+    - The elements are grouped into tile units (SVG gelements), and management is performed on a tile-by-tile basis.
+    - The `data-src` attribute of the corresponding tile is set to the filename of the tile, and this is used for identification.
+- `showTileMap()` New data is loaded, the data for one tile to be displayed is constructed, and it is passed to the drawing routine (asynchronously).
+  - `meshData`: Variables used to temporarily construct mesh data (structured associative array)
+    - meshData[mesh code][0..n]: Municipality code (Note that one mesh municipalities may contain within Fukusu)
+- `buildMeshTileSvg()`
+  - `svgImage` The DOM object of the SVG content (meshTileViewer.svg) associated with this webApp.
+  - `g` Group mesh data of tile content using SVG elements.
+  - `rect` Visualize each mesh data using SVG elements.
+    - `data-src` Set the source filename of the tile content in the attribute (for determining reuse in the next step).
+  - `getHue()` A function that uses a suitable hash function to assign a suitable color (hue H value) to a local government code.
+  - `HSVtoRGB()`A function to calculate RGB values ​​​​from HSV values ​​​​(S and V are fixed at their maximum values).
+  - `blendColor()` Additive color mixing function (because multiple municipalities (and their colors) may be assigned to a single mesh, color mixing is performed.)
+  - `svgMap.refreshScreen()` Once DOM generation is complete, instruct the system to render.
+    - Each time a tile is read, a redraw will occur (displayed progressively).
+    - [reference](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#.E5.86.8D.E6.8F.8F.E7.94.BB.E3.81.AE.E5.88.B6.E9.99.90)
 
 ```html
 <!doctype html>

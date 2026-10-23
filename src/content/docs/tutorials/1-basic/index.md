@@ -1,5 +1,5 @@
 ---
-title: 'Introduction'
+title: "Introduction"
 ---
 
 These are basic tutorials for constructing map content (web pages) using SVGMap.js.

@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル2c OpenStreetMapとPOI(空港)表示　(レイヤリング)'
+title: "チュートリアル2c OpenStreetMapとPOI(空港)表示　(レイヤリング)"
 ---
 
 ## はじめに  {#introduction}
@@ -9,7 +9,6 @@ title: 'チュートリアル2c OpenStreetMapとPOI(空港)表示　(レイヤ�
 ### ファイル構造 {#file-structure}
 
 ファイル構造は以下の通りです：
-
 - tutorial2cディレクトリには以下のファイルが含まれています。
   - [tutorial2c.html](https://www.svgmap.org/examples/tutorials/tutorial2c/tutorial2c.html)
 - Container.svgで参照している背景地図を、Coastline.svgからdynamicOSM_r11.svgに置き換えています。
@@ -87,7 +86,6 @@ This is the same as [Tutorial 2B](../tutorial-2b/index.md#tutorial2bhtml-tutoria
 前章ではCoastline.svgの代わりにdynamicOSM_r11.svgを置き換えましたが、レイヤー機能を用いればユーザ側でUIから複数ある背景地図を選ぶことができます。
 
 また、同じ方法で、上乗せ情報を複数設置し、切り替えて利用できるようにすることもできます。
-  
 - 実際の動作は[こちら](http://svg2.mbsrv.net/examples/tutorials/tutorial2c/tutorial2c_add.html)をクリック。
   - 画面左上のレイヤーリストUIをクリックすると、2個の背景地図が選べるようになっています。
 - 使用ファイルは[こちら](https://svg2.mbsrv.net/examples/tutorials/tutorial2c/)
@@ -101,15 +99,14 @@ This is the same as [Tutorial 2B](../tutorial-2b/index.md#tutorial2bhtml-tutoria
 ### Container_add.svg {#container_add-svg}
 
 **animation** 要素がポイントです。（他に差異はありません）
-
 - 背景地図用のコンテンツのための**animation**要素を複数設定する
 - **title**属性を背景地図ごとに異なる名前にする
 - **Class** 属性
   - 背景地図に共通のクラス名を設定しておく
     - クラス名で指定した名前がレイヤーリストUIに現れるグループの名前になります。
   - さらに、UIでどちらかの背景地図だけが選ばれるようにクラス名にswitchも追加する。(同時に両方とも表示できるようにしたい場合はswitchを追加しない)
-    - ```class="basemap switch"```
-- デフォルトで表示状態にしたい背景地図以外は```visibility="hidden"```を設定する
+    - `class="basemap switch"`
+- デフォルトで表示状態にしたい背景地図以外は`visibility="hidden"`を設定する
 
 #### ソースコード {#source-code}
 

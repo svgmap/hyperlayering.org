@@ -36,7 +36,6 @@ In full names, Layering and Layered should be used according to their respective
 ### Layering
 
 Layering refers to the concept, approach, process, or act of connecting, combining, and overlaying layers.
-
 - Hyper Layering
 - Hyper Layering Architecture
 - Hyper Layering Community
@@ -44,7 +43,6 @@ Layering refers to the concept, approach, process, or act of connecting, combini
 ### Layered
 
 Layered describes a product, system, state, or outcome created through the Hyper Layering approach.
-
 - Hyper Layered Map
 - Hyper Layered Knowledge Network
 - Hyper Layered Digital Twin
@@ -73,13 +71,13 @@ This principle allows future products and projects to follow a consistent brand 
 
 ## 5. Brand Architecture
 
-| Category | Full Name | Brand Name / Abbreviation |
-| --- | --- | --- |
-| Core Concept | Hyper Layering | Hyper Layering |
-| Architecture | Hyper Layering Architecture | HLA |
-| Community | Hyper Layering Community | Hyper Layering Community / HLC |
-| Map / Product | Hyper Layered Map | HLMap |
-| Knowledge Concept | Hyper Layered Knowledge Network | HLKN |
+| Category          | Full Name                       | Brand Name / Abbreviation      |
+| ----------------- | ------------------------------- | ------------------------------ |
+| Core Concept      | Hyper Layering                  | Hyper Layering                 |
+| Architecture      | Hyper Layering Architecture     | HLA                            |
+| Community         | Hyper Layering Community        | Hyper Layering Community / HLC |
+| Map / Product     | Hyper Layered Map               | HLMap                          |
+| Knowledge Concept | Hyper Layered Knowledge Network | HLKN                           |
 
 An important principle is that brand names do not need to be mechanically derived from the initials of their full descriptive names. The full name should accurately describe meaning and function, while HL serves as the common brand identifier across the family.
 
@@ -98,7 +96,6 @@ Brand Name: HLMap
 ## 7. Transition from SVGMap to HLMap
 
 Because SVGMap has been used for many years and has established recognition among existing users and stakeholders, the previous name should remain visible during a transition period.
-
 - Formal: HLMap (formerly SVGMap)
 - Japanese materials: HLMap（旧称：SVGMap）
 - Exhibitions and diagrams: HLMap (SVGMap)

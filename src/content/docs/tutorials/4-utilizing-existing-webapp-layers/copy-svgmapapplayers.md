@@ -1,16 +1,14 @@
 ---
-title: 'Copy svgmapAppLayers to your own host and use it'
+title: "Copy svgmapAppLayers to your own host and use it"
 ---
 
 ## Introduction  {#introduction}
 
 Download the contents of [svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers) and copy (clone) them to a host you have prepared yourself for use. The limitations that existed when referencing GitHub Pages in the previous chapter do not apply.
-
 - [Click here](https://www.svgmap.org/examples/tutorials/ghAppLayersClone/ghAppLayers_clone.html) to see the actual operation.
   - (This sample uses only the Ministry of Land, Infrastructure, Transport and Tourism's road traffic information layers, the CSV authoring tool layer, and basemaps.)
 
 In this chapter, we will copy [the svgmapAppLayers repository](https://github.com/svgmap/svgmapAppLayers) to your own host and use it. There are no [limitations](../using-svgmapapplayers-on-github-pages/index.md#restrictions-restrictions) as in the previous chapter, but you will need to be responsible for reflecting updates to the svgmapAppLayers repository yourself.
-
 - [Click here](https://www.svgmap.org/examples/tutorials/ghAppLayersClone/ghAppLayers_clone.html) to see the actual operation.
   - This sample uses only the Ministry of Land, Infrastructure, Transport and Tourism's road traffic information layers, the CSV authoring tool layer, and basemaps.
 - The file used is a [ZIP archive file](https://www.svgmap.org/examples/tutorials/ghAppLayersClone.zip).
@@ -19,7 +17,7 @@ In this chapter, we will copy [the svgmapAppLayers repository](https://github.co
 
 - Download (or clone) [https://github.com/svgmap/svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers).
   - [Download](https://github.com/svgmap/svgmapAppLayers/archive/refs/heads/main.zip) as a zip file (requires extraction).
-  - For git clone:　```git clone git@github.com:svgmap/svgmapAppLayers.git```
+  - For git clone:　`git clone git@github.com:svgmap/svgmapAppLayers.git`
 - Copy the content to the host you operate.
 - Edit Container.svg and select the layers you want to include.
 - Build a proxy if necessary.
@@ -27,7 +25,7 @@ In this chapter, we will copy [the svgmapAppLayers repository](https://github.co
 ### Procedure {#procedure}
 
 - Duplicate the contents of [svgmapAppLayer](https://github.com/svgmap/svgmapAppLayers).
-  - You can download it from the UI at [https://github.com/svgmap/svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers) (```<>```Code button ⇒ [Download ZIP](https://github.com/svgmap/svgmapAppLayers/archive/refs/heads/main.zip)) (unzipping should be done in an environment where symbolic links are enabled (such as Linux)), or Clone using the git command　```git clone git@github.com:svgmap/svgmapAppLayers```
+  - You can download it from the UI at [https://github.com/svgmap/svgmapAppLayers](https://github.com/svgmap/svgmapAppLayers) (`<>`Code button ⇒ [Download ZIP](https://github.com/svgmap/svgmapAppLayers/archive/refs/heads/main.zip)) (unzipping should be done in an environment where symbolic links are enabled (such as Linux)), or Clone using the git command　`git clone git@github.com:svgmap/svgmapAppLayers`
 - You can delete directories for layers other than the one you want to use.
   - However, the common library (common library) consists of files linked by symbolic links within each directory, so it cannot be deleted in principle. (It is possible to delete files that are not referenced from the directory of the layer being used.)
 - The bbs directory within authoringLayers (authoringLayers/bbs) is an implementation of the function to save authored files to the server using PHP. This tutorial will not cover it, so please delete it to prevent unintended server operation.

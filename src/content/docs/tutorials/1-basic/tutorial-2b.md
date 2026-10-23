@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 2b: Displaying Coastline Maps and POIs (Airports) (Layering)'
+title: "Tutorial 2b: Displaying Coastline Maps and POIs (Airports) (Layering)"
 ---
 
 ## Introduction
@@ -11,7 +11,6 @@ This tutorial demonstrates how to separate POI (airport) and coastline maps into
 ### File Structure
 
 The [tutorial2b directory](https://www.svgmap.org/examples/tutorials/tutorial2b/) contains the following files. The file structure is as follows:
-
 - [tutorial2b.html](https://www.svgmap.org/examples/tutorials/tutorial2b/tutorial2b.html)
   - HTML for Tutorial 2b. Compared to tutorial1.html, it incorporates a layer list and On/Off UI (the div element with id="layerList").
 - [Container.svg](https://www.svgmap.org/examples/tutorials/tutorial2b/Container.svg)
@@ -48,7 +47,6 @@ tutorial2b.html
 ### tutorial2b.html
 
 Add a layer list display and control UI to tutorial1.html used in Tutorial 1. (Note: Layering itself remains possible without this UI; only the layer visibility toggle UI becomes unavailable.)
-
 - Place the layer list UI
   - Place an empty div element with id="layerList" (the id name is defined by the framework)
   - Load the stylesheet for this layerList div element (#layerListStyle.css)
@@ -108,27 +106,28 @@ Stylesheet for the div element (id:layerList) for the layer list UI.
 
 ```css
 /** Layer List UI Stylesheet **/
- body {
-  font-family: Meiryo;
- }
- #layerTable{
-  background:#ffE0E0;
-  border: 2px solid #bbb;
- }
- .layerItem{
-  background-color: white;
- }
- .noGroup{
-  background-color: #fff0f0;
- }
- #layerList{
-  background-color: #ffff80;opacity:0.8;font-size:12px;
- }
- 
- #layerList button{
-  padding: 1px 3px;
- }
+body {
+	font-family: Meiryo;
+}
+#layerTable {
+	background: #ffe0e0;
+	border: 2px solid #bbb;
+}
+.layerItem {
+	background-color: white;
+}
+.noGroup {
+	background-color: #fff0f0;
+}
+#layerList {
+	background-color: #ffff80;
+	opacity: 0.8;
+	font-size: 12px;
+}
 
+#layerList button {
+	padding: 1px 3px;
+}
 ```
 
 ### Container.svg

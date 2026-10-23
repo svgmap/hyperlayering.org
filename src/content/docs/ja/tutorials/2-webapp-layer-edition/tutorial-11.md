@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル11 WebApp Layer 地図を使った位置指定UI'
+title: "チュートリアル11 WebApp Layer 地図を使った位置指定UI"
 sidebar:
   order: 11
 ---
@@ -19,7 +19,6 @@ sidebar:
 ## チュートリアル {#tutorial}
 
 [チュートリアル10](../tutorial-10/index.md)をベースに、地図上で位置を指定して、その場所のジオイド高を計算・表示する対話型アプリを構築します。 特徴的なコードはレイヤーに紐付いたwebAppにあります。
-
 - 実際の動作は、[こちら](https://svgmap.org/examples/tutorials/mesh3b/mesh3b.html) をクリック。
 - 使用ファイルの [ZIPアーカイブファイル](https://www.svgmap.org/examples/tutorials/mesh3b.zip)
 
@@ -83,17 +82,16 @@ sidebar:
 ### [rasterMeshI.html](https://svgmap.org/examples/tutorials/mesh3b/rasterMeshI.html), [geoidCalc.js](https://svgmap.org/examples/tutorials/mesh3b/geoidCalc.js) {#raster-mesh-geoid-calc}
 
 [チュートリアル10](../tutorial-10/index.md)のコードに対して、地図上で位置を指定するUIと、その位置のジオイド高を計算する機能が追加されています。
-
 - 地図上で位置を指定するUI：SVGMapAuthoring.jsというSVGMap.js用の追加ライブラリを用いています。
 - ジオイド高計算： [バイリニア補間](https://en.wikipedia.org/wiki/Bilinear_interpolation)を用いて、グリッドデータを用いて任意の位置の値を演算します。
-	- バイリニア補間については、地理院が[こちらのページで公開するジオイド高データ](https://fgd.gsi.go.jp/download/geoid.php)(TEXTデータ)のパッケージ同梱文書(**asc取扱説明書.pdf**)にも計算式が記載されていますので参考にしてください。(本チュートリアルの ```getGeoidHeight(lng,lat)``` 関数は同文書の式をベースにしています。)
-- ```initPOIUI``` 地図上で位置を指定するUIの初期化をload時に実行
-	- ```svgMapAuthoringTool.initPOIregistTool```
-		- ```id="pointInputUI"``` のdiv要素に、
-		- [svgMapAuthoringTool](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMapAuthoringTool) で使える、地図上でポイント情報を設置するUIを登録します。 ([initPOIregistTool](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#initPOIregistTool))
-		- ```POIUIcbFunc``` ポイントを設定する操作を実施するすると呼び出されるコールバック関数。緯度、経度の情報をUIから取得し、ジオイド高を計算する関数(```getGeoidHeight```)に渡して、答えを表示します。
-- ```getGeoidHeight``` グリッドデータからジオイド高を計算する関数
-	- バイリニア補間を用いて任意の緯度経度（ただしグリッドデータのある範囲）におけるジオイド高を計算します。
+  - バイリニア補間については、地理院が[こちらのページで公開するジオイド高データ](https://fgd.gsi.go.jp/download/geoid.php)(TEXTデータ)のパッケージ同梱文書(**asc取扱説明書.pdf**)にも計算式が記載されていますので参考にしてください。(本チュートリアルの `getGeoidHeight(lng,lat)` 関数は同文書の式をベースにしています。)
+- `initPOIUI` 地図上で位置を指定するUIの初期化をload時に実行
+  - `svgMapAuthoringTool.initPOIregistTool`
+    - `id="pointInputUI"` のdiv要素に、
+    - [svgMapAuthoringTool](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#svgMapAuthoringTool) で使える、地図上でポイント情報を設置するUIを登録します。 ([initPOIregistTool](https://www.svgmap.org/wiki/index.php?title=%E8%A7%A3%E8%AA%AC%E6%9B%B8#initPOIregistTool))
+    - `POIUIcbFunc` ポイントを設定する操作を実施するすると呼び出されるコールバック関数。緯度、経度の情報をUIから取得し、ジオイド高を計算する関数(`getGeoidHeight`)に渡して、答えを表示します。
+- `getGeoidHeight` グリッドデータからジオイド高を計算する関数
+  - バイリニア補間を用いて任意の緯度経度（ただしグリッドデータのある範囲）におけるジオイド高を計算します。
 
 geoidCalc.js
 
