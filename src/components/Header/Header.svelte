@@ -44,7 +44,7 @@ const changeLocale = (locale: typeof lang) => {
   </a>
   <nav class="nav" class:nav-open={menuOpen}>
     {#each links as link}
-      <a class="nav-item" href={link.href}>{link.label}</a>
+      <a class="nav-item" href={getRelativeLocaleUrl(lang, link.href)}>{link.label}</a>
     {/each}
     <a href={getRelativeLocaleUrl(lang, "/layer-collections")}>
       <button class="launch-btn">

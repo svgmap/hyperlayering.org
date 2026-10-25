@@ -13,6 +13,15 @@ const { pageTitle = undefined } = Astro.props;
 const url = Astro.url;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const headerData = await getCollection("header", ({ id, data }) => {
+	const [headerLang] = id.split("/");
+	if (headerLang === lang) return data;
+}).then((data) => {
+	if (data.length === 1) return data[0];
+	Astro.logger.error("Unexpected Footer data query response");
+});
+
 const footerData = await getCollection("footer", ({ id, data }) => {
 	const [footerLang] = id.split("/");
 	if (footerLang === lang) return data;
@@ -38,21 +47,10 @@ const footerData = await getCollection("footer", ({ id, data }) => {
   <body>
     <Header
       client:only="svelte"
-      links={[
-        { href: getRelativeLocaleUrl(lang, "/"), label: t("nav.home") },
-        {
-          href: getRelativeLocaleUrl(lang, "/tutorials"),
-          label: t("nav.tutorials"),
-        },
-        {
-          href: getRelativeLocaleUrl(lang, "/updates"),
-          label: t("nav.updates"),
-        },
-        {
-          href: getRelativeLocaleUrl(lang, "/about-us"),
-          label: t("nav.about-us"),
-        },
-      ]}
+      links={headerData?.data.navLinks.map((link) => { return {
+        href: link.link,
+        label: link.linkLabel
+      }}) ?? []}
       currentUrl={url}
     >
       <div class="fallback-header" slot="fallback"></div>
