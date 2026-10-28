@@ -1,4 +1,5 @@
 ---
+import "@styles/content.css";
 import TableOfContents from "@components/TableOfContents.svelte";
 
 interface Props {
@@ -31,68 +32,3 @@ const { title, tocHeaders = undefined } = Astro.props;
     </section>
   </article>
 </main>
-
-<style scoped>
-  #content-body-wrapper {
-    anchor-name: --content-body;
-    container-type: inline-size;
-    container-name: content-body;
-    display: grid;
-    grid-template-columns:
-      1fr minmax(min(var(--paragraph-width), 100%), 1fr)
-      1fr;
-    gap: var(--space-sm);
-    margin: var(--space-md);
-
-    /* 
-      80ch = --paragraph-width
-      needed for Chromium, as var() in @container is not supported 
-    */
-    @container (width <= calc(80ch * 1.75)) {
-      display: flex;
-      flex-direction: column-reverse;
-      margin-inline: 0;
-
-      &[class*="toc-content-layout"] {
-        margin-block: 0;
-        * {
-          --header-scroll-margin: 2;
-        }
-      }
-    }
-  }
-
-  .content-body {
-    max-width: 100%;
-    grid-column: 2;
-    margin-block-start: 0;
-  }
-
-  .content-layout {
-    container-type: inline-size;
-    container-name: content-layout;
-  }
-
-  .header-section {
-    background-color: var(--bg-secondary);
-    padding: var(--space-md) 0;
-
-    .content {
-      width: min(var(--paragraph-width), 100%);
-    }
-    .details {
-      color: var(--text-secondary);
-      font-size: var(--font-base);
-      justify-content: center;
-    }
-    .route {
-      margin: 0 auto;
-      max-width: 100%;
-      color: var(--text-tertiary);
-    }
-  }
-
-  .title {
-    text-align: center;
-  }
-</style>
