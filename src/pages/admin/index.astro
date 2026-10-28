@@ -14,9 +14,11 @@
 
       const { CMS, h } = window as any;
 
-      CMS?.registerPreviewStyle(baseCss);
-      CMS?.registerPreviewStyle(contentCss);
-
+      for (const collection of ["updates", "guidelines"]) {
+        CMS?.registerPreviewStyle(baseCss, { collection: collection });
+        CMS?.registerPreviewStyle(contentCss, { collection: collection });
+      }
+      
       const ContentPreview = ({ entry, widgetFor }: any) => {
         const data = (key: string) => entry.getIn(["data", key]);
 
