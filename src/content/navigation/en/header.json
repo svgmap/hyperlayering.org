@@ -1,20 +1,20 @@
 {
-  "navLinks": [
-    {
-      "linkLabel": "Home",
-      "link": "/"
-    },
-    {
-      "linkLabel": "Tutorials",
-      "link": "/tutorials"
-    },
-    {
-      "linkLabel": "Updates",
-      "link": "/updates"
-    },
-    {
-      "linkLabel": "About Us",
-      "link": "/about-us"
-    }
-  ]
+	"navLinks": [
+		{
+			"linkLabel": "Home",
+			"link": "/"
+		},
+		{
+			"linkLabel": "Tutorials",
+			"link": "/tutorials"
+		},
+		{
+			"linkLabel": "Updates",
+			"link": "/updates"
+		},
+		{
+			"linkLabel": "About Us",
+			"link": "/about-us"
+		}
+	]
 }

@@ -104,10 +104,10 @@ const header = defineCollection({
 			z.object({
 				link: urlOrPath,
 				linkLabel: z.string(),
-			})
-		)
-	})
-})
+			}),
+		),
+	}),
+});
 
 const footer = defineCollection({
 	loader: glob({ pattern: "**/footer.json", base: "./src/content/navigation" }),
