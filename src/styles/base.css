@@ -339,6 +339,10 @@ small,
 		max-width: 95%;
 		margin: var(--_flow-space) auto;
 		border-radius: var(--round-xs);
+
+		&:not([data-image-height-uncapped]) {
+			max-height: 75svh;
+		}
 	}
 
 	&.flow--dense {
