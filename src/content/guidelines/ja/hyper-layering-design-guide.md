@@ -16,7 +16,7 @@ showToc: true
 
 Hyper Layeringを表すために使用される標準ロゴです。
 
-![](/assets/logo1.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-main.webp)
 
 #### アイソレーション
 
@@ -24,67 +24,67 @@ Hyper Layeringを表すために使用される標準ロゴです。
 
 「Layer H」ロゴを単独で表示する場合は、1.5Xの余白を設けてください。
 
-![](/assets/guidelines/20261014-320d1ffe82e1.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-1-5x-spacing.webp)
 
 「Layer H」のロゴを書体ブランドの識別マークと並べて表示する場合は、2Xの余白を設けてください。
 
-![](/assets/guidelines/20261014-805b2ec88741.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-2x-spacing.webp)
 
 ### ワードマーク・ロゴ 1
 
 HLA（Hyper Layer Architecture）の略称が入ったロゴです。
 
-![](/assets/guidelines/20261014-bef002e0bfee.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-abbr-full.webp)
 
 #### アイソレーション
 
 ロゴとテキストの間隔を2Xにし、ロゴの周囲全体との間隔は3Xにします。
 
-![](/assets/guidelines/20261014-a92f136cf163.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-abbr-spacing.webp)
 
 ### ワードマーク・ロゴ 2
 
 「Hyper Layering」を施したロゴです。
 
-![](/assets/guidelines/20261014-aef331e96198.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-type-full.webp)
 
 #### アイソレーション
 
 ロゴとテキストの間隔を2Xにし、ロゴの周囲全体との間隔は3Xにします。
 
-![](/assets/guidelines/20261014-86cbd7094df7.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-type-spacing.webp)
 
 ### ロゴの使用制限
 
 「Hyper Layering」のロゴを使用する際は、以下の点を避けてください：
-![](/assets/guidelines/20261013-36c0aca43a7d.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-donts-ja.webp)
 
 ## 色の使い方
 
 「Layer H」のロゴは、HL Community のプロジェクト内で6通りの表示方法のいずれかで表示されることになっています。ロゴがHL Community の外部で表示される場合、あるいは何らかの理由でプロジェクトに承認済みのHL Community の色が一切含まれていない場合は、カラーパレットの中性色に代わって、Pure White と Pitch Black を使用した「Layer H」のロゴを、さらに6通りの例として表示することができます。
 
 Space Black ／ Pitch Black の背景に、Malachite Green 「Layer H」を重ねたもの。
-![](/assets/g-o-b.webp)![](/assets/ggbb.webp)
+![](/assets/guidelines/hyper-layering-design-guide/g-o-b.webp)![](/assets/guidelines/hyper-layering-design-guide/ggbb.webp)
 
 Sheet White ／ Pure White の背景に、Malachite Green 「Layer H」を重ねたもの。
 
-![](/assets/g-o-w.webp)![](/assets/ggww.webp)
+![](/assets/guidelines/hyper-layering-design-guide/g-o-w.webp)![](/assets/guidelines/hyper-layering-design-guide/ggww.webp)
 
 Malachite Green の背景の上に、Space Black ／ Pitch Black の「Layer H」を重ねたもの。
 
-![](/assets/b-o-g.webp)![](/assets/bbgg.webp)
+![](/assets/guidelines/hyper-layering-design-guide/b-o-g.webp)![](/assets/guidelines/hyper-layering-design-guide/bbgg.webp)
 
 Sheet White の背景の上に、Space Black ／ Pitch Black の「Layer H」を重ねたもの。
 
-![](/assets/b-o-w.webp)![](/assets/bbww.webp)
+![](/assets/guidelines/hyper-layering-design-guide/b-o-w.webp)![](/assets/guidelines/hyper-layering-design-guide/bbww.webp)
 
 Space Black の背景の上に、Sheet White ／ Pure White の「Layer H」を重ねたもの。
 
-![](/assets/w-o-b.webp)![](/assets/wwbb.webp)
+![](/assets/guidelines/hyper-layering-design-guide/w-o-b.webp)![](/assets/guidelines/hyper-layering-design-guide/wwbb.webp)
 
 Malachite Green の背景の上に、Sheet White ／ Pure White の「Layer H」を重ねたもの。
 
-![](/assets/w-o-g.webp)![](/assets/wwgg.webp)
+![](/assets/guidelines/hyper-layering-design-guide/w-o-g.webp)![](/assets/guidelines/hyper-layering-design-guide/wwgg.webp)
 
 ### メインカラーパレット
 
@@ -126,7 +126,7 @@ HL Community プロジェクトの主要なカラーパレット。
 
 ## フォント
 
-HL Community のすべてのプロジェクトで主に使用されているフォントは「Zen Kaku Gothic New」です。![](/assets/guidelines/20261013-9f01ebf4d7f1.webp)
+HL Community のすべてのプロジェクトで主に使用されているフォントは「Zen Kaku Gothic New」です。![](/assets/guidelines/hyper-layering-design-guide/font-ja.webp)
 
 ### 見出しと小見出し
 

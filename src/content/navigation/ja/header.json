@@ -1,0 +1,20 @@
+{
+	"navLinks": [
+		{
+			"linkLabel": "ホーム",
+			"link": "/"
+		},
+		{
+			"linkLabel": "チュートリアル",
+			"link": "/tutorials"
+		},
+		{
+			"linkLabel": "お知らせ",
+			"link": "/updates"
+		},
+		{
+			"linkLabel": "私たちについて",
+			"link": "/about-us"
+		}
+	]
+}

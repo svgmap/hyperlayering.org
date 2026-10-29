@@ -16,7 +16,7 @@ The "Layer H" logo is the main Identifier for HLA, along with 2 different typefa
 
 The standard Logo used to identify Hyper Layering.
 
-![](/assets/logo1.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-main.webp)
 
 #### Protected Space
 
@@ -24,68 +24,68 @@ Measurement X is the width of the bold lines in the Layer H Logo.
 
 Spacing of 1.5X shall be used for when displaying the Layer H Logo on its own.
 
-![](/assets/guidelines/20261014-320d1ffe82e1.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-1-5x-spacing.webp)
 
 Spacing of 2X shall be used when displaying the Layer H logo alongside a typeface brand identifier.
 
-![](/assets/guidelines/20261014-805b2ec88741.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-2x-spacing.webp)
 
 ### Wordmark Logo 1
 
 The standard Logo with an abbreviated HLA (Hyper Layer Architecture).
 
-![](/assets/guidelines/20261014-bef002e0bfee.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-abbr-full.webp)
 
 #### Protected Space
 
 Distance 3X between the logo and the text, as well as 3X between the entire perimeter of the Logo.
 
-![](/assets/guidelines/20261014-d512910d8c2d.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-abbr-spacing.webp)
 
 ### Wordmark Logo 2
 
 The standard Logo with "Hyper Layering".
 
-![](/assets/guidelines/20261014-aef331e96198.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-type-full.webp)
 
 #### Protected Space
 
 Distance 3X between the logo and the text, as well as 3X between the entire perimeter of the Logo.
 
-![](/assets/guidelines/20261014-86cbd7094df7.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-type-spacing.webp)
 
 ### Logo Restrictions
 
 When using the Hyper Layering branding, avoid the following:
 
-![](/assets/guidelines/20261014-d31ea1523742.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-donts-en.webp)
 
 ## Colour usage
 
 The "Layer H" logo is to be displayed in one of 6 ways within HL community projects. Should the display of the logo be external to the HL community, or for whatever reason the project does not contain any of the approved HL community colours, 6 additional examples of the "Layer H" can be displayed using pure whites and pitch blacks as a replacement for our colour palette neutral tones.
 
 Malachite Green "Layer H" over Space Black/pitch black background.
-![](/assets/g-o-b.webp)![](/assets/ggbb.webp)
+![](/assets/guidelines/hyper-layering-design-guide/g-o-b.webp)![](/assets/guidelines/hyper-layering-design-guide/ggbb.webp)
 
 Malachite Green "Layer H" over Sheet White/pure white background.
 
-![](/assets/g-o-w.webp)![](/assets/ggww.webp)
+![](/assets/guidelines/hyper-layering-design-guide/g-o-w.webp)![](/assets/guidelines/hyper-layering-design-guide/ggww.webp)
 
 Space Black/pitch black "Layer H" over Malachite Green background.
 
-![](/assets/b-o-g.webp)![](/assets/bbgg.webp)
+![](/assets/guidelines/hyper-layering-design-guide/b-o-g.webp)![](/assets/guidelines/hyper-layering-design-guide/bbgg.webp)
 
 Space Black/pitch black "Layer H" over Sheet White background.
 
-![](/assets/b-o-w.webp)![](/assets/bbww.webp)
+![](/assets/guidelines/hyper-layering-design-guide/b-o-w.webp)![](/assets/guidelines/hyper-layering-design-guide/bbww.webp)
 
 Sheet White/pure white "Layer H" over Space Black background.
 
-![](/assets/w-o-b.webp)![](/assets/wwbb.webp)
+![](/assets/guidelines/hyper-layering-design-guide/w-o-b.webp)![](/assets/guidelines/hyper-layering-design-guide/wwbb.webp)
 
 Sheet White/pure white "Layer H" over Malachite Green background.
 
-![](/assets/w-o-g.webp)![](/assets/wwgg.webp)
+![](/assets/guidelines/hyper-layering-design-guide/w-o-g.webp)![](/assets/guidelines/hyper-layering-design-guide/wwgg.webp)
 
 ### Primary Palette
 
@@ -135,7 +135,7 @@ Each Typography variation has been selected to provide structure, hierarchy, and
 
 The primary font for all HL community projects is "Archivo". Different variations of this font are used to denote different levels of a page or app.
 
-![](/assets/archivo-green.webp)
+![](/assets/guidelines/hyper-layering-design-guide/font-en.webp)
 
 ### Headings
 

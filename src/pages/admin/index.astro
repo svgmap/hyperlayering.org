@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Hyperlayering.org | Admin Panel</title>
+    <script is:inline src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  </head>
+  <body>
+    <script>
+      import baseCss from "../../styles/base.css?url";
+      import contentCss from "../../styles/content.css?url";
+
+      const { CMS, h } = window as any;
+
+      for (const collection of ["updates", "guidelines"]) {
+        CMS?.registerPreviewStyle(baseCss, { collection: collection });
+        CMS?.registerPreviewStyle(contentCss, { collection: collection });
+      }
+      
+      const ContentPreview = ({ entry, widgetFor }: any) => {
+        const data = (key: string) => entry.getIn(["data", key]);
+
+        return h("main", {},
+          h("article", { className: "content-layout stack stack--zero" },
+            h("section", { className: "header-section" },
+              h("div", { className: "layout--wide stack", "data-state": "stack--xs" },
+                h("h1", { className: "title" }, data("title")),
+              ),
+            ),
+            h("section", { id: "content-body-wrapper" },
+              h("div", { className: "content-body layout flow" }, widgetFor("body")),
+            ),
+          ),
+        );
+      };
+
+      for (const collection of ["updates", "guidelines"]) {
+        CMS?.registerPreviewTemplate(collection, ContentPreview);
+      }
+    </script>
+  </body>
+</html>

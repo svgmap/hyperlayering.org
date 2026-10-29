@@ -97,6 +97,18 @@ const docs = defineCollection({
 	schema: docsSchema(),
 });
 
+const header = defineCollection({
+	loader: glob({ pattern: "**/header.json", base: "./src/content/navigation" }),
+	schema: z.object({
+		navLinks: z.array(
+			z.object({
+				link: urlOrPath,
+				linkLabel: z.string(),
+			}),
+		),
+	}),
+});
+
 const footer = defineCollection({
 	loader: glob({ pattern: "**/footer.json", base: "./src/content/navigation" }),
 	schema: z.object({
@@ -123,5 +135,6 @@ export const collections = {
 	home,
 	about,
 	layerCollections,
+	header,
 	footer,
 };

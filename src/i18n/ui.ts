@@ -14,7 +14,6 @@ export const ui = {
 	en: {
 		"nav.home": "Home",
 		"nav.tutorials": "Tutorials",
-		"nav.demos": "Demos",
 		"nav.updates": "Updates",
 		"nav.about-us": "About Us",
 		"nav.lang-btn.label": "Change Language",
