@@ -58,7 +58,7 @@ Distance 3X between the logo and the text, as well as 3X between the entire peri
 
 When using the Hyper Layering branding, avoid the following:
 
-![](/assets/guidelines/20261014-d31ea1523742.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-donts-en.webp)
 
 ## Colour usage
 
