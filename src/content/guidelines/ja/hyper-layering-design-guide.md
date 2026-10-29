@@ -64,27 +64,27 @@ HLA（Hyper Layer Architecture）の略称が入ったロゴです。
 「Layer H」のロゴは、HL Community のプロジェクト内で6通りの表示方法のいずれかで表示されることになっています。ロゴがHL Community の外部で表示される場合、あるいは何らかの理由でプロジェクトに承認済みのHL Community の色が一切含まれていない場合は、カラーパレットの中性色に代わって、Pure White と Pitch Black を使用した「Layer H」のロゴを、さらに6通りの例として表示することができます。
 
 Space Black ／ Pitch Black の背景に、Malachite Green 「Layer H」を重ねたもの。
-![](/assets/g-o-b.webp)![](/assets/ggbb.webp)
+![](/assets/guidelines/hyper-layering-design-guide/g-o-b.webp)![](/assets/guidelines/hyper-layering-design-guide/ggbb.webp)
 
 Sheet White ／ Pure White の背景に、Malachite Green 「Layer H」を重ねたもの。
 
-![](/assets/g-o-w.webp)![](/assets/ggww.webp)
+![](/assets/guidelines/hyper-layering-design-guide/g-o-w.webp)![](/assets/guidelines/hyper-layering-design-guide/ggww.webp)
 
 Malachite Green の背景の上に、Space Black ／ Pitch Black の「Layer H」を重ねたもの。
 
-![](/assets/b-o-g.webp)![](/assets/bbgg.webp)
+![](/assets/guidelines/hyper-layering-design-guide/b-o-g.webp)![](/assets/guidelines/hyper-layering-design-guide/bbgg.webp)
 
 Sheet White の背景の上に、Space Black ／ Pitch Black の「Layer H」を重ねたもの。
 
-![](/assets/b-o-w.webp)![](/assets/bbww.webp)
+![](/assets/guidelines/hyper-layering-design-guide/b-o-w.webp)![](/assets/guidelines/hyper-layering-design-guide/bbww.webp)
 
 Space Black の背景の上に、Sheet White ／ Pure White の「Layer H」を重ねたもの。
 
-![](/assets/w-o-b.webp)![](/assets/wwbb.webp)
+![](/assets/guidelines/hyper-layering-design-guide/w-o-b.webp)![](/assets/guidelines/hyper-layering-design-guide/wwbb.webp)
 
 Malachite Green の背景の上に、Sheet White ／ Pure White の「Layer H」を重ねたもの。
 
-![](/assets/w-o-g.webp)![](/assets/wwgg.webp)
+![](/assets/guidelines/hyper-layering-design-guide/w-o-g.webp)![](/assets/guidelines/hyper-layering-design-guide/wwgg.webp)
 
 ### メインカラーパレット
 

@@ -65,27 +65,27 @@ When using the Hyper Layering branding, avoid the following:
 The "Layer H" logo is to be displayed in one of 6 ways within HL community projects. Should the display of the logo be external to the HL community, or for whatever reason the project does not contain any of the approved HL community colours, 6 additional examples of the "Layer H" can be displayed using pure whites and pitch blacks as a replacement for our colour palette neutral tones.
 
 Malachite Green "Layer H" over Space Black/pitch black background.
-![](/assets/g-o-b.webp)![](/assets/ggbb.webp)
+![](/assets/guidelines/hyper-layering-design-guide/g-o-b.webp)![](/assets/guidelines/hyper-layering-design-guide/ggbb.webp)
 
 Malachite Green "Layer H" over Sheet White/pure white background.
 
-![](/assets/g-o-w.webp)![](/assets/ggww.webp)
+![](/assets/guidelines/hyper-layering-design-guide/g-o-w.webp)![](/assets/guidelines/hyper-layering-design-guide/ggww.webp)
 
 Space Black/pitch black "Layer H" over Malachite Green background.
 
-![](/assets/b-o-g.webp)![](/assets/bbgg.webp)
+![](/assets/guidelines/hyper-layering-design-guide/b-o-g.webp)![](/assets/guidelines/hyper-layering-design-guide/bbgg.webp)
 
 Space Black/pitch black "Layer H" over Sheet White background.
 
-![](/assets/b-o-w.webp)![](/assets/bbww.webp)
+![](/assets/guidelines/hyper-layering-design-guide/b-o-w.webp)![](/assets/guidelines/hyper-layering-design-guide/bbww.webp)
 
 Sheet White/pure white "Layer H" over Space Black background.
 
-![](/assets/w-o-b.webp)![](/assets/wwbb.webp)
+![](/assets/guidelines/hyper-layering-design-guide/w-o-b.webp)![](/assets/guidelines/hyper-layering-design-guide/wwbb.webp)
 
 Sheet White/pure white "Layer H" over Malachite Green background.
 
-![](/assets/w-o-g.webp)![](/assets/wwgg.webp)
+![](/assets/guidelines/hyper-layering-design-guide/w-o-g.webp)![](/assets/guidelines/hyper-layering-design-guide/wwgg.webp)
 
 ### Primary Palette
 
