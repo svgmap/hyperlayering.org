@@ -121,7 +121,7 @@ collections:
     icon: contract
     folder: src/content/guidelines
     media_folder: "{{media_folder}}/guidelines/{{slug}}"
-    public_folder: "{{public_folder}}/guidelines"
+    public_folder: "{{public_folder}}/guidelines/{{slug}}"
     preview_path: "/{{locale}}/guidelines/{{slug}}"
     i18n: true
     fields:
