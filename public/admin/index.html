@@ -9,18 +9,13 @@
   </head>
   <body>
     <script>
-      import baseCss from "../../styles/base.css?url";
-      import contentCss from "../../styles/content.css?url";
-
-      const { CMS, h } = window as any;
-
       for (const collection of ["updates", "guidelines"]) {
-        CMS?.registerPreviewStyle(baseCss, { collection: collection });
-        CMS?.registerPreviewStyle(contentCss, { collection: collection });
+        CMS?.registerPreviewStyle("/preview/base.css", { collection: collection });
+        CMS?.registerPreviewStyle("/preview/content.css", { collection: collection });
       }
       
-      const ContentPreview = ({ entry, widgetFor }: any) => {
-        const data = (key: string) => entry.getIn(["data", key]);
+      const ContentPreview = ({ entry, widgetFor }) => {
+        const data = (key) => entry.getIn(["data", key]);
 
         return h("main", {},
           h("article", { className: "content-layout stack stack--zero" },
