@@ -1,7 +1,7 @@
 ---
 title: Hyper Layering Brand Guideline
 lastUpdated: 2026-10-03
-version: "1.0"
+version: '1.0'
 # Use Table of Contents for long guidelines only.
 showToc: true
 ---
@@ -16,7 +16,7 @@ The "Layer H" logo is the main Identifier for HLA, along with 2 different typefa
 
 The standard Logo used to identify Hyper Layering.
 
-![](/assets/logo1.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-main.webp)
 
 #### Protected Space
 
@@ -24,35 +24,35 @@ Measurement X is the width of the bold lines in the Layer H Logo.
 
 Spacing of 1.5X shall be used for when displaying the Layer H Logo on its own.
 
-![](/assets/guidelines/20261014-320d1ffe82e1.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-1-5x-spacing.webp)
 
 Spacing of 2X shall be used when displaying the Layer H logo alongside a typeface brand identifier.
 
-![](/assets/guidelines/20261014-805b2ec88741.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-2x-spacing.webp)
 
 ### Wordmark Logo 1
 
 The standard Logo with an abbreviated HLA (Hyper Layer Architecture).
 
-![](/assets/guidelines/20261014-bef002e0bfee.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-abbr-full.webp)
 
 #### Protected Space
 
 Distance 3X between the logo and the text, as well as 3X between the entire perimeter of the Logo.
 
-![](/assets/guidelines/20261014-d512910d8c2d.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-abbr-spacing.webp)
 
 ### Wordmark Logo 2
 
 The standard Logo with "Hyper Layering".
 
-![](/assets/guidelines/20261014-aef331e96198.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-type-full.webp)
 
 #### Protected Space
 
 Distance 3X between the logo and the text, as well as 3X between the entire perimeter of the Logo.
 
-![](/assets/guidelines/20261014-86cbd7094df7.webp)
+![](/assets/guidelines/hyper-layering-design-guide/logo-type-spacing.webp)
 
 ### Logo Restrictions
 
@@ -93,33 +93,33 @@ Sheet White/pure white "Layer H" over Malachite Green background.
 
 The primary palette for HL comunity projects.
 
-| Swatch                                                                                                  | Color           | Hex     | RGB           | CMYK           |
-| ------------------------------------------------------------------------------------------------------- | --------------- | ------- | ------------- | -------------- |
-| <div class="custom-card" style="background: #00BD5E; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green | #00BD5E | 0, 189, 94    | 100, 0, 50, 26 |
-| <div class="custom-card" style="background: #11161E; padding: 30px; outline: 1px solid #11161E"></div>  | Space Black     | #11161E | 17, 22, 30    | 43, 27, 0, 88  |
-| <div class="custom-card" style="background: #F8F8F8; padding: 30px; outline: 1px solid #11161E"></div>  | Sheet White     | #F8F8F8 | 248, 248, 248 | 0, 0, 0, 3     |
-| <div class="custom-card" style="background: #D90928; padding: 30px; outline: 1px solid #11161E"></div>  | Ruby Red        | #D90928 | 217, 9, 40    | 0, 96, 82, 15  |
+| Swatch | Color | Hex | RGB | CMYK |
+| --- | --- | --- | --- | --- |
+| <div class="custom-card" style="background: #00BD5E; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green | #00BD5E | 0, 189, 94 | 100, 0, 50, 26 |
+| <div class="custom-card" style="background: #11161E; padding: 30px; outline: 1px solid #11161E"></div> | Space Black | #11161E | 17, 22, 30 | 43, 27, 0, 88 |
+| <div class="custom-card" style="background: #F8F8F8; padding: 30px; outline: 1px solid #11161E"></div> | Sheet White | #F8F8F8 | 248, 248, 248 | 0, 0, 0, 3 |
+| <div class="custom-card" style="background: #D90928; padding: 30px; outline: 1px solid #11161E"></div> | Ruby Red | #D90928 | 217, 9, 40 | 0, 96, 82, 15 |
 
 ### Expanded Palette
 
 #### Values
 
-| Swatch                                                                                                  | Color              | Hex     | RGB           | CMYK           |
-| ------------------------------------------------------------------------------------------------------- | ------------------ | ------- | ------------- | -------------- |
-| <div class="custom-card" style="background: #B1FFD8; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green +2 | #B1FFD8 | 177, 255, 216 | 31, 0, 15, 0   |
-| <div class="custom-card" style="background: #5BE49F; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green +1 | #5BE49F | 91, 228, 159  | 60, 0, 30, 11  |
-| <div class="custom-card" style="background: #00BD5E; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green    | #00BD5E | 0, 189, 94    | 100, 0, 50, 26 |
-| <div class="custom-card" style="background: #006130; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green -1 | #006130 | 0, 97, 48     | 100, 0, 51, 62 |
-| <div class="custom-card" style="background: #5A6177; padding: 30px; outline: 1px solid #11161E;"></div> | Space Black +3     | #5A6177 | 90, 97, 119   | 24, 18, 0, 53  |
-| <div class="custom-card" style="background: #42485A; padding: 30px; outline: 1px solid #11161E;"></div> | Space Black +2     | #42485A | 66, 72, 90    | 27, 20, 0, 65  |
-| <div class="custom-card" style="background: #1C222A; padding: 30px; outline: 1px solid #11161E;"></div> | Space Black +1     | #1C222A | 28, 34, 42    | 33, 19, 0, 84  |
-| <div class="custom-card" style="background: #11161E; padding: 30px; outline: 1px solid #11161E"></div>  | Space Black        | #11161E | 17, 22, 30    | 43, 27, 0, 88  |
-| <div class="custom-card" style="background: #F8F8F8; padding: 30px; outline: 1px solid #11161E"></div>  | Sheet White        | #F8F8F8 | 248, 248, 248 | 0, 0, 0, 3     |
-| <div class="custom-card" style="background: #D9D9D9; padding: 30px; outline: 1px solid #11161E;"></div> | Sheet White -1     | #D9D9D9 | 217, 217, 217 | 0, 0, 0, 15    |
-| <div class="custom-card" style="background: #BEBEBE; padding: 30px; outline: 1px solid #11161E;"></div> | Sheet White -2     | #BEBEBE | 190, 190, 190 | 0, 0, 0, 25    |
-| <div class="custom-card" style="background: #9E9E9E; padding: 30px; outline: 1px solid #11161E;"></div> | Sheet White -3     | #9E9E9E | 158, 158, 158 | 0, 0, 0, 38    |
-| <div class="custom-card" style="background: #F62342; padding: 30px; outline: 1px solid #11161E;"></div> | Ruby Red + 1       | #F62342 | 246, 35, 66   | 0, 86, 73, 4   |
-| <div class="custom-card" style="background: #D90928; padding: 30px; outline: 1px solid #11161E"></div>  | Ruby Red           | #D90928 | 217, 9, 40    | 0, 96, 82, 15  |
+| Swatch | Color | Hex | RGB | CMYK |
+| --- | --- | --- | --- | --- |
+| <div class="custom-card" style="background: #B1FFD8; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green +2 | #B1FFD8 | 177, 255, 216 | 31, 0, 15, 0 |
+| <div class="custom-card" style="background: #5BE49F; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green +1 | #5BE49F | 91, 228, 159 | 60, 0, 30, 11 |
+| <div class="custom-card" style="background: #00BD5E; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green | #00BD5E | 0, 189, 94 | 100, 0, 50, 26 |
+| <div class="custom-card" style="background: #006130; padding: 30px; outline: 1px solid #11161E;"></div> | Malachite Green -1 | #006130 | 0, 97, 48 | 100, 0, 51, 62 |
+| <div class="custom-card" style="background: #5A6177; padding: 30px; outline: 1px solid #11161E;"></div> | Space Black +3 | #5A6177 | 90, 97, 119 | 24, 18, 0, 53 |
+| <div class="custom-card" style="background: #42485A; padding: 30px; outline: 1px solid #11161E;"></div> | Space Black +2 | #42485A | 66, 72, 90 | 27, 20, 0, 65 |
+| <div class="custom-card" style="background: #1C222A; padding: 30px; outline: 1px solid #11161E;"></div> | Space Black +1 | #1C222A | 28, 34, 42 | 33, 19, 0, 84 |
+| <div class="custom-card" style="background: #11161E; padding: 30px; outline: 1px solid #11161E"></div> | Space Black | #11161E | 17, 22, 30 | 43, 27, 0, 88 |
+| <div class="custom-card" style="background: #F8F8F8; padding: 30px; outline: 1px solid #11161E"></div> | Sheet White | #F8F8F8 | 248, 248, 248 | 0, 0, 0, 3 |
+| <div class="custom-card" style="background: #D9D9D9; padding: 30px; outline: 1px solid #11161E;"></div> | Sheet White -1 | #D9D9D9 | 217, 217, 217 | 0, 0, 0, 15 |
+| <div class="custom-card" style="background: #BEBEBE; padding: 30px; outline: 1px solid #11161E;"></div> | Sheet White -2 | #BEBEBE | 190, 190, 190 | 0, 0, 0, 25 |
+| <div class="custom-card" style="background: #9E9E9E; padding: 30px; outline: 1px solid #11161E;"></div> | Sheet White -3 | #9E9E9E | 158, 158, 158 | 0, 0, 0, 38 |
+| <div class="custom-card" style="background: #F62342; padding: 30px; outline: 1px solid #11161E;"></div> | Ruby Red + 1 | #F62342 | 246, 35, 66 | 0, 86, 73, 4 |
+| <div class="custom-card" style="background: #D90928; padding: 30px; outline: 1px solid #11161E"></div> | Ruby Red | #D90928 | 217, 9, 40 | 0, 96, 82, 15 |
 
 ### Accessible Palette Usage
 
@@ -135,7 +135,7 @@ Each Typography variation has been selected to provide structure, hierarchy, and
 
 The primary font for all HL community projects is "Archivo". Different variations of this font are used to denote different levels of a page or app.
 
-![](/assets/archivo-green.webp)
+![](/assets/guidelines/hyper-layering-design-guide/font-en.webp)
 
 ### Headings
 
