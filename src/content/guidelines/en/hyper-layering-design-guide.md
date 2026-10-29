@@ -125,7 +125,7 @@ The primary palette for HL comunity projects.
 
 All approved combinations are tested and chosen with the intention to meet all levels of WCAG color contrast standards.
 
-![](/assets/hyper-layering-colour-english-1-.pptx-3.webp)![](/assets/hyper-layering-colour-english-1-.pptx-2-1.webp)![](/assets/hyper-layering-colour-english-1-.pptx-1.webp)
+![](/assets/guidelines/hyper-layering-design-guide/colour-combos-primary.webp)![](/assets/guidelines/hyper-layering-design-guide/colour-combos-green-invalid-grid.webp)![](/assets/guidelines/hyper-layering-design-guide/colour-combos-red-grey.webp)
 
 In any situation, Sheet White can be substituted with a pure white, and Space Black can be substituted with a pure black.
 

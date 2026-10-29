@@ -120,7 +120,7 @@ HL Community プロジェクトの主要なカラーパレット。
 
 承認されたすべての組み合わせは、WCAGの色コントラスト基準のすべてのレベルを満たすことを目的として、テストおよび選定されています。
 
-![](/assets/hyper-layering-colour-english-1-.pptx-3.webp)![](/assets/hyper-layering-colour-english-1-.pptx-2-1.webp)![](/assets/hyper-layering-colour-english-1-.pptx-1.webp)
+![](/assets/guidelines/hyper-layering-design-guide/colour-combos-primary.webp)![](/assets/guidelines/hyper-layering-design-guide/colour-combos-green-invalid-grid.webp)![](/assets/guidelines/hyper-layering-design-guide/colour-combos-red-grey.webp)
 
 どのような状況においても、「Sheet White」は Pure White に、「Space Black」は Pitch Black に置き換えることができます。
 
