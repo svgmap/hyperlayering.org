@@ -1,4 +1,3 @@
-// src/pages/preview/[name].css.ts
 import baseCss from "../../styles/base.css?inline";
 import contentCss from "../../styles/content.css?inline";
 
